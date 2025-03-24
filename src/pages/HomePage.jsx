@@ -1,0 +1,28 @@
+import React from 'react';
+import HeroSection from '../components/home/HeroSection';
+import PartnersSection from '../components/home/PartnersSection';
+import AboutSection from '../components/home/AboutSection';
+import ServicesSection from '../components/home/ServicesSection';
+import CTASection from '../components/home/CTASection';
+import WhyChooseUsSection from '../components/home/WhyChooseUsSection';
+import TestimonialsSection from '../components/home/TestimonialsSection';
+import BlogSection from '../components/home/BlogSection';
+import ContactSection from '../components/home/ContactSection';
+
+const HomePage = () => {
+  return (
+    <>
+      <HeroSection />
+      <PartnersSection />
+      <AboutSection />
+      <ServicesSection />
+      <CTASection />
+      <WhyChooseUsSection />
+      <TestimonialsSection />
+      <BlogSection />
+      <ContactSection />
+    </>
+  );
+};
+
+export default HomePage;
