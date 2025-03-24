@@ -4,10 +4,10 @@ import SectionTitle from './SectionTitle';
 
 const AboutSection = () => {
   const features = [
-    'Best Value Solutions',
-    'Digital Transformation',
-    'Trusted IT Partner',
-    'Digital Innovation'
+    'Enterprise-grade Security',
+    '24/7 Technical Support',
+    'Custom IT Solutions',
+    'Certified Expertise'
   ];
 
   return (
@@ -16,21 +16,23 @@ const AboutSection = () => {
         <div className="row align-items-center">
           <div className="col-lg-6 mb-4 mb-lg-0">
             <div className="position-relative">
-              <div className="border border-info border-2 p-2 rounded" style={{ maxWidth: "450px" }}>
-                <img src="/api/placeholder/450/350" alt="Cyber Security Professional" className="img-fluid rounded" />
-              </div>
-              <div className="position-absolute" style={{ bottom: "-30px", right: "-30px", zIndex: "-1" }}>
-                <img src="/api/placeholder/150/150" alt="Security Shield" className="img-fluid" />
+              <div className="border border-info border-2 p-2 rounded" style={{ maxWidth: "550px" }}>
+                <img src="https://i.pinimg.com/736x/e0/f7/fb/e0f7fb66f4961d539e8b6d0ce2a883b3.jpg" alt="Cyber Security Professional" className="img-fluid rounded" />
               </div>
             </div>
           </div>
           <div className="col-lg-6">
             <div className="about-content">
               <SectionTitle 
-                subtitle="About Company"
-                title="The perfect solution for all cyber protection."
+                subtitle="About GN Solutions"
+                title="Empowering Businesses Through Intelligent Automation & Security"
               />
-              <p className="text-muted mb-4">It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point of using lorem the is Ipsum less normal distribution of letters.</p>
+              <p className="text-muted mb-4">
+                Established in 2022 with headquarters in Dublin, GN Solutions specializes in enterprise-grade 
+                IT infrastructure, business process automation, and cybersecurity solutions. We help organizations 
+                streamline operations, secure digital assets, and achieve seamless cloud migration through 
+                cutting-edge network automation and containerization technologies.
+              </p>
               
               <div className="row mb-4">
                 {features.map((feature, index) => (
@@ -45,29 +47,14 @@ const AboutSection = () => {
               
               <div className="row mb-4">
                 <div className="col-6">
-                  <h3 className="mb-0 display-5 fw-bold text-dark">80%</h3>
-                  <p className="mb-0">Business Problem Solving</p>
+                  <h3 className="mb-0 display-5 fw-bold text-dark">95%</h3>
+                  <p className="mb-0">Client Retention Rate</p>
                 </div>
                 <div className="col-6">
-                  <h3 className="mb-0 display-5 fw-bold text-dark">95%</h3>
-                  <p className="mb-0">Business Problem Solving</p>
+                  <h3 className="mb-0 display-5 fw-bold text-dark">200+</h3>
+                  <p className="mb-0">Projects Completed</p>
                 </div>
-              </div>
-              
-              <div className="d-flex align-items-center">
-                <button className="btn btn-info px-4 py-2 me-3 rounded-1">
-                  Discover More <FaArrowRight className="ms-2" />
-                </button>
-                <div className="d-flex align-items-center">
-                  <div className="bg-info rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
-                    <FaPhone color="white" size={16} />
-                  </div>
-                  <div className="ms-2">
-                    <p className="mb-0 small">Call Us Now</p>
-                    <p className="mb-0 fw-bold">(907) 550-7000</p>
-                  </div>
-                </div>
-              </div>
+              </div> 
             </div>
           </div>
         </div>

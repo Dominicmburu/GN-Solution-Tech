@@ -1,0 +1,37 @@
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.cyber-rotate {
+    animation: rotate 20s linear infinite;
+    transform-origin: center center;
+}
+
+.cyber-rotate-reverse {
+    animation: rotate 25s linear infinite reverse;
+    transform-origin: center center;
+}
+
+.cyber-glow {
+    animation: pulse 2s ease-in-out infinite;
+}

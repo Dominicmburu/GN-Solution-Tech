@@ -22,66 +22,90 @@ const Header = () => {
     setIsServiceMenuOpen(false);
   };
 
-  const serviceMenuItems = [
+  // Updated service categories based on the new information
+  const serviceCategories = [
     {
-      title: "Digital Workplace",
-      link: "/services/digital-workplace",
-      featured: true
+      title: "Business Process Automation",
+      services: [
+        {
+          title: "Network as Code",
+          link: "/services/network-as-code",
+          description: "Automated deployment and management of network infrastructure."
+        },
+        {
+          title: "Platform as Code",
+          link: "/services/platform-as-code",
+          description: "Infrastructure provisioning and configuration automation."
+        },
+        {
+          title: "Software as Code",
+          link: "/services/software-as-code",
+          description: "Software development and deployment automation."
+        }
+      ]
     },
     {
-      title: "Cloud & Application Services",
-      link: "/services/cloud-application"
+      title: "Enterprise Solutions",
+      services: [
+        {
+          title: "Managed Network",
+          link: "/services/managed-network",
+          description: "Comprehensive network management solutions (LAN, WAN, SD-WAN)."
+        },
+        {
+          title: "Cybersecurity",
+          link: "/services/cybersecurity",
+          description: "Security audits, firewall management, and data security strategies."
+        },
+        {
+          title: "Infrastructure Design & Management",
+          link: "/services/infrastructure-design",
+          description: "Containerization, virtualization, and scalable IT infrastructure solutions."
+        },
+        {
+          title: "IT Remote & Smart Hands Support",
+          link: "/services/remote-smart-hands",
+          description: "Remote and on-site IT assistance for businesses."
+        }
+      ]
     },
     {
-      title: "Depot & Logistics Services",
-      link: "/services/depot-logistics"
-    },
-    {
-      title: "Strategic Staffing and Payroll Services",
-      link: "/services/staffing-payroll"
-    },
-    {
-      title: "Professional Services",
-      link: "/services/professional"
-    },
-    {
-      title: "Hardware as a Service",
-      link: "/services/hardware"
-    },
-    {
-      title: "Software Procurement",
-      link: "/services/software"
-    },
-    {
-      title: "Device as a Service (DaaS)",
-      link: "/services/daas",
-      column: 2
-    },
-    {
-      title: "Smart Lockers and Vending Machines",
-      link: "/services/smart-lockers",
-      column: 2
-    },
-    {
-      title: "HW Maintenance & Support Services",
-      link: "/services/hw-maintenance",
-      column: 2
-    },
-    {
-      title: "IT Field Technical Services",
-      link: "/services/it-field",
-      column: 2
-    },
-    {
-      title: "Centralized Walk-Up Centres",
-      link: "/services/walk-up-centres",
-      column: 2
+      title: "IT Consulting Services",
+      services: [
+        {
+          title: "IT Project Management",
+          link: "/services/it-project-management",
+          description: "End-to-end project lifecycle management for IT implementations."
+        },
+        {
+          title: "Technology Transitions & Transformation",
+          link: "/services/technology-transitions",
+          description: "Consulting services for upgrading and modernizing IT infrastructures."
+        },
+        {
+          title: "IT Training",
+          link: "/services/it-training",
+          description: "Customized IT training programs for teams and professionals."
+        }
+      ]
     }
   ];
 
-  // Separate services for left and right columns
-  const leftColumnServices = serviceMenuItems.filter(item => !item.column || item.column === 1);
-  const rightColumnServices = serviceMenuItems.filter(item => item.column === 2);
+  // Featured services for the cards
+  const featuredServices = [
+    {
+      title: "The case for a global IT service desk",
+      description: "The help desk function typically makes up less than five percent of a firm's IT spending, but can represent almost 50% of the IT organization's perceived value.",
+      link: "/services/global-it",
+      image: "/api/placeholder/300/200"
+    },
+    {
+      title: "Revolutionizing Field Service Management",
+      description: "The AVASO Field Force Application (FFA) is your ultimate partner for efficient, seamless, and innovative field service management.",
+      link: "/services/field-service",
+      image: "/api/placeholder/300/200"
+    }
+  ];
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#0a1033' }}>
@@ -102,9 +126,6 @@ const Header = () => {
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
               <Link className="nav-link text-info" to="/" onClick={closeNav}>Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link text-white" to="/pages" onClick={closeNav}>Pages</Link>
             </li>
             
             {/* Services Dropdown with Mega Menu */}
@@ -134,80 +155,55 @@ const Header = () => {
               >
                 <div className="container">
                   <div className="row">
-                    {/* Left Service Links Column */}
+                    {/* Service Categories */}
+                    {serviceCategories.map((category, index) => (
+                      <div className="col-md-3" key={index}>
+                        <h6 className="fw-bold mb-3" style={{ color: '#0a1033' }}>{category.title}</h6>
+                        <ul className="list-unstyled">
+                          {category.services.map((service, serviceIndex) => (
+                            <li key={serviceIndex} className="mb-3">
+                              <Link
+                                to={service.link}
+                                className="text-decoration-none d-flex align-items-center"
+                                style={{ 
+                                  color: '#333',
+                                  padding: '6px 10px',
+                                  borderRadius: '4px',
+                                  transition: 'all 0.2s ease'
+                                }}
+                                onClick={closeNav}
+                                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
+                                onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                              >
+                                {service.title} <FaChevronRight className="ms-2" size={12} />
+                              </Link>
+                              <small className="text-muted d-block ps-2" style={{ fontSize: '0.75rem' }}>
+                                {service.description}
+                              </small>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+
+                    {/* Featured Service Cards Column */}
                     <div className="col-md-3">
-                      <ul className="list-unstyled">
-                        {leftColumnServices.map((service, index) => (
-                          <li key={index} className="mb-3">
+                      {featuredServices.map((featured, index) => (
+                        <div className="card border-0 mb-4" key={index}>
+                          <img src={featured.image} className="card-img-top" alt={featured.title} />
+                          <div className="card-body p-0 pt-3">
+                            <h6 className="card-title text-info">{featured.title}</h6>
+                            <p className="card-text small text-muted">{featured.description}</p>
                             <Link
-                              to={service.link}
-                              className="text-decoration-none d-flex align-items-center"
-                              style={{
-                                color: service.featured ? '#00e8ff' : '#333',
-                                backgroundColor: service.featured ? '#0d1545' : 'transparent',
-                                padding: '10px',
-                                borderRadius: '4px'
-                              }}
+                              to={featured.link}
+                              className="text-decoration-none text-info"
                               onClick={closeNav}
                             >
-                              {service.title} <FaChevronRight className="ms-2" size={12} />
+                              Know More <FaChevronRight className="ms-1" size={10} />
                             </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Right Service Links Column */}
-                    <div className="col-md-3">
-                      <ul className="list-unstyled">
-                        {rightColumnServices.map((service, index) => (
-                          <li key={index} className="mb-3">
-                            <Link
-                              to={service.link}
-                              className="text-decoration-none d-flex align-items-center"
-                              style={{ color: '#333' }}
-                              onClick={closeNav}
-                            >
-                              {service.title} <FaChevronRight className="ms-2" size={12} />
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Featured Service Cards */}
-                    <div className="col-md-3">
-                      <div className="card border-0 h-100">
-                        <img src="/api/placeholder/300/200" className="card-img-top" alt="IT Service Desk" />
-                        <div className="card-body p-0 pt-3">
-                          <h6 className="card-title text-info">The case for a global IT service desk</h6>
-                          <p className="card-text small text-muted">The help desk function typically makes up less than five percent of a firm's IT spending, but can represent almost 50% of the IT organization's perceived value.</p>
-                          <Link
-                            to="/services/global-it"
-                            className="text-decoration-none text-info"
-                            onClick={closeNav}
-                          >
-                            Know More <FaChevronRight className="ms-1" size={10} />
-                          </Link>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    
-                    <div className="col-md-3">
-                      <div className="card border-0 h-100">
-                        <img src="/api/placeholder/300/200" className="card-img-top" alt="Field Service Management" />
-                        <div className="card-body p-0 pt-3">
-                          <h6 className="card-title text-info">Revolutionizing Field Service Management</h6>
-                          <p className="card-text small text-muted">The AVASO Field Force Application (FFA) is your ultimate partner for efficient, seamless, and innovative field service management.</p>
-                          <Link
-                            to="/services/field-service"
-                            className="text-decoration-none text-info"
-                            onClick={closeNav}
-                          >
-                            Know More <FaChevronRight className="ms-1" size={10} />
-                          </Link>
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -215,13 +211,13 @@ const Header = () => {
             </li>
             
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/industries" onClick={closeNav}>Industries</Link>
+              <Link className="nav-link text-white" to="/testimonials" onClick={closeNav}>Testimonials</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/case-studies" onClick={closeNav}>Case Studies</Link>
+              <Link className="nav-link text-white" to="/aboutus" onClick={closeNav}>About Us</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/blog" onClick={closeNav}>Blog</Link>
+              <Link className="nav-link text-white" to="/blogs" onClick={closeNav}>Blogs</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link text-white" to="/contact" onClick={closeNav}>Contact</Link>
@@ -233,13 +229,13 @@ const Header = () => {
             </div>
             <div className="ms-2">
               <p className="mb-0 text-white small">Call us today</p>
-              <p className="mb-0 text-white fw-bold">+123-4669-1234</p>
+              <p className="mb-0 text-white fw-bold">+123-456-789</p>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Overlay for closing mega menu when clicking outside */}
+      {/* Overlay for closing the mega menu when clicking outside */}
       {isServiceMenuOpen && (
         <div
           style={{

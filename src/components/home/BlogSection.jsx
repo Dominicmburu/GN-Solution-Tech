@@ -5,34 +5,34 @@ import BlogCard from './BlogCard';
 const BlogSection = () => {
   const blogs = [
     {
-      image: '/api/placeholder/400/250',
+      image: 'https://i.pinimg.com/736x/70/b0/df/70b0dfe0a075b55dff046083540269f8.jpg',
       author: {
-        avatar: '/api/placeholder/30/30',
-        name: 'Techtlk'
+        avatar: 'https://i.pinimg.com/736x/70/b0/df/70b0dfe0a075b55dff046083540269f8.jpg',
+        name: 'GN Solutions'
       },
-      date: 'Jan 29, 2025',
-      title: 'Blockchain Beyond Crypto IT Applications Industries',
-      excerpt: 'We specialize in helping individuals and families regain control of their financial...'
+      date: 'Mar 15, 2024',
+      title: 'Implementing Network-as-Code for Enterprise Scalability',
+      excerpt: 'Discover how infrastructure automation accelerates deployment while maintaining security compliance in large-scale environments.'
     },
     {
-      image: '/api/placeholder/400/250',
+      image: 'https://i.pinimg.com/736x/ba/ef/e4/baefe4b15d9ed3c6e120eef1eb3d22d5.jpg',
       author: {
-        avatar: '/api/placeholder/30/30',
-        name: 'Techtlk'
+        avatar: 'https://i.pinimg.com/736x/ba/ef/e4/baefe4b15d9ed3c6e120eef1eb3d22d5.jpg',
+        name: 'GN Solutions'
       },
-      date: 'Jan 29, 2025',
-      title: 'How Cloud Computing Revol IT Infrastructure',
-      excerpt: 'We specialize in helping individuals and families regain control of their financial...'
+      date: 'Feb 28, 2024',
+      title: 'Secure Cloud Migration Strategies for Financial Institutions',
+      excerpt: 'Best practices for containerization and data protection during cloud transitions in regulated industries.'
     },
     {
-      image: '/api/placeholder/400/250',
+      image: 'https://i.pinimg.com/736x/04/36/41/04364177e11c9f6a0de496e89010a16d.jpg',
       author: {
-        avatar: '/api/placeholder/30/30',
-        name: 'Techtlk'
+        avatar: 'https://i.pinimg.com/736x/04/36/41/04364177e11c9f6a0de496e89010a16d.jpg',
+        name: 'GN Solutions'
       },
-      date: 'Jan 29, 2025',
-      title: 'Cybersecurity Best Practices Protect Business',
-      excerpt: 'We specialize in helping individuals and families regain control of their financial...'
+      date: 'Apr 2, 2024',
+      title: 'Achieving ISO 27001 Compliance with Zero-Trust Architecture',
+      excerpt: 'Step-by-step guide to implementing enterprise-grade cybersecurity frameworks for government organizations.'
     }
   ];
 
@@ -40,8 +40,8 @@ const BlogSection = () => {
     <section className="blog-section py-5">
       <div className="container">
         <SectionTitle 
-          subtitle="Tech Insights"
-          title="Latest news and articles"
+          subtitle="IT Innovation Insights"
+          title="Expert Perspectives on Digital Transformation"
           centered={true}
         />
         
