@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaChartLine, FaLightbulb, FaShieldAlt, FaSyncAlt } from 'react-icons/fa';
-import PageBanner from '../components/about/PageBanner';
+import PageBanner from '../components/common/PageBanner';
 import TeamMember from '../components/about/TeamMember';
 import '../assets/css/AboutPage.css';
 
