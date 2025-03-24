@@ -80,6 +80,7 @@ const AboutPage = () => {
         title="About GN Solutions" 
         subtitle="Transforming Business Through Technology"
         background="#0a1033"
+        currentpage="About Us"
       />
 
       {/* Company Story Section */}
@@ -244,7 +245,7 @@ const AboutPage = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-5" style={{background: "linear-gradient(90deg,rgb(10, 16, 51) 10%, rgb(23, 33, 95) 100%)"}}>
+      <section className="cta-section py-5" style={{background: "linear-gradient(90deg,rgb(10, 16, 51) 10%, rgb(23, 33, 95) 100%)"}}>
         <div className="container">
           <div className="row justify-content-center align-items-center">
             <div className="col-lg-8 text-center text-white">

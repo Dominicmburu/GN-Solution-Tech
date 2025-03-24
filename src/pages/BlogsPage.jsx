@@ -130,6 +130,7 @@ const BlogsPage = () => {
         title="Blogs & Knowledge Hub" 
         subtitle="Insights, Guides & Industry Expertise"
         background="#0a1033"
+        currentpage="Blogs"
       />
 
       <section className="py-4 bg-light">
@@ -350,7 +351,7 @@ const BlogsPage = () => {
         </div>
       </section>
       
-      <section className="py-5" style={{background: "linear-gradient(90deg, #0a1033 0%, #1a2563 100%)"}}>
+      <section className="cta-section py-5" style={{background: "linear-gradient(90deg, #0a1033 0%, #1a2563 100%)"}}>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-10 text-center text-white">
