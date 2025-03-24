@@ -5,22 +5,22 @@ import TestimonialCard from './TestimonialCard';
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      image: '/api/placeholder/60/60',
-      text: 'Working with Techio has been a game-changer for our business. Their team of experts delivered a custom software solution.',
-      name: 'Abdur Rashid',
-      role: 'Founder & CEO'
+      image: 'https://i.pinimg.com/736x/66/c1/df/66c1df254bc06478550b7c9c90a03fc2.jpg',
+      text: 'GN Solutions transformed our network infrastructure with their automation expertise. Their Network-as-Code implementation reduced deployment time by 60% across our European branches.',
+      name: 'Liam O\'Connor',
+      role: 'CTO, Financial Services Group'
     },
     {
-      image: '/api/placeholder/60/60',
-      text: 'Techio provided us with innovative solutions that transformed our operations. Their attention to detail & unique requirements set them apart.',
-      name: 'Alen Walker',
-      role: 'Manager'
+      image: 'https://i.pinimg.com/736x/c3/b4/06/c3b40603d1f5206d69b4f935860694e5.jpg',
+      text: 'The cybersecurity framework implementation exceeded our expectations. GN Solutions helped us achieve ISO 27001 compliance while maintaining operational continuity during migration.',
+      name: 'Sophie Müller',
+      role: 'Head of IT, Manufacturing Enterprise'
     },
     {
-      image: '/api/placeholder/60/60',
-      text: 'From the initial consultation to the final delivery, Techio demonstrated professional and reliability continuing our partnership.',
-      name: 'Brish Jhonson',
-      role: 'Web Developer'
+      image: 'https://i.pinimg.com/736x/f5/c5/5c/f5c55cbad76af7facba04670b8466625.jpg',
+      text: 'Their cloud containerization strategy enabled seamless scaling of our e-commerce platform. The 24/7 smart hands support has been invaluable for our operations.',
+      name: 'Andrej Kovac',
+      role: 'CIO, Retail Corporation'
     }
   ];
 
@@ -28,8 +28,8 @@ const TestimonialsSection = () => {
     <section className="testimonial-section py-5" style={{ backgroundColor: "#f8f9fa" }}>
       <div className="container">
         <SectionTitle 
-          subtitle="Testimonial"
-          title="What saying our customers"
+          subtitle="Client Success"
+          title="Enterprise Transformations We've Enabled"
           centered={true}
         />
         

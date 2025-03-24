@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCheck } from 'react-icons/fa';
+import '../../assets/css/ServiceCard.css';
 
 const ServiceCard = ({ icon, title, features, hasCyberGraphic = false }) => {
   return (
@@ -18,7 +19,7 @@ const ServiceCard = ({ icon, title, features, hasCyberGraphic = false }) => {
       </ul>
       
       {hasCyberGraphic && (
-        <div className="position-absolute" style={{ bottom: "-120px", right: "-80px", zIndex: "1", opacity: "0.3" }}>
+        <div className="hasCyberGraphic position-absolute">
           <svg width="250" height="250" viewBox="0 0 250 250">
             <circle cx="125" cy="125" r="120" fill="none" stroke="#00e8ff" strokeWidth="2" />
             <circle cx="125" cy="125" r="90" fill="none" stroke="#00e8ff" strokeWidth="2" strokeDasharray="5,5" />

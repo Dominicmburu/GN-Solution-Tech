@@ -1,40 +1,40 @@
 import React from 'react';
-import { FaShieldAlt, FaGlobe, FaMobile, FaLock, FaUserShield, FaCloud, FaCheck } from 'react-icons/fa';
+import { FaRobot, FaNetworkWired, FaShieldAlt, FaCloud, FaUsersCog, FaCode } from 'react-icons/fa';
 import SectionTitle from './SectionTitle';
 import ServiceCard from './ServiceCard';
 
 const ServicesSection = () => {
   const services = [
     {
+      icon: <FaRobot size={36} />,
+      title: 'Business Process Automation',
+      features: ['Network as Code', 'Platform as Code', 'Software as Code']
+    },
+    {
+      icon: <FaNetworkWired size={36} />,
+      title: 'Enterprise Solutions',
+      features: ['SD-WAN Management', 'Containerization', 'Smart Hands Support']
+    },
+    {
       icon: <FaShieldAlt size={36} />,
-      title: 'Threat Detection & Prevention',
-      features: ['Website Development', 'App Development', 'UI/UX Design']
-    },
-    {
-      icon: <FaGlobe size={36} />,
-      title: 'Network Infrastructure Security',
-      features: ['Website Development', 'App Development', 'UI/UX Design']
-    },
-    {
-      icon: <FaMobile size={36} />,
-      title: 'Endpoint & Device Security',
-      features: ['Website Development', 'App Development', 'UI/UX Design']
-    },
-    {
-      icon: <FaLock size={36} />,
-      title: 'Data Protection & Privacy',
-      features: ['Website Development', 'App Development', 'UI/UX Design']
-    },
-    {
-      icon: <FaUserShield size={36} />,
-      title: 'Identity & Access Management',
-      features: ['Website Development', 'App Development', 'UI/UX Design'],
-      hasCyberGraphic: true
+      title: 'Cybersecurity Services',
+      features: ['Security Audits', 'Firewall Management', 'Data Protection']
     },
     {
       icon: <FaCloud size={36} />,
-      title: 'Cloud Security Services',
-      features: ['Website Development', 'App Development', 'UI/UX Design']
+      title: 'Cloud Infrastructure',
+      features: ['Cloud Migration', 'Virtualization', 'Scalable Architecture']
+    },
+    {
+      icon: <FaUsersCog size={36} />,
+      title: 'IT Consulting',
+      features: ['Digital Transformation', 'Project Management', 'Staff Training'],
+      hasCyberGraphic: true
+    },
+    {
+      icon: <FaCode size={36} />,
+      title: 'Custom Development',
+      features: ['API Integration', 'Workflow Automation', 'Legacy Modernization']
     }
   ];
 
@@ -43,7 +43,7 @@ const ServicesSection = () => {
       <div className="container">
         <SectionTitle 
           subtitle="Our Services"
-          title="We help you transform IT and security"
+          title="Comprehensive IT Solutions for Modern Enterprises"
           centered={true}
           light={true}
         />

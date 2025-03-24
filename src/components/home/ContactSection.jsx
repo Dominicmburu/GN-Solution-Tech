@@ -4,28 +4,28 @@ import ContactForm from './ContactForm';
 const ContactSection = () => {
   const locations = [
     {
-      city: 'New York',
-      address: '37485 William River Road 272172',
-      email: 'company@example.com',
-      phone: '888 999 0002'
+      city: 'Dublin',
+      address: 'GN Solutions HQ, Docklands Innovation Centre, Dublin 1',
+      email: 'dublin@gnsolutions.eu',
+      phone: '+353 1 234 5678'
     },
     {
-      city: 'Texas',
-      address: '206 Mail Parking Nuages 14529',
-      email: 'company@example.com',
-      phone: '888 999 0004'
+      city: 'London',
+      address: '5th Floor, Tech Hub Building, Shoreditch, EC2A 4BX',
+      email: 'london@gnsolutions.eu',
+      phone: '+44 20 1234 5678'
     },
     {
-      city: 'California',
-      address: 'Richardson California 62639',
-      email: 'company@example.com',
-      phone: '888 999 0005'
+      city: 'Berlin',
+      address: 'Digital Transformation Campus, Friedrichstraße 68',
+      email: 'berlin@gnsolutions.eu',
+      phone: '+49 30 1234 5678'
     },
     {
-      city: 'Los Angeles',
-      address: '2464 Royal New Jersey 45463',
-      email: 'company@example.com',
-      phone: '888 999 0008'
+      city: 'Amsterdam',
+      address: 'Cloud Solutions Tower, Zuidplein 12, 1077 XV',
+      email: 'amsterdam@gnsolutions.eu',
+      phone: '+31 20 123 4567'
     }
   ];
 
@@ -34,8 +34,8 @@ const ContactSection = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 mb-4 mb-lg-0">
-            <h2 className="mb-4" style={{ color: "#0a1033" }}>Let's build a safer digital world together your security</h2>
-            <p className="text-muted mb-5">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut finibus nisl mi, sed venenatis lectus into congue at semper tellus consectetur</p>
+            <h2 className="mb-4" style={{ color: "#0a1033" }}>Transform Your IT Infrastructure with Expert Solutions</h2>
+            <p className="text-muted mb-5">GN Solutions specializes in enterprise-grade business automation, cybersecurity, and cloud infrastructure services. Let us help you secure and optimize your digital transformation journey.</p>
             
             <div className="row">
               {locations.slice(0, 2).map((location, index) => (
