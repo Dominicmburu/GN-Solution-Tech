@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaPhone, FaChevronDown, FaChevronRight } from 'react-icons/fa';
 import Logo from './Logo';
 
 const Header = () => {
+  const location = useLocation(); // Get current route location
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isServiceMenuOpen, setIsServiceMenuOpen] = useState(false);
 
@@ -20,6 +21,19 @@ const Header = () => {
   const closeNav = () => {
     if (isNavOpen) setIsNavOpen(false);
     setIsServiceMenuOpen(false);
+  };
+
+  // Function to check if link is active
+  const isActive = (path) => {
+    if (path === '/') {
+      return location.pathname === path;
+    }
+    return location.pathname.startsWith(path);
+  };
+
+  // Get link text color based on active state
+  const getLinkColor = (path) => {
+    return isActive(path) ? 'text-info' : 'text-white';
   };
 
   // Updated service categories based on the new information
@@ -125,13 +139,13 @@ const Header = () => {
         <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNav">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
-              <Link className="nav-link text-info" to="/" onClick={closeNav}>Home</Link>
+              <Link className={`nav-link ${getLinkColor('/')}`} to="/" onClick={closeNav}>Home</Link>
             </li>
             
             {/* Services Dropdown with Mega Menu */}
             <li className={`nav-item dropdown position-static ${isServiceMenuOpen ? 'show' : ''}`}>
               <a
-                className="nav-link text-white d-flex align-items-center"
+                className={`nav-link d-flex align-items-center ${location.pathname.includes('/services') ? 'text-info' : 'text-white'}`}
                 href="#"
                 onClick={toggleServiceMenu}
               >
@@ -166,14 +180,15 @@ const Header = () => {
                                 to={service.link}
                                 className="text-decoration-none d-flex align-items-center"
                                 style={{ 
-                                  color: '#333',
+                                  color: location.pathname === service.link ? '#00e8ff' : '#333',
                                   padding: '6px 10px',
                                   borderRadius: '4px',
-                                  transition: 'all 0.2s ease'
+                                  transition: 'all 0.2s ease',
+                                  backgroundColor: location.pathname === service.link ? '#f5f5f5' : 'transparent'
                                 }}
                                 onClick={closeNav}
                                 onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
-                                onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                                onMouseOut={(e) => e.currentTarget.style.backgroundColor = location.pathname === service.link ? '#f5f5f5' : 'transparent'}
                               >
                                 {service.title} <FaChevronRight className="ms-2" size={12} />
                               </Link>
@@ -196,7 +211,7 @@ const Header = () => {
                             <p className="card-text small text-muted">{featured.description}</p>
                             <Link
                               to={featured.link}
-                              className="text-decoration-none text-info"
+                              className={`text-decoration-none ${location.pathname === featured.link ? 'text-primary' : 'text-info'}`}
                               onClick={closeNav}
                             >
                               Know More <FaChevronRight className="ms-1" size={10} />
@@ -211,16 +226,16 @@ const Header = () => {
             </li>
             
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/testimonials" onClick={closeNav}>Testimonials</Link>
+              <Link className={`nav-link ${getLinkColor('/testimonials')}`} to="/testimonials" onClick={closeNav}>Testimonials</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/aboutus" onClick={closeNav}>About Us</Link>
+              <Link className={`nav-link ${getLinkColor('/aboutus')}`} to="/aboutus" onClick={closeNav}>About Us</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/blogs" onClick={closeNav}>Blogs</Link>
+              <Link className={`nav-link ${getLinkColor('/blogs')}`} to="/blogs" onClick={closeNav}>Blogs</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/contact" onClick={closeNav}>Contact</Link>
+              <Link className={`nav-link ${getLinkColor('/contact')}`} to="/contact" onClick={closeNav}>Contact</Link>
             </li>
           </ul>
           <div className="d-flex align-items-center">
@@ -235,7 +250,6 @@ const Header = () => {
         </div>
       </div>
       
-      {/* Overlay for closing the mega menu when clicking outside */}
       {isServiceMenuOpen && (
         <div
           style={{

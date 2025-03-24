@@ -1,0 +1,111 @@
+.team-card {
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+}
+
+.team-social {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover .team-social {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hover-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.hover-card:hover svg {
+    transform: scale(1.2);
+}
+
+.hover-card svg {
+    transition: transform 0.3s ease;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #00e8ff;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Animation keyframes for background elements */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+.diagonal-bg {
+    animation: pulse 8s infinite ease-in-out;
+}
+
+.growth-timeline {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background-color: #00e8ff;
+    transform: translateX(-50%);
+}
+
+
+.circle-founder-intro {
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+    top: 30px;
+    left: 30px;
+}
+
+@media (max-width: 767.98px) {
+    .circle-founder-intro {
+        top: 25px;
+        left: 40px;
+    }
+}
