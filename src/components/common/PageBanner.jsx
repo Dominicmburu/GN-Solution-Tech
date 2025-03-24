@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PageBanner = ({ title, subtitle, background }) => {
+const PageBanner = ({ title, subtitle, background, currentpage }) => {
   return (
     <section 
       className="page-banner position-relative d-flex align-items-center"
@@ -53,7 +53,7 @@ const PageBanner = ({ title, subtitle, background }) => {
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item"><a href="/" className="text-info text-decoration-none">Home</a></li>
-                  <li className="breadcrumb-item active text-white" aria-current="page">About</li>
+                  <li className="breadcrumb-item active text-white" aria-current="page">{currentpage}</li>
                 </ol>
               </nav>
             </div>

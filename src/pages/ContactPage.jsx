@@ -165,6 +165,7 @@ const ContactPage = () => {
         title="Contact & Support" 
         subtitle="Get in Touch with Our Expert Team"
         background="#0a1033"
+        currentpage="Contact"
       />
 
       {/* Contact Information Cards */}
