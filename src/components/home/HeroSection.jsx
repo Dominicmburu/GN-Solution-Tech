@@ -13,16 +13,15 @@ const HeroSection = () => {
   };
 
   return (
-    <section 
-      className="hero-section position-relative" 
-      style={{ 
-        backgroundColor: '#0a1033', 
-        padding: "80px 0",
+    <section
+      className="hero-section position-relative"
+      style={{
+        backgroundColor: '#0a1033',
+        padding: "0px 0",
         position: 'relative',
         overflow: 'hidden'
       }}
     >
-      {/* Video Background */}
       <video
         autoPlay
         loop
@@ -31,15 +30,17 @@ const HeroSection = () => {
         className="position-absolute top-0 start-0 w-100 h-100"
         style={{
           objectFit: 'cover',
-          opacity: 0.2,
+          opacity: 0.6,
           zIndex: 1
         }}
       >
-        <source src="/videos/tech-background.mp4" type="video/mp4" />
+        <source src="/videos/Dublin.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <div className="container position-relative" style={{ zIndex: 2 }}>
+      <div className="video-overlay"></div>
+
+      <div className="hero-cont container position-relative" style={{ zIndex: 3 }}>
         <div className="row align-items-center">
           <div className="col-lg-6">
             <SectionTitle
@@ -48,32 +49,32 @@ const HeroSection = () => {
               light={true}
             />
             <p className="text-white-50 mb-4">
-              Accelerate your digital transformation with cutting-edge network automation, 
+              Accelerate your digital transformation with cutting-edge network automation,
               cloud infrastructure solutions, and military-grade cybersecurity protection.
             </p>
-            
+
             <div className="d-flex align-items-center">
-              <button 
-                className={`btn btn-info px-4 py-2 rounded-1 me-3 transition-all ${isHovered ? 'shadow-lg' : ''}`}
+              <button
+                className={`discover-btn btn me-3 btn-info px-4 py-2 rounded-1  transition-all ${isHovered ? 'shadow-lg' : ''}`}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
-                <Link 
-                  to="/about" 
+                <Link
+                  to="/about"
                   className="text-white text-decoration-none d-flex align-items-center"
                 >
-                  Discover More 
-                  <FaArrowRight 
-                    className="ms-2 transition-transform" 
-                    style={{ 
+                  Discover More
+                  <FaArrowRight
+                    className="ms-2 transition-transform"
+                    style={{
                       transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
                       transition: 'transform 0.2s ease'
-                    }} 
+                    }}
                   />
                 </Link>
               </button>
 
-              <button 
+              <button
                 className="btn btn-outline-light px-4 py-2 rounded-1 d-flex align-items-center"
                 onClick={handleVideoModalToggle}
               >
@@ -112,8 +113,8 @@ const HeroSection = () => {
                     className="cyber-rotate-reverse"
                   />
                 </svg>
-                
-                <div 
+
+                <div
                   className="position-absolute top-50 start-50 translate-middle"
                   style={{
                     zIndex: 2,
@@ -134,9 +135,9 @@ const HeroSection = () => {
                     }}
                   />
                 </div>
-                
-                <div 
-                  className="position-absolute top-50 start-50 translate-middle cyber-glow"
+
+                <div
+                  className="cyber-glow position-absolute top-50 start-50 translate-middle"
                   style={{
                     width: '50%',
                     maxWidth: '200px',
@@ -157,34 +158,34 @@ const HeroSection = () => {
 
       {/* Video Modal */}
       {isVideoModalOpen && (
-        <div 
-          className="modal show d-block" 
-          tabIndex="-1" 
-          style={{ 
-            backgroundColor: 'rgba(0,0,0,0.8)', 
-            position: 'fixed', 
-            top: 0, 
-            left: 0, 
-            width: '100%', 
-            height: '100%', 
-            zIndex: 1050 
+        <div
+          className="modal show d-block"
+          tabIndex="-1"
+          style={{
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 1050
           }}
           onClick={handleVideoModalToggle}
         >
-          <div 
+          <div
             className="modal-dialog modal-dialog-centered modal-lg"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="modal-content">
               <div className="modal-body p-0">
-                <button 
-                  type="button" 
-                  className="btn-close position-absolute top-0 end-0 m-3 text-white" 
+                <button
+                  type="button"
+                  className="btn-close position-absolute top-0 end-0 m-3 text-white"
                   onClick={handleVideoModalToggle}
                 ></button>
-                <video 
-                  controls 
-                  autoPlay 
+                <video
+                  controls
+                  autoPlay
                   className="w-100"
                 >
                   <source src="/videos/company-overview.mp4" type="video/mp4" />

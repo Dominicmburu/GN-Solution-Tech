@@ -225,9 +225,9 @@ const Header = () => {
               </div>
             </li>
             
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className={`nav-link ${getLinkColor('/testimonials')}`} to="/testimonials" onClick={closeNav}>Testimonials</Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link className={`nav-link ${getLinkColor('/aboutus')}`} to="/aboutus" onClick={closeNav}>About Us</Link>
             </li>
