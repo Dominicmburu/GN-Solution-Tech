@@ -24,7 +24,7 @@ const AboutSection = () => {
           <div className="col-lg-6">
             <div className="about-content">
               <SectionTitle 
-                subtitle="About GN Solutions"
+                subtitle="About Us"
                 title="Empowering Businesses Through Intelligent Automation & Security"
               />
               <p className="text-muted mb-4">

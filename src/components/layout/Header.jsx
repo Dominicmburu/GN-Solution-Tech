@@ -47,8 +47,8 @@ const Header = () => {
           description: "Automated deployment and management of network infrastructure."
         },
         {
-          title: "Platform as Code",
-          link: "/services/platform-as-code",
+          title: "Infrastructure as Code",
+          link: "/services/infrastructure-as-code",
           description: "Infrastructure provisioning and configuration automation."
         },
         {
@@ -225,9 +225,9 @@ const Header = () => {
               </div>
             </li>
             
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className={`nav-link ${getLinkColor('/testimonials')}`} to="/testimonials" onClick={closeNav}>Testimonials</Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link className={`nav-link ${getLinkColor('/aboutus')}`} to="/aboutus" onClick={closeNav}>About Us</Link>
             </li>
@@ -244,7 +244,7 @@ const Header = () => {
             </div>
             <div className="ms-2">
               <p className="mb-0 text-white small">Call us today</p>
-              <p className="mb-0 text-white fw-bold">+123-456-789</p>
+              <p className="mb-0 text-white fw-bold">+ 353 (0) 874 896 800‬              </p>
             </div>
           </div>
         </div>

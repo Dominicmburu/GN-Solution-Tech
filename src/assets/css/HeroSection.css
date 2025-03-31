@@ -35,3 +35,73 @@
 .cyber-glow {
     animation: pulse 2s ease-in-out infinite;
 }
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(80, 80, 90, 0.1);
+    z-index: 2;
+}
+
+@media (max-width: 1199px) {
+    /* .hero-section {
+
+    } */
+}
+
+@media (max-width: 991px) {
+    .hero-section .row {
+        padding-top: 80px;
+        /* padding-bottom: 80px; */
+        /* max-height: 450px; */
+        flex-direction: row;
+    }
+
+    .cyber-container {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-section .row {
+        padding-top: 80px;
+        /* padding-bottom: 60px; */
+    }
+
+    .hero-section .d-flex.align-items-center {
+        /* flex-direction: column; */
+        align-items: flex-start;
+    }
+
+    .hero-section .btn {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .hero-section .btn:last-child {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .hero-section .row {
+        padding-top: 40px;
+        /* padding-bottom: 40px; */
+    }
+
+    .hero-section .col-lg-6:first-child {
+        text-align: center;
+    }
+
+    .hero-section .d-flex.align-items-center {
+        align-items: center;
+    }
+
+    .cyber-container {
+        max-width: 280px;
+    }
+}
