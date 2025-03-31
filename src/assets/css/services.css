@@ -1,0 +1,91 @@
+/* General Styling */
+.container {
+    max-width: 1200px;
+  }
+  
+  /* Header Styles */
+  h1 {
+    font-weight: bold;
+    color: black;
+  }
+  
+  p {
+    font-size: 1.1rem;
+  }
+  
+  /* Card Styles */
+  .card {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Service Icon */
+  .card .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f8ff;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+  }
+  
+  .card .icon-container svg {
+    color: #00aaff;
+  }
+  
+  /* Service List */
+  .list-unstyled li {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .list-unstyled li:hover {
+    transform: translateX(5px);
+  }
+  
+  .list-unstyled a {
+    color: #333;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .list-unstyled a:hover {
+    color: #007bff;
+  }
+  
+  /* Call to Action Section */
+  .text-center h5 {
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .card {
+      text-align: center;
+    }
+    
+    .list-unstyled {
+      padding-left: 0;
+    }
+  
+    .btn-primary {
+      width: 100%;
+    }
+  }
+  
