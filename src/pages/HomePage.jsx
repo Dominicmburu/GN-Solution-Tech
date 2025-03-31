@@ -8,6 +8,7 @@ import TestimonialsSection from '../components/home/TestimonialsSection';
 import BlogSection from '../components/home/BlogSection';
 import ContactSection from '../components/home/ContactSection';
 import ServicesMarquee from '../components/home/ServicesMarquee';
+import TabsSection from '../components/home/TabsSection';
 
 const HomePage = () => {
   return (
