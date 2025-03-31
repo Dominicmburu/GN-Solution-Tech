@@ -1,0 +1,167 @@
+{
+    "personalInfo": {
+        "name": "George Chege Njeru",
+        "location": "35 Scholarstown Wood, Rathfarnham, Dublin 16, Ireland",
+        "phone": "+353 (0) 874 896 800",
+        "email": "gnjeshe03@gmail.com"
+    },
+    "overview": {
+        "experience": "17+ years in telecommunications",
+        "currentRole": "Level 2 Technical Support Manager at Vodafone",
+        "passions": [
+            "Network Infrastructure",
+            "Automation",
+            "Cybersecurity"
+        ]
+    },
+    "technicalSkills": [
+        "Network Design",
+        "Cloud Architecture",
+        "Routing Protocols",
+        "Cybersecurity",
+        "DevOps",
+        "People Management",
+        "MPLS VPN",
+        "Server Administration",
+        "Kubernetes",
+        "Linux",
+        "Python",
+        "JavaScript",
+        "Transport/DWDM/SDH/OTN",
+        "VOICE (SIP, UCaaS, VOIP)"
+    ],
+    "certifications": [
+        "JNCIA-DevOps (2024)",
+        "Cisco DevOps (2024)",
+        "Cisco Certified Network Associate (CCNA)",
+        "Cisco Certified Network Professional (CCNP)",
+        "Juniper Network Certification (JNCIA)",
+        "Prince 2",
+        "ITIL Foundation",
+        "Cisco Certified Internet Protocol (CCIP) (2008)"
+    ],
+    "keyAchievements": [
+        "Reduced customer churn by 25% through Customer Success Program",
+        "Implemented automation tools reducing manual ticket handling by 50%",
+        "Led network upgrades spanning 148 global sites with minimal disruption",
+        "Achieved 99.95% SLA adherence in technical support",
+        "Reduced incident resolution times by 20%",
+        "Decreased ticket volume by 70% through proactive monitoring",
+        "Spearheaded Service Improvement Plan (SIP) for major clients, improving service uptime by 50%",
+        "Launched proactive network monitoring system, reducing unplanned outages by 70%",
+        "Managed vulnerability management processes ensuring secure network infrastructure"
+    ],
+    "professionalExperience": [
+        {
+            "company": "Vodafone",
+            "title": "Level 2 Technical Support Manager",
+            "period": "July 2024 - Present",
+            "highlights": [
+                "Lead a team of 8 technical support engineers providing 24/7 managed services support to enterprise clients",
+                "Implement and manage Service Level Agreements (SLAs)",
+                "Act as the primary point of contact for high-value customers",
+                "Streamlined incident management processes using ITIL frameworks, improving resolution times and customer satisfaction",
+                "Initiated a Customer Support Task Force reducing ticket volume by 70%"
+            ]
+        },
+        {
+            "company": "COMCAST",
+            "title": "Level 2 Technical Operations Manager",
+            "period": "June 2023 - June 2024",
+            "highlights": [
+                "Led a team of 8 L3 network engineers, developing network security protocols",
+                "Managed 4 data centers and ensured continuous network operation",
+                "Successfully project managed vulnerability management process and enterprise server builds"
+            ]
+        },
+        {
+            "company": "Magnet Ireland",
+            "title": "Network Manager",
+            "period": "January 2023 - June 2023",
+            "highlights": [
+                "Led a team of network engineers overseeing design, deployment, and support of the network infrastructure",
+                "Managed OPEX and CAPEX budgets of over 10 million Euros",
+                "Project-managed technology upgrades and capacity optimization to meet customer demands"
+            ]
+        },
+        {
+            "company": "Aptiv Global Operations",
+            "title": "Network Manager",
+            "period": "October 2021 - October 2022",
+            "highlights": [
+                "Led global network operations team responsible for LAN, WAN, and firewall infrastructure",
+                "Managed network upgrades, including WAN upgrades from 1G to 10G/100G",
+                "Spearheaded deployment of IPv6 and IP management solutions"
+            ]
+        },
+        {
+            "company": "Amazon Web Services",
+            "title": "Network Development Manager",
+            "period": "March 2020 - October 2021",
+            "highlights": [
+                "Managed a team of 12 DevOps engineers delivering network infrastructure support through automation",
+                "Drove operational excellence and developed innovative tools for network efficiency",
+                "Created performance assessments and managed escalation incidents"
+            ]
+        },
+        {
+            "company": "WIOCC",
+            "title": "Network Operations Manager",
+            "period": "March 2013 - March 2020",
+            "highlights": [
+                "Managed NOC operations and a team of 27 engineers across Africa and Europe",
+                "Oversaw network planning, design, and incident management processes",
+                "Supported procurement and managed vendor services"
+            ]
+        },
+        {
+            "company": "WIOCC",
+            "title": "Technical Support Engineer",
+            "period": "February 2011 - February 2013",
+            "highlights": [
+                "Designed and maintained distributed networks using MPLS and other routing protocols",
+                "Provided technical support for submarine fibre cables and company infrastructure"
+            ]
+        },
+        {
+            "company": "Africa Online/I way Africa",
+            "title": "Senior Network Engineer",
+            "period": "February 2009 - January 2011",
+            "highlights": [
+                "Designed, deployed, and managed core network infrastructure",
+                "Managed IP core networks supporting WiMAX, 2G/3G/4G, and fiber-optic services"
+            ]
+        },
+        {
+            "company": "AfricaOnline Kenya",
+            "title": "Network Operation Centre Technician",
+            "period": "February 2008 - January 2009",
+            "highlights": [
+                "Monitored and managed network equipment and systems in the NOC",
+                "Performed network health checks and managed trouble tickets"
+            ]
+        },
+        {
+            "company": "Africa Online Kenya",
+            "title": "Customer Service Engineer",
+            "period": "August 2006 - January 2009",
+            "highlights": [
+                "Maintained high levels of customer satisfaction through SLA management",
+                "Led service reviews and coordinated troubleshooting efforts"
+            ]
+        }
+    ],
+    "socialLinks": {
+        "linkedin": "https://www.linkedin.com/in/georgechegenjeru",
+        "github": "https://github.com/georgechege"
+    },
+    "education": {
+        "degree": "Bachelor of Science in Information Technology",
+        "university": "Jomo Kenyatta University Agriculture Technology",
+        "graduationYear": 2006
+    },
+    "languages": [
+        "English (Fluent)",
+        "Swahili (Fluent)"
+    ]
+}

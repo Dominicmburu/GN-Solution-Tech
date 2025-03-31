@@ -49,7 +49,8 @@ const Footer = () => {
             </div>
             <div className="text-white-50">
               <small>GN Solutions EU Headquarters</small>
-              <p className="mb-0">Dublin Office: +353 1 234 5678</p>
+              <p className="mb-0">Dublin Office: + 353 (0) 874 896 800‬
+              </p>
             </div>
           </div>
         </div>
@@ -58,7 +59,7 @@ const Footer = () => {
           <div className="row align-items-center">
             <div className="col-12 text-center text-md-start">
               <p className="text-white-50 mb-0">
-                © 2024 GN Solutions EU. All rights reserved.
+                © 2025 GN Solutions EU. All rights reserved.
               </p>
             </div>
           </div>

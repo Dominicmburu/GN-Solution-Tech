@@ -23,7 +23,7 @@ const CTASection = () => {
                 </div>
                 <div className="ms-2">
                   <p className="mb-0 small">EU Support Center</p>
-                  <p className="mb-0 fw-bold">+353 1 234 5678</p>
+                  <p className="mb-0 fw-bold">+ 353 (0) 874 896 800‬                  </p>
                 </div>
               </div>
             </div>

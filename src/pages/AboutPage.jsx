@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaChartLine, FaLightbulb, FaShieldAlt, FaSyncAlt } from 'react-icons/fa';
 import PageBanner from '../components/common/PageBanner';
+import georgeProfile from '../components/common/profileData.json';
 import TeamMember from '../components/about/TeamMember';
 import '../assets/css/AboutPage.css';
 
@@ -76,25 +77,30 @@ const AboutPage = () => {
 
   return (
     <>
-      <PageBanner 
-        title="About GN Solutions" 
+      <PageBanner
+        title="About Us"
         subtitle="Transforming Business Through Technology"
         background="#0a1033"
         currentpage="About Us"
       />
 
       {/* Company Story Section */}
-      <section className="py-5">
+
+      <section className="py-5 bg-light">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6 mb-4 mb-lg-0">
+            <div className="col-lg-6 mb-5 mb-lg-0">
               <div className="position-relative">
-                <img 
-                  src="https://i.pinimg.com/736x/d1/c6/f4/d1c6f4df8380dbbfd15270de804bc882.jpg" 
-                  alt="GN Solutions Office" 
-                  className="img-fluid rounded-3 shadow"
+                <img
+                  src="https://i.pinimg.com/736x/d1/c6/f4/d1c6f4df8380dbbfd15270de804bc882.jpg"
+                  alt="GN Solutions Office"
+                  className="img-fluid rounded shadow"
+                  style={{ borderRadius: '12px', transform: 'rotate(-2deg)' }}
                 />
-                <div className="circle-founder-intro position-absolute translate-middle bg-info text-white rounded-circle p-3 d-flex justify-content-center align-items-center shadow-lg">
+                <div
+                  className="circle-founder-intro position-absolute bg-info text-white rounded-circle shadow-lg d-flex justify-content-center align-items-center"
+                  
+                >
                   <div className="text-center">
                     <h4 className="mb-0 fw-bold">2022</h4>
                     <small>Founded</small>
@@ -102,25 +108,44 @@ const AboutPage = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
-              <h2 className="fw-bold mb-4" style={{color: "#0a1033"}}>Our Story</h2>
-              <p className="lead mb-4">Founded in 2022 in Ireland, GN Solutions was created to bridge the gap between traditional IT services and next-generation automation and cloud technologies.</p>
-              <p className="mb-4">We identified a critical need in the market: businesses were struggling to modernize their IT infrastructure while maintaining security and operational efficiency. Our founders combined their expertise in network automation, cloud architecture, and cybersecurity to create a comprehensive solution.</p>
-              <p>Since our inception, we've helped organizations across industries transform their digital infrastructure, implementing cutting-edge automation solutions that drive efficiency, security, and innovation.</p>
+            <div className="col-lg-6 ps-lg-5">
+              <div className="mb-4">
+                <span className="badge bg-info text-white p-2 mb-3">Our Journey</span>
+                <h2 className="fw-bold display-5 mb-4" style={{ color: '#0a1033' }}>
+                  Our Story
+                </h2>
+              </div>
+              <p className="lead mb-4" style={{ color: '#455880' }}>
+                Founded in 2022 in Ireland, GN Solutions was created to bridge the gap between traditional IT services and next-generation automation and cloud technologies.
+              </p>
+              <p className="mb-4" style={{ color: '#455880' }}>
+                We identified a critical need in the market: businesses were struggling to modernize their IT infrastructure while maintaining security and operational efficiency. Our founders combined their expertise in network automation, cloud architecture, and cybersecurity to create a comprehensive solution.
+              </p>
+              <p style={{ color: '#455880' }}>
+                Since our inception, we've helped organizations across industries transform their digital infrastructure, implementing cutting-edge automation solutions that drive efficiency, security, and innovation.
+              </p>
+              {/* <div className="mt-4">
+                <a href="#services" className="btn btn-info text-white px-4 py-2 me-2">
+                  Our Services
+                </a>
+                <a href="#contact" className="btn btn-outline-secondary px-4 py-2">
+                  Contact Us
+                </a>
+              </div> */}
             </div>
           </div>
         </div>
       </section>
 
       {/* Mission & Vision Section with Diagonal Design */}
-      <section className="py-5 position-relative" style={{backgroundColor: "#f8f9fa", overflow: "hidden"}}>
-        <div className="diagonal-bg position-absolute top-0 start-0 w-100 h-100" style={{background: "linear-gradient(135deg, rgba(6, 26, 138, 0.07) 25%, transparent 25%)"}}></div>
+      <section className="py-5 position-relative" style={{ backgroundColor: "#f8f9fa", overflow: "hidden" }}>
+        <div className="diagonal-bg position-absolute top-0 start-0 w-100 h-100" style={{ background: "linear-gradient(135deg, rgba(6, 26, 138, 0.07) 25%, transparent 25%)" }}></div>
         <div className="container position-relative">
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
-              <h2 className="fw-bold mb-4" style={{color: "#0a1033"}}>Our Mission & Vision</h2>
+              <h2 className="fw-bold mb-4" style={{ color: "#0a1033" }}>Our Mission & Vision</h2>
               <div className="d-flex justify-content-center mb-4">
-                <div style={{width: "80px", height: "4px", backgroundColor: "#00e8ff"}}></div>
+                <div style={{ width: "80px", height: "4px", backgroundColor: "#00e8ff" }}></div>
               </div>
             </div>
           </div>
@@ -132,7 +157,7 @@ const AboutPage = () => {
                     <div className="bg-info rounded-circle p-3 me-3">
                       <i className="fas fa-rocket text-white"></i>
                     </div>
-                    <h3 className="fw-bold m-0" style={{color: "#0a1033"}}>Mission</h3>
+                    <h3 className="fw-bold m-0" style={{ color: "#0a1033" }}>Mission</h3>
                   </div>
                   <p className="card-text">To empower businesses through innovative automation, robust security measures, and optimized IT infrastructure that drives growth and operational excellence.</p>
                   <p className="card-text">We're committed to delivering solutions that not only solve today's challenges but prepare our clients for tomorrow's opportunities.</p>
@@ -146,7 +171,7 @@ const AboutPage = () => {
                     <div className="bg-info rounded-circle p-3 me-3">
                       <i className="fas fa-eye text-white"></i>
                     </div>
-                    <h3 className="fw-bold m-0" style={{color: "#0a1033"}}>Vision</h3>
+                    <h3 className="fw-bold m-0" style={{ color: "#0a1033" }}>Vision</h3>
                   </div>
                   <p className="card-text">To become the leading provider of integrated IT solutions that seamlessly blend automation, security, and infrastructure optimization.</p>
                   <p className="card-text">We envision a future where businesses can harness the full potential of digital technologies without complexity, risk, or excessive costs.</p>
@@ -162,7 +187,7 @@ const AboutPage = () => {
         <div className="container">
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
-              <h2 className="fw-bold mb-3" style={{color: "#0a1033"}}>Our Core Values</h2>
+              <h2 className="fw-bold mb-3" style={{ color: "#0a1033" }}>Our Core Values</h2>
               <p className="text-muted">The principles that guide our work and relationships</p>
             </div>
           </div>
@@ -174,7 +199,7 @@ const AboutPage = () => {
                     <div className="mb-3">
                       {value.icon}
                     </div>
-                    <h4 className="fw-bold mb-3" style={{color: "#0a1033"}}>{value.title}</h4>
+                    <h4 className="fw-bold mb-3" style={{ color: "#0a1033" }}>{value.title}</h4>
                     <p className="card-text text-muted">{value.description}</p>
                   </div>
                 </div>
@@ -185,30 +210,30 @@ const AboutPage = () => {
       </section>
 
       {/* Growth Timeline Section */}
-      <section className="py-5" style={{backgroundColor: "#0a1033"}}>
+      <section className="py-5" style={{ backgroundColor: "#0a1033" }}>
         <div className="container">
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
               <h2 className="fw-bold mb-4 text-white">Our Growth Journey</h2>
               <div className="d-flex justify-content-center mb-4">
-                <div style={{width: "80px", height: "4px", backgroundColor: "#00e8ff"}}></div>
+                <div style={{ width: "80px", height: "4px", backgroundColor: "#00e8ff" }}></div>
               </div>
             </div>
           </div>
-          
+
           <div className="timeline position-relative">
             {/* Timeline center line */}
             <div className="growth-timeline position-absolute"></div>
-            
+
             {milestones.map((milestone, index) => (
               <div className={`row timeline-item mb-5 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`} key={index}>
                 <div className="col-md-6">
                   <div className={`timeline-content p-4 rounded-3 shadow bg-white ${index % 2 === 0 ? 'ms-auto me-4' : 'me-auto ms-4'}`}>
                     <div className="d-flex align-items-center mb-3">
-                      <div className="bg-info text-white rounded-circle p-2 me-3 fw-bold" style={{width: "50px", height: "50px", display: "flex", alignItems: "center", justifyContent: "center"}}>
+                      <div className="bg-info text-white rounded-circle p-2 me-3 fw-bold" style={{ width: "50px", height: "50px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                         {milestone.year}
                       </div>
-                      <h4 className="fw-bold mb-0" style={{color: "#0a1033"}}>{milestone.title}</h4>
+                      <h4 className="fw-bold mb-0" style={{ color: "#0a1033" }}>{milestone.title}</h4>
                     </div>
                     <p className="mb-0 text-muted">{milestone.description}</p>
                   </div>
@@ -221,31 +246,22 @@ const AboutPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-5">
+      <section className="py-5 teamMembers">
         <div className="container">
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
-              <h2 className="fw-bold mb-3" style={{color: "#0a1033"}}>Meet Our Leadership</h2>
-              <p className="text-muted">The experts behind GN Solutions' innovative approach</p>
+              <h2 className="fw-bold mb-3" style={{ color: "#000" }}>Meet Our Leadership</h2>
+              <p className="" style={{ color: "#00e8ff" }}>The experts behind GN Solutions' innovative approach</p>
             </div>
           </div>
           <div className="row">
-            {teamMembers.map((member, index) => (
-              <div className="col-md-4 mb-4" key={index}>
-                <TeamMember 
-                  name={member.name}
-                  position={member.position}
-                  image={member.image}
-                  description={member.description}
-                />
-              </div>
-            ))}
+            <TeamMember profileData={georgeProfile} />
           </div>
         </div>
       </section>
 
       {/* Call to Action Section */}
-      <section className="cta-section py-5" style={{background: "linear-gradient(90deg,rgb(10, 16, 51) 10%, rgb(23, 33, 95) 100%)"}}>
+      <section className="cta-section py-5" style={{ background: "linear-gradient(90deg,rgb(10, 16, 51) 10%, rgb(23, 33, 95) 100%)" }}>
         <div className="container">
           <div className="row justify-content-center align-items-center">
             <div className="col-lg-8 text-center text-white">

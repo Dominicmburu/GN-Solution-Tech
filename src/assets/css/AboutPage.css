@@ -3,6 +3,12 @@
     overflow: hidden;
 }
 
+/* .teamMembers{
+    background: linear-gradient(90deg, #0a1033 0%, #3a47d5 160%);
+    clip-path: polygon(0 0, 100% 0, 100% 20%, 0% 40%);
+
+} */
+
 .team-card:hover {
     transform: translateY(-10px);
 }
@@ -164,9 +170,18 @@
     left: 100%;
 }
 
+.circle-founder-intro{
+    width: 120px;
+    height: 120px;
+    left: -40px;
+    top: -40px;
+    transform: rotate(5deg);
+}
+
+
 @media (max-width: 767.98px) {
     .circle-founder-intro {
-        top: 25px;
-        left: 40px;
+        top: -40px;
+        left: -13px;
     }
 }

@@ -9,9 +9,9 @@ const TabsSection = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const tabs = [
-    { id: 'about', label: 'About GN Solutions', icon: 'bi bi-building' },
+    { id: 'about', label: 'About Us', icon: 'bi bi-building' },
     { id: 'services', label: 'Our Services', icon: 'bi bi-gear-fill' },
-    { id: 'why', label: 'Why Choose GN Solutions', icon: 'bi bi-trophy-fill' },
+    { id: 'why', label: 'Why Choose Us', icon: 'bi bi-trophy-fill' },
   ];
 
   useEffect(() => {

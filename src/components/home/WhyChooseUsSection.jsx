@@ -33,7 +33,7 @@ const WhyChooseUsSection = () => {
         <div className="row align-items-center">
           <div className="col-lg-6 mb-4 mb-lg-0">
             <SectionTitle 
-              subtitle="Why Choose GN Solutions"
+              subtitle="Why Choose Us"
               title="Enterprise IT Transformation Experts"
             />
             <p className="text-muted mb-4">
