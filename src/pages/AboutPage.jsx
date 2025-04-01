@@ -1,7 +1,7 @@
 import React from 'react';
-import { FaChartLine, FaLightbulb, FaShieldAlt, FaSyncAlt, FaNetworkWired, FaCloud } from 'react-icons/fa';
+import { FaChartLine, FaLightbulb, FaShieldAlt, FaSyncAlt, FaNetworkWired, FaCloud, FaUsers, FaGlobe, FaCoins } from 'react-icons/fa';
 import PageBanner from '../components/common/PageBanner';
-import TeamMember from '../components/about/TeamMember';
+// import TeamMember from '../components/about/TeamMember';
 import '../assets/css/AboutPage.css';
 
 const AboutPage = () => {
@@ -79,22 +79,22 @@ const AboutPage = () => {
     {
       title: "Network Operations Leadership",
       description: "Managed teams of 8-27 technical engineers across global operations, ensuring 99.95% SLA adherence.",
-      icon: "fa-users"
+      icon: <FaUsers />
     },
     {
       title: "Global Infrastructure Management",
       description: "Designed and maintained networks spanning 50+ countries across multiple continents.",
-      icon: "fa-globe"
+      icon: <FaGlobe />
     },
     {
       title: "Cost Optimization",
       description: "Implemented network optimization projects saving over €1M in operational expenses.",
-      icon: "fa-coins"
+      icon: <FaCoins />
     },
     {
       title: "Technical Excellence",
       description: "Expert in MPLS VPN, Data Centers, Routing Protocols, Network Security, and Automation.",
-      icon: "fa-shield-alt"
+      icon: <FaShieldAlt />
     }
   ];
 
@@ -207,12 +207,12 @@ const AboutPage = () => {
           <div className="row">
             {experienceHighlights.map((highlight, index) => (
               <div className="col-md-6 col-lg-3 mb-4" key={index}>
-                <div className="card border-0 h-100 text-center shadow bg-dark text-white">
+                <div className="card border-0 h-100 text-center shadow expertise-card">
                   <div className="card-body p-4">
-                    <div className="mb-3">
-                      <i className={`fas ${highlight.icon} text-info fa-2x`}></i>
+                    <div className="expertise-icon-container mb-3">
+                    <div className="text-info fa-2x fs-3">{highlight.icon}</div>
                     </div>
-                    <h4 className="fw-bold mb-3">{highlight.title}</h4>
+                    <h4 className="text-light fw-bold mb-3">{highlight.title}</h4>
                     <p className="card-text text-light">{highlight.description}</p>
                   </div>
                 </div>
@@ -250,11 +250,11 @@ const AboutPage = () => {
       </section>
 
       {/* Growth Timeline Section */}
-      <section className="py-5" style={{ backgroundColor: "#f8f9fa" }}>
+      <section className="py-5" style={{ backgroundColor: "#0a1033" }}>
         <div className="container">
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
-              <h2 className="fw-bold mb-4" style={{ color: "#0a1033" }}>Our Professional Journey</h2>
+              <h2 className="fw-bold mb-4" style={{ color: "#fff" }}>Our Professional Journey</h2>
               <div className="d-flex justify-content-center mb-4">
                 <div style={{ width: "80px", height: "4px", backgroundColor: "#00e8ff" }}></div>
               </div>
@@ -296,36 +296,44 @@ const AboutPage = () => {
           </div>
           <div className="row justify-content-center">
             <div className="col-lg-8">
-              <div className="card border-0 shadow-lg overflow-hidden">
+              <div className="card border-0 shadow-lg overflow-hidden founder-card">
                 <div className="row g-0">
-                  <div className="col-md-4">
-                    <img
-                      src="/images/George.jpg"
-                      alt="George Chege Njeru"
-                      className="img-fluid h-100 object-fit-cover"
-                      style={{ objectPosition: 'center top' }}
-                    />
+                  <div className="col-md-4 position-relative">
+                    <div className="founder-image-container">
+                      <img
+                        src="/images/George.jpg"
+                        alt="George Chege Njeru"
+                        className="img-fluid h-100 founder-image"
+                      />
+                      <div className="founder-overlay"></div>
+                      <div className="founder-experience-badge">
+                        <span className="years">17+</span>
+                        <span className="text">Years Experience</span>
+                      </div>
+                    </div>
                   </div>
                   <div className="col-md-8">
                     <div className="card-body p-4">
                       <h3 className="card-title fw-bold mb-1">George Chege Njeru</h3>
-                      <p className="text-info mb-3">Founder & CEO</p>
+                      <p className="text-info mb-3 founder-position">Founder & CEO</p>
                       <p className="card-text">
                         With over 17 years in telecommunications, George has led technical teams at Vodafone, COMCAST, Magnet, Aptiv, and Amazon Web Services. His expertise spans network operations, automation, and security across global enterprises.
                       </p>
                       <div className="mb-3">
-                        <strong>Certifications:</strong> 
-                        <span className="ms-2 badge bg-light text-dark me-1">JNCIA-DevOps</span>
-                        <span className="badge bg-light text-dark me-1">Cisco DevOps</span>
-                        <span className="badge bg-light text-dark me-1">CCNP</span>
-                        <span className="badge bg-light text-dark me-1">Prince 2</span>
-                        <span className="badge bg-light text-dark">ITIL Foundation</span>
+                        <strong>Certifications:</strong>
+                        <div className="mt-2">
+                          <span className="certification-badge">JNCIA-DevOps</span>
+                          <span className="certification-badge">Cisco DevOps</span>
+                          <span className="certification-badge">CCNP</span>
+                          <span className="certification-badge">Prince 2</span>
+                          <span className="certification-badge">ITIL Foundation</span>
+                        </div>
                       </div>
                       <p className="card-text">
                         George founded GN Solutions to help enterprises modernize their network infrastructure through automation, security, and optimization strategies developed from his experience managing networks across 50+ countries.
                       </p>
-                      <div className="mt-3">
-                        <a href="https://www.linkedin.com/in/georgenjeru/" className="btn btn-outline-info" target="_blank" rel="noopener noreferrer">
+                      <div className="mt-3 team-social">
+                        <a href="https://www.linkedin.com/in/georgenjeru/" className="linkedin-btn" target="_blank" rel="noopener noreferrer">
                           <i className="fab fa-linkedin me-2"></i>Connect on LinkedIn
                         </a>
                       </div>
