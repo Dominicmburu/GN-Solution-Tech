@@ -74,12 +74,7 @@ const HeroSection = () => {
                 </Link>
               </button>
 
-              <button
-                className="btn btn-outline-light px-4 py-2 rounded-1 d-flex align-items-center"
-                onClick={handleVideoModalToggle}
-              >
-                <FaPlay className="me-2" /> Watch Video
-              </button>
+            
             </div>
           </div>
 
@@ -94,24 +89,10 @@ const HeroSection = () => {
                     height: 'auto'
                   }}
                 >
-                  <circle
-                    cx="200"
-                    cy="200"
-                    r="180"
-                    fill="none"
-                    stroke="#00e8ff"
-                    strokeWidth="2"
-                    strokeDasharray="5,5"
-                  />
-                  <circle
-                    cx="200"
-                    cy="200"
-                    r="150"
-                    fill="none"
-                    stroke="#00e8ff"
-                    strokeWidth="3"
-                    className="cyber-rotate-reverse"
-                  />
+                 
+                  
+                 
+                  
                 </svg>
 
                 <div
@@ -124,32 +105,9 @@ const HeroSection = () => {
                     transform: 'translate(-50%, -45%)'
                   }}
                 >
-                  <img
-                    src="images/humanAi.png"
-                    alt="Cyber Specialist"
-                    className="img-fluid"
-                    style={{
-                      objectFit: 'contain',
-                      objectPosition: 'center top',
-                      maxWidth: '100%'
-                    }}
-                  />
                 </div>
 
-                <div
-                  className="cyber-glow position-absolute top-50 start-50 translate-middle"
-                  style={{
-                    width: '50%',
-                    maxWidth: '200px',
-                    height: 'auto',
-                    aspectRatio: '1/1',
-                    backgroundColor: '#00e8ff',
-                    opacity: '0.3',
-                    filter: 'blur(50px)',
-                    zIndex: 0,
-                    transform: 'translate(-50%, -40%)'
-                  }}
-                ></div>
+                
               </div>
             </div>
           </div>
