@@ -4,7 +4,7 @@ import { FaCodeBranch, FaServer, FaCloud, FaRocket, FaTools } from "react-icons/
 import { motion } from "framer-motion";
 import backgroundImage from "../assets/network-as-code.webp";
 import { Accordion } from 'react-bootstrap';
-// * import "../assets/css/NetworkAsCode.css";
+ import "../assets/css/NetworkAsCode.css";
 
 const NetworkAsCode = () => {
   const faqs = [
@@ -34,9 +34,10 @@ const NetworkAsCode = () => {
       >      
         <motion.h1 
           className="display-4 fw-bold"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, }}
+          animate={{ opacity: 1, }}
           transition={{ duration: 0.5 }}
+          style={{background: 'transparent'}}
         >
           Network as Code: Automate Your Infrastructure
         </motion.h1>

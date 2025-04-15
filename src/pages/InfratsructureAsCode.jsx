@@ -1,25 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaCode, FaDocker, FaGitlab, FaJenkins, FaCogs, FaRocket } from "react-icons/fa";
+import { FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
-import backgroundImage from "../assets/software.jpg";
 import { Accordion } from 'react-bootstrap';
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../assets/css/SoftwareAsCode.css";
+import backgroundImage from "../assets/platform.webp";
+import "../assets/css/platform.css";
 
-const SoftwareAsCodePage = () => {
+const InfrastructureAsCode = () => {
   const faqs = [
     { 
-      question: "What is Software as Code?", 
-      answer: "SaC defines software environments, configurations, and infrastructure using code to automate development, deployment, and maintenance." 
+      question: "What is Infrastructure as Code?", 
+      answer: "Infrastructure as Code (IaC) is an approach to infrastructure management that uses code and software development techniques to automate provisioning and management of IT resources." 
     },
     { 
-      question: "What are the benefits of SaC?", 
-      answer: "It improves automation, security, and consistency while reducing manual errors and speeding up software delivery." 
+      question: "What tools are commonly used for IaC?", 
+      answer: "Common tools include Terraform, Ansible, Kubernetes, Docker, AWS CloudFormation, and Azure Resource Manager templates." 
     },
     { 
-      question: "How does it improve DevOps efficiency?", 
-      answer: "By automating software configurations and deployments, SaC enhances collaboration, reduces operational overhead, and accelerates development cycles." 
+      question: "How does IaC improve security?", 
+      answer: "IaC improves security by enabling consistent security policies, automated compliance checking, and reducing human error in infrastructure configuration." 
     }
   ];
 
@@ -40,7 +39,7 @@ const SoftwareAsCodePage = () => {
           transition={{ duration: 0.5 }}
           style={{background: 'transparent'}}
         >
-          Software as Code: Automate Your Development
+          Infrastructure as Code: Automate Your Platform
         </motion.h1>
         <motion.p
           className="lead"
@@ -48,7 +47,7 @@ const SoftwareAsCodePage = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          Automate, streamline, and optimize your software infrastructure using code-based principles.
+          Transform Infrastructure Management Through Intelligent Automation
         </motion.p>
         <Link to="/contact" className="btn btn-warning btn-lg fw-bold px-4 py-2 mt-3">
           Get Started
@@ -64,7 +63,7 @@ const SoftwareAsCodePage = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto text-center">
               {[
-                { title: "What is Software as Code?", link: "#introduction" },
+                { title: "What is Infrastructure as Code?", link: "#introduction" },
                 { title: "Technologies & Tools", link: "#technologies" },
                 { title: "Use Cases", link: "#usecases" },
                 { title: "Implementation Steps", link: "#implementation" },
@@ -82,10 +81,10 @@ const SoftwareAsCodePage = () => {
       </nav>
 
       <div id="introduction" className="container py-5 introduction-section" style={{backgroundColor:"#0a1033"}}>
-        <h2 className="text-center text-primary mb-4">What is Software as Code?</h2>
+        <h2 className="text-center text-primary mb-4">What is Infrastructure as Code?</h2>
         <p className="text-center text-light fw-bold">
-          Software as Code (SaC) automates software configurations, deployments, and environments through code,
-          ensuring scalability, security, and efficiency while reducing human errors.
+          Infrastructure as Code (IaC) is a practice that enables the automation and management of infrastructure through code instead of manual processes.
+          By defining infrastructure components in configuration files, teams can version, test, and deploy infrastructure consistently and efficiently.
         </p>
       </div>
 
@@ -93,11 +92,16 @@ const SoftwareAsCodePage = () => {
       <div id="technologies" className="container py-5">
         <h2 className="text-center text-primary mb-4">Technologies & Tools</h2>
         <div className="row text-center">
-          {["Terraform", "Ansible", "Docker", "Kubernetes", "Jenkins", "GitLab CI/CD"].map((tool, index) => (
+          {[
+            { name: "Terraform", icon: <FaCloud size={40} className="text-info mb-3" /> },
+            { name: "Kubernetes", icon: <FaServer size={40} className="text-info mb-3" /> },
+            { name: "Docker", icon: <FaTools size={40} className="text-info mb-3" /> },
+            { name: "Ansible", icon: <FaCode size={40} className="text-info mb-3" /> }
+          ].map((tech, index) => (
             <motion.div className="col-md-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
               <div className="card shadow-lg border-0 p-4">
-                <FaCogs size={40} className="text-info mb-3" />
-                <h5>{tool}</h5>
+                {tech.icon}
+                <h5>{tech.name}</h5>
               </div>
             </motion.div>
           ))}
@@ -106,13 +110,13 @@ const SoftwareAsCodePage = () => {
 
       {/* Use Cases */}
       <div id="usecases" className="container py-5">
-        <h2 className="text-center text-primary mb-4">Use Cases of Software as Code</h2>
+        <h2 className="text-center text-primary mb-4">Use Cases of Infrastructure as Code</h2>
         <div className="row">
           {[
-            { title: "Automated Deployments", desc: "Streamline software release processes with automation." },
-            { title: "Infrastructure as Code (IaC)", desc: "Define and manage infrastructure using code." },
-            { title: "Configuration Management", desc: "Maintain consistency across multiple environments." },
-            { title: "Continuous Integration & Delivery", desc: "Enhance DevOps efficiency with automated testing and deployment." }
+            { title: "Cloud Infrastructure", desc: "Rapidly provision and manage cloud resources." },
+            { title: "Hybrid Cloud Environments", desc: "Consistently manage resources across multiple platforms." },
+            { title: "Continuous Deployment", desc: "Integrate infrastructure deployment into CI/CD pipelines." },
+            { title: "Disaster Recovery", desc: "Quickly rebuild infrastructure in case of failures." }
           ].map((useCase, index) => (
             <motion.div className="col-md-6 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
               <div className="card shadow-lg border-0 p-4">
@@ -126,13 +130,13 @@ const SoftwareAsCodePage = () => {
 
       {/* Implementation Steps */}
       <div id="implementation" className="container py-5">
-        <h2 className="text-center text-primary mb-4">How to Implement Software as Code</h2>
+        <h2 className="text-center text-primary mb-4">How to Implement Infrastructure as Code</h2>
         <div className="row">
           {[
-            "Define requirements", 
-            "Choose the right tools", 
-            "Write infrastructure code", 
-            "Test and validate"
+            "Define infrastructure requirements", 
+            "Select appropriate IaC tools", 
+            "Version control your configurations", 
+            "Implement automated testing"
           ].map((step, index) => (
             <motion.div className="col-md-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
               <div className="card shadow-lg border-0 p-4 text-center">
@@ -148,17 +152,17 @@ const SoftwareAsCodePage = () => {
         <h2 className="text-center text-primary mb-4">Key Benefits</h2>
         <div className="row text-center">
           {[
-            { icon: "⚡", title: "Automation", text: "Streamlines software deployment and updates." },
-            { icon: "✅", title: "Consistency", text: "Ensures uniform configurations across environments." },
-            { icon: "📜", title: "Version Control", text: "Tracks changes and rollbacks efficiently." },
-            { icon: "🔐", title: "Security", text: "Enforces policies through automation." },
-            { icon: "🚀", title: "Faster Deployment", text: "Speeds up the software lifecycle." }
+            { title: "Scalability", icon: <FaLayerGroup size={40} className="text-info mb-3" />, desc: "Easily scale your infrastructure with code-driven approaches" },
+            { title: "Efficiency", icon: <FaRocket size={40} className="text-info mb-3" />, desc: "Reduce manual interventions and accelerate deployment cycles" },
+            { title: "Consistency", icon: <FaCode size={40} className="text-info mb-3" />, desc: "Maintain uniform infrastructure across all environments" },
+            { title: "Security", icon: <FaServer size={40} className="text-info mb-3" />, desc: "Implement robust security policies through code" },
+            { title: "Cost Savings", icon: <FaRocket size={40} className="text-info mb-3" />, desc: "Optimize resource usage and reduce operational costs" }
           ].map((benefit, index) => (
             <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
               <div className="card shadow-lg border-0 p-4">
-                <FaRocket size={40} className="text-info mb-3" />
+                {benefit.icon}
                 <h5>{benefit.title}</h5>
-                <p className="mt-2">{benefit.text}</p>
+                <p className="mt-2">{benefit.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -170,9 +174,9 @@ const SoftwareAsCodePage = () => {
         <h2 className="text-center text-primary mb-4">Success Stories</h2>
         <div className="row">
           {[
-            { company: "Netflix", result: "Uses IaC to manage thousands of cloud instances efficiently." },
-            { company: "Spotify", result: "Automated deployments reduced downtime by 80%." },
-            { company: "Airbnb", result: "CI/CD pipelines speed up feature releases." }
+            { company: "Global E-commerce Platform", result: "Reduced infrastructure deployment time from days to minutes using Terraform." },
+            { company: "Financial Services Provider", result: "Achieved 99.99% uptime through automated infrastructure management." },
+            { company: "Healthcare Organization", result: "Cut operational costs by 40% through infrastructure optimization." }
           ].map((story, index) => (
             <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
               <div className="card shadow-lg border-0 p-4">
@@ -203,8 +207,8 @@ const SoftwareAsCodePage = () => {
 
       {/* Call to Action */}
       <div className="container py-5 CTA-section" style={{backgroundColor:"#00e8ff"}}>
-        <h3>Start Your Software Automation Journey Today!</h3>
-        <p className="text-muted">Contact us to see how Software as Code can transform your development process.</p>
+        <h3>Revolutionize Your Infrastructure Management Today!</h3>
+        <p className="text-muted">Contact us to see how Infrastructure as Code can transform your operations.</p>
         <Link to="/contact" className="btn btn-primary btn-lg fw-bold px-4 py-2">
           Request a Demo
         </Link>
@@ -213,4 +217,4 @@ const SoftwareAsCodePage = () => {
   );
 };
 
-export default SoftwareAsCodePage;
+export default InfrastructureAsCode;
