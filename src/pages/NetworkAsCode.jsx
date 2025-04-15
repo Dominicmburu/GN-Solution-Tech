@@ -1,24 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight } from "react-icons/fa";
+import { FaCodeBranch, FaServer, FaCloud, FaRocket, FaTools } from "react-icons/fa";
 import { motion } from "framer-motion";
+import backgroundImage from "../assets/network-as-code.webp";
 import { Accordion } from 'react-bootstrap';
-import backgroundImage from "../assets/platform.webp";
-import "../assets/css/platform.css";
+ import "../assets/css/NetworkAsCode.css";
 
-const InfrastructureAsCode = () => {
+const NetworkAsCode = () => {
   const faqs = [
     { 
-      question: "What is Infrastructure as Code?", 
-      answer: "Infrastructure as Code (IaC) is an approach to infrastructure management that uses code and software development techniques to automate provisioning and management of IT resources." 
+      question: "What is Network as Code?", 
+      answer: "Network as Code (NaC) is an approach that automates the deployment and management of network infrastructure using code-based principles." 
     },
     { 
-      question: "What tools are commonly used for IaC?", 
-      answer: "Common tools include Terraform, Ansible, Kubernetes, Docker, AWS CloudFormation, and Azure Resource Manager templates." 
+      question: "Which tools are commonly used?", 
+      answer: "Common tools include Terraform, Ansible, Cisco NSO, and NetBox for network automation." 
     },
     { 
-      question: "How does IaC improve security?", 
-      answer: "IaC improves security by enabling consistent security policies, automated compliance checking, and reducing human error in infrastructure configuration." 
+      question: "Can NaC be integrated with existing networks?", 
+      answer: "Yes, NaC can integrate with existing network architectures, allowing gradual automation adoption." 
     }
   ];
 
@@ -31,14 +31,15 @@ const InfrastructureAsCode = () => {
           background: `url(${backgroundImage}) center/cover no-repeat`, 
           height: "45vh",
         }}
-      >
+      >      
         <motion.h1 
           className="display-4 fw-bold"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, }}
+          animate={{ opacity: 1, }}
           transition={{ duration: 0.5 }}
+          style={{background: 'transparent'}}
         >
-          Infrastructure as Code: Automate Your Platform
+          Network as Code: Automate Your Infrastructure
         </motion.h1>
         <motion.p
           className="lead"
@@ -46,7 +47,7 @@ const InfrastructureAsCode = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          Transform Infrastructure Management Through Intelligent Automation
+          Leverage automation to deploy, manage, and optimize networks efficiently.
         </motion.p>
         <Link to="/contact" className="btn btn-warning btn-lg fw-bold px-4 py-2 mt-3">
           Get Started
@@ -62,7 +63,7 @@ const InfrastructureAsCode = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto text-center">
               {[
-                { title: "What is Infrastructure as Code?", link: "#introduction" },
+                { title: "What is Network as Code?", link: "#introduction" },
                 { title: "Technologies & Tools", link: "#technologies" },
                 { title: "Use Cases", link: "#usecases" },
                 { title: "Implementation Steps", link: "#implementation" },
@@ -80,10 +81,10 @@ const InfrastructureAsCode = () => {
       </nav>
 
       <div id="introduction" className="container py-5 introduction-section" style={{backgroundColor:"#0a1033"}}>
-        <h2 className="text-center text-primary mb-4">What is Infrastructure as Code?</h2>
+        <h2 className="text-center text-primary mb-4">What is Network as Code?</h2>
         <p className="text-center text-light fw-bold">
-          Infrastructure as Code (IaC) is a practice that enables the automation and management of infrastructure through code instead of manual processes.
-          By defining infrastructure components in configuration files, teams can version, test, and deploy infrastructure consistently and efficiently.
+          Network as Code (NaC) automates the deployment and management of network infrastructure using code-based principles. 
+          By treating network configurations as version-controlled code, businesses can achieve scalability, security, and operational efficiency.
         </p>
       </div>
 
@@ -91,16 +92,11 @@ const InfrastructureAsCode = () => {
       <div id="technologies" className="container py-5">
         <h2 className="text-center text-primary mb-4">Technologies & Tools</h2>
         <div className="row text-center">
-          {[
-            { name: "Terraform", icon: <FaCloud size={40} className="text-info mb-3" /> },
-            { name: "Kubernetes", icon: <FaServer size={40} className="text-info mb-3" /> },
-            { name: "Docker", icon: <FaTools size={40} className="text-info mb-3" /> },
-            { name: "Ansible", icon: <FaCode size={40} className="text-info mb-3" /> }
-          ].map((tech, index) => (
+          {["Terraform", "Ansible", "Cisco NSO", "NetBox"].map((tool, index) => (
             <motion.div className="col-md-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
               <div className="card shadow-lg border-0 p-4">
-                {tech.icon}
-                <h5>{tech.name}</h5>
+                <FaTools size={40} className="text-info mb-3" />
+                <h5>{tool}</h5>
               </div>
             </motion.div>
           ))}
@@ -109,18 +105,12 @@ const InfrastructureAsCode = () => {
 
       {/* Use Cases */}
       <div id="usecases" className="container py-5">
-        <h2 className="text-center text-primary mb-4">Use Cases of Infrastructure as Code</h2>
+        <h2 className="text-center text-primary mb-4">Use Cases of Network as Code</h2>
         <div className="row">
-          {[
-            { title: "Cloud Infrastructure", desc: "Rapidly provision and manage cloud resources." },
-            { title: "Hybrid Cloud Environments", desc: "Consistently manage resources across multiple platforms." },
-            { title: "Continuous Deployment", desc: "Integrate infrastructure deployment into CI/CD pipelines." },
-            { title: "Disaster Recovery", desc: "Quickly rebuild infrastructure in case of failures." }
-          ].map((useCase, index) => (
+          {["Cloud Network Automation", "Data Center Automation", "5G & Edge Computing", "Security & Compliance"].map((useCase, index) => (
             <motion.div className="col-md-6 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
               <div className="card shadow-lg border-0 p-4">
-                <h5 className="text-info">{useCase.title}</h5>
-                <p>{useCase.desc}</p>
+                <h5 className="text-info">{useCase}</h5>
               </div>
             </motion.div>
           ))}
@@ -129,14 +119,9 @@ const InfrastructureAsCode = () => {
 
       {/* Implementation Steps */}
       <div id="implementation" className="container py-5">
-        <h2 className="text-center text-primary mb-4">How to Implement Infrastructure as Code</h2>
+        <h2 className="text-center text-primary mb-4">How to Implement Network as Code</h2>
         <div className="row">
-          {[
-            "Define infrastructure requirements", 
-            "Select appropriate IaC tools", 
-            "Version control your configurations", 
-            "Implement automated testing"
-          ].map((step, index) => (
+          {["Define Infrastructure", "Version Control", "Automate Deployment", "Monitor & Validate"].map((step, index) => (
             <motion.div className="col-md-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
               <div className="card shadow-lg border-0 p-4 text-center">
                 <h5 className="mt-3">{step}</h5>
@@ -145,23 +130,16 @@ const InfrastructureAsCode = () => {
           ))}
         </div>
       </div>
-
+ 
       {/* Key Benefits */}
       <div id="benefits" className="container py-5">
         <h2 className="text-center text-primary mb-4">Key Benefits</h2>
         <div className="row text-center">
-          {[
-            { title: "Scalability", icon: <FaLayerGroup size={40} className="text-info mb-3" />, desc: "Easily scale your infrastructure with code-driven approaches" },
-            { title: "Efficiency", icon: <FaRocket size={40} className="text-info mb-3" />, desc: "Reduce manual interventions and accelerate deployment cycles" },
-            { title: "Consistency", icon: <FaCode size={40} className="text-info mb-3" />, desc: "Maintain uniform infrastructure across all environments" },
-            { title: "Security", icon: <FaServer size={40} className="text-info mb-3" />, desc: "Implement robust security policies through code" },
-            { title: "Cost Savings", icon: <FaRocket size={40} className="text-info mb-3" />, desc: "Optimize resource usage and reduce operational costs" }
-          ].map((benefit, index) => (
+          {["Automation", "Scalability", "Consistency", "Speed", "Security & Compliance"].map((benefit, index) => (
             <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
               <div className="card shadow-lg border-0 p-4">
-                {benefit.icon}
-                <h5>{benefit.title}</h5>
-                <p className="mt-2">{benefit.desc}</p>
+                <FaRocket size={40} className="text-info mb-3" />
+                <h5>{benefit}</h5>
               </div>
             </motion.div>
           ))}
@@ -172,15 +150,10 @@ const InfrastructureAsCode = () => {
       <div id="success" className="container py-5">
         <h2 className="text-center text-primary mb-4">Success Stories</h2>
         <div className="row">
-          {[
-            { company: "Global E-commerce Platform", result: "Reduced infrastructure deployment time from days to minutes using Terraform." },
-            { company: "Financial Services Provider", result: "Achieved 99.99% uptime through automated infrastructure management." },
-            { company: "Healthcare Organization", result: "Cut operational costs by 40% through infrastructure optimization." }
-          ].map((story, index) => (
-            <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
+          {["Enterprise Cloud Migration", "Telecom Network Automation"].map((story, index) => (
+            <motion.div className="col-md-6 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
               <div className="card shadow-lg border-0 p-4">
-                <h5 className="text-info">{story.company}</h5>
-                <p>{story.result}</p>
+                <h5 className="text-info">{story}</h5>
               </div>
             </motion.div>
           ))}
@@ -206,8 +179,8 @@ const InfrastructureAsCode = () => {
 
       {/* Call to Action */}
       <div className="container py-5 CTA-section" style={{backgroundColor:"#00e8ff"}}>
-        <h3>Revolutionize Your Infrastructure Management Today!</h3>
-        <p className="text-muted">Contact us to see how Infrastructure as Code can transform your operations.</p>
+        <h3>Start Your Network Automation Journey Today!</h3>
+        <p className="text-muted">Contact us to see how Network as Code can transform your business.</p>
         <Link to="/contact" className="btn btn-primary btn-lg fw-bold px-4 py-2">
           Request a Demo
         </Link>
@@ -216,4 +189,4 @@ const InfrastructureAsCode = () => {
   );
 };
 
-export default InfrastructureAsCode;
+export default NetworkAsCode;

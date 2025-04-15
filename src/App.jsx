@@ -12,6 +12,7 @@ import Services from './pages/services';
 import NetworkAsCode from './pages/NetworkAsCode';
 import InfrastructureAsCode from './pages/InfratsructureAsCode';
 import SoftwareAsCodePage from './pages/SoftwareAsCodePage';
+import BusinessProcessAutomation from './pages/BusinessProcessAutomation';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/services/network-as-code" element={<Layout><NetworkAsCode /></Layout>} />
         <Route path="/services/infrastructure-as-code" element={<Layout><InfrastructureAsCode /></Layout>} />
         <Route path="/services/software-as-code" element={<Layout><SoftwareAsCodePage /></Layout>} />
+        <Route path="/services/business-process-automation" element={<Layout><BusinessProcessAutomation /> </Layout>} />
 
       </Routes>
     </Router>
