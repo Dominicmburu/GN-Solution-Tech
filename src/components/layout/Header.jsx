@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaPhone, FaChevronDown, FaChevronRight } from 'react-icons/fa';
 import Logo from './Logo';
 
 const Header = () => {
   const location = useLocation(); // Get current route location
+  const navigate = useNavigate(); // Add useNavigate hook for programmatic navigation
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isServiceMenuOpen, setIsServiceMenuOpen] = useState(false);
 
@@ -15,6 +16,9 @@ const Header = () => {
   const toggleServiceMenu = (e) => {
     e.preventDefault();
     setIsServiceMenuOpen(!isServiceMenuOpen);
+    
+    // Navigate to services page when clicking the services button
+    navigate('/services');
   };
 
   // Optional: Close the navbar when a link is clicked (better UX on mobile)
@@ -244,7 +248,7 @@ const Header = () => {
             </div>
             <div className="ms-2">
               <p className="mb-0 text-white small">Call us today</p>
-              <p className="mb-0 text-white fw-bold">+ 353 (0) 874 896 800‬              </p>
+              <p className="mb-0 text-white fw-bold">+ 353 (0) 874 896 800‬</p>
             </div>
           </div>
         </div>
