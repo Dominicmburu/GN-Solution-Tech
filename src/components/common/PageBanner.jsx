@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../assets/css/PageBanner.css';
 
-const PageBanner = ({ title, subtitle, background, currentpage }) => {
+const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage }) => {
   const [particles, setParticles] = useState([]);
 
   useEffect(() => {
@@ -27,15 +27,25 @@ const PageBanner = ({ title, subtitle, background, currentpage }) => {
     generateParticles();
   }, []);
 
+  // Determine background style based on props
+  const bannerStyle = {
+    backgroundColor: background || "#0a1033",
+    padding: "100px 0 80px",
+    position: "relative",
+    overflow: "hidden",
+    ...(backgroundImage && {
+      backgroundImage: `linear-gradient(rgba(10, 16, 51, 0.4), rgba(10, 16, 51, 0.3)), url(${backgroundImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "bottom center",
+      backgroundRepeat: "no-repeat",
+      // backgroundAttachment: "fixed"
+    })
+  };
+
   return (
     <section
       className="page-banner position-relative d-flex align-items-center"
-      style={{
-        backgroundColor: background || "#0a1033",
-        padding: "100px 0 80px",
-        position: "relative",
-        overflow: "hidden"
-      }}
+      style={bannerStyle}
     >
       {/* Animated background elements - keep existing ones */}
       <div className="position-absolute w-100 h-100 top-0 start-0" style={{ overflow: "hidden" }}>

@@ -7,32 +7,32 @@ import '../assets/css/AboutPage.css';
 const AboutPage = () => {
   const companyValues = [
     {
-      icon: <FaNetworkWired className="text-info" size={36} />,
+      icon: <FaNetworkWired style={{color: "var(--primary-color)"}} size={36} />,
       title: "Network Expertise",
       description: "With over 17 years in telecommunications, we deliver robust, scalable network solutions for enterprises of all sizes."
     },
     {
-      icon: <FaLightbulb className="text-info" size={36} />,
+      icon: <FaLightbulb style={{color: "var(--primary-color)"}} size={36} />,
       title: "Innovation",
       description: "We leverage cutting-edge technologies and methodologies to solve complex IT infrastructure challenges."
     },
     {
-      icon: <FaShieldAlt className="text-info" size={36} />,
+      icon: <FaShieldAlt style={{color: "var(--primary-color)"}} size={36} />,
       title: "Security",
       description: "Our experience with enterprise-grade security protocols ensures your network and data remain protected."
     },
     {
-      icon: <FaCloud className="text-info" size={36} />,
+      icon: <FaCloud style={{color: "var(--primary-color)"}} size={36} />,
       title: "Automation",
       description: "We implement DevOps practices and network automation to increase efficiency and reduce operational costs."
     },
     {
-      icon: <FaChartLine className="text-info" size={36} />,
+      icon: <FaChartLine style={{color: "var(--primary-color)"}} size={36} />,
       title: "Performance",
       description: "Our solutions are designed to maximize network performance with 99.95% SLA adherence."
     },
     {
-      icon: <FaSyncAlt className="text-info" size={36} />,
+      icon: <FaSyncAlt style={{color: "var(--primary-color)"}} size={36} />,
       title: "Adaptability",
       description: "We rapidly adapt to evolving technologies and business requirements to keep our clients ahead."
     }
@@ -103,6 +103,7 @@ const AboutPage = () => {
       <PageBanner
         title="About Us"
         subtitle="Enterprise Network Solutions Through Automation & Security"
+        backgroundImage={"https://i.pinimg.com/736x/51/36/92/513692dfc6f23721327d26b040922275.jpg"}
         background="#0a1033"
         currentpage="About Us"
       />
@@ -120,7 +121,8 @@ const AboutPage = () => {
                   style={{ borderRadius: '12px', transform: 'rotate(-2deg)' }}
                 />
                 <div
-                  className="circle-founder-intro position-absolute bg-info text-white rounded-circle shadow-lg d-flex justify-content-center align-items-center"
+                  className="circle-founder-intro position-absolute text-white rounded-circle shadow-lg d-flex justify-content-center align-items-center"
+                  style={{backgroundColor: 'var(--primary-color)'}}
                 >
                   <div className="text-center">
                     <h4 className="mb-0 fw-bold">2024</h4>
@@ -131,7 +133,7 @@ const AboutPage = () => {
             </div>
             <div className="col-lg-6 ps-lg-5">
               <div className="mb-4">
-                <span className="badge bg-info text-white p-2 mb-3">Our Journey</span>
+                <span className="badge text-white p-2 mb-3" style={{backgroundColor: 'var(--primary-color)'}}>Our Journey</span>
                 <h2 className="fw-bold display-5 mb-4" style={{ color: '#0a1033' }}>
                   Our Story
                 </h2>
@@ -158,7 +160,7 @@ const AboutPage = () => {
             <div className="col-lg-8 text-center">
               <h2 className="fw-bold mb-4" style={{ color: "#0a1033" }}>Our Mission & Vision</h2>
               <div className="d-flex justify-content-center mb-4">
-                <div style={{ width: "80px", height: "4px", backgroundColor: "#00e8ff" }}></div>
+                <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
               </div>
             </div>
           </div>
@@ -167,7 +169,7 @@ const AboutPage = () => {
               <div className="card border-0 h-100 shadow-sm">
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-4">
-                    <div className="bg-info rounded-circle p-3 me-3">
+                    <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-rocket text-white"></i>
                     </div>
                     <h3 className="fw-bold m-0" style={{ color: "#0a1033" }}>Mission</h3>
@@ -181,7 +183,7 @@ const AboutPage = () => {
               <div className="card border-0 h-100 shadow-sm">
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-4">
-                    <div className="bg-info rounded-circle p-3 me-3">
+                    <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-eye text-white"></i>
                     </div>
                     <h3 className="fw-bold m-0" style={{ color: "#0a1033" }}>Vision</h3>
@@ -256,7 +258,7 @@ const AboutPage = () => {
             <div className="col-lg-8 text-center">
               <h2 className="fw-bold mb-4" style={{ color: "#fff" }}>Our Professional Journey</h2>
               <div className="d-flex justify-content-center mb-4">
-                <div style={{ width: "80px", height: "4px", backgroundColor: "#00e8ff" }}></div>
+                <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
               </div>
             </div>
           </div>
@@ -270,7 +272,7 @@ const AboutPage = () => {
                 <div className="col-md-6">
                   <div className={`timeline-content p-4 rounded-3 shadow bg-white ${index % 2 === 0 ? 'ms-auto me-4' : 'me-auto ms-4'}`}>
                     <div className="d-flex align-items-center mb-3">
-                      <div className="bg-info text-white rounded-circle p-2 me-3 fw-bold" style={{ width: "50px", height: "50px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <div className="text-white rounded-circle p-2 me-3 fw-bold" style={{ width: "50px", height: "50px", display: "flex", alignItems: "center", justifyContent: "center" , backgroundColor: "var(--primary-color)"}}>
                         {milestone.year}
                       </div>
                       <h4 className="fw-bold mb-0" style={{ color: "#0a1033" }}>{milestone.title}</h4>
@@ -360,7 +362,7 @@ const AboutPage = () => {
               <div className="card border-0 h-100 shadow-sm">
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-3">
-                    <div className="bg-info rounded-circle p-3 me-3">
+                    <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-network-wired text-white"></i>
                     </div>
                     <h4 className="fw-bold m-0" style={{ color: "#0a1033" }}>Network Automation</h4>
@@ -378,7 +380,7 @@ const AboutPage = () => {
               <div className="card border-0 h-100 shadow-sm">
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-3">
-                    <div className="bg-info rounded-circle p-3 me-3">
+                    <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-shield-alt text-white"></i>
                     </div>
                     <h4 className="fw-bold m-0" style={{ color: "#0a1033" }}>Network Security</h4>
@@ -396,7 +398,7 @@ const AboutPage = () => {
               <div className="card border-0 h-100 shadow-sm">
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-3">
-                    <div className="bg-info rounded-circle p-3 me-3">
+                    <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-tachometer-alt text-white"></i>
                     </div>
                     <h4 className="fw-bold m-0" style={{ color: "#0a1033" }}>Network Optimization</h4>
@@ -421,7 +423,7 @@ const AboutPage = () => {
             <div className="col-lg-8 text-center text-white">
               <h2 className="fw-bold mb-4">Ready to Transform Your Network Infrastructure?</h2>
               <p className="lead mb-4">Partner with GN Solutions and leverage our 17+ years of enterprise network experience.</p>
-              <button className="btn btn-info btn-lg px-5 py-3 text-white">
+              <button className="btn btn-lg px-5 py-3 text-white" style={{ backgroundColor: "var(--primary-color)" }} onClick={() => window.location.href = '/contact'}>
                 Schedule a Consultation
               </button>
             </div>

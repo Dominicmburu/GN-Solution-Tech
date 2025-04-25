@@ -16,7 +16,7 @@ const AboutSection = () => {
         <div className="row align-items-center">
           <div className="col-lg-6 mb-4 mb-lg-0">
             <div className="position-relative">
-              <div className="border border-info border-2 p-2 rounded" style={{ maxWidth: "550px" }}>
+              <div className="p-2 rounded" style={{ maxWidth: "550px", borderColor: 'var(--primary-color)', border: '2px solid var(--primary-color)' }}>
                 <img src="https://i.pinimg.com/736x/e0/f7/fb/e0f7fb66f4961d539e8b6d0ce2a883b3.jpg" alt="Cyber Security Professional" className="img-fluid rounded" />
               </div>
             </div>
@@ -38,7 +38,7 @@ const AboutSection = () => {
                 {features.map((feature, index) => (
                   <div key={index} className="col-md-6 mb-3">
                     <div className="d-flex align-items-center">
-                      <div className="text-info me-2"><FaCheck /></div>
+                      <div className="me-2" style={{color: 'var(--primary-color)'}}><FaCheck /></div>
                       <p className="mb-0">{feature}</p>
                     </div>
                   </div>

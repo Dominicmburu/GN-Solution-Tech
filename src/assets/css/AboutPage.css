@@ -52,7 +52,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #00e8ff;
+    background-color: var(--primary-color);
     top: 15px;
     left: 50%;
     transform: translateX(-50%);
@@ -93,7 +93,7 @@
     bottom: 0;
     left: 50%;
     width: 4px;
-    background-color: #00e8ff;
+    background-color: var(--primary-color);
     transform: translateX(-50%);
 }
 
@@ -325,7 +325,7 @@
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%) scale(0.9);
-    background-color: #00e8ff;
+    background-color: var(--primary-color);
     color: #0a1033;
     width: 100px;
     height: 100px;
@@ -334,7 +334,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 5px 15px rgba(0, 232, 255, 0.4);
+    box-shadow: 0 5px 15px rgba(82, 100, 2, 0.4);
     z-index: 10;
     opacity: 0;
     transition: all 0.5s ease;
@@ -361,7 +361,7 @@
 .certification-badge {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: rgba(0, 232, 255, 0.1);
+    background-color: rgba(251, 255, 0, 0.39);
     color: #0a1033;
     border-radius: 30px;
     font-weight: 600;
@@ -372,7 +372,7 @@
 }
 
 .certification-badge:hover {
-    background-color: rgba(0, 232, 255, 0.3);
+    background-color: rgba(251, 255, 0, 0.3);
     transform: translateY(-3px);
 }
 
@@ -407,7 +407,7 @@
     left: 0;
     width: 50px;
     height: 3px;
-    background-color: #00e8ff;
+    background-color: var(--primary-color);
 }
 
 /* Media queries for responsive design */

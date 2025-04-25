@@ -3,7 +3,7 @@ import { FaArrowRight, FaPhone } from 'react-icons/fa';
 
 const CTASection = () => {
   return (
-    <section className="cta-section py-5" style={{ backgroundColor: "#00e8ff" }}>
+    <section className="cta-section py-5" style={{ backgroundColor: "var(--primary-color)" }}>
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-7 mb-4 mb-lg-0">

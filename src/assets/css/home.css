@@ -59,23 +59,23 @@ body {
 }
 
 /* Section Titles */
-.section-title h2 {
+/* .section-title h2 {
     font-size: 2.5rem;
     font-weight: 700;
-}
+} */
 
 /* Hero Section */
-.hero-section {
+/* .hero-section {
     position: relative;
     overflow: hidden;
-}
+} */
 
-.cyber-circle-bg {
+/* .cyber-circle-bg {
     position: relative;
     width: 400px;
     height: 400px;
     margin: 0 auto;
-}
+} */
 
 /* Feature Cards */
 .feature-card {
