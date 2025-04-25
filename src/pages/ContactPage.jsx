@@ -164,6 +164,7 @@ const ContactPage = () => {
       <PageBanner 
         title="Contact & Support" 
         subtitle="Get in Touch with Our Expert Team"
+        backgroundImage={'https://i.pinimg.com/736x/ed/9c/4f/ed9c4f1621b11333d09c49df24179108.jpg'}
         background="#0a1033"
         currentpage="Contact"
       />

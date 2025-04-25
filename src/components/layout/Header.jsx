@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaPhone, FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import { FaPhone, FaChevronDown, FaChevronRight, FaEnvelope } from 'react-icons/fa';
 import Logo from './Logo';
 
 const Header = () => {
@@ -126,7 +126,7 @@ const Header = () => {
   ];
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#0a1033' }}>
+    <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#0a1033', zIndex: 1000 }}>
       <div className="container">
         <Link className="navbar-brand" to="/" onClick={closeNav}>
           <Logo />
@@ -241,14 +241,53 @@ const Header = () => {
             <li className="nav-item">
               <Link className={`nav-link ${getLinkColor('/contact')}`} to="/contact" onClick={closeNav}>Contact</Link>
             </li>
+            
+            {/* Mobile Contact Info */}
+            <li className="nav-item d-lg-none mt-3">
+              <div className="d-flex align-items-center">
+                <div className="bg-info rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
+                  <FaPhone color="white" size={16} />
+                </div>
+                <div className="ms-2">
+                  <p className="mb-0 text-white small">Call us today</p>
+                  <p className="mb-0 text-white fw-bold">+ 353 (0) 874 896 800‬</p>
+                </div>
+              </div>
+            </li>
+            <li className="nav-item d-lg-none mt-3">
+              <div className="d-flex align-items-center">
+                <div className="bg-info rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
+                  <FaEnvelope color="white" size={16} />
+                </div>
+                <div className="ms-2">
+                  <p className="mb-0 text-white small">Email us</p>
+                  <p className="mb-0 text-white fw-bold">info@avaso.com</p>
+                </div>
+              </div>
+            </li>
           </ul>
-          <div className="d-flex align-items-center">
-            <div className="bg-info rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "50px", height: "50px" }}>
-              <FaPhone color="white" />
+          
+          {/* Desktop Contact Info - Hidden on mobile */}
+          <div className="d-none d-lg-flex align-items-center flex-wrap">
+            <div className="d-flex align-items-center me-3 mb-2 mb-md-0">
+              <div className="rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "45px", height: "45px", backgroundColor: 'var(--primary-color)' }}>
+                <FaPhone color="white" />
+              </div>
+              <div className="ms-2">
+                <p className="mb-0 text-white small">Call us today</p>
+                <p className="mb-0 text-white fw-bold">+ 353 (0) 874 896 800‬</p>
+              </div>
             </div>
-            <div className="ms-2">
-              <p className="mb-0 text-white small">Call us today</p>
-              <p className="mb-0 text-white fw-bold">+ 353 (0) 874 896 800‬</p>
+            
+            {/* Email Section */}
+            <div className="d-flex align-items-center">
+              <div className="rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "45px", height: "45px", backgroundColor: 'var(--primary-color)' }}>
+                <FaEnvelope color="white" />
+              </div>
+              <div className="ms-2">
+                <p className="mb-0 text-white small">Email us</p>
+                <p className="mb-0 text-white fw-bold">info@gnsolutions.eu</p>
+              </div>
             </div>
           </div>
         </div>

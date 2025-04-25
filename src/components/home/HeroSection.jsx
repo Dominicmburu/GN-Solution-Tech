@@ -14,6 +14,7 @@ const HeroSection = () => {
 
   return (
     <section
+    id='hero-section'
       className="hero-section position-relative"
       style={{
         backgroundColor: '#0a1033',
@@ -42,7 +43,7 @@ const HeroSection = () => {
 
       <div className="hero-cont container position-relative" style={{ zIndex: 3 }}>
         <div className="row align-items-center">
-          <div className="col-lg-6">
+          <div className="col-lg-12">
             <SectionTitle
               subtitle="Enterprise-grade IT Solutions & Cybersecurity Expertise"
               title={<>Transform Your Business with <span className="text-info fw-bold">Intelligent </span> Automation</>}
@@ -53,14 +54,15 @@ const HeroSection = () => {
               cloud infrastructure solutions, and military-grade cybersecurity protection.
             </p>
 
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center justify-content-center mt-4">
               <button
-                className={`discover-btn btn me-3 btn-info px-4 py-2 rounded-1  transition-all ${isHovered ? 'shadow-lg' : ''}`}
+                className={`discover-btn btn me-3 px-4 py-2 rounded-1  transition-all ${isHovered ? 'shadow-lg' : ''}`}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                style={{backgroundColor: 'var(--primary-color)',}}
               >
                 <Link
-                  to="/about"
+                  to="/aboutus"
                   className="text-white text-decoration-none d-flex align-items-center"
                 >
                   Discover More
@@ -68,17 +70,15 @@ const HeroSection = () => {
                     className="ms-2 transition-transform"
                     style={{
                       transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
-                      transition: 'transform 0.2s ease'
+                      transition: 'transform 0.2s ease',
                     }}
                   />
                 </Link>
-              </button>
-
-            
+              </button>            
             </div>
           </div>
 
-          <div className="col-lg-6 text-center mt-5 mt-lg-0">
+          {/* <div className="col-lg-6 text-center mt-5 mt-lg-0">
             <div className="position-relative cyber-container">
               <div className="cyber-circle-bg">
                 <svg
@@ -105,7 +105,7 @@ const HeroSection = () => {
                 
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 

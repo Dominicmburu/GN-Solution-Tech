@@ -6,22 +6,22 @@ import FeatureCard from './FeatureCard';
 const WhyChooseUsSection = () => {
   const features = [
     {
-      icon: <FaCogs size={40} color="#00e8ff" />,
+      icon: <FaCogs size={40} color="var(--primary-color)" />,
       title: 'Enterprise-Grade Automation',
       description: 'Pioneers in network-as-code solutions and infrastructure automation for seamless digital transformation across organizations.'
     },
     {
-      icon: <FaLock size={40} color="#00e8ff" />,
+      icon: <FaLock size={40} color="var(--primary-color)" />,
       title: 'Full-Stack Security',
       description: 'End-to-end cybersecurity solutions combining threat intelligence, zero-trust architecture, and military-grade encryption protocols.'
     },
     {
-      icon: <FaCloud size={40} color="#00e8ff" />,
+      icon: <FaCloud size={40} color="var(--primary-color)" />,
       title: 'Cloud Infrastructure Expertise',
       description: 'Specialists in secure cloud migration, containerization, and building scalable hybrid cloud architectures for enterprise needs.'
     },
     {
-      icon: <FaHeadset size={40} color="#00e8ff" />,
+      icon: <FaHeadset size={40} color="var(--primary-color)" />,
       title: '24/7 Smart Hands Support',
       description: 'Dedicated European-based technical teams providing round-the-clock IT management and emergency response services.'
     }

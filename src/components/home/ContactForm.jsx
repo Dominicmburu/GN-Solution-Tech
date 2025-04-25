@@ -95,7 +95,7 @@ const ContactForm = () => {
           required
         ></textarea>
       </div>
-      <button type="submit" className="btn btn-info w-100 py-3">
+      <button type="submit" className="btn w-100 py-3" style={{ backgroundColor: "var(--primary-color)" }}>
         Send Request
       </button>
     </form>

@@ -129,6 +129,7 @@ const BlogsPage = () => {
       <PageBanner 
         title="Blogs & Knowledge Hub" 
         subtitle="Insights, Guides & Industry Expertise"
+        backgroundImage={"https://i.pinimg.com/736x/d9/4e/81/d94e81de9fbff47ebf18dbbfbd0d7d95.jpg"}
         background="#0a1033"
         currentpage="Blogs"
       />
