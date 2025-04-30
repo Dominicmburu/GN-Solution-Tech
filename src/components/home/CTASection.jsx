@@ -19,7 +19,7 @@ const CTASection = () => {
               <div className="d-flex align-items-center">
                 <div className="bg-white rounded-circle p-2 d-flex justify-content-center align-items-center" 
                      style={{ width: "50px", height: "50px" }}>
-                  <FaPhone color="#00e8ff" />
+                  <FaPhone style={{color: "var(--primary-color)"}} />
                 </div>
                 <div className="ms-2">
                   <p className="mb-0 small">EU Support Center</p>

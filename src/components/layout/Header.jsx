@@ -37,7 +37,7 @@ const Header = () => {
 
   // Get link text color based on active state
   const getLinkColor = (path) => {
-    return isActive(path) ? 'text-info' : 'text-white';
+    return isActive(path) ? '#f08b0a' : 'white';
   };
 
   // Updated service categories based on the new information
@@ -143,13 +143,13 @@ const Header = () => {
         <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNav">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
-              <Link className={`nav-link ${getLinkColor('/')}`} to="/" onClick={closeNav}>Home</Link>
+              <Link className={"nav-link"} style={{ color: getLinkColor('/') }} to="/" onClick={closeNav}>Home</Link>
             </li>
             
             {/* Services Dropdown with Mega Menu */}
             <li className={`nav-item dropdown position-static ${isServiceMenuOpen ? 'show' : ''}`}>
               <a
-                className={`nav-link d-flex align-items-center ${location.pathname.includes('/services') ? 'text-info' : 'text-white'}`}
+                className={`nav-link d-flex align-items-center ${location.pathname.includes('/services') ? '#f08b0a' : 'text-white'}`}
                 href="#"
                 onClick={toggleServiceMenu}
               >
@@ -188,7 +188,7 @@ const Header = () => {
                                   padding: '6px 10px',
                                   borderRadius: '4px',
                                   transition: 'all 0.2s ease',
-                                  backgroundColor: location.pathname === service.link ? '#f5f5f5' : 'transparent'
+                                  backgroundColor: location.pathname === service.link ? '#f08b0a' : 'transparent'
                                 }}
                                 onClick={closeNav}
                                 onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
@@ -233,13 +233,13 @@ const Header = () => {
               <Link className={`nav-link ${getLinkColor('/testimonials')}`} to="/testimonials" onClick={closeNav}>Testimonials</Link>
             </li> */}
             <li className="nav-item">
-              <Link className={`nav-link ${getLinkColor('/aboutus')}`} to="/aboutus" onClick={closeNav}>About Us</Link>
+              <Link className={`nav-link`} style={{ color: getLinkColor('/aboutus')}} to="/aboutus" onClick={closeNav}>About Us</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${getLinkColor('/blogs')}`} to="/blogs" onClick={closeNav}>Blogs</Link>
+              <Link className={`nav-link`} style={{ color: getLinkColor('/blogs')}} to="/blogs" onClick={closeNav}>Blogs</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${getLinkColor('/contact')}`} to="/contact" onClick={closeNav}>Contact</Link>
+              <Link className={`nav-link`} style={{ color: getLinkColor('/contact')}} to="/contact" onClick={closeNav}>Contact</Link>
             </li>
             
             {/* Mobile Contact Info */}
@@ -261,7 +261,7 @@ const Header = () => {
                 </div>
                 <div className="ms-2">
                   <p className="mb-0 text-white small">Email us</p>
-                  <p className="mb-0 text-white fw-bold">info@avaso.com</p>
+                  <p className="mb-0 text-white fw-bold">info@gnsolutions.com</p>
                 </div>
               </div>
             </li>
