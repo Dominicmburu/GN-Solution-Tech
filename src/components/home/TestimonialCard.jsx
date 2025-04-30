@@ -14,7 +14,7 @@ const TestimonialCard = ({ image, text, name, role }) => {
       <p className="text-white-50 mb-4">{text}</p>
       <div className="testimonial-info">
         <h5 className="text-white mb-1">{name}</h5>
-        <p className="text-info mb-0">{role}</p>
+        <p style={{ color: "var(--primary-color)"}} className="mb-0">{role}</p>
       </div>
     </div>
   );

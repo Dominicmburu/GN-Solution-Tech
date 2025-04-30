@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../assets/css/PageBanner.css';
+import { Link } from 'react-router-dom';
 
 const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage }) => {
   const [particles, setParticles] = useState([]);
@@ -138,7 +139,7 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
               {/* Breadcrumb navigation */}
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
-                  <li className="breadcrumb-item"><a href="/" className="text-info text-decoration-none">Home</a></li>
+                  <li className="breadcrumb-item"><Link to="/" style={{color: "var(--primary-color)"}} className="text-decoration-none">Home</Link></li>
                   <li className="breadcrumb-item active text-white" aria-current="page">{currentpage}</li>
                 </ol>
               </nav>

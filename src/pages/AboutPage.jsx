@@ -203,7 +203,7 @@ const AboutPage = () => {
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
               <h2 className="fw-bold mb-3 text-white">Our Expertise</h2>
-              <p className="text-info">Backed by 17+ years of telecommunications experience</p>
+              <p style={{color: "var(--primary-color)"}}>Backed by 17+ years of telecommunications experience</p>
             </div>
           </div>
           <div className="row">
@@ -212,7 +212,7 @@ const AboutPage = () => {
                 <div className="card border-0 h-100 text-center shadow expertise-card">
                   <div className="card-body p-4">
                     <div className="expertise-icon-container mb-3">
-                    <div className="text-info fa-2x fs-3">{highlight.icon}</div>
+                    <div className="fa-2x fs-3" style={{color: "var(--primary-color)"}}>{highlight.icon}</div>
                     </div>
                     <h4 className="text-light fw-bold mb-3">{highlight.title}</h4>
                     <p className="card-text text-light">{highlight.description}</p>

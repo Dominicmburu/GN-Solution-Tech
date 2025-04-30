@@ -159,7 +159,7 @@ const BlogsPage = () => {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <button className="btn btn-info text-white">
+                <button className="btn text-white" style={{backgroundColor: 'var(--primary-color)'}}>
                   <FaSearch />
                 </button>
               </div>

@@ -46,7 +46,7 @@ const HeroSection = () => {
           <div className="col-lg-12">
             <SectionTitle
               subtitle="Enterprise-grade IT Solutions & Cybersecurity Expertise"
-              title={<>Transform Your Business with <span className="text-info fw-bold">Intelligent </span> Automation</>}
+              title={<>Transform Your Business with <span style={{color: "var(--primary-color)"}} className="fw-bold">Intelligent </span> Automation</>}
               light={true}
             />
             <p className="text-white-50 mb-4">

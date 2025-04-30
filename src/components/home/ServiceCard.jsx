@@ -5,7 +5,7 @@ import '../../assets/css/ServiceCard.css';
 const ServiceCard = ({ icon, title, features, hasCyberGraphic = false }) => {
   return (
     <div className="service-card p-4 rounded position-relative" style={{ backgroundColor: "#0d1545", height: "100%" }}>
-      <div className="service-icon mb-3 text-info">
+      <div className="service-icon mb-3" style={{ color: "var(--primary-color)" }}>
         {icon}
       </div>
       <h4 className="text-white mb-3">{title}</h4>
