@@ -4,8 +4,8 @@ import { FaPhone, FaChevronDown, FaChevronRight, FaEnvelope } from 'react-icons/
 import Logo from './Logo';
 
 const Header = () => {
-  const location = useLocation(); // Get current route location
-  const navigate = useNavigate(); // Add useNavigate hook for programmatic navigation
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isServiceMenuOpen, setIsServiceMenuOpen] = useState(false);
 
@@ -17,17 +17,14 @@ const Header = () => {
     e.preventDefault();
     setIsServiceMenuOpen(!isServiceMenuOpen);
     
-    // Navigate to services page when clicking the services button
     navigate('/services');
   };
 
-  // Optional: Close the navbar when a link is clicked (better UX on mobile)
   const closeNav = () => {
     if (isNavOpen) setIsNavOpen(false);
     setIsServiceMenuOpen(false);
   };
 
-  // Function to check if link is active
   const isActive = (path) => {
     if (path === '/') {
       return location.pathname === path;
@@ -35,12 +32,10 @@ const Header = () => {
     return location.pathname.startsWith(path);
   };
 
-  // Get link text color based on active state
   const getLinkColor = (path) => {
     return isActive(path) ? '#f08b0a' : 'white';
   };
 
-  // Updated service categories based on the new information
   const serviceCategories = [
     {
       title: "Business Process Automation",
@@ -109,7 +104,6 @@ const Header = () => {
     }
   ];
 
-  // Featured services for the cards
   const featuredServices = [
     {
       title: "The case for a global IT service desk",
@@ -163,7 +157,7 @@ const Header = () => {
                   position: 'absolute',
                   left: 0,
                   right: 0,
-                  backgroundColor: 'white',
+                  backgroundColor: 'var(--primary-color)',
                   display: isServiceMenuOpen ? 'block' : 'none',
                   zIndex: 1000,
                   marginTop: '0',
@@ -245,7 +239,7 @@ const Header = () => {
             {/* Mobile Contact Info */}
             <li className="nav-item d-lg-none mt-3">
               <div className="d-flex align-items-center">
-                <div className="bg-info rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
+                <div className="rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px", backgroundColor: 'var(--primary-color)' }}>
                   <FaPhone color="white" size={16} />
                 </div>
                 <div className="ms-2">
@@ -256,7 +250,7 @@ const Header = () => {
             </li>
             <li className="nav-item d-lg-none mt-3">
               <div className="d-flex align-items-center">
-                <div className="bg-info rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
+                <div className="rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px", backgroundColor: 'var(--primary-color)' }}>
                   <FaEnvelope color="white" size={16} />
                 </div>
                 <div className="ms-2">
