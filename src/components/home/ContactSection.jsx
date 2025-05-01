@@ -6,26 +6,8 @@ const ContactSection = () => {
     {
       city: 'Dublin',
       address: 'GN Solutions HQ, Docklands Innovation Centre, Dublin 1',
-      email: 'dublin@gnsolutions.eu',
-      phone: '+353 1 234 5678'
-    },
-    {
-      city: 'London',
-      address: '5th Floor, Tech Hub Building, Shoreditch, EC2A 4BX',
-      email: 'london@gnsolutions.eu',
-      phone: '+44 20 1234 5678'
-    },
-    {
-      city: 'Berlin',
-      address: 'Digital Transformation Campus, Friedrichstraße 68',
-      email: 'berlin@gnsolutions.eu',
-      phone: '+49 30 1234 5678'
-    },
-    {
-      city: 'Amsterdam',
-      address: 'Cloud Solutions Tower, Zuidplein 12, 1077 XV',
-      email: 'amsterdam@gnsolutions.eu',
-      phone: '+31 20 123 4567'
+      email: 'info@gnsolutions.eu',
+      phone: '+ 353 (0) 874 896 800'
     }
   ];
 
