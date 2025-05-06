@@ -5,7 +5,7 @@ const ContactSection = () => {
   const locations = [
     {
       city: 'Dublin',
-      address: 'GN Solutions HQ, Docklands Innovation Centre, Dublin 1',
+      address: 'GN Solutions HQ,The Oaks, Scholastown Wood, Dublin 16',
       email: 'info@gnsolutions.eu',
       phone: '+ 353 (0) 874 896 800'
     }

@@ -32,8 +32,8 @@ const services = [
         description: "Infrastructure provisioning and configuration automation for efficient IT operations"
       },
       { 
-        title: "Software as Code", 
-        link: "/services/software-as-code",
+        title: "Platform as Code", 
+        link: "/services/platform-as-code",
         description: "Streamline software development lifecycle through automated CI/CD pipelines"
       },
     ],

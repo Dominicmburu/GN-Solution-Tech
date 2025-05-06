@@ -1,6 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaArrowRight, FaCheck, FaPhone } from 'react-icons/fa';
 import SectionTitle from './SectionTitle';
+
+// Easing function: easeOutQuad
+const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
+
+// Counter component with easing effect
+const Counter = ({ end, duration = 2000 }) => {
+  const [count, setCount] = useState(0);
+  const endValue = parseInt(end.replace('+', '')) || parseInt(end); // Handle "200+" by removing '+' and parsing
+
+  useEffect(() => {
+    let startTime = null;
+    let animationFrame;
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1); // Progress from 0 to 1
+      const easedProgress = easeOutQuad(progress); // Apply easing
+      const currentCount = Math.floor(easedProgress * endValue);
+
+      setCount(currentCount);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame); // Cleanup on unmount
+  }, [end, duration]);
+
+  return <span>{count}{end.includes('+') ? '+' : ''}%</span>;
+};
 
 const AboutSection = () => {
   const features = [
@@ -47,11 +81,11 @@ const AboutSection = () => {
               
               <div className="row mb-4">
                 <div className="col-6">
-                  <h3 className="mb-0 display-5 fw-bold text-dark">95%</h3>
+                  <h3 className="mb-0 display-5 fw-bold text-dark"><Counter end="95" duration={2000} /></h3>
                   <p className="mb-0">Client Retention Rate</p>
                 </div>
                 <div className="col-6">
-                  <h3 className="mb-0 display-5 fw-bold text-dark">200+</h3>
+                  <h3 className="mb-0 display-5 fw-bold text-dark"><Counter end="200" duration={2000} /></h3>
                   <p className="mb-0">Projects Completed</p>
                 </div>
               </div> 
