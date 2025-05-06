@@ -16,7 +16,6 @@ const Header = () => {
   const toggleServiceMenu = (e) => {
     e.preventDefault();
     setIsServiceMenuOpen(!isServiceMenuOpen);
-    
     navigate('/services');
   };
 
@@ -26,9 +25,7 @@ const Header = () => {
   };
 
   const isActive = (path) => {
-    if (path === '/') {
-      return location.pathname === path;
-    }
+    if (path === '/') return location.pathname === path;
     return location.pathname.startsWith(path);
   };
 
@@ -42,18 +39,15 @@ const Header = () => {
       services: [
         {
           title: "Network as Code",
-          link: "/services/network-as-code",
-          description: "Automated deployment and management of network infrastructure."
+          link: "/services/network-as-code"
         },
         {
           title: "Infrastructure as Code",
-          link: "/services/infrastructure-as-code",
-          description: "Infrastructure provisioning and configuration automation."
+          link: "/services/infrastructure-as-code"
         },
         {
-          title: "Software as Code",
-          link: "/services/software-as-code",
-          description: "Software development and deployment automation."
+          title: "Platform as Code",
+          link: "/services/platform-as-code"
         }
       ]
     },
@@ -62,23 +56,19 @@ const Header = () => {
       services: [
         {
           title: "Managed Network",
-          link: "/services/managed-network",
-          description: "Comprehensive network management solutions (LAN, WAN, SD-WAN)."
+          link: "/services/managed-network"
         },
         {
           title: "Cybersecurity",
-          link: "/services/cybersecurity",
-          description: "Security audits, firewall management, and data security strategies."
+          link: "/services/cybersecurity"
         },
         {
           title: "Infrastructure Design & Management",
-          link: "/services/infrastructure-design",
-          description: "Containerization, virtualization, and scalable IT infrastructure solutions."
+          link: "/services/infrastructure-design"
         },
         {
           title: "IT Remote & Smart Hands Support",
-          link: "/services/remote-smart-hands",
-          description: "Remote and on-site IT assistance for businesses."
+          link: "/services/remote-smart-hands"
         }
       ]
     },
@@ -87,35 +77,17 @@ const Header = () => {
       services: [
         {
           title: "IT Project Management",
-          link: "/services/it-project-management",
-          description: "End-to-end project lifecycle management for IT implementations."
+          link: "/services/it-project-management"
         },
         {
           title: "Technology Transitions & Transformation",
-          link: "/services/technology-transitions",
-          description: "Consulting services for upgrading and modernizing IT infrastructures."
+          link: "/services/technology-transitions"
         },
         {
           title: "IT Training",
-          link: "/services/it-training",
-          description: "Customized IT training programs for teams and professionals."
+          link: "/services/it-training"
         }
       ]
-    }
-  ];
-
-  const featuredServices = [
-    {
-      title: "The case for a global IT service desk",
-      description: "The help desk function typically makes up less than five percent of a firm's IT spending, but can represent almost 50% of the IT organization's perceived value.",
-      link: "/services/global-it",
-      image: "/api/placeholder/300/200"
-    },
-    {
-      title: "Revolutionizing Field Service Management",
-      description: "The AVASO Field Force Application (FFA) is your ultimate partner for efficient, seamless, and innovative field service management.",
-      link: "/services/field-service",
-      image: "/api/placeholder/300/200"
     }
   ];
 
@@ -134,12 +106,13 @@ const Header = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNav">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
-              <Link className={"nav-link"} style={{ color: getLinkColor('/') }} to="/" onClick={closeNav}>Home</Link>
+              <Link className="nav-link" style={{ color: getLinkColor('/') }} to="/" onClick={closeNav}>Home</Link>
             </li>
-            
+
             {/* Services Dropdown with Mega Menu */}
             <li className={`nav-item dropdown position-static ${isServiceMenuOpen ? 'show' : ''}`}>
               <a
@@ -149,15 +122,15 @@ const Header = () => {
               >
                 Services <FaChevronDown className="ms-1" size={12} />
               </a>
-              
-              {/* Mega Menu for Services */}
+
+              {/* Mega Menu */}
               <div
                 className={`dropdown-menu w-100 border-0 shadow ${isServiceMenuOpen ? 'show' : ''}`}
                 style={{
                   position: 'absolute',
                   left: 0,
                   right: 0,
-                  backgroundColor: 'var(--primary-color)',
+                  backgroundColor: 'rgba(10, 16, 51, 0.95)',
                   display: isServiceMenuOpen ? 'block' : 'none',
                   zIndex: 1000,
                   marginTop: '0',
@@ -167,18 +140,18 @@ const Header = () => {
               >
                 <div className="container">
                   <div className="row">
-                    {/* Service Categories */}
-                    {serviceCategories.map((category, index) => (
-                      <div className="col-md-3" key={index}>
-                        <h6 className="fw-bold mb-3" style={{ color: '#0a1033' }}>{category.title}</h6>
+                    {/* Swapped Order: Enterprise, Business Process, IT Consulting */}
+                    {[serviceCategories[1], serviceCategories[0], serviceCategories[2]].map((category, index) => (
+                      <div className="col-md-4" key={index}>
+                        <h6 className="fw-bold mb-3" style={{ color: '#fff' }}>{category.title}</h6>
                         <ul className="list-unstyled">
                           {category.services.map((service, serviceIndex) => (
-                            <li key={serviceIndex} className="mb-3">
+                            <li key={serviceIndex} className="mb-2">
                               <Link
                                 to={service.link}
                                 className="text-decoration-none d-flex align-items-center"
-                                style={{ 
-                                  color: location.pathname === service.link ? '#00e8ff' : '#333',
+                                style={{
+                                  color: location.pathname === service.link ? '#00e8ff' : '#fff',
                                   padding: '6px 10px',
                                   borderRadius: '4px',
                                   transition: 'all 0.2s ease',
@@ -186,56 +159,30 @@ const Header = () => {
                                 }}
                                 onClick={closeNav}
                                 onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
-                                onMouseOut={(e) => e.currentTarget.style.backgroundColor = location.pathname === service.link ? '#f5f5f5' : 'transparent'}
+                                onMouseOut={(e) => e.currentTarget.style.backgroundColor = location.pathname === service.link ? '#f08b0a' : 'transparent'}
                               >
                                 {service.title} <FaChevronRight className="ms-2" size={12} />
                               </Link>
-                              <small className="text-muted d-block ps-2" style={{ fontSize: '0.75rem' }}>
-                                {service.description}
-                              </small>
                             </li>
                           ))}
                         </ul>
                       </div>
                     ))}
-
-                    {/* Featured Service Cards Column */}
-                    <div className="col-md-3">
-                      {featuredServices.map((featured, index) => (
-                        <div className="card border-0 mb-4" key={index}>
-                          <img src={featured.image} className="card-img-top" alt={featured.title} />
-                          <div className="card-body p-0 pt-3">
-                            <h6 className="card-title text-info">{featured.title}</h6>
-                            <p className="card-text small text-muted">{featured.description}</p>
-                            <Link
-                              to={featured.link}
-                              className={`text-decoration-none ${location.pathname === featured.link ? 'text-primary' : 'text-info'}`}
-                              onClick={closeNav}
-                            >
-                              Know More <FaChevronRight className="ms-1" size={10} />
-                            </Link>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>
             </li>
-            
-            {/* <li className="nav-item">
-              <Link className={`nav-link ${getLinkColor('/testimonials')}`} to="/testimonials" onClick={closeNav}>Testimonials</Link>
-            </li> */}
+
             <li className="nav-item">
-              <Link className={`nav-link`} style={{ color: getLinkColor('/aboutus')}} to="/aboutus" onClick={closeNav}>About Us</Link>
+              <Link className="nav-link" style={{ color: getLinkColor('/aboutus') }} to="/aboutus" onClick={closeNav}>About Us</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link`} style={{ color: getLinkColor('/blogs')}} to="/blogs" onClick={closeNav}>Blogs</Link>
+              <Link className="nav-link" style={{ color: getLinkColor('/blogs') }} to="/blogs" onClick={closeNav}>Blogs</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link`} style={{ color: getLinkColor('/contact')}} to="/contact" onClick={closeNav}>Contact</Link>
+              <Link className="nav-link" style={{ color: getLinkColor('/contact') }} to="/contact" onClick={closeNav}>Contact</Link>
             </li>
-            
+
             {/* Mobile Contact Info */}
             <li className="nav-item d-lg-none mt-3">
               <div className="d-flex align-items-center">
@@ -260,8 +207,8 @@ const Header = () => {
               </div>
             </li>
           </ul>
-          
-          {/* Desktop Contact Info - Hidden on mobile */}
+
+          {/* Desktop Contact Info */}
           <div className="d-none d-lg-flex align-items-center flex-wrap">
             <div className="d-flex align-items-center me-3 mb-2 mb-md-0">
               <div className="rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "45px", height: "45px", backgroundColor: 'var(--primary-color)' }}>
@@ -272,8 +219,7 @@ const Header = () => {
                 <p className="mb-0 text-white fw-bold">+ 353 (0) 874 896 800‬</p>
               </div>
             </div>
-            
-            {/* Email Section */}
+
             <div className="d-flex align-items-center">
               <div className="rounded-circle p-2 d-flex justify-content-center align-items-center" style={{ width: "45px", height: "45px", backgroundColor: 'var(--primary-color)' }}>
                 <FaEnvelope color="white" />
@@ -286,7 +232,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      
+
       {isServiceMenuOpen && (
         <div
           style={{
@@ -296,7 +242,7 @@ const Header = () => {
             right: 0,
             bottom: 0,
             zIndex: 999,
-            backgroundColor: 'rgba(0,0,0,0.5)', 
+            backgroundColor: 'rgba(0,0,0,0.5)',
             cursor: 'pointer'
           }}
           onClick={() => setIsServiceMenuOpen(false)}

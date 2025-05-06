@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
@@ -105,6 +105,40 @@ const automationBenefits = [
   { metric: "90%", description: "More time for innovation" }
 ];
 
+// Easing function: easeOutQuad
+const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
+
+// Counter component with easing effect
+const Counter = ({ end, duration = 2000 }) => {
+  const [count, setCount] = useState(0);
+  const endValue = parseInt(end); // Convert percentage string to number
+
+  useEffect(() => {
+    let startTime = null;
+    let animationFrame;
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1); // Progress from 0 to 1
+      const easedProgress = easeOutQuad(progress); // Apply easing
+      const currentCount = Math.floor(easedProgress * endValue);
+
+      setCount(currentCount);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame); // Cleanup on unmount
+  }, [end, duration]);
+
+  return <span>{count}%</span>;
+};
+
 const BusinessProcessAutomation = () => {
   const [activeTab, setActiveTab] = useState(automationServices[0].id);
 
@@ -119,50 +153,54 @@ const BusinessProcessAutomation = () => {
     <div className="container-fluid p-0">
       {/* Hero Section */}
       <motion.div 
-  className="hero-section text-center text-white py-5"
-  style={{ 
-    background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${backgroundImage}) center/cover no-repeat`, 
-    padding: '120px 20px'
-  }}
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 1 }}
->
-  <div className="container">
-    <motion.h1
-      className="display-4 fw-bold"
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      // Remove any background styling that might be causing the white background
-      style={{ background: 'transparent' }}
-    >
-      Business Process Automation
-    </motion.h1>
-    <motion.p
-      className="lead mt-3 mb-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.3, duration: 0.5 }}
-    >
-      Transform your IT operations with code-driven automation solutions that reduce errors, 
-      accelerate deployments, and free your team to focus on innovation.
-    </motion.p>
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.6, duration: 0.5 }}
-      className="d-flex justify-content-center gap-3"
-    >
-      <Link to="/contact" className="btn btn-warning btn-lg fw-bold px-4 py-2">
-        Request Automation Assessment
-      </Link>
-      <a href="#automation-services" className="btn btn-outline-light btn-lg px-4 py-2">
-        Explore Solutions
-      </a>
-    </motion.div>
-  </div>
-</motion.div>
+        className="hero-section text-center text-white py-5"
+        style={{ 
+          background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${backgroundImage}) center/cover no-repeat`, 
+          padding: '120px 20px'
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="container">
+          <motion.h1
+            className="display-4 fw-bold"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{ 
+              background: 'transparent', 
+              color: '#f08b0a',
+              position: 'relative',
+              zIndex: 10
+            }}
+          >
+            Business Process Automation
+          </motion.h1>
+          <motion.p
+            className="lead mt-3 mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            Transform your IT operations with code-driven automation solutions that reduce errors, 
+            accelerate deployments, and free your team to focus on innovation.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="d-flex justify-content-center gap-3"
+          >
+            <Link to="/contact" className="btn btn-warning btn-lg fw-bold px-4 py-2">
+              Request Automation Assessment
+            </Link>
+            <a href="#automation-services" className="btn btn-outline-light btn-lg px-4 py-2">
+              Explore Solutions
+            </a>
+          </motion.div>
+        </div>
+      </motion.div>
 
       {/* Expert Introduction */}
       <div className="bg-light py-5">
@@ -201,12 +239,20 @@ const BusinessProcessAutomation = () => {
             >
               <div className="row text-center">
                 {automationBenefits.map((benefit, idx) => (
-                  <div key={idx} className="col-6 mb-4">
+                  <motion.div 
+                    key={idx} 
+                    className="col-6 mb-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.2, duration: 0.5 }}
+                  >
                     <div className="bg-white shadow p-4 rounded">
-                      <h2 className="display-4 fw-bold text-info">{benefit.metric}</h2>
+                      <h2 className="display-4 fw-bold text-info">
+                        <Counter end={benefit.metric} duration={2000} />
+                      </h2>
                       <p className="mb-0">{benefit.description}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -271,7 +317,6 @@ const BusinessProcessAutomation = () => {
                     ))}
                   </ul>
                   
-                  {/* UPDATED: Learn More button now routes to specified paths */}
                   <Link to={serviceRoutes[service.id]} className="btn btn-info mt-3">
                     Learn More
                   </Link>
@@ -376,7 +421,7 @@ const BusinessProcessAutomation = () => {
                   description: "We train your team on the new automation tools and processes to ensure long-term success." 
                 },
                 { 
-                  step: 6, 
+                  step: 6,
                   title: "Ongoing Support & Optimization", 
                   description: "Our team provides continuous support and regularly optimizes your automation solutions." 
                 }
