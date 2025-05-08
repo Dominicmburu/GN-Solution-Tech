@@ -63,7 +63,11 @@ const HeroSection = () => {
               title={<>Transform Your Business with <span style={{color: "var(--primary-color)"}} className="fw-bold">Intelligent </span> Automation</>}
               light={true}
             />
-            <p className="text-white-50 mb-4">
+            <p className="text-white-50 mb-4" 
+            style={{ 
+              fontSize: isMobile ? "14px" : "18px"
+            }}
+            >
               Accelerate your digital transformation with cutting-edge network automation,
               cloud infrastructure solutions, and military-grade cybersecurity protection.
             </p>
