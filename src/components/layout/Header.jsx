@@ -133,17 +133,19 @@ const Header = () => {
 
   return (
     <nav 
+      id='header-nav'
       className={`navbar navbar-expand-lg fixed-top ${isScrolled ? 'shadow-sm' : ''}`} 
       style={{ 
         backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.6)' : '#ffffff',
         transition: 'all 0.3s ease',
         backdropFilter: isScrolled ? 'blur(5px)' : 'none',
-        zIndex: 1000 
+        zIndex: 1000,
+        width: '100%'
       }}
     >
-      <div className="container">
+      <div className="container-fluid px-3 px-lg-5">
         {/* Logo always at far left */}
-        <Link className="navbar-brand me-auto" to="/" onClick={closeNav}>
+        <Link className="navbar-brand" to="/" onClick={closeNav} style={{ marginRight: 'auto', paddingLeft: isMobile ? '0' : '1rem' }}>
           <Logo />
         </Link>
         
@@ -239,7 +241,7 @@ const Header = () => {
                   overflowY: isMobile ? 'auto' : 'visible'
                 }}
               >
-                <div className={isMobile ? '' : 'container'}>
+                <div className={isMobile ? '' : 'container-fluid px-5'}>
                   <div className={`row ${isMobile ? 'mx-0' : ''}`}>
                     {/* Swapped Order: Enterprise, Business Process, IT Consulting */}
                     {[serviceCategories[1], serviceCategories[0], serviceCategories[2]].map((category, index) => (
@@ -376,26 +378,6 @@ const Header = () => {
             </button>
           </div>
         </div>
-      )}
-
-      {/* Overlay for service menu and searching - desktop only */}
-      {(isServiceMenuOpen || isSearchOpen) && !isMobile && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 999,
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            cursor: 'pointer'
-          }}
-          onClick={() => {
-            setIsServiceMenuOpen(false);
-            setIsSearchOpen(false);
-          }}
-        />
       )}
 
       {/* Add CSS for hover effects and responsiveness */}
