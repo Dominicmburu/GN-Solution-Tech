@@ -179,7 +179,7 @@ const ContactPage = () => {
                   <div className="icon-circle mb-3">
                     {item.icon}
                   </div>
-                  <h4 className="card-title">{item.title}</h4>
+                  <h4 className="card-title" style={{ color: '#0a1033' }}>{item.title}</h4>
                   <p className="card-info">{item.info}</p>
                   <p className="card-subinfo">{item.subInfo}</p>
                 </div>
@@ -195,7 +195,7 @@ const ContactPage = () => {
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
               <h2 className="section-title mb-2">How Can We Help You?</h2>
-              <div className="title-underline mx-auto"></div>
+              <div className="title-underline mx-auto" style={{ backgroundColor: '#f08b0a' }}></div>
               <p className="lead text-muted mt-3">Fill out the form below with your inquiry and our team will get back to you shortly</p>
             </div>
           </div>
@@ -233,6 +233,7 @@ const ContactPage = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required 
+                        style={{ borderColor: '#dee2e6', outline: 'none' }}
                       />
                     </div>
                     <div className="col-md-6 mb-3">
@@ -245,6 +246,7 @@ const ContactPage = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required 
+                        style={{ borderColor: '#dee2e6', outline: 'none' }}
                       />
                     </div>
                   </div>
@@ -258,6 +260,7 @@ const ContactPage = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
+                        style={{ borderColor: '#dee2e6', outline: 'none' }}
                       />
                     </div>
                     <div className="col-md-6 mb-3">
@@ -269,6 +272,7 @@ const ContactPage = () => {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
+                        style={{ borderColor: '#dee2e6', outline: 'none' }}
                       />
                     </div>
                   </div>
@@ -281,6 +285,7 @@ const ContactPage = () => {
                       value={formData.inquiryType}
                       onChange={handleInputChange}
                       required
+                      style={{ borderColor: '#dee2e6', outline: 'none' }}
                     >
                       <option value="" disabled>Select inquiry type</option>
                       {inquiryTypes.map((type, index) => (
@@ -298,11 +303,13 @@ const ContactPage = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       required
+                      style={{ borderColor: '#dee2e6', outline: 'none' }}
                     ></textarea>
                   </div>
                   <button 
                     type="submit" 
-                    className="btn btn-info text-white px-4 py-2 submit-btn"
+                    className="btn text-white px-4 py-2 submit-btn"
+                    style={{backgroundColor: '#f08b0a'}}
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -340,30 +347,30 @@ const ContactPage = () => {
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
               <h2 className="section-title mb-2">Support Options</h2>
-              <div className="title-underline mx-auto"></div>
+              <div className="title-underline mx-auto" style={{ backgroundColor: '#f08b0a' }}></div>
               <p className="lead text-muted mt-3">Choose the support option that works best for you</p>
             </div>
           </div>
           <div className="row">
             <div className="col-md-4 mb-4">
               <div className="support-card h-100 p-4 text-center">
-                <div className="support-icon mb-3">
+                <div className="support-icon mb-3" style={{ color: '#f08b0a' }}>
                   <FaHeadset size={48} />
                 </div>
                 <h4 className="mb-3">Phone Support</h4>
                 <p className="mb-3">Speak directly with our support team for urgent matters or complex issues.</p>
-                <p className="support-highlight">+353 1 234 5678</p>
+                <p className="support-highlight" style={{ color: '#f08b0a' }}>+353 1 234 5678</p>
                 <p className="support-hours">Mon-Fri: 9:00AM - 6:00PM</p>
               </div>
             </div>
             <div className="col-md-4 mb-4">
-              <div className="support-card h-100 p-4 text-center featured-support">
-                <div className="support-icon mb-3">
+              <div className="support-card h-100 p-4 text-center featured-support" style={{ borderColor: '#f08b0a', backgroundColor: 'rgba(240, 139, 10, 0.05)' }}>
+                <div className="support-icon mb-3" style={{ color: '#f08b0a' }}>
                   <FaComments size={48} />
                 </div>
                 <h4 className="mb-3">Live Chat</h4>
                 <p className="mb-3">Get real-time assistance with our technical support team via live chat.</p>
-                <button className="btn btn-light support-btn" onClick={toggleChat}>
+                <button className="btn support-btn" onClick={toggleChat} style={{ backgroundColor: '#f08b0a', color: 'white' }}>
                   Start Live Chat
                 </button>
                 <p className="support-hours mt-2">Available during business hours</p>
@@ -371,12 +378,12 @@ const ContactPage = () => {
             </div>
             <div className="col-md-4 mb-4">
               <div className="support-card h-100 p-4 text-center">
-                <div className="support-icon mb-3">
+                <div className="support-icon mb-3" style={{ color: '#f08b0a' }}>
                   <FaEnvelope size={48} />
                 </div>
                 <h4 className="mb-3">Email Support</h4>
                 <p className="mb-3">Send us your inquiries anytime and we'll respond within 24 hours.</p>
-                <p className="support-highlight">support@gnsolutions.eu</p>
+                <p className="support-highlight" style={{ color: '#f08b0a' }}>support@gnsolutions.eu</p>
                 <p className="support-hours">24/7 Ticket Submission</p>
               </div>
             </div>
@@ -390,7 +397,7 @@ const ContactPage = () => {
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
               <h2 className="section-title mb-2">Frequently Asked Questions</h2>
-              <div className="title-underline mx-auto"></div>
+              <div className="title-underline mx-auto" style={{ backgroundColor: '#f08b0a' }}></div>
               <p className="lead text-muted mt-3">Find quick answers to common questions</p>
             </div>
           </div>
@@ -405,6 +412,7 @@ const ContactPage = () => {
                     answer={faq.answer}
                     isOpen={openFaqId === faq.id}
                     toggleFaq={toggleFaq}
+                    accentColor="#f08b0a"
                   />
                 ))}
               </div>
@@ -415,7 +423,7 @@ const ContactPage = () => {
 
       {/* Live Chat Widget */}
       <div className={`live-chat-widget ${isChatOpen ? 'open' : ''}`}>
-        <div className="chat-header" onClick={toggleChat}>
+        <div className="chat-header" onClick={toggleChat} style={{ backgroundColor: '#f08b0a' }}>
           <h5 className="mb-0">Live Support</h5>
           <button className="chat-close-btn">
             {isChatOpen ? '×' : '+'}
@@ -426,8 +434,15 @@ const ContactPage = () => {
             <div className="chat-messages">
               {chatMessages.map((msg, index) => (
                 <div key={index} className={`chat-message ${msg.sender}`}>
-                  {msg.sender === 'agent' && <div className="agent-avatar">GN</div>}
-                  <div className="message-bubble">{msg.message}</div>
+                  {msg.sender === 'agent' && (
+                    <div className="agent-avatar" style={{ backgroundColor: '#f08b0a' }}>GN</div>
+                  )}
+                  <div className="message-bubble" style={{ 
+                    backgroundColor: msg.sender === 'user' ? '#f1f1f1' : '#f08b0a',
+                    color: msg.sender === 'user' ? '#333' : 'white'
+                  }}>
+                    {msg.message}
+                  </div>
                 </div>
               ))}
             </div>
@@ -437,8 +452,15 @@ const ContactPage = () => {
                 placeholder="Type your message here..."
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
+                style={{ borderColor: '#ddd', outline: 'none' }}
               />
-              <button type="submit" className="chat-send-btn">Send</button>
+              <button 
+                type="submit" 
+                className="chat-send-btn"
+                style={{ backgroundColor: '#f08b0a', color: 'white' }}
+              >
+                Send
+              </button>
             </form>
           </>
         )}

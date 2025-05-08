@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaPlay } from 'react-icons/fa';
 import SectionTitle from './SectionTitle';
@@ -7,6 +7,20 @@ import '../../assets/css/HeroSection.css';
 const HeroSection = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const isMobile = windowWidth <= 767;
 
   const handleVideoModalToggle = () => {
     setIsVideoModalOpen(!isVideoModalOpen);
@@ -14,11 +28,11 @@ const HeroSection = () => {
 
   return (
     <section
-    id='hero-section'
+      id='hero-section'
       className="hero-section position-relative"
       style={{
         backgroundColor: '#0a1033',
-        padding: "0px 0",
+        padding: isMobile ? "80px 0 100px" : "120px 0 140px",
         position: 'relative',
         overflow: 'hidden'
       }}
@@ -54,58 +68,37 @@ const HeroSection = () => {
               cloud infrastructure solutions, and military-grade cybersecurity protection.
             </p>
 
-            <div className="d-flex align-items-center justify-content-center mt-4">
-              <button
-                className={`discover-btn btn me-3 px-4 py-2 rounded-1  transition-all ${isHovered ? 'shadow-lg' : ''}`}
+            <div className="d-flex align-items-center justify-content-center mt-4 button-container">
+              <Link
+                to="/aboutus"
+                className={`btn discover-btn px-4 py-3 rounded-1 ${isHovered ? 'shadow-lg' : ''}`}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                style={{backgroundColor: 'var(--primary-color)',}}
+                style={{
+                  backgroundColor: 'var(--primary-color)',
+                  color: 'white',
+                  textDecoration: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.3s ease',
+                  fontWeight: '600',
+                  minWidth: isMobile ? '80%' : '220px',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
               >
-                <Link
-                  to="/aboutus"
-                  className="text-white text-decoration-none d-flex align-items-center"
-                >
-                  Discover More
-                  <FaArrowRight
-                    className="ms-2 transition-transform"
-                    style={{
-                      transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
-                      transition: 'transform 0.2s ease',
-                    }}
-                  />
-                </Link>
-              </button>            
+                <span>Discover More</span>
+                <FaArrowRight
+                  className="ms-2"
+                  style={{
+                    transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
+                    transition: 'transform 0.2s ease',
+                  }}
+                />
+              </Link>
             </div>
           </div>
-
-          {/* <div className="col-lg-6 text-center mt-5 mt-lg-0">
-            <div className="position-relative cyber-container">
-              <div className="cyber-circle-bg">
-                <svg
-                  viewBox="0 0 400 400"
-                  className="cyber-rotate w-100"
-                  style={{
-                    maxWidth: '100%',
-                    height: 'auto'
-                  }}
-                >
-                </svg>
-                <div
-                  className="position-absolute top-50 start-50 translate-middle"
-                  style={{
-                    zIndex: 2,
-                    width: '100%',
-                    maxWidth: '450px',
-                    height: 'auto',
-                    transform: 'translate(-50%, -45%)'
-                  }}
-                >
-                </div>
-
-                
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
 
@@ -149,6 +142,142 @@ const HeroSection = () => {
           </div>
         </div>
       )}
+
+      <style jsx>{`
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes pulse {
+          0% {
+            opacity: 0.3;
+          }
+          50% {
+            opacity: 0.7;
+          }
+          100% {
+            opacity: 0.3;
+          }
+        }
+
+        .cyber-rotate {
+          animation: rotate 20s linear infinite;
+          transform-origin: center center;
+        }
+
+        .cyber-rotate-reverse {
+          animation: rotate 25s linear infinite reverse;
+          transform-origin: center center;
+        }
+
+        .cyber-glow {
+          animation: pulse 2s ease-in-out infinite;
+        }
+
+        .video-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(80, 80, 90, 0.1);
+          z-index: 2;
+        }
+
+        .discover-btn {
+          position: relative;
+        }
+
+        .discover-btn:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 0;
+          background-color: rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+        }
+
+        .discover-btn:hover:after {
+          height: 100%;
+        }
+
+        .discover-btn:hover {
+          transform: translateY(-3px);
+          background-color: #ff9f2b !important;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .discover-btn:active {
+          transform: translateY(0);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+          .hero-section .row {
+            flex-direction: row;
+          }
+
+          .cyber-container {
+            max-width: 450px;
+            margin: 0 auto;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .hero-section .row {
+            padding-top: 60px;
+          }
+
+          .discover-btn {
+            max-width: 85%;
+            margin: 0 auto;
+            padding: 12px 30px !important;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            border-radius: 4px !important;
+          }
+          
+          .button-container {
+            margin-top: 30px !important;
+          }
+        }
+
+        @media (max-width: 575px) {
+          .hero-section {
+            padding: 60px 0 80px !important;
+          }
+          
+          .hero-section .row {
+            padding-top: 20px;
+          }
+
+          .hero-section .col-lg-12 {
+            text-align: center;
+          }
+
+          .discover-btn {
+            max-width: 90%;
+            margin: 0 auto;
+            font-size: 15px;
+            padding: 10px 20px !important;
+          }
+          
+          .button-container {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 100% !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
