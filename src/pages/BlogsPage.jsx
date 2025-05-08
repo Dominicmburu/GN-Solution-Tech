@@ -142,7 +142,8 @@ const BlogsPage = () => {
                 {categories.map(category => (
                   <button 
                     key={category.id}
-                    className={`btn btn-sm me-2 mb-2 ${activeFilter === category.id ? 'btn-info text-white' : 'btn-outline-secondary'}`}
+                    className={`btn btn-sm me-2 mb-2 ${activeFilter === category.id ? 'btn text-white' : 'btn-outline-secondary'}`}
+                    style={activeFilter === category.id ? {backgroundColor: '#f08b0a'} : {}}
                     onClick={() => setActiveFilter(category.id)}
                   >
                     {category.name}
@@ -192,19 +193,19 @@ const BlogsPage = () => {
             <div className="col-lg-6">
               <div className="featured-content p-4">
                 <div className="blog-meta mb-2">
-                  <span className="me-3"><FaCalendarAlt className="text-info me-1" />{featuredBlog.date}</span>
-                  <span><FaUser className="text-info me-1" />{featuredBlog.author}</span>
+                  <span className="me-3"><FaCalendarAlt style={{color: '#f08b0a'}} className="me-1" />{featuredBlog.date}</span>
+                  <span><FaUser style={{color: '#f08b0a'}} className="me-1" />{featuredBlog.author}</span>
                 </div>
                 <h2 className="fw-bold mb-3">{featuredBlog.title}</h2>
                 <p className="lead mb-4">{featuredBlog.excerpt}</p>
                 <div className="mb-4">
                   {featuredBlog.tags.map((tag, index) => (
                     <span key={index} className="badge bg-light text-dark me-2 p-2">
-                      <FaTag className="me-1 text-info" />{tag}
+                      <FaTag className="me-1" style={{color: '#f08b0a'}} />{tag}
                     </span>
                   ))}
                 </div>
-                <Link to={`/blog/${featuredBlog.id}`} className="btn btn-info text-white px-4 read-more-btn">
+                <Link to={`/blog/${featuredBlog.id}`} className="btn text-white px-4 read-more-btn" style={{backgroundColor: '#f08b0a'}}>
                   Read Full Article <FaArrowRight className="ms-2" />
                 </Link>
               </div>
@@ -239,14 +240,14 @@ const BlogsPage = () => {
                         </div>
                         <div className="card-body">
                           <div className="blog-meta small mb-2 text-muted">
-                            <span className="me-3"><FaCalendarAlt className="text-info me-1" />{blog.date}</span>
-                            <span><FaUser className="text-info me-1" />{blog.author}</span>
+                            <span className="me-3"><FaCalendarAlt style={{color: '#f08b0a'}} className="me-1" />{blog.date}</span>
+                            <span><FaUser style={{color: '#f08b0a'}} className="me-1" />{blog.author}</span>
                           </div>
                           <h5 className="card-title fw-bold">{blog.title}</h5>
                           <p className="card-text text-muted">{blog.excerpt}</p>
                         </div>
                         <div className="card-footer bg-transparent border-0 pt-0">
-                          <Link to={`/blog/${blog.id}`} className="text-info fw-bold text-decoration-none read-more-link">
+                          <Link to={`/blog/${blog.id}`} className="fw-bold text-decoration-none read-more-link" style={{color: '#f08b0a'}}>
                             Read More <FaChevronRight className="ms-1" />
                           </Link>
                         </div>
@@ -257,7 +258,8 @@ const BlogsPage = () => {
                   <div className="col-12 text-center py-5">
                     <h4>No articles found matching your criteria</h4>
                     <button 
-                      className="btn btn-outline-info mt-3"
+                      className="btn mt-3"
+                      style={{borderColor: '#f08b0a', color: '#f08b0a'}}
                       onClick={() => {
                         setActiveFilter('all');
                         setSearchTerm('');
@@ -274,7 +276,7 @@ const BlogsPage = () => {
                   <div className="col-12">
                     <nav aria-label="Blog pagination">
                       <ul className="pagination justify-content-center">
-                        <li className="page-item active"><a className="page-link" href="#">1</a></li>
+                        <li className="page-item active"><a className="page-link" href="#" style={{backgroundColor: '#f08b0a', borderColor: '#f08b0a'}}>1</a></li>
                         <li className="page-item"><a className="page-link" href="#">2</a></li>
                         <li className="page-item"><a className="page-link" href="#">3</a></li>
                         <li className="page-item">
@@ -307,7 +309,7 @@ const BlogsPage = () => {
                           className="btn btn-link text-decoration-none category-link"
                           onClick={() => setActiveFilter(category.id)}
                         >
-                          <FaChevronRight className="me-2 text-info" />
+                          <FaChevronRight className="me-2" style={{color: '#f08b0a'}} />
                           {category.name}
                         </button>
                       </li>
@@ -341,7 +343,7 @@ const BlogsPage = () => {
                     <div className="mb-3">
                       <input type="email" className="form-control" placeholder="Your Email Address" required />
                     </div>
-                    <button type="submit" className="btn btn-info text-white w-100">
+                    <button type="submit" className="btn text-white w-100" style={{backgroundColor: '#f08b0a'}}>
                       Subscribe Now
                     </button>
                   </form>

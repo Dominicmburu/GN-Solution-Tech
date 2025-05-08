@@ -8,7 +8,7 @@
 .title-underline {
     width: 60px;
     height: 4px;
-    background-color: #00e8ff;
+    background-color: #f08b0a;
     margin-bottom: 25px;
 }
 
@@ -28,7 +28,7 @@
 .icon-circle {
     width: 80px;
     height: 80px;
-    background-color: rgba(0, 232, 255, 0.1);
+    background-color: rgba(255, 217, 2, 0.26);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -38,12 +38,12 @@
 }
 
 .contact-card:hover .icon-circle {
-    background-color: #00e8ff;
+    background-color: #f08b0a;
 }
 
 .contact-icon {
     font-size: 30px;
-    color: #00e8ff;
+    color: #f08b0a;
     transition: all 0.3s ease;
 }
 
@@ -157,7 +157,7 @@
 }
 
 .featured-support {
-    border-top: 4px solid #00e8ff;
+    border-top: 4px solid #f08b0a;
 }
 
 .featured-support::before {
@@ -165,7 +165,7 @@
     position: absolute;
     top: 10px;
     right: -25px;
-    background-color: #00e8ff;
+    background-color: #f08b0a;
     color: white;
     font-size: 0.7rem;
     font-weight: 600;
@@ -174,7 +174,7 @@
 }
 
 .support-btn {
-    background-color: #00e8ff;
+    background-color: #f08b0a;
     color: white;
     border: none;
     padding: 8px 20px;
@@ -184,45 +184,10 @@
 }
 
 .support-btn:hover {
-    background-color: #0a1033;
+    background-color: #f08c0a91;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-
-/* FAQ Section */
-/* .accordion-item {
-    margin-bottom: 10px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #e0e0e0;
-}
-
-.accordion-button {
-    background-color: white;
-    color: #0a1033;
-    font-weight: 600;
-    padding: 15px 20px;
-}
-
-.accordion-button:not(.collapsed) {
-    background-color: rgba(0, 232, 255, 0.05);
-    color: #00e8ff;
-}
-
-.accordion-button:focus {
-    box-shadow: none;
-    border-color: rgba(0, 232, 255, 0.5);
-}
-
-.accordion-button::after {
-    background-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.accordion-body {
-    padding: 15px 20px;
-    color: #666;
-} */
 
 /* FAQ Accordion Styling */
 .faq-accordion {
@@ -243,7 +208,7 @@
 }
 
 .faq-item.active {
-    border-left: 4px solid #00e8ff;
+    border-left: 4px solid #f08b0a;
 }
 
 .faq-header {
@@ -264,7 +229,7 @@
 }
 
 .faq-item.active .faq-header h5 {
-    color: #00e8ff;
+    color: #f08b0a;
 }
 
 .faq-icon {
@@ -275,7 +240,7 @@
 
 .faq-icon.rotate {
     transform: rotate(180deg);
-    color: #00e8ff;
+    color: #f08b0a;
 }
 
 .faq-body {
@@ -377,7 +342,7 @@
 }
 
 .agent-avatar {
-    background-color: #00e8ff;
+    background-color: #f08b0a;
     color: white;
     width: 30px;
     height: 30px;
@@ -405,11 +370,11 @@
 }
 
 .chat-input-form input:focus {
-    border-color: #00e8ff;
+    border-color: #f08b0a;
 }
 
 .chat-send-btn {
-    background-color: #00e8ff;
+    background-color: #f08b0a;
     color: white;
     border: none;
     border-radius: 20px;

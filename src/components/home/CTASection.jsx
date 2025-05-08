@@ -1,35 +1,59 @@
 import React from 'react';
-import { FaArrowRight, FaPhone } from 'react-icons/fa';
+import { FaArrowRight, FaPhone, FaEnvelope } from 'react-icons/fa';
 
 const CTASection = () => {
   return (
-    <section className="cta-section py-5" style={{ backgroundColor: "var(--primary-color)" }}>
+    <section className="py-4" style={{ backgroundColor: "#0a1033" }}>
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-lg-7 mb-4 mb-lg-0">
-            <h3 className="text-dark mb-0">
+          <div className="col-lg-7 mb-3 mb-lg-0">
+            <h4 className="text-white mb-0 fw-bold">
               Transform Your IT Infrastructure with Intelligent Automation
-            </h3>
+            </h4>
           </div>
-          <div className="col-lg-5 text-lg-end">
-            <div className="d-flex flex-column flex-sm-row align-items-center justify-content-lg-end">
-              <button className="btn btn-dark px-4 py-2 me-3 rounded-1 mb-3 mb-sm-0 d-flex align-items-center justify-content-center flex-wrap-nowrap ">
-                Schedule Free Consultation <FaArrowRight className="ms-2" />
+          <div className="col-lg-5">
+            <div className="d-flex flex-wrap align-items-center justify-content-lg-end">
+              <button className="px-4 py-2 me-3 mb-2 mb-sm-0 d-inline-flex align-items-center" 
+                     style={{ backgroundColor: "#f08b0a", border: "none", color: "#fff" }}>
+                <span>Schedule Consultation</span> <FaArrowRight className="ms-2" size={14} />
               </button>
+
               <div className="d-flex align-items-center">
-                <div className="bg-white rounded-circle p-2 d-flex justify-content-center align-items-center" 
-                     style={{ width: "50px", height: "50px" }}>
-                  <FaPhone style={{color: "var(--primary-color)"}} />
-                </div>
-                <div className="ms-2">
-                  <p className="mb-0 small">EU Support Center</p>
-                  <p className="mb-0 fw-bold">+ 353 (0) 874 896 800‬                  </p>
-                </div>
+                {/* Phone */}
+                <a href="tel:+353874896800" className="text-decoration-none d-flex align-items-center me-3">
+                  <div className="d-flex align-items-center">
+                    <FaPhone color="#f08b0a" size={14} />
+                    <span className="ms-2 text-white">+ 353 (0) 874 896 800‬</span>
+                  </div>
+                </a>
+                
+                {/* Email */}
+                <a href="mailto:info@gnsolutions.com" className="text-decoration-none d-flex align-items-center">
+                  <div className="d-flex align-items-center">
+                    <FaEnvelope color="#f08b0a" size={14} />
+                    <span className="ms-2 text-white">info@gnsolutions.com</span>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .btn:hover {
+          background-color: #ff9f2b !important;
+          transform: translateY(-2px);
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+          .d-flex.flex-wrap {
+            justify-content: center;
+          }
+        }
+      `}</style>
     </section>
   );
 };

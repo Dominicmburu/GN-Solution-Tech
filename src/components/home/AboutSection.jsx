@@ -81,11 +81,11 @@ const AboutSection = () => {
               
               <div className="row mb-4">
                 <div className="col-6">
-                  <h3 className="mb-0 display-5 fw-bold text-dark"><Counter end="95" duration={2000} /></h3>
+                  <h3 className="mb-0 display-5 fw-bold text-dark"><Counter end="95" duration={4000} /></h3>
                   <p className="mb-0">Client Retention Rate</p>
                 </div>
                 <div className="col-6">
-                  <h3 className="mb-0 display-5 fw-bold text-dark"><Counter end="200" duration={2000} /></h3>
+                  <h3 className="mb-0 display-5 fw-bold text-dark"><Counter end="200" duration={4000} /></h3>
                   <p className="mb-0">Projects Completed</p>
                 </div>
               </div> 
