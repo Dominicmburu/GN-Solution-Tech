@@ -13,7 +13,7 @@ const ServiceCard = ({ icon, title, features, hasCyberGraphic = false }) => {
         {features.map((feature, index) => (
           <li key={index} className={`${index !== features.length - 1 ? 'mb-2' : ''} d-flex align-items-center`}>
             <div className="text-info me-2"><FaCheck /></div>
-            <p className="mb-0 text-white-50">{feature}</p>
+            {/* <p className="mb-0 text-white-50">{feature}</p> */}
           </li>
         ))}
       </ul>
