@@ -175,12 +175,12 @@ const Services = () => {
             transition={{ delay: 0.6, duration: 0.5 }}
             className="d-flex justify-content-center gap-3"
           >
-            <Link to="/contact" className="btn btn-warning btn-lg fw-bold px-4 py-2">
+            {/* <Link to="/contact" className="btn btn-warning btn-lg fw-bold px-4 py-2">
               Get a Free Consultation
-            </Link>
-            <Link to="/case-studies" className="btn btn-outline-light btn-lg px-4 py-2">
+            </Link> */}
+            {/* <Link to="/case-studies" className="btn btn-outline-light btn-lg px-4 py-2">
               View Success Stories
-            </Link>
+            </Link> */}
           </motion.div>
         </div>
       </motion.div>
@@ -238,8 +238,8 @@ const Services = () => {
               transition={{ delay: index * 0.2, duration: 0.5 }}
             >
               <div className="card shadow-lg border-0 h-100 p-4">
-                <div className="text-center mb-3">{section.icon}</div>
-                <h4 className="card-title text-info text-center mb-3">{section.category}</h4>
+                <div style={{color: 'var(--primary-color)'}} className="text-center mb-3">{section.icon}</div>
+                <h4 style={{color: 'var(--primary-color)'}} className="card-title text-center mb-3">{section.category}</h4>
                 <p className="card-text text-muted mb-4">{section.description}</p>
                 
                 {section.services.map((service, idx) => (

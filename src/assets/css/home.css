@@ -1,3 +1,199 @@
-#navbar{
-    background-color: var(--primary-color);
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.btn {
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-info {
+    background-color: #00e8ff;
+    border-color: #00e8ff;
+    color: #0a1033;
+}
+
+.btn-info:hover {
+    background-color: #00c8d9;
+    border-color: #00c8d9;
+    color: #0a1033;
+}
+
+.btn-dark {
+    background-color: #0a1033;
+    border-color: #0a1033;
+}
+
+.btn-dark:hover {
+    background-color: #0d1545;
+    border-color: #0d1545;
+}
+
+/* Navbar */
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #00e8ff;
+}
+
+/* Custom Colors */
+.text-info {
+    color: #00e8ff !important;
+}
+
+.bg-info {
+    background-color: #00e8ff !important;
+}
+
+.border-info {
+    border-color: #00e8ff !important;
+}
+
+/* Section Titles */
+/* .section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+} */
+
+/* Hero Section */
+/* .hero-section {
+    position: relative;
+    overflow: hidden;
+} */
+
+/* .cyber-circle-bg {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+} */
+
+/* Feature Cards */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Cards */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Blog Cards */
+.blog-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Controls */
+.form-control {
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+}
+
+.form-control.bg-transparent::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Footer */
+.footer-links a {
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #f08b0a !important;
+}
+
+.dropdown-menu {
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.dropdown-menu .card {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu .card:hover {
+    transform: translateY(-5px);
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(0, 232, 255, 0.1);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .cyber-circle-bg {
+        width: 300px;
+        height: 300px;
+    }
+
+    .position-static {
+        position: relative !important;
+    }
+
+    .dropdown-menu {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .dropdown-menu .row {
+        flex-direction: column;
+    }
+
+    .dropdown-menu .col-md-3 {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .section-title h2 {
+        font-size: 1.75rem;
+    }
+
+    .cyber-circle-bg {
+        width: 250px;
+        height: 250px;
+    }
+
+    #logo img{
+        height: "20px";
+    }
 }

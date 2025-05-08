@@ -209,7 +209,7 @@ const AboutPage = () => {
           <div className="row">
             {experienceHighlights.map((highlight, index) => (
               <div className="col-md-6 col-lg-3 mb-4" key={index}>
-                <div className="card border-0 h-100 text-center shadow expertise-card">
+                <div className="border-0 h-100 text-center shadow expertise-card">
                   <div className="card-body p-4">
                     <div className="expertise-icon-container mb-3">
                     <div className="fa-2x fs-3" style={{color: "var(--primary-color)"}}>{highlight.icon}</div>

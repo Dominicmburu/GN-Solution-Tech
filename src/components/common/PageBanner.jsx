@@ -140,7 +140,7 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item"><Link to="/" style={{color: "var(--primary-color)"}} className="text-decoration-none">Home</Link></li>
-                  <li className="breadcrumb-item active text-white" aria-current="page">{currentpage}</li>
+                  <li className="breadcrumb-item text-white" aria-current="page">{currentpage}</li>
                 </ol>
               </nav>
             </div>

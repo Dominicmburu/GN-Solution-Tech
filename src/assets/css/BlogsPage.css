@@ -7,7 +7,7 @@
 .title-underline {
     width: 60px;
     height: 4px;
-    background-color: #00e8ff;
+    background-color: #f08b0a;
     margin-bottom: 25px;
 }
 
@@ -34,7 +34,7 @@
     position: absolute;
     top: 20px;
     left: 20px;
-    background-color: #00e8ff;
+    background-color: #f08b0a;
     color: #0a1033;
     font-weight: bold;
     padding: 8px 16px;
@@ -45,7 +45,7 @@
 }
 
 .featured-image-container:hover .featured-category-badge {
-    background-color: #0a1033;
+    background-color: #f08c0a9c;
     color: #fff;
 }
 
@@ -65,7 +65,7 @@
 
 .read-more-btn:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0, 232, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 230, 0, 0.425);
 }
 
 .blog-card {
@@ -76,7 +76,7 @@
 
 .blog-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 15px 30px rgba(255, 217, 0, 0.267) !important;
 }
 
 .blog-image-container {
@@ -100,7 +100,7 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    background-color: #00e8ff;
+    background-color: #f08b0a;
     color: #0a1033;
     font-size: 0.8rem;
     font-weight: bold;
@@ -133,7 +133,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #00e8ff;
+    background-color: #f08b0a;
     transition: width 0.3s ease;
 }
 
@@ -150,7 +150,7 @@
 }
 
 .sidebar-list .category-link:hover {
-    color: #00e8ff;
+    color: #f08b0a;
     transform: translateX(5px);
 }
 
@@ -160,7 +160,7 @@
 }
 
 .tag-button:hover {
-    background-color: #00e8ff;
+    background-color: #f08b0a;
     color: #fff;
     transform: translateY(-3px);
     box-shadow: 0 5px 10px rgba(0, 232, 255, 0.2);
@@ -190,12 +190,12 @@
 }
 
 .pagination .page-item.active .page-link {
-    background-color: #00e8ff;
+    background-color: #f08b0a;
     color: #fff;
 }
 
 .pagination .page-link:hover {
-    background-color: #0a1033;
+    background-color: #f08b0a;
     color: #fff;
     transform: scale(1.1);
 }
@@ -205,8 +205,8 @@
 }
 
 .btn-outline-secondary:hover {
-    background-color: #00e8ff;
-    border-color: #00e8ff;
+    background-color: #f08b0a;
+    border-color: #f08b0a;
     color: #fff;
     transform: translateY(-2px);
 }
@@ -242,7 +242,7 @@
 
 .input-group .form-control:focus {
     box-shadow: none;
-    border-color: #00e8ff;
+    border-color: #f08b0a;
 }
 
 .input-group .btn {
@@ -251,7 +251,7 @@
 }
 
 .input-group:hover .btn {
-    background-color: #0a1033;
+    background-color: #f08b0a;
 }
 
 /* Call to Action Section */
