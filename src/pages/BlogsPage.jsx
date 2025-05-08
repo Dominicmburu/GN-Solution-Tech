@@ -174,7 +174,7 @@ const BlogsPage = () => {
           <div className="row">
             <div className="col-12 mb-4">
               <h2 className="fw-bold section-title">Featured Article</h2>
-              <div className="title-underline"></div>
+              <div style={{backgroundColor: 'var(--primary-color)'}} className="title-underline"></div>
             </div>
           </div>
           <div className="row">
@@ -221,7 +221,7 @@ const BlogsPage = () => {
               <div className="row">
                 <div className="col-12 mb-4">
                   <h2 className="fw-bold section-title">Latest Articles</h2>
-                  <div className="title-underline"></div>
+                  <div style={{backgroundColor: 'var(--primary-color)'}} className="title-underline"></div>
                 </div>
                 
                 {filteredBlogs.length > 0 ? (

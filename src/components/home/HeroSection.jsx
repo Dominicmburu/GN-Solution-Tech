@@ -32,9 +32,9 @@ const HeroSection = () => {
       className="hero-section position-relative"
       style={{
         backgroundColor: '#0a1033',
-        padding: isMobile ? "80px 0 100px" : "120px 0 140px",
+        padding: isMobile ? "80px 0 100px" : "120px 0 180px",
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
       }}
     >
       <video
