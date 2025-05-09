@@ -67,7 +67,7 @@ const Header = () => {
   };
 
   const getLinkColor = (path) => {
-    return isActive(path) ? '#f08b0a' : isScrolled ? '#0a1033' : '#0a1033';
+    return isActive(path) ? '#f08b0a' : isScrolled ? '#594099' : '#594099';
   };
 
   const serviceCategories = [
@@ -136,7 +136,7 @@ const Header = () => {
       id='header-nav'
       className={`navbar navbar-expand-lg fixed-top ${isScrolled ? 'shadow-sm' : ''}`} 
       style={{ 
-        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.6)' : '#ffffff',
+        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.8)' : '#ffffff',
         transition: 'all 0.3s ease',
         backdropFilter: isScrolled ? 'blur(5px)' : 'none',
         zIndex: 1000,
@@ -168,7 +168,7 @@ const Header = () => {
               zIndex: 1100
             }}
           >
-            <FaSearch color={isSearchOpen ? 'white' : '#0a1033'} size={16} />
+            <FaSearch color={isSearchOpen ? 'white' : '#f08b0a'} size={16} />
           </button>
         </div>
         
@@ -180,13 +180,13 @@ const Header = () => {
           aria-expanded={isNavOpen ? "true" : "false"}
           aria-label="Toggle navigation"
           style={{ 
-            border: '1px solid #0a1033',
+            border: '1px solid #594099',
             position: 'relative',
             zIndex: 1100
           }}
         >
           <span className="navbar-toggler-icon" style={{ 
-            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(10, 16, 51, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")`
+            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(89, 64, 153, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")`
           }}></span>
         </button>
 
@@ -207,7 +207,7 @@ const Header = () => {
               </Link>
             </li>
 
-            {/* Services Dropdown with Mega Menu */}
+            {/* Services Dropdown with CommSec-inspired Menu */}
             <li className={`nav-item dropdown ${isMobile ? '' : 'position-static'} ${isServiceMenuOpen ? 'show' : ''}`}>
               <a
                 className={`nav-link d-flex align-items-center ${isActive('/services') ? 'fw-bold' : ''}`}
@@ -221,55 +221,77 @@ const Header = () => {
                 Services <FaChevronDown className="ms-1" size={12} />
               </a>
 
-              {/* Mega Menu with transparent background */}
+              {/* CommSec-Inspired Mega Menu */}
               <div
-                className={`dropdown-menu ${isMobile ? '' : 'w-100'} border-0 shadow ${isServiceMenuOpen ? 'show' : ''}`}
+                className={`dropdown-menu ${isMobile ? '' : 'mega-menu w-100 border-0'} ${isServiceMenuOpen ? 'show' : ''}`}
                 style={{
                   position: isMobile ? 'relative' : 'absolute',
                   left: 0,
                   right: 0,
-                  backgroundColor: 'rgba(255, 255, 255, 0.6)',
-                  backdropFilter: 'blur(10px)',
+                  backgroundColor: 'white',
                   display: isServiceMenuOpen ? 'block' : 'none',
                   zIndex: 1000,
                   marginTop: isMobile ? '0' : '0',
-                  borderRadius: isMobile ? '8px' : '0 0 8px 8px',
-                  padding: isMobile ? '10px' : '20px 0',
-                  boxShadow: '0 10px 15px rgba(0,0,0,0.1)',
+                  padding: '0',
+                  boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
                   overflow: isMobile ? 'hidden' : 'visible',
                   maxHeight: isMobile ? '75vh' : 'none',
                   overflowY: isMobile ? 'auto' : 'visible'
                 }}
               >
-                <div className={isMobile ? '' : 'container-fluid px-5'}>
-                  <div className={`row ${isMobile ? 'mx-0' : ''}`}>
-                    {/* Swapped Order: Enterprise, Business Process, IT Consulting */}
-                    {[serviceCategories[1], serviceCategories[0], serviceCategories[2]].map((category, index) => (
-                      <div className={`${isMobile ? 'col-12 mb-3' : 'col-md-4'}`} key={index}>
-                        <h6 className="fw-bold mb-2" style={{ color: '#0a1033' }}>{category.title}</h6>
-                        <ul className="list-unstyled">
-                          {category.services.map((service, serviceIndex) => (
-                            <li key={serviceIndex} className="mb-2">
-                              <Link
-                                to={service.link}
-                                className="text-decoration-none d-flex align-items-center service-link"
-                                style={{
-                                  color: location.pathname === service.link ? '#ffffff' : '#0a1033',
-                                  padding: '8px 12px',
-                                  borderRadius: '4px',
-                                  transition: 'all 0.3s ease',
-                                  backgroundColor: location.pathname === service.link ? '#f08b0a' : 'transparent',
-                                  fontSize: '0.95rem'
+                <div className={`container-fluid ${isMobile ? 'px-0' : 'px-3'}`}>
+                  <div className="row g-0">
+                    {/* Service Categories */}
+                    <div className="col-12">
+                      <div className="row g-0">
+                        {/* Swapped Order: Enterprise, Business Process, IT Consulting */}
+                        {[serviceCategories[1], serviceCategories[0], serviceCategories[2]].map((category, categoryIndex) => (
+                          <div 
+                            key={categoryIndex} 
+                            className={`col-md-4 ${isMobile ? '' : ''}`}
+                            style={{
+                              backgroundColor: isMobile ? 'white' : categoryIndex % 2 === 0 ? '#f8f9fa' : 'white'
+                            }}
+                          >
+                            <div className="py-3 px-4" style={{ borderBottom: '1px solid #eee' }}>
+                              <h6 
+                                className="fw-bold"
+                                style={{ 
+                                  color: '#594099',
+                                  fontSize: '1rem',
+                                  marginBottom: '15px'
                                 }}
-                                onClick={closeNav}
                               >
-                                {service.title} <FaChevronRight className="ms-2" size={12} />
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
+                                {category.title}
+                              </h6>
+                              <ul className="list-unstyled mb-0">
+                                {category.services.map((service, serviceIndex) => (
+                                  <li key={serviceIndex} className="mb-2">
+                                    <Link
+                                      to={service.link}
+                                      className="text-decoration-none d-flex align-items-center service-link"
+                                      style={{
+                                        color: location.pathname === service.link ? '#f08b0a' : '#333',
+                                        padding: '8px 0',
+                                        borderRadius: '0',
+                                        transition: 'all 0.2s ease',
+                                        fontSize: '0.9rem',
+                                        borderLeft: location.pathname === service.link ? '3px solid #f08b0a' : '3px solid transparent',
+                                        paddingLeft: '10px'
+                                      }}
+                                      onClick={closeNav}
+                                    >
+                                      {service.title}
+                                      <FaChevronRight className="ms-2" size={10} style={{ color: '#f08b0a' }} />
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -336,7 +358,7 @@ const Header = () => {
                 border: 'none'
               }}
             >
-              <FaSearch color={isSearchOpen ? 'white' : '#0a1033'} size={16} />
+              <FaSearch color={isSearchOpen ? 'white' : '#594099'} size={16} />
             </button>
           </div>
         </div>
@@ -388,8 +410,10 @@ const Header = () => {
         }
         
         .service-link:hover {
+          color: #f08b0a !important;
           background-color: rgba(245, 245, 245, 0.7) !important;
-          transform: translateX(5px);
+          border-left: 3px solid #f08b0a !important;
+          transform: translateX(3px);
         }
         
         .nav-link:hover {
@@ -398,6 +422,7 @@ const Header = () => {
         
         .navbar-nav .nav-link {
           position: relative;
+          margin: 0 5px;
         }
         
         .navbar-nav .nav-link::after {
@@ -422,6 +447,11 @@ const Header = () => {
           transition: all 0.3s ease;
         }
         
+        /* CommSec Inspired Mega Menu */
+        .mega-menu {
+          border-top: 1px solid #eee !important;
+        }
+        
         /* Mobile menu adjustments */
         @media (max-width: 991.98px) {
           .navbar-collapse {
@@ -438,7 +468,7 @@ const Header = () => {
           }
           
           .navbar-nav .nav-item {
-            border-bottom: 1px solid rgba(10, 16, 51, 0.1);
+            border-bottom: 1px solid rgba(89, 64, 153, 0.1);
           }
           
           .navbar-nav .nav-item:last-child {
