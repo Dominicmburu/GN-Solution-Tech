@@ -32,7 +32,7 @@ const Header = () => {
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
@@ -130,12 +130,14 @@ const Header = () => {
 
   // Determine if we're on mobile view
   const isMobile = windowWidth < 992;
+  const isLaptop = windowWidth < 1200;
+  const isBigLaptop = windowWidth > 1400;
 
   return (
-    <nav 
+    <nav
       id='header-nav'
-      className={`navbar navbar-expand-lg fixed-top ${isScrolled ? 'shadow-sm' : ''}`} 
-      style={{ 
+      className={`navbar navbar-expand-lg fixed-top ${isScrolled ? 'shadow-sm' : ''}`}
+      style={{
         backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.8)' : '#ffffff',
         transition: 'all 0.3s ease',
         backdropFilter: isScrolled ? 'blur(5px)' : 'none',
@@ -145,16 +147,16 @@ const Header = () => {
     >
       <div className="container-fluid px-3 px-lg-5">
         {/* Logo always at far left */}
-        <Link className="navbar-brand" to="/" onClick={closeNav} style={{ marginRight: 'auto', paddingLeft: isMobile ? '0' : '1rem' }}>
+        <Link className="navbar-brand" to="/" onClick={closeNav} style={{ marginRight: 'auto', paddingLeft: isMobile ? '0' : isLaptop ? '5rem' : isBigLaptop ? '7rem' : '2.2rem' }}>
           <Logo />
         </Link>
-        
+
         {/* Search button for mobile, BEFORE the collapsed menu toggle */}
         <div className="d-lg-none d-flex">
-          <button 
-            className="btn p-2 me-2" 
-            onClick={toggleSearch} 
-            style={{ 
+          <button
+            className="btn p-2 me-2"
+            onClick={toggleSearch}
+            style={{
               backgroundColor: isSearchOpen ? '#f08b0a' : 'transparent',
               borderRadius: '50%',
               width: '40px',
@@ -171,7 +173,7 @@ const Header = () => {
             <FaSearch color={isSearchOpen ? 'white' : '#f08b0a'} size={16} />
           </button>
         </div>
-        
+
         {/* Toggle button for mobile navigation */}
         <button
           className="navbar-toggler"
@@ -179,28 +181,28 @@ const Header = () => {
           onClick={toggleNav}
           aria-expanded={isNavOpen ? "true" : "false"}
           aria-label="Toggle navigation"
-          style={{ 
+          style={{
             border: '1px solid #594099',
             position: 'relative',
             zIndex: 1100
           }}
         >
-          <span className="navbar-toggler-icon" style={{ 
+          <span className="navbar-toggler-icon" style={{
             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(89, 64, 153, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")`
           }}></span>
         </button>
 
         <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNav">
-          <ul className="navbar-nav mx-auto">
+          <ul className="navbar-nav ms-auto" style={{ marginRight: isMobile ? '0' : isLaptop ? '2rem' : '1rem' }}>
             <li className="nav-item">
-              <Link 
-                className="nav-link" 
-                style={{ 
+              <Link
+                className="nav-link"
+                style={{
                   color: getLinkColor('/'),
                   fontWeight: isActive('/') ? 'bold' : 'normal',
                   padding: '10px 15px'
-                }} 
-                to="/" 
+                }}
+                to="/"
                 onClick={closeNav}
               >
                 Home
@@ -213,7 +215,7 @@ const Header = () => {
                 className={`nav-link d-flex align-items-center ${isActive('/services') ? 'fw-bold' : ''}`}
                 href="#"
                 onClick={toggleServiceMenu}
-                style={{ 
+                style={{
                   color: getLinkColor('/services'),
                   padding: '10px 15px'
                 }}
@@ -223,20 +225,26 @@ const Header = () => {
 
               {/* CommSec-Inspired Mega Menu */}
               <div
-                className={`dropdown-menu ${isMobile ? '' : 'mega-menu w-100 border-0'} ${isServiceMenuOpen ? 'show' : ''}`}
+                className={`dropdown-menu ${isMobile ? '' : 'mega-menu border-0'} ${isServiceMenuOpen ? 'show' : ''}`}
                 style={{
                   position: isMobile ? 'relative' : 'absolute',
-                  left: 0,
-                  right: 0,
+                  left: isMobile ? 0 : '50%',
+                  transform: isMobile ? 'none' : 'translateX(-50%)',
+                  width: isMobile ? 'auto' : '1000px',
+                  maxWidth: isMobile ? 'none' : '90vw',
                   backgroundColor: 'white',
                   display: isServiceMenuOpen ? 'block' : 'none',
                   zIndex: 1000,
-                  marginTop: isMobile ? '0' : '0',
+                  marginTop: isMobile ? '0' : '-1px',
+                  top: isMobile ? 'auto' : 'calc(100% - 1px)',
                   padding: '0',
-                  boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
                   overflow: isMobile ? 'hidden' : 'visible',
                   maxHeight: isMobile ? '75vh' : 'none',
-                  overflowY: isMobile ? 'auto' : 'visible'
+                  overflowY: isMobile ? 'auto' : 'visible',
+                  transition: 'none',
+                  borderTop: '3px solid #594099',
+                  borderRadius: '0 0 8px 8px'
                 }}
               >
                 <div className={`container-fluid ${isMobile ? 'px-0' : 'px-3'}`}>
@@ -246,17 +254,17 @@ const Header = () => {
                       <div className="row g-0">
                         {/* Swapped Order: Enterprise, Business Process, IT Consulting */}
                         {[serviceCategories[1], serviceCategories[0], serviceCategories[2]].map((category, categoryIndex) => (
-                          <div 
-                            key={categoryIndex} 
+                          <div
+                            key={categoryIndex}
                             className={`col-md-4 ${isMobile ? '' : ''}`}
                             style={{
                               backgroundColor: isMobile ? 'white' : categoryIndex % 2 === 0 ? '#f8f9fa' : 'white'
                             }}
                           >
                             <div className="py-3 px-4" style={{ borderBottom: '1px solid #eee' }}>
-                              <h6 
+                              <h6
                                 className="fw-bold"
-                                style={{ 
+                                style={{
                                   color: '#594099',
                                   fontSize: '1rem',
                                   marginBottom: '15px'
@@ -269,10 +277,11 @@ const Header = () => {
                                   <li key={serviceIndex} className="mb-2">
                                     <Link
                                       to={service.link}
-                                      className="text-decoration-none d-flex align-items-center service-link"
+                                      className="text-decoration-none d-flex align-items-center service-link "
                                       style={{
                                         color: location.pathname === service.link ? '#f08b0a' : '#333',
                                         padding: '8px 0',
+                                        letterSpacing: '1.5px',
                                         borderRadius: '0',
                                         transition: 'all 0.2s ease',
                                         fontSize: '0.9rem',
@@ -298,42 +307,43 @@ const Header = () => {
             </li>
 
             <li className="nav-item">
-              <Link 
-                className="nav-link" 
-                style={{ 
+              <Link
+                className="nav-link"
+                style={{
                   color: getLinkColor('/aboutus'),
                   fontWeight: isActive('/aboutus') ? 'bold' : 'normal',
                   padding: '10px 15px'
-                }} 
-                to="/aboutus" 
+                }}
+                to="/aboutus"
                 onClick={closeNav}
               >
                 About Us
               </Link>
             </li>
             <li className="nav-item">
-              <Link 
-                className="nav-link" 
-                style={{ 
+              <Link
+                className="nav-link"
+                style={{
                   color: getLinkColor('/blogs'),
                   fontWeight: isActive('/blogs') ? 'bold' : 'normal',
                   padding: '10px 15px'
-                }} 
-                to="/blogs" 
+                }}
+                to="/blogs"
                 onClick={closeNav}
               >
                 Blogs
               </Link>
             </li>
-            <li className="nav-item">
-              <Link 
-                className="nav-link" 
-                style={{ 
+            <li className="nav-item" style={{ marginRight: '0' }}>
+              <Link
+                className="nav-link"
+                style={{
                   color: getLinkColor('/contact'),
                   fontWeight: isActive('/contact') ? 'bold' : 'normal',
-                  padding: '10px 15px'
-                }} 
-                to="/contact" 
+                  padding: '10px 15px',
+                  paddingRight: isMobile ? '15px' : '0'
+                }}
+                to="/contact"
                 onClick={closeNav}
               >
                 Contact
@@ -341,12 +351,12 @@ const Header = () => {
             </li>
           </ul>
 
-          {/* Search Icon and Search Bar - visible only on desktop */}
-          <div className="d-none d-lg-flex align-items-center position-relative">
-            <button 
-              className="btn p-2" 
-              onClick={toggleSearch} 
-              style={{ 
+          {/* Search Icon and Search Bar - visible only on desktop, now placed after navigation links */}
+          <div className="d-none d-lg-flex align-items-center position-relative ms-3">
+            <button
+              className="btn p-2"
+              onClick={toggleSearch}
+              style={{
                 backgroundColor: isSearchOpen ? '#f08b0a' : 'transparent',
                 borderRadius: '50%',
                 width: '40px',
@@ -378,18 +388,18 @@ const Header = () => {
           animation: 'fadeIn 0.3s ease-in-out'
         }}>
           <div className="input-group">
-            <input 
-              type="text" 
-              className="form-control" 
-              placeholder="Search..." 
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search..."
               style={{
                 border: '1px solid #dee2e6',
                 borderRadius: '4px 0 0 4px'
               }}
             />
-            <button 
-              className="btn" 
-              type="button" 
+            <button
+              className="btn"
+              type="button"
               style={{
                 backgroundColor: '#f08b0a',
                 color: 'white',

@@ -3,6 +3,7 @@ import { FaChartLine, FaLightbulb, FaShieldAlt, FaSyncAlt, FaNetworkWired, FaClo
 import PageBanner from '../components/common/PageBanner';
 // import TeamMember from '../components/about/TeamMember';
 import '../assets/css/AboutPage.css';
+import UniqueFonderSection from '../components/about/UniqueFonderSection';
 
 const AboutPage = () => {
   const companyValues = [
@@ -195,34 +196,7 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Experience Highlights Section */}
-      <section className="py-5" style={{ backgroundColor: "#0a1033" }}>
-        <div className="container">
-          <div className="row justify-content-center mb-5">
-            <div className="col-lg-8 text-center">
-              <h2 className="fw-bold mb-3 text-white">Our Expertise</h2>
-              <p style={{color: "var(--primary-color)"}}>Backed by 17+ years of telecommunications experience</p>
-            </div>
-          </div>
-          <div className="row">
-            {experienceHighlights.map((highlight, index) => (
-              <div className="col-md-6 col-lg-3 mb-4" key={index}>
-                <div className="border-0 h-100 text-center shadow expertise-card">
-                  <div className="card-body p-4">
-                    <div className="expertise-icon-container mb-3">
-                    <div className="fa-2x fs-3" style={{color: "var(--primary-color)"}}>{highlight.icon}</div>
-                    </div>
-                    <h4 className="text-light fw-bold mb-3">{highlight.title}</h4>
-                    <p className="card-text text-light">{highlight.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      </section>     
 
       {/* Company Values Section */}
       <section className="py-5">
@@ -288,58 +262,55 @@ const AboutPage = () => {
       </section>
 
       {/* Founder Section */}
-      <section className="py-5">
+      <section className="py-5" style={{ backgroundColor: "#fff" }}>
         <div className="container">
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
               <h2 className="fw-bold mb-3" style={{ color: "#0a1033" }}>Our Founder</h2>
-              <p className="text-muted">Meet the expert behind GN Solutions</p>
+              <p>Meet the expert behind GN Solutions</p>
             </div>
           </div>
           <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <div className="card border-0 shadow-lg overflow-hidden founder-card">
-                <div className="row g-0">
-                  <div className="col-md-4 position-relative">
-                    <div className="founder-image-container">
+            <div className="col-lg-10">
+              <div 
+                className="card border-0 shadow-lg overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #f08b0a 0%, #0a1033 50%',
+                  borderRadius: '20px'
+                }}
+              >
+                <div className="row g-0 align-items-center p-5">
+                  <div className="col-md-4 text-center mb-4 mb-md-0">
+                    <div 
+                      style={{
+                        width: '220px',
+                        height: '220px',
+                        borderRadius: '50%',
+                        overflow: 'hidden',
+                        border: '5px solid rgba(255, 255, 255, 0.2)',
+                        margin: '0 auto'
+                      }}
+                    >
                       <img
                         src="/images/George.jpg"
                         alt="George Chege Njeru"
-                        className="img-fluid h-100 founder-image"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover'
+                        }}
                       />
-                      <div className="founder-overlay"></div>
-                      <div className="founder-experience-badge">
-                        <span className="years">17+</span>
-                        <span className="text">Years Experience</span>
-                      </div>
                     </div>
+                    <h3 className="text-white fw-bold mt-3 mb-1">George Chege Njeru</h3>
+                    <p className="text-white mb-0">Director of Network Solutions</p>
                   </div>
-                  <div className="col-md-8">
-                    <div className="card-body p-4">
-                      <h3 className="card-title fw-bold mb-1">George Chege Njeru</h3>
-                      <p className="text-info mb-3 founder-position">Founder & CEO</p>
-                      <p className="card-text">
-                        With over 17 years in telecommunications, George has led technical teams at Vodafone, COMCAST, Magnet, Aptiv, and Amazon Web Services. His expertise spans network operations, automation, and security across global enterprises.
-                      </p>
-                      <div className="mb-3">
-                        <strong>Certifications:</strong>
-                        <div className="mt-2">
-                          <span className="certification-badge">JNCIA-DevOps</span>
-                          <span className="certification-badge">Cisco DevOps</span>
-                          <span className="certification-badge">CCNP</span>
-                          <span className="certification-badge">Prince 2</span>
-                          <span className="certification-badge">ITIL Foundation</span>
-                        </div>
-                      </div>
-                      <p className="card-text">
-                        George founded GN Solutions to help enterprises modernize their network infrastructure through automation, security, and optimization strategies developed from his experience managing networks across 50+ countries.
-                      </p>
-                      <div className="mt-3 team-social">
-                        <a href="https://www.linkedin.com/in/georgenjeru/" className="linkedin-btn" target="_blank" rel="noopener noreferrer">
-                          <i className="fab fa-linkedin me-2"></i>Connect on LinkedIn
-                        </a>
-                      </div>
-                    </div>
+                  <div className="col-md-8 ps-md-5">
+                    <p className="text-white mb-4" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
+                      George is a seasoned professional with over 17 years' extensive experience in networks and cyber security. He has worked with global service integrators, carrier service providers and European leaders in managed network services.
+                    </p>
+                    <p className="text-white mb-0" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
+                      Throughout his career, he has excelled in network operations, technical team leadership and senior account management. His expertise includes network automation, security architecture and service optimization, serving both public and private sector clients.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -347,6 +318,8 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
+
+      <UniqueFonderSection/>
 
       {/* Services Overview Section */}
       <section className="py-5 bg-light">
@@ -411,21 +384,6 @@ const AboutPage = () => {
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action Section */}
-      <section className="cta-section py-5" style={{ background: "linear-gradient(90deg,rgb(10, 16, 51) 10%, rgb(23, 33, 95) 100%)" }}>
-        <div className="container">
-          <div className="row justify-content-center align-items-center">
-            <div className="col-lg-8 text-center text-white">
-              <h2 className="fw-bold mb-4">Ready to Transform Your Network Infrastructure?</h2>
-              <p className="lead mb-4">Partner with GN Solutions and leverage our 17+ years of enterprise network experience.</p>
-              <button className="btn btn-lg px-5 py-3 text-white" style={{ backgroundColor: "var(--primary-color)" }} onClick={() => window.location.href = '/contact'}>
-                Schedule a Consultation
-              </button>
             </div>
           </div>
         </div>

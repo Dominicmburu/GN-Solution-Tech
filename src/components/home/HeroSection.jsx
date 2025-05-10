@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaArrowRight, FaPlay } from 'react-icons/fa';
 import SectionTitle from './SectionTitle';
 import '../../assets/css/HeroSection.css';
@@ -8,6 +8,7 @@ const HeroSection = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,15 +27,80 @@ const HeroSection = () => {
     setIsVideoModalOpen(!isVideoModalOpen);
   };
 
+  // Handle Support Request button click
+  const handleSupportRequest = () => {
+    navigate('/contact');
+    // After navigation, scroll to the contact form section
+    setTimeout(() => {
+      const contactForm = document.querySelector('.contact-form-wrapper');
+      if (contactForm) {
+        contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
+  };
+
+  // Handle Get In Touch button click
+  const handleGetInTouch = () => {
+    // First check if we're already on the home page
+    if (window.location.pathname === '/') {
+      // If we're on the home page, just scroll to footer
+      const footer = document.querySelector('.footer');
+      if (footer) {
+        footer.scrollIntoView({ behavior: 'smooth' });
+        // Focus on the email input after scrolling
+        setTimeout(() => {
+          const emailInput = footer.querySelector('input[type="email"]');
+          if (emailInput) {
+            emailInput.focus();
+          }
+        }, 500);
+      }
+    } else {
+      // If we're on another page, navigate to home first
+      navigate('/');
+      // Then scroll to footer after navigation
+      setTimeout(() => {
+        const footer = document.querySelector('.footer');
+        if (footer) {
+          footer.scrollIntoView({ behavior: 'smooth' });
+          setTimeout(() => {
+            const emailInput = footer.querySelector('input[type="email"]');
+            if (emailInput) {
+              emailInput.focus();
+            }
+          }, 500);
+        }
+      }, 100);
+    }
+  };
+
+  // Handle Live Chat button click
+  const handleLiveChat = () => {
+    navigate('/contact');
+    // After navigation, trigger the live chat to open
+    setTimeout(() => {
+      const liveChatButton = document.querySelector('.support-btn');
+      if (liveChatButton) {
+        liveChatButton.click();
+      }
+      // Also scroll to the support options section
+      const supportOptions = document.querySelector('.support-options-section');
+      if (supportOptions) {
+        supportOptions.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
+  };
+
   return (
     <section
       id='hero-section'
       className="hero-section position-relative"
       style={{
         backgroundColor: '#0a1033',
-        padding: isMobile ? "80px 0 100px" : "120px 0 180px",
+        padding: isMobile ? "100px 0 120px" : "140px 0 200px",
         position: 'relative',
         overflow: 'hidden',
+        minHeight: isMobile ? '600px' : '420px'
       }}
     >
       <video
@@ -63,44 +129,87 @@ const HeroSection = () => {
               title={<>Transform Your Business with <span style={{color: "var(--primary-color)"}} className="fw-bold">Intelligent </span> Automation</>}
               light={true}
             />
-            <p className="text-white-50 mb-4" 
+            <p className="text-white-50 mb-5" 
             style={{ 
-              fontSize: isMobile ? "14px" : "18px"
+              fontSize: isMobile ? "16px" : "18px",
+              lineHeight: '1.6',
+              maxWidth: '800px',
+              margin: '0 auto 3rem auto'
             }}
             >
               Accelerate your digital transformation with cutting-edge network automation,
               cloud infrastructure solutions, and military-grade cybersecurity protection.
             </p>
 
-            <div className="d-flex align-items-center justify-content-center mt-4 button-container">
-              <Link
-                to="/aboutus"
-                className={`btn discover-btn px-4 py-3 rounded-1 ${isHovered ? 'shadow-lg' : ''}`}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+            {/* New Three Buttons Section */}
+            <div className="d-flex justify-content-center align-items-center gap-3 flex-wrap button-group">
+              <button
+                id='support-request-btn'
+                className="btn hero-action-btn support-request-btn"
+                onClick={handleSupportRequest}
                 style={{
-                  backgroundColor: 'var(--primary-color)',
+                  backgroundColor: '#0a1033',
                   color: 'white',
-                  textDecoration: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  transition: 'all 0.3s ease',
+                  padding: isMobile ? '14px 24px' : '16px 36px',
+                  borderRadius: '10px',
+                  border: 'none',
                   fontWeight: '600',
-                  minWidth: isMobile ? '80%' : '220px',
-                  position: 'relative',
-                  overflow: 'hidden'
+                  fontSize: isMobile ? '15px' : '16px',
+                  minWidth: isMobile ? '260px' : '200px',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(0, 102, 255, 0.2)',
+                  textTransform: 'none',
+                  letterSpacing: '0.5px',
+                  cursor: 'pointer'
                 }}
               >
-                <span>Discover More</span>
-                <FaArrowRight
-                  className="ms-2"
-                  style={{
-                    transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
-                    transition: 'transform 0.2s ease',
-                  }}
-                />
-              </Link>
+                Support Request
+              </button>
+
+              <button
+                className="btn hero-action-btn get-in-touch-btn"
+                onClick={handleGetInTouch}
+                style={{
+                  backgroundColor: '#FF6B00',
+                  color: 'white',
+                  padding: isMobile ? '14px 24px' : '16px 36px',
+                  borderRadius: '10px',
+                  border: 'none',
+                  fontWeight: '600',
+                  fontSize: isMobile ? '15px' : '16px',
+                  minWidth: isMobile ? '260px' : '200px',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(255, 107, 0, 0.2)',
+                  textTransform: 'none',
+                  letterSpacing: '0.5px',
+                  cursor: 'pointer'
+                }}
+              >
+                Get In Touch
+              </button>
+
+              <button
+                id='live-chat-btn'
+                className="btn hero-action-btn live-chat-btn"
+                onClick={handleLiveChat}
+                style={{
+                  backgroundColor: '#fff',
+                  color: '#0a1033',
+                  padding: isMobile ? '14px 24px' : '16px 36px',
+                  borderRadius: '10px',
+                  border: 'none',
+                  fontWeight: '600',
+                  fontSize: isMobile ? '15px' : '16px',
+                  minWidth: isMobile ? '260px' : '200px',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(0, 102, 255, 0.2)',
+                  textTransform: 'none',
+                  letterSpacing: '0.5px',
+                  cursor: 'pointer'
+                }}
+              >
+                Live Chat
+              </button>
             </div>
           </div>
         </div>
@@ -146,142 +255,6 @@ const HeroSection = () => {
           </div>
         </div>
       )}
-
-      <style jsx>{`
-        @keyframes rotate {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes pulse {
-          0% {
-            opacity: 0.3;
-          }
-          50% {
-            opacity: 0.7;
-          }
-          100% {
-            opacity: 0.3;
-          }
-        }
-
-        .cyber-rotate {
-          animation: rotate 20s linear infinite;
-          transform-origin: center center;
-        }
-
-        .cyber-rotate-reverse {
-          animation: rotate 25s linear infinite reverse;
-          transform-origin: center center;
-        }
-
-        .cyber-glow {
-          animation: pulse 2s ease-in-out infinite;
-        }
-
-        .video-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(80, 80, 90, 0.1);
-          z-index: 2;
-        }
-
-        .discover-btn {
-          position: relative;
-        }
-
-        .discover-btn:after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 0;
-          background-color: rgba(255, 255, 255, 0.1);
-          transition: all 0.3s ease;
-        }
-
-        .discover-btn:hover:after {
-          height: 100%;
-        }
-
-        .discover-btn:hover {
-          transform: translateY(-3px);
-          background-color: #ff9f2b !important;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
-        }
-
-        .discover-btn:active {
-          transform: translateY(0);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 991px) {
-          .hero-section .row {
-            flex-direction: row;
-          }
-
-          .cyber-container {
-            max-width: 450px;
-            margin: 0 auto;
-          }
-        }
-
-        @media (max-width: 767px) {
-          .hero-section .row {
-            padding-top: 60px;
-          }
-
-          .discover-btn {
-            max-width: 85%;
-            margin: 0 auto;
-            padding: 12px 30px !important;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-            border-radius: 4px !important;
-          }
-          
-          .button-container {
-            margin-top: 30px !important;
-          }
-        }
-
-        @media (max-width: 575px) {
-          .hero-section {
-            padding: 60px 0 80px !important;
-          }
-          
-          .hero-section .row {
-            padding-top: 20px;
-          }
-
-          .hero-section .col-lg-12 {
-            text-align: center;
-          }
-
-          .discover-btn {
-            max-width: 90%;
-            margin: 0 auto;
-            font-size: 15px;
-            padding: 10px 20px !important;
-          }
-          
-          .button-container {
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            width: 100% !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };
