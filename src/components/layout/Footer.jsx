@@ -79,7 +79,8 @@ const Footer = () => {
       <style jsx>{`
         @media (max-width: 768px) {
           .small-text {
-            font-size: 0.9rem;
+            font-s
+            ize: 0.9rem;
           }
         }
       `}</style>
