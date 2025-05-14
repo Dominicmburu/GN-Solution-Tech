@@ -29,7 +29,7 @@ const TestimonialsSection = () => {
       <div className="container">
         <SectionTitle 
           subtitle="Client Success"
-          title="Enterprise Transformations We've Enabled"
+          title={<span style={{ color: '#594099' }}>"Enterprise Transformations We've Enabled" </span>}
           centered={true}
         />
         
