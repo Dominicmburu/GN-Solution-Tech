@@ -42,29 +42,36 @@ const UniqueFonderSection = () => {
               {/* Left Column - Image and Quick Info */}
               <div className="col-lg-4 mb-4 mb-lg-0">
                 <div className="position-relative">
-                  {/* Hexagonal frame for image */}
-                  <div className="hexagon-wrapper mx-auto" style={{ width: '280px', height: '320px', position: 'relative' }}>
-                    <svg width="280" height="320" viewBox="0 0 280 320" style={{ position: 'absolute' }}>
-                      <defs>
-                        <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" style={{ stopColor: '#f08b0a', stopOpacity: 1 }} />
-                          <stop offset="100%" style={{ stopColor: '#0a1033', stopOpacity: 1 }} />
-                        </linearGradient>
-                        <clipPath id="hexClip">
-                          <polygon points="70,0 210,0 280,80 280,240 210,320 70,320 0,240 0,80" />
-                        </clipPath>
-                      </defs>
-                      <polygon points="70,0 210,0 280,80 280,240 210,320 70,320 0,240 0,80" fill="url(#hexGradient)" />
-                      <image 
-                        href="/images/George.jpg" 
-                        x="5" 
-                        y="5" 
-                        width="270" 
-                        height="310" 
-                        clipPath="url(#hexClip)"
-                        style={{ transform: 'scale(0.95)', transformOrigin: 'center' }}
-                      />
-                    </svg>
+                  {/* Circular frame for image */}
+                  <div className="circle-wrapper mx-auto" style={{ width: '280px', height: '280px', position: 'relative' }}>
+                    <div style={{ 
+                      width: '280px', 
+                      height: '280px', 
+                      borderRadius: '50%', 
+                      background: 'linear-gradient(135deg, #f08b0a, #0a1033)',
+                      padding: '5px',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center'
+                    }}>
+                      <div style={{
+                        width: '270px',
+                        height: '270px',
+                        borderRadius: '50%',
+                        overflow: 'hidden'
+                      }}>
+                        <img 
+                          src="/images/George.jpg" 
+                          alt="George Chege Njeru"
+                          style={{ 
+                            width: '100%', 
+                            height: '100%', 
+                            objectFit: 'cover',
+                            objectPosition: 'center'
+                          }}
+                        />
+                      </div>
+                    </div>
                   </div>
                   
                   {/* Name and Title Card */}
@@ -208,26 +215,6 @@ const UniqueFonderSection = () => {
           </div>
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes networkPulse {
-          0% { transform: translate(0, 0); }
-          100% { transform: translate(40px, 40px); }
-        }
-        
-        .fade-in {
-          animation: fadeIn 0.5s ease-in;
-        }
-        
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .backdrop-blur {
-          backdrop-filter: blur(10px);
-        }
-      `}</style>
     </section>
   );
 };

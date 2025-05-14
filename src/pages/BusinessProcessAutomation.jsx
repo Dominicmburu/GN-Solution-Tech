@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
@@ -109,11 +109,13 @@ const automationBenefits = [
 const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
 
 // Counter component with easing effect
-const Counter = ({ end, duration = 2000 }) => {
+const Counter = ({ end, duration = 2000, startAnimation }) => {
   const [count, setCount] = useState(0);
   const endValue = parseInt(end); // Convert percentage string to number
 
   useEffect(() => {
+    if (!startAnimation) return; // Only start animation if triggered
+
     let startTime = null;
     let animationFrame;
 
@@ -134,13 +136,15 @@ const Counter = ({ end, duration = 2000 }) => {
     animationFrame = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationFrame); // Cleanup on unmount
-  }, [end, duration]);
+  }, [end, duration, startAnimation]);
 
   return <span>{count}%</span>;
 };
 
 const BusinessProcessAutomation = () => {
   const [activeTab, setActiveTab] = useState(automationServices[0].id);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
   // Map service IDs to their corresponding route paths
   const serviceRoutes = {
@@ -148,6 +152,31 @@ const BusinessProcessAutomation = () => {
     "platform-as-code": "/services/infrastructure-as-code",
     "software-as-code": "/services/software-as-code"
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing once the section is visible
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="container-fluid p-0">
@@ -203,7 +232,7 @@ const BusinessProcessAutomation = () => {
       </motion.div>
 
       {/* Expert Introduction */}
-      <div className="bg-light py-5">
+      <div className="bg-light py-5" ref={sectionRef}>
         <div className="container">
           <div className="row align-items-center">
             <motion.div 
@@ -248,7 +277,7 @@ const BusinessProcessAutomation = () => {
                   >
                     <div className="bg-white shadow p-4 rounded">
                       <h2 className="display-4 fw-bold text-info">
-                        <Counter end={benefit.metric} duration={2000} />
+                        <Counter end={benefit.metric} duration={2000} startAnimation={isVisible} />
                       </h2>
                       <p className="mb-0">{benefit.description}</p>
                     </div>

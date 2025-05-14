@@ -383,15 +383,16 @@ const NetworkAsCode = () => {
           height: "45vh",
         }}
       >
-        <motion.h1 
-          className="display-4 fw-bold"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          style={{background: 'transparent'}}
-        >
-          Network as Code: Automate Your Infrastructure
-        </motion.h1>
+       <motion.h1 
+  className="display-4 fw-bold"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.5 }}
+  style={{ background: 'transparent', color: 'orange' }}
+>
+  Network as Code: Automate Your Infrastructure
+</motion.h1>
+
         <motion.p
           className="lead"
           initial={{ opacity: 0 }}

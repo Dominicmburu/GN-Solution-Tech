@@ -42,11 +42,11 @@
     transition: transform 0.3s ease;
 }
 
-.timeline-item {
+.about-timeline-item {
     position: relative;
 }
 
-.timeline-item::before {
+.about-timeline-item::before {
     content: '';
     position: absolute;
     width: 20px;

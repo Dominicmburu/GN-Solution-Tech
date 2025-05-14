@@ -63,7 +63,7 @@ const TabsSection = () => {
                           aria-selected={activeTab === tab.id}
                         >
                           <i className={`${tab.icon} tab-icon`}></i>
-                          <span className="tab-text">{tab.label}</span>
+                          <span style={{color: "var(--tt-color)"}} className="tab-text">{tab.label}</span>
                         </button>
                       </li>
                     ))}

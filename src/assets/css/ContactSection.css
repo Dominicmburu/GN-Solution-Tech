@@ -1,0 +1,58 @@
+/* Simple Contact Form Floating Effects */
+
+/* Main form wrapper styling */
+.contact-form-wrapper {
+  background-color: var(--tt-color, #0a1033) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 12px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Input field styling */
+.contact-form-wrapper .form-control {
+  transition: all 0.3s ease;
+  box-shadow: none;
+  border-width: 1px;
+  border-radius: 6px;
+}
+
+.contact-form-wrapper .form-control:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color, #061a8a);
+}
+
+/* Submit button styling */
+.contact-form-wrapper .btn {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-wrapper .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Location info styling */
+.location-info-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}

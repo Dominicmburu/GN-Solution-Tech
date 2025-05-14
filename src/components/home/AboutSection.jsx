@@ -59,7 +59,7 @@ const AboutSection = () => {
             <div className="about-content">
               <SectionTitle 
                 subtitle="About Us"
-                title="Empowering Businesses Through Intelligent Automation & Security"
+                title={<span style={{ color: 'var(--tt-color)' }}>Empowering Businesses Through Intelligent Automation & Security</span>}
               />
               <p className="text-muted mb-4">
                 Established in 2022 with headquarters in Dublin, GN Solutions specializes in enterprise-grade 

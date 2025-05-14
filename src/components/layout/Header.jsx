@@ -8,6 +8,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isServiceMenuOpen, setIsServiceMenuOpen] = useState(false);
+  const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -25,8 +26,9 @@ const Header = () => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
       // Close menu on resize to prevent layout issues
-      if (windowWidth < 992 && isServiceMenuOpen) {
-        setIsServiceMenuOpen(false);
+      if (windowWidth < 992) {
+        if (isServiceMenuOpen) setIsServiceMenuOpen(false);
+        if (isProductMenuOpen) setIsProductMenuOpen(false);
       }
     };
 
@@ -37,18 +39,35 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
-  }, [isServiceMenuOpen, windowWidth]);
+  }, [isServiceMenuOpen, isProductMenuOpen, windowWidth]);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
     if (isServiceMenuOpen) setIsServiceMenuOpen(false);
+    if (isProductMenuOpen) setIsProductMenuOpen(false);
   };
 
   const toggleServiceMenu = (e) => {
-    e.preventDefault();
-    setIsServiceMenuOpen(!isServiceMenuOpen);
+    // Only prevent default on mobile devices
+    if (windowWidth < 992) {
+      e.preventDefault();
+      setIsServiceMenuOpen(!isServiceMenuOpen);
+      if (isProductMenuOpen) setIsProductMenuOpen(false);
+    }
     if (windowWidth >= 992) {
       navigate('/services');
+    }
+  };
+
+  const toggleProductMenu = (e) => {
+    // Only prevent default on mobile devices
+    if (windowWidth < 992) {
+      e.preventDefault();
+      setIsProductMenuOpen(!isProductMenuOpen);
+      if (isServiceMenuOpen) setIsServiceMenuOpen(false);
+    }
+    if (windowWidth >= 992) {
+      navigate('/products');
     }
   };
 
@@ -59,6 +78,7 @@ const Header = () => {
   const closeNav = () => {
     if (isNavOpen) setIsNavOpen(false);
     if (isServiceMenuOpen) setIsServiceMenuOpen(false);
+    if (isProductMenuOpen) setIsProductMenuOpen(false);
   };
 
   const isActive = (path) => {
@@ -69,6 +89,26 @@ const Header = () => {
   const getLinkColor = (path) => {
     return isActive(path) ? '#f08b0a' : isScrolled ? '#594099' : '#594099';
   };
+
+  // Product items to display in the Products section
+  const products = [
+    {
+      title: "Cloud Solutions",
+      link: "/products/cloud-solutions"
+    },
+    {
+      title: "Network Hardware",
+      link: "/products/network-hardware"
+    },
+    {
+      title: "Security Appliances",
+      link: "/products/security-appliances"
+    },
+    {
+      title: "Enterprise Software",
+      link: "/products/enterprise-software"
+    }
+  ];
 
   const serviceCategories = [
     {
@@ -99,10 +139,7 @@ const Header = () => {
           title: "Cybersecurity",
           link: "/services/cybersecurity"
         },
-        {
-          title: "Infrastructure Design & Management",
-          link: "/services/infrastructure-design"
-        },
+       
         {
           title: "IT Remote & Smart Hands Support",
           link: "/services/remote-smart-hands"
@@ -209,8 +246,12 @@ const Header = () => {
               </Link>
             </li>
 
-            {/* Services Dropdown with CommSec-inspired Menu */}
-            <li className={`nav-item dropdown ${isMobile ? '' : 'position-static'} ${isServiceMenuOpen ? 'show' : ''}`}>
+            {/* Services Dropdown with Hover Menu */}
+            <li 
+              className={`nav-item dropdown ${isMobile ? '' : 'dropdown-hover'} ${isServiceMenuOpen ? 'show' : ''}`}
+              onMouseEnter={() => isMobile ? null : setIsServiceMenuOpen(true)}
+              onMouseLeave={() => isMobile ? null : setIsServiceMenuOpen(false)}
+            >
               <a
                 className={`nav-link d-flex align-items-center ${isActive('/services') ? 'fw-bold' : ''}`}
                 href="#"
@@ -242,7 +283,6 @@ const Header = () => {
                   overflow: isMobile ? 'hidden' : 'visible',
                   maxHeight: isMobile ? '75vh' : 'none',
                   overflowY: isMobile ? 'auto' : 'visible',
-                  transition: 'none',
                   borderTop: '3px solid #594099',
                   borderRadius: '0 0 8px 8px'
                 }}
@@ -303,6 +343,57 @@ const Header = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </li>
+
+            {/* New Products Section */}
+            <li 
+              className={`nav-item dropdown ${isMobile ? '' : 'dropdown-hover'} ${isProductMenuOpen ? 'show' : ''}`}
+              onMouseEnter={() => isMobile ? null : setIsProductMenuOpen(true)}
+              onMouseLeave={() => isMobile ? null : setIsProductMenuOpen(false)}
+            >
+              <a
+                className={`nav-link d-flex align-items-center ${isActive('/products') ? 'fw-bold' : ''}`}
+                href="#"
+                onClick={toggleProductMenu}
+                style={{
+                  color: getLinkColor('/products'),
+                  padding: '10px 15px'
+                }}
+              >
+                Products <FaChevronDown className="ms-1" size={12} />
+              </a>
+
+              {/* Products Dropdown */}
+              <div
+                className="dropdown-menu"
+                style={{
+                  display: isProductMenuOpen ? 'block' : 'none',
+                  backgroundColor: 'white',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
+                  borderTop: '3px solid #594099',
+                  borderRadius: '0 0 8px 8px',
+                  padding: '15px',
+                  minWidth: '200px'
+                }}
+              >
+                {products.map((product, index) => (
+                  <Link
+                    key={index}
+                    to={product.link}
+                    className="dropdown-item d-flex align-items-center"
+                    style={{
+                      color: location.pathname === product.link ? '#f08b0a' : '#333',
+                      padding: '10px 15px',
+                      transition: 'all 0.2s ease',
+                      borderLeft: location.pathname === product.link ? '3px solid #f08b0a' : '3px solid transparent',
+                    }}
+                    onClick={closeNav}
+                  >
+                    {product.title}
+                    <FaChevronRight className="ms-2" size={10} style={{ color: '#f08b0a' }} />
+                  </Link>
+                ))}
               </div>
             </li>
 
@@ -462,6 +553,25 @@ const Header = () => {
           border-top: 1px solid #eee !important;
         }
         
+        /* Fix for dropdown menus */
+        .dropdown-hover .dropdown-menu {
+          /* Key CSS to ensure smooth transitions between dropdown menus */
+          transition: opacity 0.15s ease-in-out;
+        }
+        
+        /* Dropdown menus need to be statically positioned for proper hovering */
+        .dropdown-menu {
+          transition: all 0.3s ease;
+        }
+        
+        /* Products dropdown hover effect */
+        .dropdown-item:hover {
+          color: #f08b0a !important;
+          background-color: rgba(245, 245, 245, 0.7) !important;
+          border-left: 3px solid #f08b0a !important;
+          transform: translateX(3px);
+        }
+        
         /* Mobile menu adjustments */
         @media (max-width: 991.98px) {
           .navbar-collapse {
@@ -489,6 +599,16 @@ const Header = () => {
             margin-left: 10px !important;
             box-shadow: none !important;
             background-color: rgba(245, 245, 245, 0.5) !important;
+            /* Override desktop transition for mobile */
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+            transition: none !important;
+          }
+          
+          /* Ensure dropdown menus appear/disappear properly on mobile */
+          .dropdown-menu.show {
+            display: block !important;
           }
         }
       `}</style>

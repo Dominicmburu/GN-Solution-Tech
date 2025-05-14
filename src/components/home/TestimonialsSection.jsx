@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionTitle from './SectionTitle';
 import TestimonialCard from './TestimonialCard';
+import '../../assets/css/TestimonialsSection.css'; 
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -25,7 +26,7 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="testimonial-section py-5" style={{ backgroundColor: "#f8f9fa" }}>
+    <section className="py-5" style={{ backgroundColor: "#f8f9fa" }}>
       <div className="container">
         <SectionTitle 
           subtitle="Client Success"
@@ -33,15 +34,17 @@ const TestimonialsSection = () => {
           centered={true}
         />
         
-        <div className="row">
+        <div className="row g-4">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="col-lg-4 mb-4 mb-lg-0">
-              <TestimonialCard 
-                image={testimonial.image}
-                text={testimonial.text}
-                name={testimonial.name}
-                role={testimonial.role}
-              />
+              <div className={`testimonial-card-wrapper ${index === 1 ? 'testimonial-card-featured' : ''}`}>
+                <TestimonialCard 
+                  image={testimonial.image}
+                  text={testimonial.text}
+                  name={testimonial.name}
+                  role={testimonial.role}
+                />
+              </div>
             </div>
           ))}
         </div>

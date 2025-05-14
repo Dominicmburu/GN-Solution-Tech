@@ -13,6 +13,10 @@ import NetworkAsCode from './pages/NetworkAsCode';
 import InfrastructureAsCode from './pages/InfratsructureAsCode';
 import BusinessProcessAutomation from './pages/BusinessProcessAutomation';
 import PlatformAsCodePage from './pages/PlatformAsCode';
+import CybersecurityAsAServicePage from './pages/Cybersecurity';
+import ManagedNetworkServicesPage from './pages/ManagedNetwork';
+import ITTechnologyTrainingPage from './pages/TecnologyTraining';
+import TechnologyTransitionPage from './pages/TechnoogyTransition';
 
 
 function App() {
@@ -29,7 +33,10 @@ function App() {
         <Route path="/services/infrastructure-as-code" element={<Layout><InfrastructureAsCode /></Layout>} />
         <Route path="/services/platform-as-code" element={<Layout><PlatformAsCodePage /></Layout>} />
         <Route path="/services/business-process-automation" element={<Layout><BusinessProcessAutomation /> </Layout>} />
-
+        <Route path="/services/cybersecurity" element={<Layout><CybersecurityAsAServicePage /></Layout>} />
+        <Route path="/services/managed-network" element={<Layout><ManagedNetworkServicesPage /></Layout>} />
+        <Route path="/services/it-training" element={<Layout><ITTechnologyTrainingPage /></Layout>} />
+        <Route path="/services/technology-transitions" element={<Layout><TechnologyTransitionPage /> </Layout>} />
       </Routes>
     </Router>
   );

@@ -12,7 +12,7 @@
 }
 
 .tab-navigation {
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     padding: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -45,6 +45,10 @@
     flex: 0 0 auto;
     text-align: center;
     position: relative;
+}
+
+.custom-tabs .nav-item:hover {
+    color: #835c0a;
 }
 
 .custom-tabs .nav-link {

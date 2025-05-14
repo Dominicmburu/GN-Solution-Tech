@@ -39,19 +39,19 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="services-section py-5" style={{ backgroundColor: "#0a1033" }}>
+    <section className="services-section py-5" style={{ backgroundColor: "#ffffff" }}>
       <div className="container">
-        <SectionTitle 
+        <SectionTitle
           subtitle="Our Services"
           title="Comprehensive IT Solutions for Modern Enterprises"
           centered={true}
-          light={true}
+          light={false}
         />
-        
+
         <div className="row">
           {services.map((service, index) => (
             <div key={index} className="col-lg-4 mb-4">
-              <ServiceCard 
+              <ServiceCard
                 icon={service.icon}
                 title={service.title}
                 features={service.features}
