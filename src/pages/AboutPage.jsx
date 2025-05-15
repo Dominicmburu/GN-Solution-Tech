@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaChartLine, FaLightbulb, FaShieldAlt, FaSyncAlt, FaNetworkWired, FaCloud, FaUsers, FaGlobe, FaCoins } from 'react-icons/fa';
 import PageBanner from '../components/common/PageBanner';
 // import TeamMember from '../components/about/TeamMember';
@@ -6,34 +6,36 @@ import '../assets/css/AboutPage.css';
 import UniqueFonderSection from '../components/about/UniqueFonderSection';
 
 const AboutPage = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const companyValues = [
     {
-      icon: <FaNetworkWired style={{color: "var(--primary-color)"}} size={36} />,
+      icon: <FaNetworkWired style={{ color: "var(--primary-color)" }} size={36} />,
       title: "Network Expertise",
       description: "With over 17 years in telecommunications, we deliver robust, scalable network solutions for enterprises of all sizes."
     },
     {
-      icon: <FaLightbulb style={{color: "var(--primary-color)"}} size={36} />,
+      icon: <FaLightbulb style={{ color: "var(--primary-color)" }} size={36} />,
       title: "Innovation",
       description: "We leverage cutting-edge technologies and methodologies to solve complex IT infrastructure challenges."
     },
     {
-      icon: <FaShieldAlt style={{color: "var(--primary-color)"}} size={36} />,
+      icon: <FaShieldAlt style={{ color: "var(--primary-color)" }} size={36} />,
       title: "Security",
       description: "Our experience with enterprise-grade security protocols ensures your network and data remain protected."
     },
     {
-      icon: <FaCloud style={{color: "var(--primary-color)"}} size={36} />,
+      icon: <FaCloud style={{ color: "var(--primary-color)" }} size={36} />,
       title: "Automation",
       description: "We implement DevOps practices and network automation to increase efficiency and reduce operational costs."
     },
     {
-      icon: <FaChartLine style={{color: "var(--primary-color)"}} size={36} />,
+      icon: <FaChartLine style={{ color: "var(--primary-color)" }} size={36} />,
       title: "Performance",
       description: "Our solutions are designed to maximize network performance with 99.95% SLA adherence."
     },
     {
-      icon: <FaSyncAlt style={{color: "var(--primary-color)"}} size={36} />,
+      icon: <FaSyncAlt style={{ color: "var(--primary-color)" }} size={36} />,
       title: "Adaptability",
       description: "We rapidly adapt to evolving technologies and business requirements to keep our clients ahead."
     }
@@ -123,7 +125,7 @@ const AboutPage = () => {
                 />
                 <div
                   className="circle-founder-intro position-absolute text-white rounded-circle shadow-lg d-flex justify-content-center align-items-center"
-                  style={{backgroundColor: 'var(--primary-color)'}}
+                  style={{ backgroundColor: 'var(--primary-color)' }}
                 >
                   <div className="text-center">
                     <h4 className="mb-0 fw-bold">2024</h4>
@@ -134,8 +136,8 @@ const AboutPage = () => {
             </div>
             <div className="col-lg-6 ps-lg-5">
               <div className="mb-4">
-                <span className="badge text-white p-2 mb-3" style={{backgroundColor: 'var(--primary-color)'}}>Our Journey</span>
-                <h2 className="fw-bold display-5 mb-4" style={{ color: '#0a1033' }}>
+                <span className="badge text-white p-2 mb-3" style={{ backgroundColor: 'var(--primary-color)' }}>Our Journey</span>
+                <h2 className="fw-bold display-5 mb-4" style={{ color: 'var(--tt-color)' }}>
                   Our Story
                 </h2>
               </div>
@@ -159,7 +161,7 @@ const AboutPage = () => {
         <div className="container position-relative">
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
-              <h2 className="fw-bold mb-4" style={{ color: "#0a1033" }}>Our Mission & Vision</h2>
+              <h2 className="fw-bold mb-4" style={{ color: "var(--tt-color)" }}>Our Mission & Vision</h2>
               <div className="d-flex justify-content-center mb-4">
                 <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
               </div>
@@ -167,13 +169,19 @@ const AboutPage = () => {
           </div>
           <div className="row">
             <div className="col-md-6 mb-4 mb-md-0">
-              <div className="card border-0 h-100 shadow-sm">
+              <div className="card mission-vision-card h-100"
+                style={{
+                  boxShadow: isHovered
+                    ? '0 20px 38px rgba(0,0,0,0.25), 0 15px 12px rgba(0,0,0,0.32)'
+                    : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
+                  transition: 'all 0.3s ease-in-out',
+                }}>
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-4">
                     <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-rocket text-white"></i>
                     </div>
-                    <h3 className="fw-bold m-0" style={{ color: "#0a1033" }}>Mission</h3>
+                    <h3 className="fw-bold m-0" style={{ color: "var(--tt-color)" }}>Mission</h3>
                   </div>
                   <p className="card-text">To empower enterprises through expert network design, automation, and security solutions that deliver 99.95% SLA adherence while reducing operational costs.</p>
                   <p className="card-text">We're committed to transforming IT operations through the seamless integration of DevOps practices, proactive monitoring, and service improvement plans tailored to each client's needs.</p>
@@ -181,13 +189,19 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="card border-0 h-100 shadow-sm">
+              <div className="card mission-vision-card h-100"
+              style={{
+                  boxShadow: isHovered
+                    ? '0 20px 38px rgba(0,0,0,0.25), 0 15px 12px rgba(0,0,0,0.32)'
+                    : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
+                  transition: 'all 0.3s ease-in-out',
+                }}>
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-4">
                     <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-eye text-white"></i>
                     </div>
-                    <h3 className="fw-bold m-0" style={{ color: "#0a1033" }}>Vision</h3>
+                    <h3 className="fw-bold m-0" style={{ color: "var(--tt-color)" }}>Vision</h3>
                   </div>
                   <p className="card-text">To become the leading provider of network automation and security solutions that bridge the gap between traditional infrastructure and cloud-native technologies.</p>
                   <p className="card-text">We envision a future where enterprise networks operate with minimal downtime, maximum security, and optimal efficiency through the strategic application of automation and DevOps practices.</p>
@@ -196,23 +210,29 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-      </section>     
+      </section>
 
       {/* Company Values Section */}
       <section className="py-5">
         <div className="container">
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
-              <h2 className="fw-bold mb-3" style={{ color: "#0a1033" }}>Our Core Values</h2>
+              <h2 className="fw-bold mb-3" style={{ color: "var(--tt-color)" }}>Our Core Values</h2>
               <p className="text-muted">The principles that guide our work and relationships</p>
             </div>
           </div>
           <div className="row">
             {companyValues.map((value, index) => (
               <div className="col-md-6 col-lg-4 mb-4" key={index}>
-                <div className="card border-0 h-100 text-center shadow-sm hover-card">
+                <div className="card values-card h-100 text-center"
+                style={{
+                  boxShadow: isHovered
+                    ? '0 20px 38px rgba(0,0,0,0.25), 0 15px 12px rgba(0,0,0,0.32)'
+                    : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
+                  transition: 'all 0.3s ease-in-out',
+                }}>
                   <div className="card-body p-4">
-                    <div className="mb-3">
+                    <div className="mb-3 card-icon">
                       {value.icon}
                     </div>
                     <h4 className="fw-bold mb-3" style={{ color: "#0a1033" }}>{value.title}</h4>
@@ -242,11 +262,11 @@ const AboutPage = () => {
             <div className="growth-timeline position-absolute"></div>
 
             {milestones.map((milestone, index) => (
-              <div className={`row timeline-item mb-5 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`} key={index}>
+              <div className={`row about-timeline-item mb-5 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`} key={index}>
                 <div className="col-md-6">
-                  <div className={`timeline-content p-4 rounded-3 shadow bg-white ${index % 2 === 0 ? 'ms-auto me-4' : 'me-auto ms-4'}`}>
+                  <div className={`timeline-content p-4 rounded-3 floating-card ${index % 2 === 0 ? 'ms-auto me-4' : 'me-auto ms-4'}`}>
                     <div className="d-flex align-items-center mb-3">
-                      <div className="text-white rounded-circle p-2 me-3 fw-bold" style={{ width: "50px", height: "50px", display: "flex", alignItems: "center", justifyContent: "center" , backgroundColor: "var(--primary-color)"}}>
+                      <div className="text-white rounded-circle p-2 me-3 fw-bold" style={{ width: "50px", height: "50px", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "var(--primary-color)" }}>
                         {milestone.year}
                       </div>
                       <h4 className="fw-bold mb-0" style={{ color: "#0a1033" }}>{milestone.title}</h4>
@@ -261,65 +281,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Founder Section */}
-      <section className="py-5" style={{ backgroundColor: "#fff" }}>
-        <div className="container">
-          <div className="row justify-content-center mb-5">
-            <div className="col-lg-8 text-center">
-              <h2 className="fw-bold mb-3" style={{ color: "#0a1033" }}>Our Founder</h2>
-              <p>Meet the expert behind GN Solutions</p>
-            </div>
-          </div>
-          <div className="row justify-content-center">
-            <div className="col-lg-10">
-              <div 
-                className="card border-0 shadow-lg overflow-hidden"
-                style={{
-                  background: 'linear-gradient(135deg, #f08b0a 0%, #0a1033 50%',
-                  borderRadius: '20px'
-                }}
-              >
-                <div className="row g-0 align-items-center p-5">
-                  <div className="col-md-4 text-center mb-4 mb-md-0">
-                    <div 
-                      style={{
-                        width: '220px',
-                        height: '220px',
-                        borderRadius: '50%',
-                        overflow: 'hidden',
-                        border: '5px solid rgba(255, 255, 255, 0.2)',
-                        margin: '0 auto'
-                      }}
-                    >
-                      <img
-                        src="/images/George.jpg"
-                        alt="George Chege Njeru"
-                        style={{
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'cover'
-                        }}
-                      />
-                    </div>
-                    <h3 className="text-white fw-bold mt-3 mb-1">George Chege Njeru</h3>
-                    <p className="text-white mb-0">Director of Network Solutions</p>
-                  </div>
-                  <div className="col-md-8 ps-md-5">
-                    <p className="text-white mb-4" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
-                      George is a seasoned professional with over 17 years' extensive experience in networks and cyber security. He has worked with global service integrators, carrier service providers and European leaders in managed network services.
-                    </p>
-                    <p className="text-white mb-0" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
-                      Throughout his career, he has excelled in network operations, technical team leadership and senior account management. His expertise includes network automation, security architecture and service optimization, serving both public and private sector clients.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <UniqueFonderSection/>
+      <UniqueFonderSection />
 
       {/* Services Overview Section */}
       <section className="py-5 bg-light">
@@ -332,8 +294,13 @@ const AboutPage = () => {
           </div>
           <div className="row">
             <div className="col-md-4 mb-4">
-              <div className="card border-0 h-100 shadow-sm">
-                <div className="card-body p-4">
+              <div className="card services-card h-100">
+                <div className="card-body p-4" style={{
+                  boxShadow: isHovered
+                    ? '0 20px 38px rgba(0,0,0,0.25), 0 15px 12px rgba(0,0,0,0.32)'
+                    : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
+                  transition: 'all 0.3s ease-in-out',
+                }}>
                   <div className="d-flex align-items-center mb-3">
                     <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-network-wired text-white"></i>
@@ -350,8 +317,13 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="col-md-4 mb-4">
-              <div className="card border-0 h-100 shadow-sm">
-                <div className="card-body p-4">
+              <div className="card services-card h-100">
+                <div className="card-body p-4" style={{
+                  boxShadow: isHovered
+                    ? '0 20px 38px rgba(0,0,0,0.25), 0 15px 12px rgba(0,0,0,0.32)'
+                    : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
+                  transition: 'all 0.3s ease-in-out',
+                }}>
                   <div className="d-flex align-items-center mb-3">
                     <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-shield-alt text-white"></i>
@@ -368,8 +340,13 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="col-md-4 mb-4">
-              <div className="card border-0 h-100 shadow-sm">
-                <div className="card-body p-4">
+              <div className="card services-card h-100">
+                <div className="card-body p-4" style={{
+                  boxShadow: isHovered
+                    ? '0 20px 38px rgba(0,0,0,0.25), 0 15px 12px rgba(0,0,0,0.32)'
+                    : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
+                  transition: 'all 0.3s ease-in-out',
+                }}>
                   <div className="d-flex align-items-center mb-3">
                     <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-tachometer-alt text-white"></i>

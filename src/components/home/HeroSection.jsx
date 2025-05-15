@@ -148,7 +148,7 @@ const HeroSection = () => {
                 className="btn hero-action-btn support-request-btn"
                 onClick={handleSupportRequest}
                 style={{
-                  backgroundColor: '#0a1033',
+                  backgroundColor: 'var(--tt-color)',
                   color: 'white',
                   padding: isMobile ? '14px 24px' : '16px 36px',
                   borderRadius: '10px',
@@ -194,7 +194,7 @@ const HeroSection = () => {
                 onClick={handleLiveChat}
                 style={{
                   backgroundColor: '#fff',
-                  color: '#0a1033',
+                  color: 'var(--tt-color)',
                   padding: isMobile ? '14px 24px' : '16px 36px',
                   borderRadius: '10px',
                   border: 'none',

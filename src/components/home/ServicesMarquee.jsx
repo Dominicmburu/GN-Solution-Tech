@@ -27,7 +27,7 @@ const ServicesMarquee = () => {
             <div key={index} className="marquee-item">
               <div className="service-icon-box">
                 {service.icon}
-                <h6 className="mt-2 mb-0" style={{ color: "#0a1033" }}>{service.name}</h6>
+                <h6 className="mt-2 mb-0" style={{ color: "var(--primary-color)" }}>{service.name}</h6>
               </div>
             </div>
           ))}
