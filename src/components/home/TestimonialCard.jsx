@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const TestimonialCard = ({ image, text, name, role }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <div className="card testimonial-card h-100 border-0">
+    <div 
+      className="card h-100 border-0 position-relative"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        overflow: 'hidden',
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+      }}
+    >
       <div className="card-body p-4 p-xl-5">
         <div className="testimonial-quote">
           <i className="fas fa-quote-left"></i>
@@ -25,6 +35,18 @@ const TestimonialCard = ({ image, text, name, role }) => {
           </div>
         </div>
       </div>
+      
+      {/* Colored bottom line that changes on hover */}
+      <div 
+        className="position-absolute bottom-0 start-0 w-100 transition-all duration-300"
+        style={{
+          height: '4px',
+          background: isHovered 
+            ? 'linear-gradient(to right, yellow, purple, white)' 
+            : '#e9ecef',
+          transition: 'all 0.3s ease'
+        }}
+      />
     </div>
   );
 };
