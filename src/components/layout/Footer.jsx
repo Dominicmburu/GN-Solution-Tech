@@ -12,18 +12,18 @@ const Footer = () => {
         width: "100%",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: "auto"
+        height: "auto" // This will be controlled by content + padding
       }}
     >
       <div className="text-white" style={{
-        paddingTop: 'clamp(150px, 15vw, 300px)',
+        paddingTop: 'clamp(80px, 8vw, 150px)', // Reduced from clamp(150px, 15vw, 300px)
         paddingRight: 'clamp(0px, 5vw, 100px)',
       }}>
-        <div className="container py-5">
+        <div className="container py-4"> {/* Reduced padding from py-5 */}
           <div className="row">
             <div className="col-md-6"></div>
 
-            <div className="col-md-6 px-0" style={{marginTop: 'clamp(50px, 10vw, 150px)'}}>
+            <div className="col-md-6 px-0" style={{marginTop: 'clamp(30px, 5vw, 80px)'}}> {/* Reduced from clamp(50px, 10vw, 150px) */}
               <div className="row text-end">
                 <div className="col-lg-6 col-md-6 col-sm-12 mb-lg-0 footer-description">
                   <p className="text-white mb-4 small-text ms-auto" style={{ 
@@ -33,7 +33,7 @@ const Footer = () => {
                     textShadow: '0 1px 2px rgba(0,0,0,0.3)', 
                     textAlign: 'right',
                     maxWidth: '95%',
-                    // marginRight: 'clamp(-130px, -18vw, 150px)'
+                    marginRight: 'clamp(-120px, -15vw, 50px)', // Reduced from clamp(0px, 5vw, 100px)
                   }}>
                     GN Solutions delivers enterprise-grade IT automation and cybersecurity services,
                     empowering European businesses with secure, scalable infrastructure solutions.
@@ -41,7 +41,7 @@ const Footer = () => {
                 </div>
 
                 <div className="col-lg-6 col-md-6 col-sm-12 mb-4 mb-lg-0 text-end">
-                  <h5 className="text-white mb-4 fw-bold" style={{ fontSize: '1.1rem', letterSpacing: '0.05em', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Company</h5>
+                  <h5 className="text-white mb-3 fw-bold" style={{ fontSize: '1.1rem', letterSpacing: '0.05em', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Company</h5>
                   <ul className="list-unstyled footer-links" style={{ fontSize: '0.95rem' }}>
                     <li className="mb-2"><Link to="/about" className="text-white text-decoration-none hover-link">About Us</Link></li>
                     <li className="mb-2"><Link to="/services" className="text-white text-decoration-none hover-link">Services</Link></li>
@@ -51,9 +51,9 @@ const Footer = () => {
                   </ul>
                 </div>
               </div>
-              <div className="row mb-4 d-flex justify-content-between">
-                <div className="social-icons col-lg-6 col-md-6 col-sm-12 mb-4 mb-lg-0">
-                    <p className="text-white mb-3 fw-medium" style={{ fontSize: '0.95rem', letterSpacing: '0.02em', textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Connect With Us:</p>
+              <div className="row mb-3 d-flex justify-content-between"> {/* Reduced margin from mb-4 */}
+                <div className="social-icons col-lg-6 col-md-6 col-sm-12 mb-3 mb-lg-0"> {/* Reduced margin */}
+                    <p className="text-white mb-2 fw-medium" style={{ fontSize: '0.95rem', letterSpacing: '0.02em', textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Connect With Us:</p>
                     <div className="d-flex">
                       <a href="#" className="text-white me-4 social-icon-link"><FaFacebook size={22} /></a>
                       <a href="#" className="text-white me-4 social-icon-link"><FaTwitter size={22} /></a>
@@ -61,8 +61,8 @@ const Footer = () => {
                     </div>
                   </div>
                 <div className="col-lg-6 col-md-6 col-sm-12">
-                  <h5 className="text-white mb-3 fw-bold" style={{ fontSize: '1.1rem', letterSpacing: '0.05em', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Stay Updated</h5>
-                  <div className="mb-4 d-flex">
+                  <h5 className="text-white mb-2 fw-bold" style={{ fontSize: '1.1rem', letterSpacing: '0.05em', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Stay Updated</h5>
+                  <div className="mb-3 d-flex"> {/* Reduced margin */}
                     <input
                       type="email"
                       className="form-control py-2"
@@ -94,7 +94,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer-bottom pt-4 border-top" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <div className="footer-bottom pt-3 border-top" style={{ borderColor: 'rgba(255,255,255,0.15)' }}> {/* Reduced padding */}
             <div className="row align-items-center">
               <div className="col-12 text-center">
                 <div className="d-flex flex-column flex-md-row justify-content-center align-items-center gap-2">
@@ -110,7 +110,16 @@ const Footer = () => {
 
       {/* Add responsive styles */}
       <style jsx>{`
+        /* Option to add a max-height to the footer */
+        .footer {
+          max-height: 600px; /* This limits the overall height */
+        }
+        
         @media (max-width: 768px) {
+          .footer {
+            max-height: none; /* Remove height restriction on mobile */
+          }
+          
           .small-text {
             font-size: 0.9rem;
             margin-right: 0 !important;
