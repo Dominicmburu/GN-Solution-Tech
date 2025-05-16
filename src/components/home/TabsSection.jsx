@@ -54,7 +54,7 @@ const TabsSection = () => {
                     {tabs.map((tab) => (
                       <li className="nav-item" key={tab.id} role="presentation">
                         <button
-                          className={`nav-link ${activeTab === tab.id ? 'active' : ''}`}
+                          className={`nav-link-tab ${activeTab === tab.id ? 'active' : ''}`}
                           onClick={() => setActiveTab(tab.id)}
                           id={`${tab.id}-tab`}
                           type="button"

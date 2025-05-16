@@ -18,7 +18,7 @@ const FeatureCard = ({ icon, title, description }) => {
       <div className="text-info mb-3">
         {icon}
       </div>
-      <h5 className="mb-3">{title}</h5>
+      <h5 style={{color: 'var(--ct-color)'}} className="mb-3">{title}</h5>
       <p className="text-muted mb-0">{description}</p>
     </div>
   );

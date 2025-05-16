@@ -33,8 +33,8 @@ const ServiceCard = ({ icon, title, features, hasCyberGraphic = false }) => {
       {hasCyberGraphic && (
         <div className="hasCyberGraphic position-absolute">
           <svg width="250" height="250" viewBox="0 0 250 250">
-            <circle cx="125" cy="125" r="120" fill="none" stroke="#00e8ff" strokeWidth="2" />
-            <circle cx="125" cy="125" r="90" fill="none" stroke="#00e8ff" strokeWidth="2" strokeDasharray="5,5" />
+            <circle cx="125" cy="125" r="120" fill="none" stroke="var(--primary-color)" strokeWidth="2" />
+            <circle cx="125" cy="125" r="90" fill="none" stroke="var(--primary-color)" strokeWidth="2" strokeDasharray="5,5" />
           </svg>
         </div>
       )}
