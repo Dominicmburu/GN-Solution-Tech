@@ -87,7 +87,7 @@ const Header = () => {
   };
 
   const getLinkColor = (path) => {
-    return isActive(path) ? '#f08b0a' : isScrolled ? '#594099' : '#594099';
+    return isActive(path) ? '#f08b0a' : isScrolled ? 'var(--tt-color)' : 'var(--tt-color)';
   };
 
   // Product items to display in the Products section
@@ -207,7 +207,7 @@ const Header = () => {
               zIndex: 1100
             }}
           >
-            <FaSearch color={isSearchOpen ? 'white' : '#f08b0a'} size={16} />
+            <FaSearch color={isSearchOpen ? 'white' : 'var(--tt-color)'} size={16} />
           </button>
         </div>
 
@@ -219,7 +219,7 @@ const Header = () => {
           aria-expanded={isNavOpen ? "true" : "false"}
           aria-label="Toggle navigation"
           style={{
-            border: '1px solid #594099',
+            border: '1px solid var(--tt-color)',
             position: 'relative',
             zIndex: 1100
           }}
@@ -283,7 +283,7 @@ const Header = () => {
                   overflow: isMobile ? 'hidden' : 'visible',
                   maxHeight: isMobile ? '75vh' : 'none',
                   overflowY: isMobile ? 'auto' : 'visible',
-                  borderTop: '3px solid #594099',
+                  borderTop: '3px solid var(--tt-color)',
                   borderRadius: '0 0 8px 8px'
                 }}
               >
@@ -305,7 +305,7 @@ const Header = () => {
                               <h6
                                 className="fw-bold"
                                 style={{
-                                  color: '#594099',
+                                  color: 'var(--tt-color)',
                                   fontSize: '1rem',
                                   marginBottom: '15px'
                                 }}
@@ -371,7 +371,7 @@ const Header = () => {
                   display: isProductMenuOpen ? 'block' : 'none',
                   backgroundColor: 'white',
                   boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
-                  borderTop: '3px solid #594099',
+                  borderTop: '3px solid var(--tt-color)',
                   borderRadius: '0 0 8px 8px',
                   padding: '15px',
                   minWidth: '200px'
@@ -459,7 +459,7 @@ const Header = () => {
                 border: 'none'
               }}
             >
-              <FaSearch color={isSearchOpen ? 'white' : '#594099'} size={16} />
+              <FaSearch color={isSearchOpen ? 'white' : 'var(--tt-color)'} size={16} />
             </button>
           </div>
         </div>

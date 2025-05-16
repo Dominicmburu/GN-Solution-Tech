@@ -181,7 +181,7 @@ const AboutPage = () => {
                     <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-rocket text-white"></i>
                     </div>
-                    <h3 className="fw-bold m-0" style={{ color: "var(--tt-color)" }}>Mission</h3>
+                    <h3 className="fw-bold m-0" style={{ color: "var(--ct-color)" }}>Mission</h3>
                   </div>
                   <p className="card-text">To empower enterprises through expert network design, automation, and security solutions that deliver 99.95% SLA adherence while reducing operational costs.</p>
                   <p className="card-text">We're committed to transforming IT operations through the seamless integration of DevOps practices, proactive monitoring, and service improvement plans tailored to each client's needs.</p>
@@ -201,7 +201,7 @@ const AboutPage = () => {
                     <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-eye text-white"></i>
                     </div>
-                    <h3 className="fw-bold m-0" style={{ color: "var(--tt-color)" }}>Vision</h3>
+                    <h3 className="fw-bold m-0" style={{ color: "var(--ct-color)" }}>Vision</h3>
                   </div>
                   <p className="card-text">To become the leading provider of network automation and security solutions that bridge the gap between traditional infrastructure and cloud-native technologies.</p>
                   <p className="card-text">We envision a future where enterprise networks operate with minimal downtime, maximum security, and optimal efficiency through the strategic application of automation and DevOps practices.</p>
@@ -235,7 +235,7 @@ const AboutPage = () => {
                     <div className="mb-3 card-icon">
                       {value.icon}
                     </div>
-                    <h4 className="fw-bold mb-3" style={{ color: "#0a1033" }}>{value.title}</h4>
+                    <h4 className="fw-bold mb-3" style={{ color: "var(--ct-color)" }}>{value.title}</h4>
                     <p className="card-text text-muted">{value.description}</p>
                   </div>
                 </div>
@@ -246,7 +246,7 @@ const AboutPage = () => {
       </section>
 
       {/* Growth Timeline Section */}
-      <section className="py-5" style={{ backgroundColor: "#0a1033" }}>
+      <section className="py-5" style={{ backgroundColor: "var(--tt-color)" }}>
         <div className="container">
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
@@ -269,7 +269,7 @@ const AboutPage = () => {
                       <div className="text-white rounded-circle p-2 me-3 fw-bold" style={{ width: "50px", height: "50px", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "var(--primary-color)" }}>
                         {milestone.year}
                       </div>
-                      <h4 className="fw-bold mb-0" style={{ color: "#0a1033" }}>{milestone.title}</h4>
+                      <h4 className="fw-bold mb-0" style={{ color: "var(--ct-color)" }}>{milestone.title}</h4>
                     </div>
                     <p className="mb-0 text-muted">{milestone.description}</p>
                   </div>
@@ -288,7 +288,7 @@ const AboutPage = () => {
         <div className="container">
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
-              <h2 className="fw-bold mb-3" style={{ color: "#0a1033" }}>Our Services</h2>
+              <h2 className="fw-bold mb-3" style={{ color: "var(--tt-color)" }}>Our Services</h2>
               <p className="text-muted">Enterprise-grade solutions backed by real-world experience</p>
             </div>
           </div>
@@ -305,7 +305,7 @@ const AboutPage = () => {
                     <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-network-wired text-white"></i>
                     </div>
-                    <h4 className="fw-bold m-0" style={{ color: "#0a1033" }}>Network Automation</h4>
+                    <h4 className="fw-bold m-0" style={{ color: "var(--ct-color)" }}>Network Automation</h4>
                   </div>
                   <p className="card-text">Implementing DevOps practices and automation tools to reduce manual operations, minimize errors, and accelerate service delivery.</p>
                   <ul className="list-unstyled">
@@ -328,7 +328,7 @@ const AboutPage = () => {
                     <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-shield-alt text-white"></i>
                     </div>
-                    <h4 className="fw-bold m-0" style={{ color: "#0a1033" }}>Network Security</h4>
+                    <h4 className="fw-bold m-0" style={{ color: "var(--ct-color)" }}>Network Security</h4>
                   </div>
                   <p className="card-text">Implementing enterprise-grade security solutions to protect network infrastructure from modern threats.</p>
                   <ul className="list-unstyled">
@@ -351,7 +351,7 @@ const AboutPage = () => {
                     <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                       <i className="fas fa-tachometer-alt text-white"></i>
                     </div>
-                    <h4 className="fw-bold m-0" style={{ color: "#0a1033" }}>Network Optimization</h4>
+                    <h4 className="fw-bold m-0" style={{ color: "var(--ct-color)" }}>Network Optimization</h4>
                   </div>
                   <p className="card-text">Enhancing network performance and reducing operational costs through strategic optimization.</p>
                   <ul className="list-unstyled">

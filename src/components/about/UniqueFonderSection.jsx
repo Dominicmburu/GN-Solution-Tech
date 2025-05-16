@@ -20,7 +20,7 @@ const UniqueFonderSection = () => {
   ];
 
   return (
-    <section className="py-5 position-relative" style={{ backgroundColor: "#000518" }}>
+    <section className="py-5 position-relative" style={{ backgroundColor: "var(--founder-color)" }}>
       {/* Animated network grid background */}
       <div className="position-absolute w-100 h-100 top-0 start-0" style={{ 
         backgroundImage: `radial-gradient(circle at 1px 1px, rgba(240,139,10,0.15) 1px, transparent 1px)`,

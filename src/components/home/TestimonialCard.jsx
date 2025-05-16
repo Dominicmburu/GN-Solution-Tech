@@ -30,7 +30,7 @@ const TestimonialCard = ({ image, text, name, role }) => {
             />
           </div>
           <div className="ms-3">
-            <h5 className="card-title mb-1 fw-bold">{name}</h5>
+            <h5 style={{color: 'var(--ct-color)'}} className="card-title mb-1 fw-bold">{name}</h5>
             <p className="card-subtitle text-muted small mb-0">{role}</p>
           </div>
         </div>
