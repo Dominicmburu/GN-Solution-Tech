@@ -301,7 +301,7 @@ const Header = () => {
                               backgroundColor: isMobile ? 'white' : categoryIndex % 2 === 0 ? '#f8f9fa' : 'white'
                             }}
                           >
-                            <div className="py-3 px-4" style={{ borderBottom: '1px solid #eee' }}>
+                            <div className="py-3 px-4">
                               <h6
                                 className="fw-bold"
                                 style={{

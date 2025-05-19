@@ -147,7 +147,7 @@
 }
 
 /* Implementation Timeline */
-.implementation-timeline {
+/* .implementation-timeline {
   display: flex;
   justify-content: space-between;
   margin: 50px 0;
@@ -164,7 +164,7 @@
   height: 2px;
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   z-index: 1;
-}
+} */
 
 .timeline-item {
   display: flex;
@@ -193,17 +193,17 @@
 }
 
 /* Tech Cards */
-.tech-card {
+/* .tech-card {
   transition: all 0.3s ease;
   border-radius: 12px;
   background: linear-gradient(145deg, #ffffff, #f0f0f0);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 1.25);
 }
 
 .tech-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
-}
+} */
 
 .tech-icon {
   color: var(--primary-color);
@@ -602,14 +602,14 @@
     font-size: 1.2rem;
   }
   
-  .implementation-timeline {
+  /* .implementation-timeline {
     flex-direction: column;
     gap: 30px;
   }
   
   .implementation-timeline::before {
     display: none;
-  }
+  } */
   
   .ecosystem-item {
     display: none;

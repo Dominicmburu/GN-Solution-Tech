@@ -64,7 +64,7 @@ body {
   /* Tabs Section */
   .tabs-section {
     padding: 40px 0;
-    background-color: #fff;
+    /* background-color: #fff; */
   }
   
   .custom-tabs-container {
@@ -156,12 +156,12 @@ body {
   }
   
   /* Implementation Timeline */
-  .implementation-timeline {
+  /* .implementation-timeline {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px 0;
-  }
+  } */
   
   .timeline-item {
     display: flex;
@@ -173,7 +173,7 @@ body {
   .timeline-icon {
     width: 50px;
     height: 50px;
-    background: #007bff;
+    background: var(--primary-color);
     color: #fff;
     border-radius: 50%;
     display: flex;
@@ -231,7 +231,7 @@ body {
   .stack-icon {
     width: 50px;
     height: 50px;
-    background: #007bff;
+    background: var(--primary-color);
     color: #fff;
     border-radius: 50%;
     display: flex;
@@ -272,7 +272,7 @@ body {
   }
   
   .benefit-icon {
-    color: #007bff;
+    color: var(--primary-color);
   }
   
   .benefit-card h5 {
