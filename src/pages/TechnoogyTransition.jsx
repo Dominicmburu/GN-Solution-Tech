@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaRocket, FaLaptopCode, FaShieldAlt, FaCloudUploadAlt, FaCogs, FaUserTie, FaArrowRight, FaQuestionCircle, FaTools, FaSyncAlt, FaChartLine, FaChartBar } from 'react-icons/fa';
+import { FaRocket, FaLaptopCode, FaShieldAlt, FaCloudUploadAlt, FaCogs, FaUserTie, FaArrowRight, FaQuestionCircle, FaTools, FaSyncAlt, FaChartLine, FaChartBar, FaAward, FaCheckCircle, FaInfoCircle } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Accordion } from 'react-bootstrap';
 import '../assets/css/TechnologyTransition.css';
@@ -9,14 +9,15 @@ import techTransformation from '../assets/tech-transformation.avif';
 const TechnologyTransitionPage = () => {
   const [activeTab, setActiveTab] = useState('overview');
   
+  // Four tabs to match the Infrastructure as Code page
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: 'bi bi-info-circle' },
-    { id: 'features', label: 'Features', icon: 'bi bi-stars' },
-    { id: 'benefits', label: 'Benefits', icon: 'bi bi-award' },
-    { id: 'solutions', label: 'Solutions', icon: 'bi bi-gear' },
-    { id: 'faqs', label: 'FAQs', icon: 'bi bi-question-square' }
+    { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
+    { id: 'features', label: 'Key Features', icon: <FaCheckCircle /> },
+    { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
+    { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
+    { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
+    { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
-
   const faqs = [
     { question: "What's the difference between technology transition and transformation?", answer: "Transition is the process of migrating from an old to a new technology. Transformation is a broader initiative that includes reimagining processes, business models, and user experiences through new technologies." },
     { question: "How long does a transition and transformation project take?", answer: "It depends on scope and complexity. Some projects may take weeks, while others span several months or more. We work with you to define clear timelines and milestones." },
@@ -248,13 +249,27 @@ const TechnologyTransitionPage = () => {
       </div>
       <div className="hero-overlay"></div>
 
-      <section className="tabs-section">
+     {/* Tabs Section */}
+     <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
+              <motion.div 
+                className="text-center mb-5"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >        
+              </motion.div>    
               <div className="custom-tabs-container">
-                <div className="tab-navigation">
-                  <ul className="nav custom-tabs justify-content-center" id="transformationTabs" role="tablist">
+                {/* Tab navigation */}
+                <motion.div 
+                  className="tab-navigation mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  <ul className="nav custom-tabs justify-content-center flex-nowrap overflow-auto" id="iacTabs" role="tablist">
                     {tabs.map((tab) => (
                       <li className="nav-item" key={tab.id} role="presentation">
                         <button
@@ -266,15 +281,17 @@ const TechnologyTransitionPage = () => {
                           aria-controls={tab.id}
                           aria-selected={activeTab === tab.id}
                         >
-                          <i className={`${tab.icon} tab-icon`}></i>
-                          <span className="tab-text">{tab.label}</span>
+                          {tab.icon}
+                          <span className="tab-text ms-2">{tab.label}</span>
                         </button>
                       </li>
                     ))}
                   </ul>
-                </div>
-                <div className="tab-content-container mt-4">
-                  <div className="tab-content" id="transformationTabsContent">
+                </motion.div>
+                
+                {/* Tab content */}
+                <div className="tab-content-container">
+                  <div className="tab-content" id="iacTabsContent">
                     <motion.div
                       className="tab-pane show active"
                       id="tabContent"

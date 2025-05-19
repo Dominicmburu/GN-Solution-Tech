@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaNetworkWired, FaShieldAlt, FaChartLine, FaTools, FaSyncAlt, FaHeadset, FaRocket, FaArrowRight, FaCogs, FaSearch } from 'react-icons/fa';
+import { FaNetworkWired, FaShieldAlt, FaChartLine, FaTools, FaSyncAlt, FaHeadset, FaRocket, FaArrowRight, FaCogs, FaSearch, FaInfoCircle, FaCheckCircle, FaQuestionCircle, FaAward } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Accordion } from 'react-bootstrap';
 import '../assets/css/ManagedNetworkServices.css';
@@ -14,12 +14,13 @@ const ManagedNetworkServicesPage = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: 'bi bi-info-circle' },
-    { id: 'technologies', label: 'Technologies', icon: 'bi bi-tools' },
-    { id: 'benefits', label: 'Benefits', icon: 'bi bi-award' },
-    { id: 'solutions', label: 'Solutions', icon: 'bi bi-gear' },
-    { id: 'faqs', label: 'FAQs', icon: 'bi bi-question-square' }
-  ];
+      { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
+      { id: 'features', label: 'Key Features', icon: <FaCheckCircle /> },
+      { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
+      { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
+      { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
+      { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
+    ];
 
   const faqs = [
     { question: "What types of networks do you manage?", answer: "We manage LANs, WANs, WLANs, SD-WAN, hybrid and cloud-connected networks across multiple sites and geographies." },
@@ -482,14 +483,27 @@ const ManagedNetworkServicesPage = () => {
       />
 
       <div className="hero-overlay"></div>
-
-      <section className="tabs-section">
+{/* Tabs Section */}
+      <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
+              <motion.div 
+                className="text-center mb-5"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >        
+              </motion.div>    
               <div className="custom-tabs-container">
-                <div className="tab-navigation">
-                  <ul className="nav custom-tabs justify-content-center" id="mnsTabs" role="tablist">
+                {/* Tab navigation */}
+                <motion.div 
+                  className="tab-navigation mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  <ul className="nav custom-tabs justify-content-center flex-nowrap overflow-auto" id="iacTabs" role="tablist">
                     {tabs.map((tab) => (
                       <li className="nav-item" key={tab.id} role="presentation">
                         <button
@@ -510,9 +524,11 @@ const ManagedNetworkServicesPage = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
-                <div className="tab-content-container mt-4">
-                  <div className="tab-content" id="mnsTabsContent">
+                </motion.div>
+                
+                {/* Tab content */}
+                <div className="tab-content-container">
+                  <div className="tab-content" id="iacTabsContent">
                     <motion.div
                       className="tab-pane show active"
                       id="tabContent"
