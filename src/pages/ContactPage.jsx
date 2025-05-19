@@ -202,7 +202,7 @@ const ContactPage = () => {
           <div className="row">
             <div className="col-lg-6 mb-4 mb-lg-0">
               <div className="contact-form-wrapper p-4 bg-white rounded shadow-sm">
-                <h3 className="mb-4">Send Us a Message</h3>
+                <h3 className="mb-4" style={{color: "var(--card-color)"}}>Send Us a Message</h3>
                 
                 {/* Success Message */}
                 {submitSuccess && (
@@ -224,7 +224,7 @@ const ContactPage = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-md-6 mb-3">
-                      <label htmlFor="name" className="form-label">Full Name *</label>
+                      <label style={{color: "var(--card-color)"}} htmlFor="name" className="form-label">Full Name *</label>
                       <input 
                         type="text" 
                         className="form-control" 
@@ -237,7 +237,7 @@ const ContactPage = () => {
                       />
                     </div>
                     <div className="col-md-6 mb-3">
-                      <label htmlFor="email" className="form-label">Email Address *</label>
+                      <label style={{color: "var(--card-color)"}} htmlFor="email" className="form-label">Email Address *</label>
                       <input 
                         type="email" 
                         className="form-control" 
@@ -252,7 +252,7 @@ const ContactPage = () => {
                   </div>
                   <div className="row">
                     <div className="col-md-6 mb-3">
-                      <label htmlFor="phone" className="form-label">Phone Number</label>
+                      <label style={{color: "var(--card-color)"}} htmlFor="phone" className="form-label">Phone Number</label>
                       <input 
                         type="tel" 
                         className="form-control" 
@@ -264,7 +264,7 @@ const ContactPage = () => {
                       />
                     </div>
                     <div className="col-md-6 mb-3">
-                      <label htmlFor="company" className="form-label">Company Name</label>
+                      <label style={{color: "var(--card-color)"}} htmlFor="company" className="form-label">Company Name</label>
                       <input 
                         type="text" 
                         className="form-control" 
@@ -277,7 +277,7 @@ const ContactPage = () => {
                     </div>
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="inquiryType" className="form-label">Inquiry Type *</label>
+                    <label style={{color: "var(--card-color)"}} htmlFor="inquiryType" className="form-label">Inquiry Type *</label>
                     <select 
                       className="form-select" 
                       id="inquiryType" 
@@ -294,7 +294,7 @@ const ContactPage = () => {
                     </select>
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="message" className="form-label">Message *</label>
+                    <label style={{color: "var(--card-color)"}} htmlFor="message" className="form-label">Message *</label>
                     <textarea 
                       className="form-control" 
                       id="message" 

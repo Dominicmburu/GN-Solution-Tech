@@ -78,7 +78,7 @@
   /* Tab Navigation */
   .tabs-section {
     padding: 50px 0;
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
   }
   
   .custom-tabs-container {
@@ -154,12 +154,12 @@
   }
   
   /* Timeline Elements */
-  .why-choose-timeline, .implementation-timeline {
+  /* .why-choose-timeline, .implementation-timeline {
     display: flex;
     flex-direction: column;
     max-width: 800px;
     margin: 40px auto;
-  }
+  } */
   
   .timeline-item {
     display: flex;
