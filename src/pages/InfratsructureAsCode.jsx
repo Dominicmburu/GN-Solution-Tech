@@ -699,11 +699,8 @@ const InfrastructureAsCode = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-              >
-                <h2 className="display-5 fw-bold text-primary">Discover Infrastructure as Code</h2>
-                <p className="lead text-muted">Everything you need to know about modern infrastructure management</p>
-              </motion.div>
-              
+              >        
+              </motion.div>    
               <div className="custom-tabs-container">
                 {/* Tab navigation */}
                 <motion.div 

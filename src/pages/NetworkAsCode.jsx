@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, FaCheck } from "react-icons/fa";
+import { FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, FaCheck, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle  } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
 import backgroundImage from "../assets/network-as-code.webp";
@@ -12,11 +12,12 @@ const NetworkAsCode = () => {
   
   // Four tabs to match the Infrastructure as Code page
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: 'bi bi-info-circle' },
-    { id: 'solutions', label: 'Solutions', icon: 'bi bi-gear' },
-    { id: 'technologies', label: 'Technologies', icon: 'bi bi-tools' },
-    { id: 'benefits', label: 'Benefits', icon: 'bi bi-award' },
-    { id: 'faqs', label: 'FAQs', icon: 'bi bi-question-square' }
+    { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
+    { id: 'features', label: 'Key Features', icon: <FaCheckCircle /> },
+    { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
+    { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
+    { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
+    { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
 
   const faqs = [
@@ -379,8 +380,8 @@ const NetworkAsCode = () => {
       <div 
         className="hero-section text-white text-center d-flex flex-column align-items-center justify-content-center"
         style={{ 
-          background: `url(${backgroundImage}) center/cover no-repeat`, 
-          height: "45vh",
+          background: `linear-gradient(rgba(0, 0, 30, 0.7), rgba(0, 0, 30, 0.8)), url(${backgroundImage}) center/cover no-repeat`, 
+          height: "60vh",
         }}
       >
        <motion.h1 
@@ -405,16 +406,27 @@ const NetworkAsCode = () => {
           Get Started
         </Link>
       </div>
-
-      {/* Tabs Section (matching Infrastructure as Code page) */}
-      <section className="tabs-section">
+{/* Tabs Section */}
+<section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
+              <motion.div 
+                className="text-center mb-5"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >        
+              </motion.div>    
               <div className="custom-tabs-container">
                 {/* Tab navigation */}
-                <div className="tab-navigation">
-                  <ul className="nav custom-tabs justify-content-center" id="nacTabs" role="tablist">
+                <motion.div 
+                  className="tab-navigation mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  <ul className="nav custom-tabs justify-content-center flex-nowrap overflow-auto" id="iacTabs" role="tablist">
                     {tabs.map((tab) => (
                       <li className="nav-item" key={tab.id} role="presentation">
                         <button
@@ -426,17 +438,17 @@ const NetworkAsCode = () => {
                           aria-controls={tab.id}
                           aria-selected={activeTab === tab.id}
                         >
-                          <i className={`${tab.icon} tab-icon`}></i>
-                          <span className="tab-text">{tab.label}</span>
+                          {tab.icon}
+                          <span className="tab-text ms-2">{tab.label}</span>
                         </button>
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
                 
                 {/* Tab content */}
-                <div className="tab-content-container mt-4">
-                  <div className="tab-content" id="nacTabsContent">
+                <div className="tab-content-container">
+                  <div className="tab-content" id="iacTabsContent">
                     <motion.div
                       className="tab-pane show active"
                       id="tabContent"
