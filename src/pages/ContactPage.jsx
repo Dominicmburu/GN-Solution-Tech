@@ -80,12 +80,6 @@ const ContactPage = () => {
       subInfo: 'We reply within 24 hours'
     },
     {
-      icon: <FaMapMarkerAlt className="contact-icon" />,
-      title: 'Visit Our Office',
-      info: 'Digital Hub, Dublin 8',
-      subInfo: 'Ireland'
-    },
-    {
       icon: <FaClock className="contact-icon" />,
       title: 'Working Hours',
       info: 'Mon-Fri: 9:00AM - 6:00PM',
@@ -174,7 +168,7 @@ const ContactPage = () => {
         <div className="container">
           <div className="row">
             {contactInfo.map((item, index) => (
-              <div className="col-md-6 col-lg-3 mb-4" key={index}>
+              <div className="col-md-6 col-lg-4 mb-4" key={index}>
                 <div className="contact-card h-100 p-4 text-center">
                   <div className="icon-circle mb-3">
                     {item.icon}

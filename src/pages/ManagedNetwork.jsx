@@ -62,7 +62,7 @@ const ManagedNetworkServicesPage = () => {
               ].map((feature, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                   <div className="card border-0 p-4 h-100"
-                  style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
                     <div className="text-center mb-3">{feature.icon}</div>
                     <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
                     <p className="text-center">{feature.desc}</p>
@@ -72,46 +72,181 @@ const ManagedNetworkServicesPage = () => {
             </div>
 
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Implementation Process</h3>
-            <div className="d-flex justify-content-center mb-5">
-              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+<div className="d-flex justify-content-center mb-5">
+  <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+</div>
+
+{/* Implementation Timeline - Vertical responsive design */}
+<div className="position-relative py-3" style={{ marginBottom: "50px" }}>
+  {/* Vertical timeline line */}
+  <div className="position-absolute" style={{
+    top: "0",
+    bottom: "0",
+    left: "50%",
+    width: "4px",
+    backgroundColor: "var(--primary-color)",
+    transform: "translateX(-50%)"
+  }}></div>
+  
+  {[
+    { 
+      step: "Network Assessment", 
+      desc: "Comprehensive evaluation of your current infrastructure", 
+      icon: <FaSearch size={24} />,
+      nodeIcon: <FaSearch size={20} /> 
+    },
+    { 
+      step: "Design & Planning", 
+      desc: "Custom architecture tailored to your business needs", 
+      icon: <FaTools size={24} />,
+      nodeIcon: <FaTools size={20} />
+    },
+    { 
+      step: "Implementation", 
+      desc: "Seamless deployment with minimal disruption", 
+      icon: <FaNetworkWired size={24} />,
+      nodeIcon: <FaNetworkWired size={20} />
+    },
+    { 
+      step: "Monitoring & Management", 
+      desc: "24/7 proactive oversight and support", 
+      icon: <FaCogs size={24} />,
+      nodeIcon: <FaCogs size={20} />
+    },
+    { 
+      step: "Optimization", 
+      desc: "Continuous improvement and performance tuning", 
+      icon: <FaSyncAlt size={24} />,
+      nodeIcon: <FaSyncAlt size={20} />
+    }
+  ].map((step, index) => (
+    <motion.div
+      className="row mb-5 position-relative"
+      key={index}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: index * 0.2 }}
+    >
+      {/* Timeline node/circle with icon - properly centered */}
+      <div className="col-12 d-flex justify-content-center" style={{
+        marginBottom: "0px",
+        height: "0px"
+      }}>
+        <div style={{
+          width: "60px",
+          height: "60px",
+          borderRadius: "50%",
+          backgroundColor: "#402456",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "#fff",
+          border: "4px solid var(--primary-color)",
+          boxShadow: "0 0 0 5px rgba(255,255,255,0.8)",
+          zIndex: "2",
+          position: "relative",
+          top: "-30px"
+        }}>
+          <div style={{
+            width: "42px", 
+            height: "42px",
+            borderRadius: "50%",
+            backgroundColor: "var(--primary-color)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontWeight: "bold"
+          }}>
+            {step.nodeIcon}
+          </div>
+        </div>
+      </div>
+
+      {/* Content Card */}
+      <div className={`col-md-5 ${index % 2 === 0 ? "offset-md-1 pe-md-5 text-md-end" : "offset-md-6 ps-md-5 text-md-start"}`}>
+        <div style={{
+          backgroundColor: "white",
+          padding: "20px",
+          borderRadius: "8px",
+          boxShadow: "0 6px 15px rgba(0,0,0,0.1)",
+          border: "1px solid rgba(0,0,0,0.05)",
+          position: "relative",
+          marginTop: "-20px"
+        }}>
+          {/* Triangle pointer */}
+          <div style={{
+            position: "absolute",
+            top: "20px",
+            [index % 2 === 0 ? "right" : "left"]: "-10px",
+            width: "20px",
+            height: "20px",
+            backgroundColor: "white",
+            transform: "rotate(45deg)",
+            borderLeft: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+            borderBottom: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+            borderRight: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+            borderTop: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none"
+          }}></div>
+
+          <div className="d-flex align-items-center" style={{
+            marginBottom: "12px",
+          }}>
+            <div style={{
+              backgroundColor: "var(--primary-color)",
+              borderRadius: "50%",
+              width: "38px",
+              height: "38px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginRight: "12px",
+              color: "white"
+            }}>
+              {step.icon}
             </div>
-            <div className="implementation-timeline position-relative">
-              {/* Timeline connector line */}
-              <div className="timeline-connector"></div>
+            <h5 style={{ 
+              color: "var(--ct-color)",
+              margin: "0",
+              fontWeight: "600"
+            }}>{step.step}</h5>
+          </div>
+          <p style={{
+            margin: "0",
+            color: "#666",
+            fontSize: "15px"
+          }}>{step.desc}</p>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</div>
 
-              {[
-                { step: "Network Assessment", desc: "Comprehensive evaluation of your current infrastructure", icon: <FaSearch size={24} /> },
-                { step: "Design & Planning", desc: "Custom architecture tailored to your business needs", icon: <FaTools size={24} /> },
-                { step: "Implementation", desc: "Seamless deployment with minimal disruption", icon: <FaNetworkWired size={24} /> },
-                { step: "Monitoring & Management", desc: "24/7 proactive oversight and support", icon: <FaCogs size={24} /> },
-                { step: "Optimization", desc: "Continuous improvement and performance tuning", icon: <FaSyncAlt size={24} /> }
-              ].map((step, index) => (
-                <motion.div
-                  className={` d-flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                >
-                  <div className="timeline-content-wrapper col-5">
-                    <div className="timeline-content p-4 bg-white rounded shadow-sm">
-                      <h5 style={{ color: "var(--ct-color)" }}>{step.step}</h5>
-                      <p className="mb-0 text-muted">{step.desc}</p>
-                    </div>
-                  </div>
-
-                  <div className="timeline-icon-wrapper col-2 d-flex justify-content-center">
-                    <div className="timeline-icon-circle">
-                      <div style={{ color: "#fff", backgroundColor: "var(--primary-color)" }} className="timeline-icon d-flex align-items-center justify-content-center">
-                        {step.icon}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-5"></div>
-                </motion.div>
-              ))}
-            </div>
+{/* Responsive styles for mobile */}
+<style jsx>{`
+  @media (max-width: 767px) {
+    .position-relative > div:first-child {
+      left: 20px !important;
+      transform: none !important;
+    }
+    .col-md-5 {
+      margin-left: 60px !important;
+      padding-left: 20px !important;
+      text-align: left !important;
+    }
+    .col-md-5 > div > div:first-of-type {
+      left: -10px !important;
+      right: auto !important;
+      border-left: 1px solid rgba(0,0,0,0.05) !important;
+      border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+      border-right: none !important;
+      border-top: none !important;
+    }
+    .col-12.d-flex.justify-content-center {
+      justify-content: flex-start !important;
+      padding-left: 20px !important;
+    }
+  }
+`}</style>
           </div>
         );
       case 'technologies':
@@ -130,7 +265,7 @@ const ManagedNetworkServicesPage = () => {
               ].map((tech, index) => (
                 <motion.div className="col-md-6 col-lg-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
                   <div className="card border-0 p-4 h-100 "
-                  style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
                     {tech.icon}
                     <h5 style={{ color: "var(--ct-color)" }}>{tech.name}</h5>
                     <p className="mt-2">{tech.desc}</p>
@@ -141,23 +276,68 @@ const ManagedNetworkServicesPage = () => {
 
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Network Stack</h3>
             <div className="d-flex justify-content-center mb-5">
-              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+              <div style={{
+                width: "120px",
+                height: "5px",
+                backgroundColor: "var(--primary-color)",
+                borderRadius: "10px"
+              }}></div>
             </div>
             <div className="row mb-5">
               <div className="col-lg-6">
                 <div className="platform-stack mb-3">
                   {[
-                    { title: "Network Security", desc: "Firewalls, IDS/IPS, and VPN.", icon: <FaShieldAlt style={{ color: "var(--primary-color)" }} /> },
-                    { title: "Wireless Networking", desc: "WLAN and access points.", icon: <FaRocket style={{ color: "var(--primary-color)" }} /> },
-                    { title: "Core Networking", desc: "Routers, switches, and SD-WAN.", icon: <FaNetworkWired style={{ color: "var(--primary-color)" }} /> }
+                    { title: "Network Security", desc: "Firewalls, IDS/IPS, and VPN.", icon: <FaShieldAlt style={{ color: "white" }} /> },
+                    { title: "Wireless Networking", desc: "WLAN and access points.", icon: <FaRocket style={{ color: "white" }} /> },
+                    { title: "Core Networking", desc: "Routers, switches, and SD-WAN.", icon: <FaNetworkWired style={{ color: "white" }} /> }
                   ].map((layer, index) => (
-                    <motion.div className="stack-layer" key={index} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1 }}>
-                      <div className="icon-circle-net">
+                    <motion.div
+                      className="stack-layer"
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginBottom: "25px",
+                        backgroundColor: "var(--cardt-color)",
+                        padding: "15px 20px",
+                        borderRadius: "12px",
+                        boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
+                        border: "1px solid rgba(0,0,0,0.06)",
+                        transition: "transform 0.3s ease",
+                        cursor: "pointer",
+                      }}
+                      whileHover={{
+                        transform: "translateY(-5px)",
+                        boxShadow: "0 12px 25px rgba(0,0,0,0.08)"
+                      }}
+                    >
+                      <div className="icon-circle-net" style={{
+                        backgroundColor: "var(--primary-color)",
+                        width: "55px",
+                        height: "55px",
+                        borderRadius: "12px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginRight: "20px",
+                        boxShadow: "0 5px 15px rgba(var(--primary-color-rgb), 0.3)"
+                      }}>
                         {layer.icon}
                       </div>
                       <div className="stack-content">
-                        <h5 style={{ color: "var(--ct-color)" }}>{layer.title}</h5>
-                        <p>{layer.desc}</p>
+                        <h5 style={{
+                          color: "var(--ct-color)",
+                          fontWeight: "600",
+                          marginBottom: "5px"
+                        }}>{layer.title}</h5>
+                        <p style={{
+                          marginBottom: "0",
+                          opacity: "0.85",
+                          fontSize: "15px"
+                        }}>{layer.desc}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -170,43 +350,133 @@ const ManagedNetworkServicesPage = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
                   style={{
-                    backgroundColor: "var(--card-color)",
-                    borderRadius: "8px",
-                    padding: "20px",
-                    boxShadow: "0 8px 25px rgba(0,0,0,0.1)",
-                    border: "1px solid #e0e9fa",
+                    backgroundColor: "var(--cardt-color)",
+                    borderRadius: "15px",
+                    padding: "25px",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                    border: "1px solid rgba(0,0,0,0.05)",
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "center"
+                    justifyContent: "center",
+                    position: "relative",
+                    overflow: "hidden"
                   }}
                 >
-                  <h5 style={{ color: "var(--tt-color)" }} className="text-center mb-3">Network Architecture</h5>
-                  <img
-                    src={networkArchitectureImage}
-                    alt="Network architecture diagram showing integrated technologies"
-                    className="img-fluid mb-3"
-                    style={{ maxHeight: "300px", objectFit: "contain" }}
-                  />
-                  <p className="text-center mb-0 text-muted">
+                  <div style={{
+                    position: "absolute",
+                    top: "0",
+                    right: "0",
+                    width: "150px",
+                    height: "150px",
+                    backgroundColor: "var(--primary-color)",
+                    opacity: "0.05",
+                    borderRadius: "0 0 0 100%"
+                  }}></div>
+                  <h5 style={{
+                    color: "var(--tt-color)",
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    textAlign: "center",
+                    marginBottom: "20px",
+                    position: "relative",
+                    zIndex: "1"
+                  }}>Network Architecture</h5>
+                  <div style={{
+                    padding: "10px",
+                    backgroundColor: "rgba(var(--primary-color-rgb), 0.03)",
+                    borderRadius: "10px",
+                    marginBottom: "20px"
+                  }}>
+                    <img
+                      src={networkArchitectureImage}
+                      alt="Network architecture diagram showing integrated technologies"
+                      className="img-fluid mb-3"
+                      style={{
+                        maxHeight: "300px",
+                        objectFit: "contain",
+                        borderRadius: "8px",
+                        boxShadow: "0 5px 15px rgba(0,0,0,0.1)"
+                      }}
+                    />
+                  </div>
+                  <p style={{
+                    textAlign: "center",
+                    marginBottom: "0",
+                    color: "var(--ct-color)",
+                    opacity: "0.7",
+                    fontSize: "14px",
+                    fontStyle: "italic"
+                  }}>
                     Comprehensive architecture design for optimal network performance
                   </p>
                 </motion.div>
               </div>
             </div>
-            <div className="platform-stack">
-              {[
-                { title: "Monitoring Tools", desc: "Real-time analytics and dashboards.", icon: <FaChartLine style={{ color: "var(--primary-color)" }} /> },
-                { title: "Configuration Management", desc: "Automated backups and policies.", icon: <FaCogs style={{ color: "var(--primary-color)" }} /> }
-              ].map((layer, index) => (
-                <motion.div className="stack-layer" key={index} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1 }}>
-                  <div className="icon-circle-net">{layer.icon}</div>
-                  <div className="stack-content">
-                    <h5 style={{ color: "var(--ct-color)" }}>{layer.title}</h5>
-                    <p>{layer.desc}</p>
+            <div className="platform-stack" style={{
+              backgroundColor: "rgba(var(--primary-color-rgb), 0.04)",
+              padding: "25px",
+              borderRadius: "15px",
+              border: "1px dashed rgba(var(--primary-color-rgb), 0.2)"
+            }}>
+              <div className="text-center mb-4">
+                <h5 style={{
+                  color: "var(--tt-color)",
+                  display: "inline-block",
+                  borderBottom: "2px solid var(--primary-color)",
+                  paddingBottom: "8px"
+                }}>Management & Monitoring</h5>
+              </div>
+              <div className="row">
+                {[
+                  { title: "Monitoring Tools", desc: "Real-time analytics and dashboards.", icon: <FaChartLine style={{ color: "white" }} /> },
+                  { title: "Configuration Management", desc: "Automated backups and policies.", icon: <FaCogs style={{ color: "white" }} /> }
+                ].map((layer, index) => (
+                  <div className="col-md-6" key={index}>
+                    <motion.div
+                      className="stack-layer"
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.2 }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        backgroundColor: "white",
+                        padding: "15px 20px",
+                        borderRadius: "10px",
+                        boxShadow: "0 5px 15px rgba(0,0,0,0.03)",
+                        height: "100%"
+                      }}
+                    >
+                      <div className="icon-circle-net" style={{
+                        backgroundColor: "var(--primary-color)",
+                        width: "50px",
+                        height: "50px",
+                        borderRadius: "50%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginRight: "15px"
+                      }}>
+                        {layer.icon}
+                      </div>
+                      <div className="stack-content">
+                        <h5 style={{
+                          color: "var(--ct-color)",
+                          fontSize: "17px",
+                          fontWeight: "600",
+                          marginBottom: "5px"
+                        }}>{layer.title}</h5>
+                        <p style={{
+                          marginBottom: "0",
+                          fontSize: "14px",
+                          opacity: "0.85"
+                        }}>{layer.desc}</p>
+                      </div>
+                    </motion.div>
                   </div>
-                </motion.div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         );
@@ -259,19 +529,19 @@ const ManagedNetworkServicesPage = () => {
                   company: "Global Retail Chain",
                   result: "Achieved 99.9% network uptime across 200+ locations with centralized SD-WAN management, reducing IT costs by 30%.",
                   icon: <FaNetworkWired size={36} style={{ color: "#fff" }} />,
-                  color: "linear-gradient(135deg, #f08b0a,rgba(110, 71, 20, 0.7)"
+                  color: "linear-gradient(135deg, #f08b0a, #f08b0a"
                 },
                 {
                   company: "Manufacturing Firm",
                   result: "Reduced network incidents by 80% with AI-powered proactive monitoring, eliminating production downtime caused by connectivity issues.",
                   icon: <FaChartLine size={36} style={{ color: "#fff" }} />,
-                  color: "linear-gradient(135deg, #301934,rgb(112, 5, 131))"
+                  color: "linear-gradient(135deg, #301934, #301934"
                 },
                 {
                   company: "Financial Services Group",
                   result: "Improved compliance posture with integrated security management, passing all audits with zero findings for the first time in company history.",
                   icon: <FaShieldAlt size={36} style={{ color: "#fff" }} />,
-                  color: "linear-gradient(135deg, #000000,rgb(165, 162, 162))"
+                  color: "linear-gradient(135deg, #000000, #000000"
                 }
               ].map((story, index) => (
                 <div className="col-lg-4 mb-4" key={index}>
