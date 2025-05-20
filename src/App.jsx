@@ -17,6 +17,7 @@ import CybersecurityAsAServicePage from './pages/Cybersecurity';
 import ManagedNetworkServicesPage from './pages/ManagedNetwork';
 import ITTechnologyTrainingPage from './pages/TecnologyTraining';
 import TechnologyTransitionPage from './pages/TechnoogyTransition';
+import ServiceTemplate from './pages/ServiceTemplate';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
         <Route path="/testimonials" element={<Layout><TestimonialsPage /></Layout>} />
         <Route path="/services" element={<Layout><Services /></Layout>} />
+        
         <Route path="/services/network-as-code" element={<Layout><NetworkAsCode /></Layout>} />
         <Route path="/services/infrastructure-as-code" element={<Layout><InfrastructureAsCode /></Layout>} />
         <Route path="/services/platform-as-code" element={<Layout><PlatformAsCodePage /></Layout>} />
