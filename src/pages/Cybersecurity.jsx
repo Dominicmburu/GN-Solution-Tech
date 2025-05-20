@@ -25,7 +25,6 @@ import { Accordion } from 'react-bootstrap';
 import backgroundImage from "../assets/cybersecurity.jpeg";
 import "../assets/css/cybersecurity.css";
 
-// chnages
 const CybersecurityAsAServicePage = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -690,11 +689,9 @@ const CybersecurityAsAServicePage = () => {
                     ))}
                   </ul>
                 </motion.div>
-                </div>
-                
                 
                 {/* Tab content */}
-                <div className="tab-content-container mt-4.0">
+                <div className="tab-content-container mt-4">
                   <div className="tab-content" id="csaasTabsContent">
                     <motion.div
                       className="tab-pane show active"
