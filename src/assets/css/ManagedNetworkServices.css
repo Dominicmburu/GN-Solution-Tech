@@ -101,4 +101,7 @@
 .tabs-section {
     padding: 50px 0;
     /* background-color: #f8f9fa; */
-}
+}.hero-overlay {
+    pointer-events: none;
+  }
+  

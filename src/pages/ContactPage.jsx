@@ -41,7 +41,7 @@ const ContactPage = () => {
     {
       id: 2,
       question: "How can I request a consultation or quote?",
-      answer: "You can request a consultation or quote by filling out our contact form on this page, calling our support line at +353 1 234 5678, or sending an email to support@gnsolutions.eu. Our team will get back to you within 24 hours to discuss your requirements and provide a customized solution."
+      answer: "You can request a consultation or quote by filling out our contact form on this page, calling our support line at +353 (0) 874 896 800, or sending an email to info@gnsolutions.eu. Our team will get back to you within 24 hours to discuss your requirements and provide a customized solution."
     },
     {
       id: 3,
@@ -70,13 +70,13 @@ const ContactPage = () => {
     {
       icon: <FaPhone className="contact-icon" />,
       title: 'Phone Support',
-      info: '+353 1 234 5678',
+      info: '+353 (0) 874 896 800',
       subInfo: 'Monday to Friday, 9am - 6pm'
     },
     {
       icon: <FaEnvelope className="contact-icon" />,
       title: 'Email Us',
-      info: 'support@gnsolutions.eu',
+      info: 'info@gnsolutions.eu',
       subInfo: 'We reply within 24 hours'
     },
     {
@@ -318,9 +318,9 @@ const ContactPage = () => {
             </div>
             <div className="col-lg-6">
               <div className="map-wrapper rounded shadow-sm overflow-hidden h-100">
-                {/* You'll want to replace this with your actual Google Maps embed */}
+                {/* Updated Google Maps embed to point to Dublin 16 */}
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.6553463844313!2d-6.2812802234537196!3d53.33871577210496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670c2b3d70f8a1%3A0xf7ba9c77315fa15a!2sDigital%20Hub%2C%20Dublin%208%2C%20Ireland!5e0!3m2!1sen!2sus!4v1653598094447!5m2!1sen!2sus" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19097.171459566788!2d-6.277941444238281!3d53.27438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4867932a8eb7d667%3A0xf1a0c20a698b3b4d!2sDublin%2016%2C%20Ireland!5e0!3m2!1sen!2sus!4v1653598094447!5m2!1sen!2sus" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
@@ -353,7 +353,7 @@ const ContactPage = () => {
                 </div>
                 <h4 className="mb-3">Phone Support</h4>
                 <p className="mb-3">Speak directly with our support team for urgent matters or complex issues.</p>
-                <p className="support-highlight" style={{ color: '#f08b0a' }}>+353 1 234 5678</p>
+                <p className="support-highlight" style={{ color: '#f08b0a' }}>+353 (0) 874 896 800</p>
                 <p className="support-hours">Mon-Fri: 9:00AM - 6:00PM</p>
               </div>
             </div>
@@ -377,7 +377,7 @@ const ContactPage = () => {
                 </div>
                 <h4 className="mb-3">Email Support</h4>
                 <p className="mb-3">Send us your inquiries anytime and we'll respond within 24 hours.</p>
-                <p className="support-highlight" style={{ color: '#f08b0a' }}>support@gnsolutions.eu</p>
+                <p className="support-highlight" style={{ color: '#f08b0a' }}>info@gnsolutions.eu</p>
                 <p className="support-hours">24/7 Ticket Submission</p>
               </div>
             </div>

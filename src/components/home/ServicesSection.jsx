@@ -43,11 +43,11 @@ const ServicesSection = () => {
       <div className="container">
         <SectionTitle
           subtitle="Our Services"
-          title="Comprehensive IT Solutions for Modern Enterprises"
+          title={<span style={{ color: '#594099' }}>"Comprehensive IT Solutions for Modern Enterprises" </span>}
+          />
           centered={true}
-          light={false}
-        />
-
+          light={true}
+        
         <div className="row">
           {services.map((service, index) => (
             <div key={index} className="col-lg-4 mb-4">
