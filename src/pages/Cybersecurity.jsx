@@ -21,7 +21,7 @@ import { Accordion } from 'react-bootstrap';
 import backgroundImage from "../assets/cybersecurity.jpeg";
 import "../assets/css/cybersecurity.css";
 
-
+// chnages
 const CybersecurityAsAServicePage = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
