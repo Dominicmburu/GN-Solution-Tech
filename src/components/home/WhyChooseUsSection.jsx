@@ -34,7 +34,7 @@ const WhyChooseUsSection = () => {
           <div className="col-lg-6 mb-4 mb-lg-0">
             <SectionTitle 
               subtitle="Why Choose Us"
-              title="Enterprise IT Transformation Experts"
+              title={<span style={{ color: '#594099' }}>"Enterprise IT Transformation Experts"</span>}
             />
             <p className="text-muted mb-4">
               As a Dublin-based leader since 2022, we deliver cutting-edge business automation 

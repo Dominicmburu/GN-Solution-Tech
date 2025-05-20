@@ -16,25 +16,26 @@ import {
   FaNetworkWired,
   FaCloudDownloadAlt,
   FaSyncAlt,
-  FaUsersCog
+  FaUsersCog, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion, Tabs, Tab } from 'react-bootstrap';
 import "../assets/css/PlatformAsCode.css";
 import "../assets/css/TabsSection.css";
-import backgroundImage from "../assets/platform.webp";
+import backgroundImage from "../assets/platform3.webp";
 
 const PlatformAsCodePage = () => {
   const [activeTab, setActiveTab] = useState('overview');
   
-  // Four tabs to match the Infrastructure as Code and Network as Code pages
-  const tabs = [
-    { id: 'overview', label: 'Overview', icon: 'bi bi-info-circle' },
-    { id: 'technologies', label: 'Technologies', icon: 'bi bi-tools' },
-    { id: 'benefits', label: 'Benefits', icon: 'bi bi-award' },
-    { id: 'solutions', label: 'Solutions', icon: 'bi bi-gear' },
-    { id: 'faqs', label: 'FAQs', icon: 'bi bi-question-square' }
-  ];
+   // Four tabs to match the Infrastructure as Code page
+    const tabs = [
+      { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
+      { id: 'features', label: 'Key Features', icon: <FaCheckCircle /> },
+      { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
+      { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
+      { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
+      { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
+    ];
 
   const faqs = [
     { 
@@ -579,14 +580,26 @@ const PlatformAsCodePage = () => {
         <div className="hero-overlay"></div>
 
       {/* Tabs Section */}
-      <section className="tabs-section">
+      <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
+              <motion.div 
+                className="text-center mb-5"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >        
+              </motion.div>    
               <div className="custom-tabs-container">
                 {/* Tab navigation */}
-                <div className="tab-navigation">
-                  <ul className="nav custom-tabs justify-content-center" id="paacTabs" role="tablist">
+                <motion.div 
+                  className="tab-navigation mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  <ul className="nav custom-tabs justify-content-center flex-nowrap overflow-auto" id="iacTabs" role="tablist">
                     {tabs.map((tab) => (
                       <li className="nav-item" key={tab.id} role="presentation">
                         <button
@@ -598,17 +611,17 @@ const PlatformAsCodePage = () => {
                           aria-controls={tab.id}
                           aria-selected={activeTab === tab.id}
                         >
-                          <i className={`${tab.icon} tab-icon`}></i>
-                          <span className="tab-text">{tab.label}</span>
+                          {tab.icon}
+                          <span className="tab-text ms-2">{tab.label}</span>
                         </button>
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
                 
                 {/* Tab content */}
-                <div className="tab-content-container mt-4">
-                  <div className="tab-content" id="paacTabsContent">
+                <div className="tab-content-container">
+                  <div className="tab-content" id="iacTabsContent">
                     <motion.div
                       className="tab-pane show active"
                       id="tabContent"

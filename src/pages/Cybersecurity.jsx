@@ -13,8 +13,12 @@ import {
   FaExclamationTriangle,
   FaDatabase,
   FaSearch,
+  FaUserShield,
+  FaInfoCircle,
   FaTools,
-  FaUserShield
+  FaAward,
+  FaQuestionCircle,
+  FaCheckCircle
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
@@ -26,11 +30,11 @@ const CybersecurityAsAServicePage = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: 'bi bi-info-circle' },
-    { id: 'features', label: 'Features', icon: 'bi bi-tools' },
-    { id: 'benefits', label: 'Benefits', icon: 'bi bi-award' },
-    { id: 'solutions', label: 'Solutions', icon: 'bi bi-gear' },
-    { id: 'faqs', label: 'FAQs', icon: 'bi bi-question-square' }
+    { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
+    { id: 'features', label: 'Key Features', icon: <FaCheckCircle /> },
+    { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
+    { id: 'solutions', label: 'Solutions', icon: <FaCogs /> },
+    { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
 
   const faqs = [
@@ -58,9 +62,9 @@ const CybersecurityAsAServicePage = () => {
       question: "Is my data safe with you?",
       answer: "Yes. We follow strict data protection protocols, encrypt all client data, and comply with privacy laws such as GDPR."
     },
-    {
-      question: "Can I customize the services I need?",
-      answer: "Yes, we offer modular services. You can choose only what’s relevant to your business risk profile and goals."
+    { 
+      question: "Can I customize the services I need?", 
+      answer: "Yes, we offer modular services. You can choose only what's relevant to your business risk profile and goals."
     }
   ];
 
@@ -378,9 +382,9 @@ const CybersecurityAsAServicePage = () => {
             <h2 className="text-center text-primary mb-4">Key Benefits</h2>
             <div className="row">
               {[
-                {
-                  title: "Reduced Risk Exposure",
-                  desc: "Identify and mitigate vulnerabilities before they’re exploited.",
+                { 
+                  title: "Reduced Risk Exposure", 
+                  desc: "Identify and mitigate vulnerabilities before they're exploited.",
                   icon: <FaShieldAlt size={40} className="benefit-icon" />
                 },
                 {
@@ -616,7 +620,8 @@ const CybersecurityAsAServicePage = () => {
         style={{
           background: `linear-gradient(rgba(0, 0, 30, 0.7), rgba(0, 0, 30, 0.8)), url(${backgroundImage}) center/cover no-repeat`,
           height: "60vh",
-          position: "relative"
+          position: "relative",
+          marginBottom: "-20px"
         }}
       >
         <motion.h1
@@ -647,13 +652,26 @@ const CybersecurityAsAServicePage = () => {
       </div>
 
       {/* Tabs Section */}
-      <section className="tabs-section CS">
+      <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
+              <motion.div 
+                className="text-center mb-5"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >        
+              </motion.div>
               <div className="custom-tabs-container">
-                <div className="tab-navigation">
-                  <ul className="nav custom-tabs justify-content-center" id="csaasTabs" role="tablist">
+                {/* Tab navigation */}
+                <motion.div 
+                  className="tab-navigation mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  <ul className="nav custom-tabs justify-content-center flex-nowrap overflow-auto" id="csaasTabs" role="tablist">
                     {tabs.map((tab) => (
                       <li className="nav-item" key={tab.id} role="presentation">
                         <button
@@ -665,8 +683,8 @@ const CybersecurityAsAServicePage = () => {
                           aria-controls={tab.id}
                           aria-selected={activeTab === tab.id}
                         >
-                          <i className={`${tab.icon} tab-icon`}></i>
-                          <span className="tab-text">{tab.label}</span>
+                          {tab.icon}
+                          <span className="tab-text ms-2">{tab.label}</span>
                         </button>
                       </li>
                     ))}
@@ -674,6 +692,10 @@ const CybersecurityAsAServicePage = () => {
                 </div>
 
                 <div className="tab-content-container mt-4.0">
+                </motion.div>
+                
+                {/* Tab content */}
+                <div className="tab-content-container">
                   <div className="tab-content" id="csaasTabsContent">
                     <motion.div
                       className="tab-pane show active"
@@ -695,7 +717,7 @@ const CybersecurityAsAServicePage = () => {
       </section>
 
       {/* Call to Action */}
-      <div className="cta-section 2">
+      <div className="cta-section">
         <div className="container">
           <h3>Secure Your Business Today!</h3>
           <p>Contact us to learn how Cybersecurity as a Service can protect your organization.</p>

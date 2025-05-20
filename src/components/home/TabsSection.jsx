@@ -42,6 +42,18 @@ const TabsSection = () => {
     }
   };
 
+  // Style object for tabs text
+  const tabTextStyle = {
+    color: '#594099', // Signature purple color
+    fontWeight: 500
+  };
+
+  // Style object for active tab text
+  const activeTabTextStyle = {
+    color: '#594099', // Keep the same purple color
+    fontWeight: 700 // Make active tab text bolder
+  };
+
   return (
     <section className="tabs-section">
       <div className="">        
@@ -61,9 +73,10 @@ const TabsSection = () => {
                           role="tab"
                           aria-controls={tab.id}
                           aria-selected={activeTab === tab.id}
+                          style={activeTab === tab.id ? activeTabTextStyle : tabTextStyle}
                         >
-                          <i className={`${tab.icon} tab-icon`}></i>
-                          <span style={{color: "var(--tt-color)"}} className="tab-text">{tab.label}</span>
+                          <i className={`${tab.icon} tab-icon`} style={{ color: '#594099' }}></i>
+                          <span className="tab-text">{tab.label}</span>
                         </button>
                       </li>
                     ))}
@@ -86,6 +99,23 @@ const TabsSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Add inline styles to override any default colors in TabsSection.css */}
+      <style jsx>{`
+        .custom-tabs .nav-link {
+          color: #594099;
+        }
+        .custom-tabs .nav-link.active {
+          color: #594099;
+          border-bottom-color: #594099;
+        }
+        .custom-tabs .nav-link:hover {
+          color: #594099;
+        }
+        .tab-icon {
+          color: #594099;
+        }
+      `}</style>
     </section>
   );
 };
