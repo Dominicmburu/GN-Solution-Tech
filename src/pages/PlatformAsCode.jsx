@@ -7,7 +7,6 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
-import "../assets/css/platformAsCode.css";
 import "../assets/css/TabsSection.css";
 import backgroundImage from "../assets/platform3.webp";
 
