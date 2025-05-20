@@ -689,10 +689,9 @@ const CybersecurityAsAServicePage = () => {
                       </li>
                     ))}
                   </ul>
+                </motion.div>
                 </div>
-
-{/*                 <div className="tab-content-container ">
-                </motion.div> */}
+                
                 
                 {/* Tab content */}
                 <div className="tab-content-container mt-4.0">
