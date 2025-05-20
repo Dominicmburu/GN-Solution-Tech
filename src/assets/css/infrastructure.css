@@ -1,0 +1,97 @@
+
+.custom-tabs .nav-link {
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    color: #718096;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+}
+
+.custom-tabs .nav-link:hover {
+    background-color: rgba(74, 111, 255, 0.1);
+    color: #4A6FFF;
+}
+
+.custom-tabs .nav-link.active {
+    background-color: #4A6FFF;
+    color: white;
+    border: 1px solid #4A6FFF;
+    box-shadow: 0 4px 15px rgba(74, 111, 255, 0.3);
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.feature-icon-container {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: rgba(74, 111, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+    background-color: rgba(74, 111, 255, 0.1);
+    color: #4A6FFF;
+    box-shadow: none;
+}
+
+.custom-accordion .accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(74, 111, 255, 0.5);
+}
+
+.custom-accordion .accordion-item {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.custom-accordion .accordion-body {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+}
+
+.testimonial-quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .custom-tabs .nav-link {
+    padding: 0.75rem 1rem;
+    }
+    
+    .tab-text {
+    font-size: 0.9rem;
+    }
+    
+    .hero-section {
+    height: 70vh !important;
+    }
+    
+    .feature-cards-container {
+    position: relative !important;
+    bottom: 0 !important;
+    margin-top: 2rem;
+    }
+} 
+.card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaea;
+}

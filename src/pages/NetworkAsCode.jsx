@@ -1,19 +1,40 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, FaCheck, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle  } from "react-icons/fa";
+import { FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, FaCheck, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle, FaLock } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
-import backgroundImage from "../assets/network-as-code.webp";
-import "../assets/css/NetworkAsCode.css";
+import "../assets/css/network.css";
 import "../assets/css/TabsSection.css";
+import backgroundImage from "../assets/network-as-code.webp";
+
+// Intro Section Component
+const NetworkAsCodeIntro = () => {
+  return (
+    <section className="intro-section">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-5">
+            <div className="section-divider"></div>
+            <h1 className="main-title">
+              What is Network as Code?
+            </h1>
+          </div>
+          <div className="col-lg-7">
+            <p className="intro-text">
+              Network as Code (NaC) transforms network management by applying DevOps principles to networking. Using code to define, deploy, and manage network configurations, NaC enables automation, version control, and testing for LAN, WAN, SD-WAN, firewalls, VPNs, and cloud-native networks. At GN Solutions, our NaC approach delivers agility, reliability, and consistency across cloud, hybrid, or on-prem environments.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const NetworkAsCode = () => {
   const [activeTab, setActiveTab] = useState('overview');
   
-  // Four tabs to match the Infrastructure as Code page
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
-    { id: 'features', label: 'Key Features', icon: <FaCheckCircle /> },
     { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
     { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
     { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
@@ -60,45 +81,44 @@ const NetworkAsCode = () => {
       case 'overview':
         return (
           <div className="container py-5">
-            <h2 className="text-center text-primary mb-4">What is Network as Code?</h2>
+            <div className="intro-box">
+              <NetworkAsCodeIntro />
+            </div>
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Why Choose Us</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
             <div className="row">
-              <div className="col-12">
-                <div className="card shadow-lg border-0 p-4 mb-5" style={{backgroundColor:"#0a1033"}}>
-                  <p className="text-center text-light fw-bold mb-0">
-                  NaC transforms networks from static, device-by-device management into dynamic, code-driven environments. This accelerates 
-                    service delivery, improves consistency, and enhances visibility and control across your infrastructure. Whether it's managing 
-                    WAN, LAN, security policies, or cloud connectivity — NaC brings agility, reliability, and automation to your networking operations.
-                  This brings DevOps principles to networking—enabling teams to deploy, test, and scale network changes faster, with confidence 
-                    and consistency. At GN Solutions, our Network as Code approach brings DevOps-style agility, automation, and intelligence to 
-                    networking — whether in the cloud, hybrid, or on-prem environments.
-                  </p>
-                </div>
-              </div>
+              {[
+                { 
+                  title: "Vendor-Neutral Expertise", 
+                  desc: "Our solutions are platform-agnostic, supporting multi-vendor environments like Cisco, Juniper, and Arista.", 
+                  icon: <FaTools size={40} style={{ color: "var(--primary-color)" }} /> 
+                },
+                { 
+                  title: "Secure by Design", 
+                  desc: "Integrated RBAC, auditing, and compliance ensure your network is protected.", 
+                  icon: <FaLock size={40} style={{ color: "var(--primary-color)" }} /> 
+                },
+                { 
+                  title: "Tailored Solutions", 
+                  desc: "Customized NaC implementations for cloud, on-prem, or hybrid environments.", 
+                  icon: <FaCode size={40} style={{ color: "var(--primary-color)" }} /> 
+                }
+              ].map((feature, index) => (
+                <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="text-center mb-3">{feature.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
+                    <p className="text-center">{feature.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            
-            
-            
-            <h3 className="text-center text-primary mb-4">Why Choose Us</h3>
-            <div className="row mb-5">
-              <div className="col-12">
-                <div className="card shadow-lg border-0 p-4">
-                  <p>
-                    At GN Solutions, we bring deep experience in network engineering, DevOps, and automation to help enterprises evolve their 
-                    legacy networks into programmable, future-ready infrastructures. We specialize in designing NaC solutions that are:
-                  </p>
-                  <ul className="list-unstyled">
-                    <li className="mb-2"><FaCheck className="me-2 text-success" /> <strong>Vendor-neutral and platform-agnostic</strong></li>
-                    <li className="mb-2"><FaCheck className="me-2 text-success" /> <strong>Secure by design,</strong> with integrated RBAC, auditing, and compliance</li>
-                    <li><FaCheck className="me-2 text-success" /> <strong>Tailored to your environment</strong> — cloud, on-prem, or hybrid</li>
-                  </ul>
-                  <p className="mt-3 mb-0">
-                    Whether you're modernizing your infrastructure or starting from scratch, we help you get there faster, safer, and smarter.
-                  </p>
-                </div>
-              </div>
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Use Cases of Network as Code</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            
-            <h3 className="text-center text-primary mb-4">Use Cases of Network as Code</h3>
             <div className="row">
               {[
                 { title: "Cloud Network Automation", desc: "Automatically provision and configure cloud network resources." },
@@ -107,26 +127,46 @@ const NetworkAsCode = () => {
                 { title: "Security & Compliance", desc: "Enforce consistent security policies through code." }
               ].map((useCase, index) => (
                 <motion.div className="col-md-6 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
-                  <div className="card shadow-lg border-0 p-4 h-100">
-                    <h5 className="text-info">{useCase.title}</h5>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <h5 style={{ color: "var(--ct-color)" }}>{useCase.title}</h5>
                     <p>{useCase.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
-            
-            <h3 className="text-center text-primary mb-4 mt-5">Implementation Steps</h3>
-            <div className="row">
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Implementation Steps</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <div className="implementation-timeline position-relative">
+              <div className="timeline-connector"></div>
               {[
-                "Define Network Requirements", 
-                "Choose Automation Tools", 
-                "Implement Version Control", 
-                "Monitor & Validate"
+                { step: "Define Network Requirements", desc: "Assess your network and automation goals", icon: <FaLayerGroup size={24} /> },
+                { step: "Choose Automation Tools", desc: "Select tools like Ansible or Terraform", icon: <FaTools size={24} /> },
+                { step: "Implement Version Control", desc: "Set up Git for configuration management", icon: <FaCode size={24} /> },
+                { step: "Monitor & Validate", desc: "Ensure reliability with continuous monitoring", icon: <FaCheck size={24} /> }
               ].map((step, index) => (
-                <motion.div className="col-md-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
-                  <div className="card shadow-lg border-0 p-4 text-center h-100">
-                    <h5 className="mt-3">{step}</h5>
+                <motion.div
+                  className={`d-flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  <div className="timeline-content-wrapper col-5">
+                    <div className="timeline-content p-4 bg-white rounded shadow-sm">
+                      <h5 style={{ color: "var(--ct-color)" }}>{step.step}</h5>
+                      <p className="mb-0 text-muted">{step.desc}</p>
+                    </div>
                   </div>
+                  <div className="timeline-icon-wrapper col-2 d-flex justify-content-center">
+                    <div className="timeline-icon-circle">
+                      <div style={{ color: "#fff", backgroundColor: "var(--primary-color)" }} className="timeline-icon d-flex align-items-center justify-content-center">
+                        {step.icon}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-5"></div>
                 </motion.div>
               ))}
             </div>
@@ -135,7 +175,10 @@ const NetworkAsCode = () => {
       case 'solutions':
         return (
           <div className="container py-5">
-            <h2 className="text-center text-primary mb-4">Key Solutions We Provide</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Solutions We Provide</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
             <div className="row">
               {[
                 { 
@@ -176,8 +219,8 @@ const NetworkAsCode = () => {
                 }
               ].map((solution, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
-                  <div className="card shadow-lg border-0 p-4 h-100">
-                    <h5 className="text-info">{solution.title}</h5>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
                     <p>{solution.desc}</p>
                   </div>
                 </motion.div>
@@ -188,30 +231,35 @@ const NetworkAsCode = () => {
       case 'technologies':
         return (
           <div className="container py-5">
-            <h2 className="text-center text-primary mb-4">Key Features</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Technologies</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
             <div className="row text-center mb-5">
               {[
-                { name: "Infrastructure as Code for Networking", icon: <FaCloud size={40} className="text-info mb-3" />, desc: "Use code to define routers, switches, firewalls, and policies." },
-                { name: "Vendor-Agnostic Automation", icon: <FaCode size={40} className="text-info mb-3" />, desc: "Support for multi-vendor environments including Cisco, Juniper, Arista, Fortinet, and more." },
-                { name: "CI/CD Integration", icon: <FaServer size={40} className="text-info mb-3" />, desc: "Seamlessly integrate network changes into your DevOps pipelines with validation and testing." },
-                { name: "Version Control & Auditability", icon: <FaTools size={40} className="text-info mb-3" />, desc: "Full change tracking using Git and other VCS tools." },
-                { name: "Automated Validation & Testing", icon: <FaServer size={40} className="text-info mb-3" />, desc: "Perform pre-deployment checks, compliance enforcement, and rollback strategies." },
-                { name: "Event-Driven Automation", icon: <FaRocket size={40} className="text-info mb-3" />, desc: "Respond automatically to incidents using real-time telemetry and triggers." }
+                { name: "Infrastructure as Code for Networking", icon: <FaCloud size={40} style={{ color: "var(--primary-color)" }} />, desc: "Use code to define routers, switches, firewalls, and policies." },
+                { name: "Vendor-Agnostic Automation", icon: <FaCode size={40} style={{ color: "var(--primary-color)" }} />, desc: "Support for multi-vendor environments including Cisco, Juniper, Arista, and more." },
+                { name: "CI/CD Integration", icon: <FaServer size={40} style={{ color: "var(--primary-color)" }} />, desc: "Seamlessly integrate network changes into your DevOps pipelines with validation and testing." },
+                { name: "Version Control & Auditability", icon: <FaTools size={40} style={{ color: "var(--primary-color)" }} />, desc: "Full change tracking using Git and other VCS tools." },
+                { name: "Automated Validation & Testing", icon: <FaServer size={40} style={{ color: "var(--primary-color)" }} />, desc: "Perform pre-deployment checks, compliance enforcement, and rollback strategies." },
+                { name: "Event-Driven Automation", icon: <FaRocket size={40} style={{ color: "var(--primary-color)" }} />, desc: "Respond automatically to incidents using real-time telemetry and triggers." }
               ].map((tech, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
-                  <div className="card shadow-lg border-0 p-4 h-100">
-                    {tech.icon}
-                    <h5>{tech.name}</h5>
-                    <p className="mt-2">{tech.desc}</p>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="text-center mb-3">{tech.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }}>{tech.name}</h5>
+                    <p>{tech.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
-            
-            <h3 className="text-center text-primary mb-4 mt-5">Popular NaC Tools Comparison</h3>
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Popular NaC Tools Comparison</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
             <div className="table-responsive">
               <table className="table table-bordered">
-                <thead className="bg-light">
+                <thead style={{ backgroundColor: "#f8f9fa" }}>
                   <tr>
                     <th>Tool</th>
                     <th>Best For</th>
@@ -252,27 +300,32 @@ const NetworkAsCode = () => {
       case 'benefits':
         return (
           <div className="container py-5">
-            <h2 className="text-center text-primary mb-4">Key Benefits</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Benefits</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
             <div className="row text-center">
               {[
-                { title: "Faster Time to Delivery", icon: <FaRocket size={40} className="text-info mb-3" />, desc: "Implement network changes in hours, not days." },
-                { title: "Operational Consistency", icon: <FaLayerGroup size={40} className="text-info mb-3" />, desc: "Eliminate configuration drift and manual errors." },
-                { title: "Enhanced Uptime", icon: <FaCode size={40} className="text-info mb-3" />, desc: "Proactive validations and test-driven deployments reduce downtime." },
-                { title: "Full Visibility", icon: <FaRocket size={40} className="text-info mb-3" />, desc: "Gain control over every change, with traceability and reporting." },
-                { title: "Reduced Costs", icon: <FaServer size={40} className="text-info mb-3" />, desc: "Save on operational overhead and rework through automation." },
-                { title: "Empowered Teams", icon: <FaTools size={40} className="text-info mb-3" />, desc: "Shift engineers from repetitive tasks to high-value strategic work." }
+                { title: "Faster Time to Delivery", icon: <FaRocket size={40} style={{ color: "var(--primary-color)" }} />, desc: "Implement network changes in hours, not days." },
+                { title: "Operational Consistency", icon: <FaLayerGroup size={40} style={{ color: "var(--primary-color)" }} />, desc: "Eliminate configuration drift and manual errors." },
+                { title: "Enhanced Uptime", icon: <FaCode size={40} style={{ color: "var(--primary-color)" }} />, desc: "Proactive validations and test-driven deployments reduce downtime." },
+                { title: "Full Visibility", icon: <FaRocket size={40} style={{ color: "var(--primary-color)" }} />, desc: "Gain control over every change, with traceability and reporting." },
+                { title: "Reduced Costs", icon: <FaServer size={40} style={{ color: "var(--primary-color)" }} />, desc: "Save on operational overhead and rework through automation." },
+                { title: "Empowered Teams", icon: <FaTools size={40} style={{ color: "var(--primary-color)" }} />, desc: "Shift engineers from repetitive tasks to high-value strategic work." }
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
-                  <div className="card shadow-lg border-0 p-4 h-100">
-                    {benefit.icon}
-                    <h5>{benefit.title}</h5>
-                    <p className="mt-2">{benefit.desc}</p>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="text-center mb-3">{benefit.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }}>{benefit.title}</h5>
+                    <p>{benefit.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
-            
-            <h3 className="text-center text-primary mb-4 mt-5">Success Stories</h3>
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Success Stories</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
             <div className="row">
               {[
                 { company: "Global Telecom Provider", result: "Reduced network provisioning time from weeks to hours using Network as Code." },
@@ -280,37 +333,33 @@ const NetworkAsCode = () => {
                 { company: "Tech Enterprise", result: "Cut operational costs by 35% through network automation." }
               ].map((story, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
-                  <div className="card shadow-lg border-0 p-4 h-100">
-                    <h5 className="text-info">{story.company}</h5>
-                    <p>{story.result}</p>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <h5 style={{ color: "var(--ct-color)" }}>{story.company}</h5>
+                    <p>{story.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
-            
             <div className="row mt-5">
               <div className="col-12">
-                <div className="card shadow-lg border-0 p-4">
-                  <h3 className="text-center text-primary mb-4">ROI of Network as Code</h3>
+                <div className="card border-0 p-4" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                  <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">ROI of Network as Code</h3>
+                  <div className="d-flex justify-content-center mb-5">
+                    <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+                  </div>
                   <div className="row">
-                    <div className="col-md-4">
-                      <div className="text-center">
-                        <h4 className="text-success">40%</h4>
-                        <p>Reduction in operational costs</p>
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="text-center">
-                        <h4 className="text-success">80%</h4>
-                        <p>Faster network deployment</p>
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="text-center">
-                        <h4 className="text-success">95%</h4>
-                        <p>Reduction in configuration errors</p>
-                      </div>
-                    </div>
+                    {[
+                      { value: "40%", label: "Reduction in operational costs" },
+                      { value: "80%", label: "Faster network deployment" },
+                      { value: "95%", label: "Reduction in configuration errors" }
+                    ].map((metric, index) => (
+                      <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
+                        <div className="text-center">
+                          <h4 style={{ color: "var(--primary-color)" }}>{metric.value}</h4>
+                          <p>{metric.label}</p>
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -320,51 +369,58 @@ const NetworkAsCode = () => {
       case 'faqs':
         return (
           <div className="container py-5">
-            <h2 className="text-center text-primary mb-4">Frequently Asked Questions</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Frequently Asked Questions</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
             <Accordion>
               {faqs.map((faq, index) => (
-                <Accordion.Item eventKey={index.toString()} key={index}>
-                  <Accordion.Header>{faq.question}</Accordion.Header>
-                  <Accordion.Body>
-                    {faq.answer}
+                <Accordion.Item eventKey={index.toString()} key={index} style={{
+                  marginBottom: "15px",
+                  borderRadius: "8px",
+                  overflow: "hidden",
+                  border: "1px solid rgba(var(--primary-color-rgb), 0.2)"
+                }}>
+                  <Accordion.Header>
+                    <span style={{ color: "var(--ct-color)", fontWeight: "600" }}>{faq.question}</span>
+                  </Accordion.Header>
+                  <Accordion.Body style={{ backgroundColor: "#f9fbff" }}>
+                    <p>{faq.answer}</p>
                   </Accordion.Body>
                 </Accordion.Item>
               ))}
             </Accordion>
-            
             <div className="mt-5">
-              <h3 className="text-center text-primary mb-4">Resources to Learn More</h3>
+              <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Resources to Learn More</h3>
+              <div className="d-flex justify-content-center mb-5">
+                <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+              </div>
               <div className="row">
-                <div className="col-md-4 mb-4">
-                  <div className="card shadow-lg border-0 p-4 h-100">
-                    <h5>Documentation</h5>
-                    <ul className="list-unstyled">
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> Ansible Network Automation</li>
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> Terraform Network Providers</li>
-                      <li><FaArrowRight className="me-2 text-primary" /> Cisco NSO Guides</li>
-                    </ul>
+                {[
+                  {
+                    title: "Documentation",
+                    items: ["Ansible Network Automation", "Terraform Network Providers", "Cisco NSO Guides"]
+                  },
+                  {
+                    title: "Training",
+                    items: ["Network Automation Course", "Vendor-specific certifications", "Online workshops"]
+                  },
+                  {
+                    title: "Community",
+                    items: ["Network to Code Community", "DevNet Community", "Network Automation Forums"]
+                  }
+                ].map((resource, index) => (
+                  <div className="col-md-4 mb-4" key={index}>
+                    <div className="card border-0 p-4" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                      <h5 style={{ color: "var(--ct-color)" }}>{resource.title}</h5>
+                      <ul className="list-unstyled">
+                        {resource.items.map((item, i) => (
+                          <li key={i}><FaArrowRight style={{ color: "var(--primary-color)", marginRight: "8px" }} /> {item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-                <div className="col-md-4 mb-4">
-                  <div className="card shadow-lg border-0 p-4 h-100">
-                    <h5>Training</h5>
-                    <ul className="list-unstyled">
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> Network Automation Course</li>
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> Vendor-specific certifications</li>
-                      <li><FaArrowRight className="me-2 text-primary" /> Online workshops</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="col-md-4 mb-4">
-                  <div className="card shadow-lg border-0 p-4 h-100">
-                    <h5>Community</h5>
-                    <ul className="list-unstyled">
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> Network to Code Community</li>
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> DevNet Community</li>
-                      <li><FaArrowRight className="me-2 text-primary" /> Network Automation Forums</li>
-                    </ul>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -381,33 +437,46 @@ const NetworkAsCode = () => {
         className="hero-section text-white text-center d-flex flex-column align-items-center justify-content-center"
         style={{ 
           background: `linear-gradient(rgba(0, 0, 30, 0.7), rgba(0, 0, 30, 0.8)), url(${backgroundImage}) center/cover no-repeat`, 
-          height: "60vh",
+          height: "60vh"
         }}
       >
-       <motion.h1 
-  className="display-4 fw-bold"
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.5 }}
-  style={{ background: 'transparent', color: 'orange' }}
->
-  Network as Code: Automate Your Infrastructure
-</motion.h1>
-
+        <motion.h1 
+          className="display-4 fw-bold"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          style={{ color: "#fff" }}
+        >
+          Network as Code: Automate Your Infrastructure
+        </motion.h1>
         <motion.p
           className="lead"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
+          style={{ fontSize: "1.5rem", marginBottom: "20px" }}
         >
           Leverage automation to deploy, manage, and optimize networks efficiently.
         </motion.p>
-        <Link to="/contact" className="btn btn-warning btn-lg fw-bold px-4 py-2 mt-3">
-          Get Started
-        </Link>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
+          <Link to="/contact" className="btn" style={{
+            backgroundColor: "var(--primary-color)",
+            color: "#fff",
+            padding: "12px 25px",
+            borderRadius: "30px",
+            fontWeight: "600",
+            transition: "all 0.3s ease"
+          }}>
+            Get Started <FaArrowRight style={{ marginLeft: "8px" }} />
+          </Link>
+        </motion.div>
       </div>
-{/* Tabs Section */}
-<section className="tabs-section py-5 bg-light">
+      {/* Tabs Section */}
+      <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -416,17 +485,15 @@ const NetworkAsCode = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-              >        
-              </motion.div>    
+              ></motion.div>    
               <div className="custom-tabs-container">
-                {/* Tab navigation */}
                 <motion.div 
                   className="tab-navigation mb-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
                 >
-                  <ul className="nav custom-tabs justify-content-center flex-nowrap overflow-auto" id="iacTabs" role="tablist">
+                  <ul className="nav custom-tabs justify-content-center flex-nowrap overflow-auto" id="nacTabs" role="tablist">
                     {tabs.map((tab) => (
                       <li className="nav-item" key={tab.id} role="presentation">
                         <button
@@ -437,18 +504,19 @@ const NetworkAsCode = () => {
                           role="tab"
                           aria-controls={tab.id}
                           aria-selected={activeTab === tab.id}
+                          style={{
+                            borderBottom: activeTab === tab.id ? `3px solid var(--primary-color)` : 'none'
+                          }}
                         >
-                          {tab.icon}
-                          <span className="tab-text ms-2">{tab.label}</span>
+                          <i className="tab-icon" style={{ color: "var(--primary-color)" }}>{tab.icon}</i>
+                          <span style={{ color: "var(--tt-color)" }}>{tab.label}</span>
                         </button>
                       </li>
                     ))}
                   </ul>
                 </motion.div>
-                
-                {/* Tab content */}
                 <div className="tab-content-container">
-                  <div className="tab-content" id="iacTabsContent">
+                  <div className="tab-content" id="nacTabsContent">
                     <motion.div
                       className="tab-pane show active"
                       id="tabContent"
@@ -467,15 +535,33 @@ const NetworkAsCode = () => {
           </div>
         </div>
       </section>
-
       {/* Call to Action */}
-      <div className="container py-5 CTA-section text-center" style={{backgroundColor:"#00e8ff"}}>
-        <h3>Start Your Network Automation Journey Today!</h3>
-        <p className="text-muted">Contact us to see how Network as Code can transform your business.</p>
-        <Link to="/contact" className="btn btn-primary btn-lg fw-bold px-4 py-2">
-          Request a Demo
-        </Link>
-      </div>
+      <section style={{
+        backgroundColor: "var(--tt-color)",
+        padding: "50px 0",
+        marginTop: "40px"
+      }}>
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-8 text-center text-lg-start">
+              <h3 className="text-white mb-3">Start Your Network Automation Journey Today!</h3>
+              <p className="text-white-50 mb-0">Contact us to see how Network as Code can transform your business.</p>
+            </div>
+            <div className="col-lg-4 text-center text-lg-end mt-4 mt-lg-0">
+              <Link to="/contact" className="btn" style={{
+                backgroundColor: "var(--primary-color)",
+                color: "#fff",
+                padding: "12px 25px",
+                borderRadius: "30px",
+                fontWeight: "600",
+                transition: "all 0.3s ease"
+              }}>
+                Request a Demo <FaArrowRight style={{ marginLeft: "8px" }} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

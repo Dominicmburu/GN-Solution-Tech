@@ -1,3 +1,23 @@
+
+.intro-section {
+  padding: 60px 0;
+  background-color: #f0f0f0;
+}
+
+.section-divider {
+  border-bottom: 2px solid var(--primary-color);
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.main-title {
+  color: #5c3a5c; /* Purple color for the title */
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
 .implementation-timeline {
     position: relative;
     padding: 20px 0 60px;

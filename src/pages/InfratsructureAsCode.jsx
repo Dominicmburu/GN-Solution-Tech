@@ -10,15 +10,41 @@ import {
   FaArrowRight, 
   FaInfoCircle, 
   FaAward, 
-  FaQuestionCircle,
-  FaCheckCircle
+  FaQuestionCircle, 
+  FaCheckCircle, 
+  FaLock, 
+  FaCheck 
 } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Accordion, Card } from 'react-bootstrap';
-import backgroundImage from "../assets/platform.webp";
-import "../assets/css/platform.css";
+import { Accordion } from 'react-bootstrap';
+import "../assets/css/infrastructure.css";
 import "../assets/css/TabsSection.css";
+import backgroundImage from "../assets/platform.webp";
 
+// Intro Section Component
+const InfrastructureAsCodeIntro = () => {
+  return (
+    <section className="intro-section">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-5">
+            <div className="section-divider"></div>
+            <h1 className="main-title">
+              What is Infrastructure as Code?
+            </h1>
+          </div>
+          <div className="col-lg-7">
+            <p className="intro-text">
+              Infrastructure as Code (IaC) is a modern approach to provisioning and managing IT infrastructure using 
+              machine-readable configuration files, rather than through manual processes. It allows system administrators 
+              and DevOps teams to define infrastructure using code, enabling repeatable, reliable, and automated deployments.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const InfrastructureAsCode = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -88,162 +114,148 @@ const InfrastructureAsCode = () => {
       case 'overview':
         return (
           <div className="container py-5">
-            <motion.div 
-              className="row"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <div className="col-12">
-                <motion.div className="card bg-gradient-primary shadow-lg border-0 p-4 mb-5" variants={itemVariants}>
-                  <h2 className="text-center text-white mb-4">What is Infrastructure as Code?</h2>
-                  <p className="text-center text-white mb-0">
-                    Infrastructure as Code (IaC) is a modern approach to provisioning and managing IT infrastructure using 
-                    machine-readable configuration files, rather than through manual processes. It allows system administrators 
-                    and DevOps teams to define infrastructure using code, enabling repeatable, reliable, and automated deployments.
-                  </p>
-                </motion.div>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="row"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <div className="col-md-6">
-                <motion.div className="card shadow-lg border-0 p-4 h-100" variants={itemVariants}>
-                  <h3 className="text-primary mb-3">Key Principles</h3>
-                  <ul className="list-unstyled">
-                    <li className="mb-3">
-                      <div className="d-flex">
-                        <div className="me-3">
-                          <FaCheckCircle className="text-success" size={20} />
-                        </div>
-                        <div>
-                          <h6 className="mb-1">Declarative Definitions</h6>
-                          <p className="text-muted mb-0">Define the desired end state of resources and let the IaC engine handle provisioning steps.</p>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="mb-3">
-                      <div className="d-flex">
-                        <div className="me-3">
-                          <FaCheckCircle className="text-success" size={20} />
-                        </div>
-                        <div>
-                          <h6 className="mb-1">Idempotency</h6>
-                          <p className="text-muted mb-0">Applying the same configuration multiple times yields the same infrastructure state, preventing configuration drift.</p>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="d-flex">
-                        <div className="me-3">
-                          <FaCheckCircle className="text-success" size={20} />
-                        </div>
-                        <div>
-                          <h6 className="mb-1">Version Control</h6>
-                          <p className="text-muted mb-0">Store all infrastructure definitions in source control (Git), enabling collaboration, history tracking, and rollback.</p>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </motion.div>
-              </div>
-              <div className="col-md-6 mt-4 mt-md-0">
-                <motion.div className="card shadow-lg border-0 p-4 h-100" variants={itemVariants}>
-                  <h3 className="text-primary mb-3">Use Cases</h3>
-                  <div className="row">
-                    {[
-                      { title: "Cloud Infrastructure", desc: "Rapidly provision and manage cloud resources." },
-                      { title: "Hybrid Environments", desc: "Consistently manage resources across multiple platforms." },
-                      { title: "Continuous Deployment", desc: "Integrate infrastructure deployment into CI/CD pipelines." },
-                      { title: "Disaster Recovery", desc: "Quickly rebuild infrastructure in case of failures." }
-                    ].map((useCase, index) => (
-                      <div className="col-6 mb-3" key={index}>
-                        <h6 className="text-info">{useCase.title}</h6>
-                        <p className="small mb-0">{useCase.desc}</p>
-                      </div>
-                    ))}
+            <div className="intro-box">
+              <InfrastructureAsCodeIntro />
+            </div>
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Key Principles</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <div className="row">
+              {[
+                { 
+                  title: "Declarative Definitions", 
+                  desc: "Define the desired end state of resources and let the IaC engine handle provisioning steps.", 
+                  icon: <FaCheckCircle size={40} style={{ color: "var(--primary-color)" }} /> 
+                },
+                { 
+                  title: "Idempotency", 
+                  desc: "Applying the same configuration multiple times yields the same infrastructure state, preventing configuration drift.", 
+                  icon: <FaCheckCircle size={40} style={{ color: "var(--primary-color)" }} /> 
+                },
+                { 
+                  title: "Version Control", 
+                  desc: "Store all infrastructure definitions in source control (Git), enabling collaboration, history tracking, and rollback.", 
+                  icon: <FaCheckCircle size={40} style={{ color: "var(--primary-color)" }} /> 
+                }
+              ].map((principle, index) => (
+                <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="text-center mb-3">{principle.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{principle.title}</h5>
+                    <p className="text-center">{principle.desc}</p>
                   </div>
                 </motion.div>
-              </div>
-            </motion.div>
+              ))}
+            </div>
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Use Cases of Infrastructure as Code</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <div className="row">
+              {[
+                { title: "Cloud Infrastructure", desc: "Rapidly provision and manage cloud resources." },
+                { title: "Hybrid Environments", desc: "Consistently manage resources across multiple platforms." },
+                { title: "Continuous Deployment", desc: "Integrate infrastructure deployment into CI/CD pipelines." },
+                { title: "Disaster Recovery", desc: "Quickly rebuild infrastructure in case of failures." }
+              ].map((useCase, index) => (
+                <motion.div className="col-md-6 mb-4" key={index} variants={itemVariants}>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <h5 style={{ color: "var(--ct-color)" }}>{useCase.title}</h5>
+                    <p>{useCase.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Why Choose Us</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <div className="row">
+              {[
+                { 
+                  title: "Expertise Across Technologies", 
+                  desc: "Our team has hands-on experience with leading tools like Terraform, Ansible, and Pulumi.", 
+                  icon: <FaTools size={40} style={{ color: "var(--primary-color)" }} /> 
+                },
+                { 
+                  title: "Security and Compliance First", 
+                  desc: "We integrate DevSecOps practices, ensuring your infrastructure is compliant and protected.", 
+                  icon: <FaLock size={40} style={{ color: "var(--primary-color)" }} /> 
+                },
+                { 
+                  title: "Customized Solutions", 
+                  desc: "We tailor IaC strategies to your environment, whether starting fresh or transitioning.", 
+                  icon: <FaCode size={40} style={{ color: "var(--primary-color)" }} /> 
+                }
+              ].map((feature, index) => (
+                <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="text-center mb-3">{feature.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
+                    <p className="text-center">{feature.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         );
       case 'features':
         return (
           <div className="container py-5">
-            <motion.h2 
-              className="text-center text-primary mb-5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              Key Features of Our IaC Service
-            </motion.h2>
-            
-            <motion.div 
-              className="row"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Features of Our IaC Service</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
               {[
                 { 
                   title: "Code-Driven Infrastructure", 
-                  icon: <FaCode size={30} className="text-primary mb-3" />,
+                  icon: <FaCode size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
                   desc: "Use industry-standard tools (Terraform, Ansible, CloudFormation, etc.) to define infrastructure resources programmatically." 
                 },
                 { 
                   title: "Multi-Cloud & Hybrid Support", 
-                  icon: <FaCloud size={30} className="text-primary mb-3" />,
+                  icon: <FaCloud size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
                   desc: "Deploy infrastructure on AWS, Azure, Google Cloud, or on-premises data centers with consistent automation." 
                 },
                 { 
                   title: "Modular and Reusable Templates", 
-                  icon: <FaLayerGroup size={30} className="text-primary mb-3" />,
+                  icon: <FaLayerGroup size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
                   desc: "Use customizable and scalable code modules for common services like load balancers, firewalls, and databases." 
                 },
                 { 
                   title: "CI/CD Integration", 
-                  icon: <FaRocket size={30} className="text-primary mb-3" />,
+                  icon: <FaRocket size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
                   desc: "Seamlessly integrate with your CI/CD pipelines for automated infrastructure testing and delivery." 
                 },
                 { 
                   title: "Drift Detection & Compliance", 
-                  icon: <FaTools size={30} className="text-primary mb-3" />,
+                  icon: <FaTools size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
                   desc: "Automatically detect and remediate configuration drift and enforce policies for compliance and security." 
                 },
                 { 
                   title: "Role-Based Access Control", 
-                  icon: <FaServer size={30} className="text-primary mb-3" />,
+                  icon: <FaServer size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
                   desc: "Track changes and manage who can apply, modify, or destroy infrastructure using granular access control." 
                 }
               ].map((feature, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
-                  <div className="card shadow-lg border-0 p-4 h-100 text-center">
-                    <div className="feature-icon-container mb-3">
-                      {feature.icon}
-                    </div>
-                    <h5>{feature.title}</h5>
+                  <div className="card border-0 p-4 h-100 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="mb-3">{feature.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }}>{feature.title}</h5>
                     <p className="text-muted mb-0">{feature.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
-            
-            <motion.div 
-              className="row mt-5"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
+            <motion.div className="row mt-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }}>
               <div className="col-12">
-                <div className="card bg-light shadow-lg border-0 p-4">
-                  <h3 className="text-center text-primary mb-4">Why Choose Us</h3>
+                <div className="card border-0 p-4" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                  <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Why Choose Us</h3>
+                  <div className="d-flex justify-content-center mb-5">
+                    <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+                  </div>
                   <div className="row">
                     {[
                       { title: "Expertise Across Technologies", desc: "Our team has hands-on experience with leading tools like Terraform, Ansible, and Pulumi, and across platforms including AWS, Azure, GCP, and VMware." },
@@ -255,10 +267,10 @@ const InfrastructureAsCode = () => {
                       <div className="col-md-6 mb-3" key={index}>
                         <div className="d-flex">
                           <div className="me-3">
-                            <FaCheckCircle className="text-success" size={20} />
+                            <FaCheckCircle style={{ color: "var(--primary-color)" }} size={20} />
                           </div>
                           <div>
-                            <h6 className="mb-1">{item.title}</h6>
+                            <h6 style={{ color: "var(--ct-color)" }} className="mb-1">{item.title}</h6>
                             <p className="text-muted small mb-0">{item.desc}</p>
                           </div>
                         </div>
@@ -273,54 +285,33 @@ const InfrastructureAsCode = () => {
       case 'technologies':
         return (
           <div className="container py-5">
-            <motion.h2 
-              className="text-center text-primary mb-5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              Technologies & Tools
-            </motion.h2>
-            
-            <motion.div 
-              className="row text-center"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Technologies & Tools</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <motion.div className="row text-center" variants={containerVariants} initial="hidden" animate="visible">
               {[
-                { name: "Terraform", icon: <FaCloud size={40} className="text-info mb-3" />, desc: "Infrastructure provisioning across multiple cloud providers" },
-                { name: "Kubernetes", icon: <FaServer size={40} className="text-info mb-3" />, desc: "Container orchestration platform for application deployment" },
-                { name: "Docker", icon: <FaTools size={40} className="text-info mb-3" />, desc: "Containerization platform for consistent application environments" },
-                { name: "Ansible", icon: <FaCode size={40} className="text-info mb-3" />, desc: "Configuration management and application deployment tool" }
+                { name: "Terraform", icon: <FaCloud size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, desc: "Infrastructure provisioning across multiple cloud providers" },
+                { name: "Kubernetes", icon: <FaServer size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, desc: "Container orchestration platform for application deployment" },
+                { name: "Docker", icon: <FaTools size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, desc: "Containerization platform for consistent application environments" },
+                { name: "Ansible", icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, desc: "Configuration management and application deployment tool" }
               ].map((tech, index) => (
                 <motion.div className="col-md-3 mb-4" key={index} variants={itemVariants}>
-                  <div className="card shadow-lg border-0 p-4 h-100 tech-card">
-                    {tech.icon}
-                    <h5>{tech.name}</h5>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="mb-3">{tech.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }}>{tech.name}</h5>
                     <p className="text-muted mt-2 mb-0">{tech.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
-            
-            <motion.h3 
-              className="text-center text-primary mb-4 mt-5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-            >
-              Popular IaC Tools Comparison
-            </motion.h3>
-            
-            <motion.div 
-              className="table-responsive"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-4 mt-5">Popular IaC Tools Comparison</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <motion.div className="table-responsive" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.5 }}>
               <table className="table table-bordered table-hover">
-                <thead className="bg-light">
+                <thead style={{ backgroundColor: "#f8f9fa" }}>
                   <tr>
                     <th>Tool</th>
                     <th>Best For</th>
@@ -361,124 +352,93 @@ const InfrastructureAsCode = () => {
       case 'benefits':
         return (
           <div className="container py-5">
-            <motion.h2 
-              className="text-center text-primary mb-5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              Key Benefits of Infrastructure as Code
-            </motion.h2>
-            
-            <motion.div 
-              className="row text-center"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Benefits of Infrastructure as Code</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <motion.div className="row text-center" variants={containerVariants} initial="hidden" animate="visible">
               {[
                 { 
                   title: "Speed and Efficiency", 
-                  icon: <FaRocket size={40} className="text-info mb-3" />, 
+                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Provision infrastructure in minutes instead of hours or days." 
                 },
                 { 
                   title: "Consistency", 
-                  icon: <FaCode size={40} className="text-info mb-3" />, 
+                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Eliminate human error by automating standard environments with code." 
                 },
                 { 
                   title: "Scalability", 
-                  icon: <FaLayerGroup size={40} className="text-info mb-3" />, 
+                  icon: <FaLayerGroup size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Easily replicate infrastructure across multiple environments and regions." 
                 },
                 { 
                   title: "Cost Optimization", 
-                  icon: <FaServer size={40} className="text-info mb-3" />, 
+                  icon: <FaServer size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Decommission unused resources automatically and track infrastructure costs." 
                 },
                 { 
                   title: "Version Control", 
-                  icon: <FaCode size={40} className="text-info mb-3" />, 
+                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Track changes, roll back to previous states, and maintain a full audit trail." 
                 },
                 { 
                   title: "Disaster Recovery", 
-                  icon: <FaCloud size={40} className="text-info mb-3" />, 
+                  icon: <FaCloud size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Rebuild entire environments from code in case of a failure or outage." 
                 }
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
-                  <div className="card shadow-lg border-0 p-4 h-100 benefit-card">
-                    {benefit.icon}
-                    <h5>{benefit.title}</h5>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="mb-3">{benefit.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }}>{benefit.title}</h5>
                     <p className="text-muted mt-2 mb-0">{benefit.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
-            
-            <motion.h3 
-              className="text-center text-primary mb-4 mt-5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
-              Success Stories
-            </motion.h3>
-            
-            <motion.div 
-              className="row"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              transition={{ delayChildren: 0.8 }}
-            >
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-4 mt-5">Success Stories</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
               {[
                 { company: "Global E-commerce Platform", result: "Reduced infrastructure deployment time from days to minutes using Terraform." },
                 { company: "Financial Services Provider", result: "Achieved 99.99% uptime through automated infrastructure management." },
                 { company: "Healthcare Organization", result: "Cut operational costs by 40% through infrastructure optimization." }
               ].map((story, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
-                  <div className="card shadow-lg border-0 p-4 h-100">
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
                     <div className="d-flex align-items-center mb-3">
-                      <FaCheckCircle className="text-success me-2" size={24} />
-                      <h5 className="text-info mb-0">{story.company}</h5>
+                      <FaCheckCircle style={{ color: "var(--primary-color)" }} className="me-2" size={24} />
+                      <h5 style={{ color: "var(--ct-color)" }} className="mb-0">{story.company}</h5>
                     </div>
                     <p className="mb-0">{story.result}</p>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
-            
-            <motion.div 
-              className="row mt-5"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.5 }}
-            >
+            <motion.div className="row mt-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.5 }}>
               <div className="col-12">
-                <div className="card shadow-lg border-0 p-4">
-                  <h3 className="text-center text-primary mb-4">ROI of Infrastructure as Code</h3>
+                <div className="card border-0 p-4" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                  <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-4">ROI of Infrastructure as Code</h3>
+                  <div className="d-flex justify-content-center mb-5">
+                    <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+                  </div>
                   <div className="row">
-                    <div className="col-md-4">
-                      <div className="text-center">
-                        <h4 className="text-success display-5">30-50%</h4>
-                        <p className="text-muted">Reduction in operational costs</p>
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="text-center">
-                        <h4 className="text-success display-5">75%</h4>
-                        <p className="text-muted">Faster deployment time</p>
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="text-center">
-                        <h4 className="text-success display-5">90%</h4>
-                        <p className="text-muted">Reduction in configuration errors</p>
-                      </div>
-                    </div>
+                    {[
+                      { value: "30-50%", label: "Reduction in operational costs" },
+                      { value: "75%", label: "Faster deployment time" },
+                      { value: "90%", label: "Reduction in configuration errors" }
+                    ].map((metric, index) => (
+                      <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
+                        <div className="text-center">
+                          <h4 style={{ color: "var(--primary-color)" }}>{metric.value}</h4>
+                          <p className="text-muted">{metric.label}</p>
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -488,75 +448,64 @@ const InfrastructureAsCode = () => {
       case 'solutions':
         return (
           <div className="container py-5">
-            <motion.h2 
-              className="text-center text-primary mb-5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              Key Solutions We Offer
-            </motion.h2>
-            
-            <motion.div 
-              className="row"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Solutions We Offer</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
               {[
                 { 
                   title: "IaC Framework Development", 
-                  icon: <FaCode size={40} className="text-info mb-3" />, 
+                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Custom-built infrastructure automation frameworks using Terraform, Ansible, or a hybrid approach." 
                 },
                 { 
                   title: "Multi-Cloud Deployments", 
-                  icon: <FaCloud size={40} className="text-info mb-3" />, 
+                  icon: <FaCloud size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Unified IaC strategies across AWS, Azure, GCP, and on-premises environments." 
                 },
                 { 
                   title: "CI/CD Pipeline Integration", 
-                  icon: <FaRocket size={40} className="text-info mb-3" />, 
+                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Automate your full software delivery lifecycle, including infrastructure updates." 
                 },
                 { 
                   title: "Policy as Code", 
-                  icon: <FaServer size={40} className="text-info mb-3" />, 
+                  icon: <FaServer size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Enforce security, compliance, and governance through tools like OPA (Open Policy Agent)." 
                 },
                 { 
                   title: "Modular Templates", 
-                  icon: <FaLayerGroup size={40} className="text-info mb-3" />, 
+                  icon: <FaLayerGroup size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Pre-built modules for common services to ensure quick, reliable deployments." 
                 },
                 { 
                   title: "IaC as a Service", 
-                  icon: <FaTools size={40} className="text-info mb-3" />, 
+                  icon: <FaTools size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Fully managed IaC delivery and support, enabling you to focus on your core business." 
                 }
               ].map((solution, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
-                  <div className="card shadow-lg border-0 p-4 h-100 solution-card">
-                    <div className="text-center mb-3">
-                      {solution.icon}
-                    </div>
-                    <h5 className="text-center">{solution.title}</h5>
+                  <div className="card border-0 p-4 h-100 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="mb-3">{solution.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{solution.title}</h5>
                     <p className="text-muted text-center mb-0">{solution.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
-            
-            <motion.div 
-              className="row mt-5"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
+            <motion.div className="row mt-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }}>
               <div className="col-12">
-                <div className="card bg-gradient-dark text-white shadow-lg border-0 p-5 text-center">
-                  <h3 className="mb-4">We don't just automate infrastructure—we engineer resilience, speed, and agility into your business.</h3>
-                  <Link to="/contact" className="btn btn-light btn-lg fw-bold px-4 py-2 mx-auto" style={{ maxWidth: "250px" }}>
+                <div className="card border-0 p-5 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                  <h3 style={{ color: "var(--tt-color)" }} className="mb-4">We don't just automate infrastructure—we engineer resilience, speed, and agility into your business.</h3>
+                  <Link to="/contact" className="btn" style={{
+                    backgroundColor: "var(--primary-color)",
+                    color: "#fff",
+                    padding: "12px 25px",
+                    borderRadius: "30px",
+                    fontWeight: "600",
+                    transition: "all 0.3s ease"
+                  }}>
                     Start Your IaC Journey
                   </Link>
                 </div>
@@ -567,73 +516,62 @@ const InfrastructureAsCode = () => {
       case 'faqs':
         return (
           <div className="container py-5">
-            <motion.h2 
-              className="text-center text-primary mb-5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              Frequently Asked Questions
-            </motion.h2>
-            
-            <motion.div 
-              className="accordion-container"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              <Accordion defaultActiveKey="0" className="custom-accordion">
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Frequently Asked Questions</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <motion.div className="accordion-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.5 }}>
+              <Accordion defaultActiveKey="0">
                 {faqs.map((faq, index) => (
-                  <Accordion.Item eventKey={index.toString()} key={index} className="mb-3">
-                    <Accordion.Header className="accordion-header">
-                      <span className="fw-bold">{faq.question}</span>
+                  <Accordion.Item eventKey={index.toString()} key={index} style={{
+                    marginBottom: "15px",
+                    borderRadius: "8px",
+                    overflow: "hidden",
+                    border: "1px solid rgba(var(--primary-color-rgb), 0.2)"
+                  }}>
+                    <Accordion.Header>
+                      <span style={{ color: "var(--ct-color)", fontWeight: "600" }}>{faq.question}</span>
                     </Accordion.Header>
-                    <Accordion.Body className="accordion-body">
-                      {faq.answer}
+                    <Accordion.Body style={{ backgroundColor: "#f9fbff" }}>
+                      <p>{faq.answer}</p>
                     </Accordion.Body>
                   </Accordion.Item>
                 ))}
               </Accordion>
             </motion.div>
-            
-            <motion.div 
-              className="mt-5"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
-              <h3 className="text-center text-primary mb-4">Resources to Learn More</h3>
+            <motion.div className="mt-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }}>
+              <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Resources to Learn More</h3>
+              <div className="d-flex justify-content-center mb-5">
+                <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+              </div>
               <div className="row">
-                <div className="col-md-4 mb-4">
-                  <div className="card shadow-lg border-0 p-4 h-100">
-                    <h5 className="mb-3">Documentation</h5>
-                    <ul className="list-unstyled">
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> Terraform Documentation</li>
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> Ansible User Guide</li>
-                      <li><FaArrowRight className="me-2 text-primary" /> Kubernetes Docs</li>
-                    </ul>
+                {[
+                  {
+                    title: "Documentation",
+                    items: ["Terraform Documentation", "Ansible User Guide", "Kubernetes Docs"]
+                  },
+                  {
+                    title: "Training",
+                    items: ["IaC Fundamentals Course", "Tool-specific certifications", "Hands-on workshops"]
+                  },
+                  {
+                    title: "Community",
+                    items: ["GitHub repositories", "Stack Overflow", "Tool-specific forums"]
+                  }
+                ].map((resource, index) => (
+                  <div className="col-md-4 mb-4" key={index}>
+                    <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                      <h5 style={{ color: "var(--ct-color)" }} className="mb-3">{resource.title}</h5>
+                      <ul className="list-unstyled">
+                        {resource.items.map((item, i) => (
+                          <li key={i} className="mb-2">
+                            <FaArrowRight style={{ color: "var(--primary-color)", marginRight: "8px" }} /> {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-                <div className="col-md-4 mb-4">
-                  <div className="card shadow-lg border-0 p-4 h-100">
-                    <h5 className="mb-3">Training</h5>
-                    <ul className="list-unstyled">
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> IaC Fundamentals Course</li>
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> Tool-specific certifications</li>
-                      <li><FaArrowRight className="me-2 text-primary" /> Hands-on workshops</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="col-md-4 mb-4">
-                  <div className="card shadow-lg border-0 p-4 h-100">
-                    <h5 className="mb-3">Community</h5>
-                    <ul className="list-unstyled">
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> GitHub repositories</li>
-                      <li className="mb-2"><FaArrowRight className="me-2 text-primary" /> Stack Overflow</li>
-                      <li><FaArrowRight className="me-2 text-primary" /> Tool-specific forums</li>
-                    </ul>
-                  </div>
-                </div>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -654,41 +592,43 @@ const InfrastructureAsCode = () => {
           position: "relative"
         }}
       >
-        <motion.div 
-          className="container text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <motion.h1 
-            className="display-3 fw-bold mb-3"
+        <motion.div className="container text-center" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+          <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            Infrastructure as Code: Automate Your Platform
-          </motion.h1>
-          <motion.p
-            className="lead fs-4 mb-4"
+            <h1 className="display-3 fw-bold mb-3" style={{ color: "#fff" }}>
+              Infrastructure as Code: Automate Your Platform
+            </h1>
+          </motion.div>
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            Transform Infrastructure Management Through Intelligent Automation
-          </motion.p>
+            <p className="lead fs-4 mb-4" style={{ color: "#fff" }}>
+              Transform Infrastructure Management Through Intelligent Automation
+            </p>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
           >
-            <Link to="/contact" className="btn btn-primary btn-lg fw-bold px-4 py-3 me-3">
-              Get Started
+            <Link to="/contact" className="btn" style={{
+              backgroundColor: "var(--primary-color)",
+              color: "#fff",
+              padding: "12px 25px",
+              borderRadius: "30px",
+              fontWeight: "600",
+              transition: "all 0.3s ease"
+            }}>
+              Get Started <FaArrowRight style={{ marginLeft: "8px" }} />
             </Link>
-           
           </motion.div>
         </motion.div>
-        </div>
-       
+      </div>
       {/* Tabs Section */}
       <section className="tabs-section py-5 bg-light">
         <div className="container">
@@ -699,10 +639,8 @@ const InfrastructureAsCode = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-              >        
-              </motion.div>    
+              ></motion.div>    
               <div className="custom-tabs-container">
-                {/* Tab navigation */}
                 <motion.div 
                   className="tab-navigation mb-4"
                   initial={{ opacity: 0 }}
@@ -720,16 +658,17 @@ const InfrastructureAsCode = () => {
                           role="tab"
                           aria-controls={tab.id}
                           aria-selected={activeTab === tab.id}
+                          style={{
+                            borderBottom: activeTab === tab.id ? `3px solid var(--primary-color)` : 'none'
+                          }}
                         >
-                          {tab.icon}
-                          <span className="tab-text ms-2">{tab.label}</span>
+                          <i className="tab-icon" style={{ color: "var(--primary-color)" }}>{tab.icon}</i>
+                          <span style={{ color: "var(--tt-color)" }} className="tab-text ms-2">{tab.label}</span>
                         </button>
                       </li>
                     ))}
                   </ul>
                 </motion.div>
-                
-                {/* Tab content */}
                 <div className="tab-content-container">
                   <div className="tab-content" id="iacTabsContent">
                     <motion.div
@@ -750,7 +689,6 @@ const InfrastructureAsCode = () => {
           </div>
         </div>
       </section>
-
       {/* Testimonials Section */}
       <section className="py-5 bg-white">
         <div className="container">
@@ -761,10 +699,9 @@ const InfrastructureAsCode = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="display-5 fw-bold text-primary">What Our Clients Say</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="display-5 fw-bold">What Our Clients Say</h2>
             <p className="lead text-muted">Success stories from businesses that transformed with IaC</p>
           </motion.div>
-          
           <motion.div 
             className="row"
             initial={{ opacity: 0 }}
@@ -773,21 +710,9 @@ const InfrastructureAsCode = () => {
             viewport={{ once: true }}
           >
             {[
-              {
-                quote: "Our deployment time went from days to minutes, and configuration errors dropped by over 90%.",
-                author: "CTO, Global Retail Company",
-                
-              },
-              {
-                quote: "The ability to version control our infrastructure has been a game-changer for our team's productivity.",
-                author: "DevOps Lead, Financial Services",
-              
-              },
-              {
-                quote: "The monitoring and security integration has helped us maintain compliance while moving faster.",
-                author: "Security Director, Healthcare Tech",
-                
-              }
+              { quote: "Our deployment time went from days to minutes, and configuration errors dropped by over 90%.", author: "CTO, Global Retail Company" },
+              { quote: "The ability to version control our infrastructure has been a game-changer for our team's productivity.", author: "DevOps Lead, Financial Services" },
+              { quote: "The monitoring and security integration has helped us maintain compliance while moving faster.", author: "Security Director, Healthcare Tech" }
             ].map((testimonial, index) => (
               <motion.div 
                 className="col-lg-4 mb-4" 
@@ -797,17 +722,16 @@ const InfrastructureAsCode = () => {
                 transition={{ delay: index * 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="card shadow-lg border-0 p-4 h-100">
+                <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
                   <div className="d-flex mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-warning me-1">★</span>
+                      <span key={i} style={{ color: "var(--primary-color)" }} className="me-1">★</span>
                     ))}
                   </div>
                   <p className="testimonial-quote mb-4">"{testimonial.quote}"</p>
                   <div className="d-flex align-items-center mt-auto">
-                    <img src={testimonial.image} alt="Client" className="rounded-circle me-3" width="60" height="60" />
                     <div>
-                      <p className="mb-0 fw-bold">{testimonial.author}</p>
+                      <p style={{ color: "var(--ct-color)" }} className="mb-0 fw-bold">{testimonial.author}</p>
                     </div>
                   </div>
                 </div>
@@ -816,150 +740,54 @@ const InfrastructureAsCode = () => {
           </motion.div>
         </div>
       </section>
-
       {/* Call to Action */}
-      <div className="py-5 bg-gradient-primary text-white">
+      <section style={{ backgroundColor: "var(--tt-color)", padding: "50px 0" }}>
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-8 mb-4 mb-lg-0">
-              <motion.h3 
-                className="display-6 fw-bold mb-3"
+            <div className="col-lg-8 text-center text-lg-start">
+              <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                Revolutionize Your Infrastructure Management Today!
-              </motion.h3>
-              <motion.p 
-                className="lead mb-0"
+                <h3 className="text-white mb-3">
+                  Revolutionize Your Infrastructure Management Today!
+                </h3>
+              </motion.div>
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                Contact us to see how Infrastructure as Code can transform your operations.
-              </motion.p>
+                <p className="text-white-50 mb-0">
+                  Contact us to see how Infrastructure as Code can transform your operations.
+                </p>
+              </motion.div>
             </div>
-            <div className="col-lg-4 text-center text-lg-end">
+            <div className="col-lg-4 text-center text-lg-end mt-4 mt-lg-0">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <Link to="/contact" className="btn btn-light btn-lg fw-bold px-5 py-3">
-                  Request a Demo
+                <Link to="/contact" className="btn" style={{
+                  backgroundColor: "var(--primary-color)",
+                  color: "#fff",
+                  padding: "12px 25px",
+                  borderRadius: "30px",
+                  fontWeight: "600",
+                  transition: "all 0.3s ease"
+                }}>
+                  Request a Demo <FaArrowRight style={{ marginLeft: "8px" }} />
                 </Link>
               </motion.div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Add custom CSS */}
-      <style jsx>{`
-        .bg-gradient-primary {
-          background: linear-gradient(135deg, #4A6FFF 0%, #5E54FA 100%);
-        }
-        
-        .bg-gradient-dark {
-          background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-        }
-        
-        .custom-tabs .nav-link {
-          border-radius: 10px;
-          padding: 1rem 1.5rem;
-          font-weight: 600;
-          color: #718096;
-          transition: all 0.3s ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid transparent;
-        }
-        
-        .custom-tabs .nav-link:hover {
-          background-color: rgba(74, 111, 255, 0.1);
-          color: #4A6FFF;
-        }
-        
-        .custom-tabs .nav-link.active {
-          background-color: #4A6FFF;
-          color: white;
-          border: 1px solid #4A6FFF;
-          box-shadow: 0 4px 15px rgba(74, 111, 255, 0.3);
-        }
-        
-        .card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          border-radius: 12px;
-        }
-        
-        .card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
-        }
-        
-        .feature-icon-container {
-          height: 70px;
-          width: 70px;
-          border-radius: 50%;
-          background-color: rgba(74, 111, 255, 0.1);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 auto;
-        }
-        
-        .custom-accordion .accordion-button:not(.collapsed) {
-          background-color: rgba(74, 111, 255, 0.1);
-          color: #4A6FFF;
-          box-shadow: none;
-        }
-        
-        .custom-accordion .accordion-button:focus {
-          box-shadow: none;
-          border-color: rgba(74, 111, 255, 0.5);
-        }
-        
-        .custom-accordion .accordion-item {
-          border-radius: 10px;
-          overflow: hidden;
-          border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .custom-accordion .accordion-body {
-          background-color: #f8f9fa;
-          padding: 1.5rem;
-        }
-        
-        .testimonial-quote {
-          font-style: italic;
-          font-size: 1.1rem;
-          line-height: 1.6;
-        }
-        
-        @media (max-width: 768px) {
-          .custom-tabs .nav-link {
-            padding: 0.75rem 1rem;
-          }
-          
-          .tab-text {
-            font-size: 0.9rem;
-          }
-          
-          .hero-section {
-            height: 70vh !important;
-          }
-          
-          .feature-cards-container {
-            position: relative !important;
-            bottom: 0 !important;
-            margin-top: 2rem;
-          }
-        }
-      `}</style>
+      </section>
     </div>
   );
 };
