@@ -691,11 +691,11 @@ const CybersecurityAsAServicePage = () => {
                   </ul>
                 </div>
 
-                <div className="tab-content-container mt-4.0">
-                </motion.div>
+{/*                 <div className="tab-content-container ">
+                </motion.div> */}
                 
                 {/* Tab content */}
-                <div className="tab-content-container">
+                <div className="tab-content-container mt-4.0">
                   <div className="tab-content" id="csaasTabsContent">
                     <motion.div
                       className="tab-pane show active"
