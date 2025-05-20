@@ -1,3 +1,4 @@
+/* styles for Managed Network Services page */
 
 .intro-section {
   padding: 60px 0;
@@ -12,12 +13,33 @@
 }
 
 .main-title {
-  color: #5c3a5c; /* Purple color for the title */
+  color: var(--tt-color);
   font-size: 48px;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 30px;
 }
+
+.intro-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--ct-color);
+  margin-top: 30px;
+}
+
+.intro-box {
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+
+
+
+
 .implementation-timeline {
     position: relative;
     padding: 20px 0 60px;
