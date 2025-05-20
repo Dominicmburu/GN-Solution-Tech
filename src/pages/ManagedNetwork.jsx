@@ -5,22 +5,43 @@ import { motion } from 'framer-motion';
 import { Accordion } from 'react-bootstrap';
 import '../assets/css/ManagedNetworkServices.css';
 import backgroundImage from '../assets/managed.jpg';
-import PageBanner from '../components/common/PageBanner';
-// Import the new images from the same directory
 import networkMonitoringImage from '../assets/network-monitoring.jpg';
 import networkArchitectureImage from '../assets/network-architecture.jpg';
+import PageBanner from '../components/common/PageBanner';
+
+const ManagedNetworkServicesIntro = () => {
+  return (
+    <section className="intro-section">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-5">
+            <div className="section-divider"></div>
+            <h1 className="main-title">
+              What is managed network services?
+            </h1>
+          </div>
+          <div className="col-lg-7">
+            <p className="intro-text">
+              Managed Network Services provide end-to-end design, implementation, monitoring, and management of your enterprise network infrastructure. From LANs and WANs to wireless environments and SD-WANs, these services ensure reliable connectivity, optimized performance, and enhanced security—all while reducing the operational burden on your internal IT teams and providing 24/7 expertise and support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 
 const ManagedNetworkServicesPage = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   const tabs = [
-      { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
-      { id: 'features', label: 'Key Features', icon: <FaCheckCircle /> },
-      { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
-      { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
-      { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
-      { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
-    ];
+    { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
+    { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
+    { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
+    { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
+    { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
+  ];
 
   const faqs = [
     { question: "What types of networks do you manage?", answer: "We manage LANs, WANs, WLANs, SD-WAN, hybrid and cloud-connected networks across multiple sites and geographies." },
@@ -36,17 +57,9 @@ const ManagedNetworkServicesPage = () => {
       case 'overview':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">What is Managed Network Services?</h2>
-            <div className="row">
-              <div className="col-12">
-                <div style={{ backgroundColor: 'var(--tt-color)' }} className="card shadow-lg border-0 p-4 mb-5">
-                  <p className="text-center text-light fw-bold mb-0">
-                    Managed Network Services provide end-to-end design, implementation, monitoring, and management of your enterprise network infrastructure—LAN, WAN, WLAN, SD-WAN, or hybrid environments. We act as your extended IT team, ensuring reliable connectivity, optimized performance, and simplified operations—24/7.
-                  </p>
-                </div>
-              </div>
+            <div className="intro-box">
+              <ManagedNetworkServicesIntro />
             </div>
-
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Key Features</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
@@ -71,7 +84,6 @@ const ManagedNetworkServicesPage = () => {
                 </motion.div>
               ))}
             </div>
-
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Implementation Process</h3>
 <div className="d-flex justify-content-center mb-5">
   <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
@@ -250,6 +262,31 @@ const ManagedNetworkServicesPage = () => {
 `}</style>
           </div>
         );
+      case 'features':
+        return (
+          <div className="container py-5">
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Features</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <div className="row">
+              {[
+                { title: "Proactive Monitoring", desc: "Continuous monitoring to prevent issues.", icon: <FaSearch size={40} style={{ color: "var(--primary-color)" }} /> },
+                { title: "Scalable Infrastructure", desc: "Adapts to your growing business needs.", icon: <FaRocket size={40} style={{ color: "var(--primary-color)" }} /> },
+                { title: "Centralized Management", desc: "Unified control with real-time analytics.", icon: <FaChartLine size={40} style={{ color: "var(--primary-color)" }} /> },
+                { title: "Security Integration", desc: "Robust protection with firewalls and IDS.", icon: <FaShieldAlt size={40} style={{ color: "var(--primary-color)" }} /> }
+              ].map((feature, index) => (
+                <motion.div className="col-md-6 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
+                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="text-center mb-3">{feature.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
+                    <p className="text-center">{feature.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        );
       case 'technologies':
         return (
           <div className="container py-5">
@@ -274,7 +311,6 @@ const ManagedNetworkServicesPage = () => {
                 </motion.div>
               ))}
             </div>
-
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Network Stack</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{
@@ -506,7 +542,6 @@ const ManagedNetworkServicesPage = () => {
                 </motion.div>
               ))}
             </div>
-
             <div className="row mt-5 mb-4">
               <div className="col-lg-8 mx-auto">
                 <motion.img
@@ -519,7 +554,6 @@ const ManagedNetworkServicesPage = () => {
                 />
               </div>
             </div>
-
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-3">Success Stories</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
@@ -617,7 +651,6 @@ const ManagedNetworkServicesPage = () => {
                 </motion.div>
               ))}
             </div>
-
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Why Choose Our Managed Network Services</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
@@ -721,7 +754,6 @@ const ManagedNetworkServicesPage = () => {
                 </motion.div>
               ))}
             </div>
-
             <div className="text-center mt-5">
               <Link to="/contact" className="btn" style={{
                 backgroundColor: "var(--primary-color)",
@@ -751,9 +783,7 @@ const ManagedNetworkServicesPage = () => {
         background="#0a1033"
         currentpage="Managed Network Services"
       />
-
       <div className="hero-overlay"></div>
-{/* Tabs Section */}
       <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
@@ -766,7 +796,6 @@ const ManagedNetworkServicesPage = () => {
               >        
               </motion.div>    
               <div className="custom-tabs-container">
-                {/* Tab navigation */}
                 <motion.div 
                   className="tab-navigation mb-4"
                   initial={{ opacity: 0 }}
@@ -788,15 +817,13 @@ const ManagedNetworkServicesPage = () => {
                             borderBottom: activeTab === tab.id ? `3px solid var(--primary-color)` : 'none'
                           }}
                         >
-                          <i className={`${tab.icon} tab-icon`} style={{ color: "var(--primary-color)" }}></i>
+                          <i className="tab-icon" style={{ color: "var(--primary-color)" }}>{tab.icon}</i>
                           <span style={{ color: "var(--tt-color)" }}>{tab.label}</span>
                         </button>
                       </li>
                     ))}
                   </ul>
                 </motion.div>
-                
-                {/* Tab content */}
                 <div className="tab-content-container">
                   <div className="tab-content" id="iacTabsContent">
                     <motion.div
@@ -817,8 +844,6 @@ const ManagedNetworkServicesPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Added Call-to-Action Section */}
       <section style={{
         backgroundColor: "var(--tt-color)",
         padding: "50px 0",
