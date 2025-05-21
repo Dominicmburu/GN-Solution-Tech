@@ -9,13 +9,12 @@ import backgroundImage from '../assets/training.jpg';
 const ITTechnologyTrainingPage = () => {
   const [activeTab, setActiveTab] = useState('overview');
   
-  // Four tabs to match the Infrastructure as Code page
+  // Modified tabs - removed Key Features tab and replaced Technologies with Why Choose Us
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
-    { id: 'features', label: 'Key Features', icon: <FaCheckCircle /> },
-    { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
-    { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
-    { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
+    { id: 'why-choose-us', label: 'Why Choose Us', icon: <FaAward /> },
+    { id: 'benefits', label: 'Key Benefits', icon: <FaCheckCircle /> },
+    { id: 'solutions', label: 'Key Solutions', icon: <FaRocket /> },
     { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
 
@@ -38,7 +37,9 @@ const ITTechnologyTrainingPage = () => {
               <div className="col-12">
                 <div className="card shadow-lg border-0 p-4 mb-5 gradient-card">
                   <p className="text-center text-light fw-bold mb-0">
-                    Our IT Technology Training program is designed to empower professionals, teams, and organizations with the practical knowledge and hands-on skills needed to thrive in today's fast-evolving digital world. We deliver industry-relevant training across key domains such as cloud computing, network engineering, cybersecurity, DevOps, automation, and enterprise infrastructure.
+                   Our IT Technology Training program is designed to empower professionals, teams, and organizations with the practical knowledge and hands-on skills needed to thrive in today’s fast-evolving digital world. We deliver industry-relevant training across key domains such as cloud computing, network engineering, cybersecurity, DevOps, automation, and enterprise infrastructure.
+Our training is not just theoretical — it's tailored to real-world challenges and aligned with global certifications and vendor technologies, helping learners apply what they know from day one.
+
                   </p>
                 </div>
               </div>
@@ -47,12 +48,12 @@ const ITTechnologyTrainingPage = () => {
             <h3 className="text-center text-primary mb-4">Key Features</h3>
             <div className="row">
               {[
-                { title: "Instructor-Led & Self-Paced Options", desc: "Live online, in-person, and on-demand courses.", icon: <FaGraduationCap size={40} className="feature-icon" /> },
-                { title: "Hands-On Labs", desc: "Access to real-world simulations and sandbox environments.", icon: <FaLaptopCode size={40} className="feature-icon" /> },
-                { title: "Certification-Ready Curriculum", desc: "Content aligned with CompTIA, Cisco, AWS, and others.", icon: <FaShieldAlt size={40} className="feature-icon" /> },
-                { title: "Customized Corporate Training", desc: "Tailored programs for specific skill gaps and goals.", icon: <FaCogs size={40} className="feature-icon" /> },
-                { title: "Expert Trainers", desc: "Learn from seasoned professionals with field experience.", icon: <FaUserTie size={40} className="feature-icon" /> },
-                { title: "Access to Learning Portal", desc: "24/7 access to training materials and labs.", icon: <FaCloudUploadAlt size={40} className="feature-icon" /> }
+                { title: "Instructor-Led & Self-Paced Options", desc: "Live online, in-person, and on-demand courses to suit all learning styles.", icon: <FaGraduationCap size={40} className="feature-icon" /> },
+                { title: "Hands-On Labs", desc: "Access to real-world simulations and sandbox environments like EVE-NG, GNS3, and cloud sandboxes.", icon: <FaLaptopCode size={40} className="feature-icon" /> },
+                { title: "Certification-Ready Curriculum", desc: "Content aligned with CompTIA, Cisco, Juniper, AWS, Microsoft, and other leading certification bodies.", icon: <FaShieldAlt size={40} className="feature-icon" /> },
+                { title: "Customized Corporate Training", desc: "Tailored programs to address specific skill gaps and business goals.", icon: <FaCogs size={40} className="feature-icon" /> },
+                { title: "Expert Trainers", desc: "Learn from seasoned professionals with field experience in enterprise networks, cloud, automation, and cybersecurity.", icon: <FaUserTie size={40} className="feature-icon" /> },
+                { title: "Access to Learning Portal", desc: "24/7 access to training materials, lab environments, assignments, and assessments.", icon: <FaCloudUploadAlt size={40} className="feature-icon" /> }
               ].map((feature, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                   <div className="card shadow-lg border-0 p-4 h-100 feature-card">
@@ -63,62 +64,55 @@ const ITTechnologyTrainingPage = () => {
                 </motion.div>
               ))}
             </div>
-            
-            <h3 className="text-center text-primary mb-4 mt-5">Why Choose Us</h3>
-            <div className="why-choose-timeline">
+          </div>
+        );
+      case 'why-choose-us':
+        return (
+          <div className="container py-5">
+            <h2 className="text-center text-primary mb-4">Why Choose Us</h2>
+            <div className="row">
               {[
-                { reason: "Industry Expertise", desc: "We are practitioners with real-world implementation experience", icon: <FaUserTie size={24} /> },
-                { reason: "Tailored for Europe & Global Markets", desc: "Localized to EU regulations and compliance", icon: <FaGraduationCap size={24} /> },
-                { reason: "Hands-On Focus", desc: "Emphasizing practice over theory", icon: <FaLaptopCode size={24} /> },
-                { reason: "Integrated with Services", desc: "Bundle with consulting and support", icon: <FaCogs size={24} /> },
-                { reason: "Flexible Delivery", desc: "Online, on-site, or hybrid options", icon: <FaRocket size={24} /> }
+                { title: "Industry Expertise", desc: "We are not just trainers — we are practitioners with real-world consulting and implementation experience.", icon: <FaUserTie size={40} className="why-choose-icon" /> },
+                { title: "Tailored for Europe & Global Markets", desc: "Our training is localized and relevant to regulatory, compliance, and operational realities in Ireland, the EU, and beyond.", icon: <FaGraduationCap size={40} className="why-choose-icon" /> },
+                { title: "Hands-On Focus", desc: "We emphasize practice over theory, using simulations and live labs that mirror production environments.", icon: <FaLaptopCode size={40} className="why-choose-icon" /> },
+                { title: "Integrated with Services", desc: "Training can be bundled with consulting and support for seamless knowledge transfer and transformation.", icon: <FaCogs size={40} className="why-choose-icon" /> },
+                { title: "Flexible Delivery", desc: "Whether you're an individual professional or an enterprise team, we offer flexible schedules and learning formats.", icon: <FaRocket size={40} className="why-choose-icon" /> }
+              ].map((item, index) => (
+                <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
+                  <div className="card shadow-lg border-0 p-4 h-100 why-choose-card">
+                    <div className="text-center mb-3">{item.icon}</div>
+                    <h5 className="text-center">{item.title}</h5>
+                    <p className="text-center">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            
+            <h3 className="text-center text-primary mb-4 mt-5">Our Commitment</h3>
+            <div className="row">
+              <div className="col-12">
+                <div className="card shadow-lg border-0 p-4 mb-4 commitment-card">
+                  <p className="text-center mb-0">
+                    Our training is not just theoretical — it's tailored to real-world challenges and aligned with global certifications and vendor technologies, helping learners apply what they know from day one.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="why-choose-timeline mt-5">
+              <h3 className="text-center text-primary mb-4">Our Approach</h3>
+              {[
+                { step: "Assess", desc: "We identify your specific skill gaps and training needs", icon: <FaInfoCircle size={24} /> },
+                { step: "Customize", desc: "We design training programs aligned with your goals", icon: <FaTools size={24} /> },
+                { step: "Deliver", desc: "We provide hands-on, practical training experiences", icon: <FaLaptopCode size={24} /> },
+                { step: "Support", desc: "We offer post-training mentorship and assistance", icon: <FaUserTie size={24} /> },
+                { step: "Evaluate", desc: "We measure results and refine for continuous improvement", icon: <FaChartLine size={24} /> }
               ].map((item, index) => (
                 <motion.div className="timeline-item" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.2 }}>
                   <div className="timeline-icon">{item.icon}</div>
                   <div className="timeline-content">
-                    <h5>{item.reason}</h5>
+                    <h5>{item.step}</h5>
                     <p>{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        );
-      case 'courses':
-        return (
-          <div className="container py-5">
-            <h2 className="text-center text-primary mb-4">Training Courses</h2>
-            <div className="row text-center">
-              {[
-                { name: "Network Engineering", desc: "LAN/WAN, SD-WAN, routing & switching, MPLS, BGP, OSPF, VLANs, network automation", icon: <FaCogs size={40} className="tech-icon" /> },
-                { name: "Cloud & Virtualization", desc: "AWS, Azure, Docker, Kubernetes, VMware, infrastructure as code", icon: <FaCloudUploadAlt size={40} className="tech-icon" /> },
-                { name: "Cybersecurity", desc: "Firewalls, endpoint security, threat detection, security audits, SIEM, compliance", icon: <FaShieldAlt size={40} className="tech-icon" /> },
-                { name: "DevOps & Automation", desc: "Jenkins, Ansible, Terraform, GitHub Actions, CI/CD, monitoring", icon: <FaLaptopCode size={40} className="tech-icon" /> }
-              ].map((course, index) => (
-                <motion.div className="col-md-6 col-lg-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
-                  <div className="card shadow-lg border-0 p-4 h-100 tech-card">
-                    {course.icon}
-                    <h5>{course.name}</h5>
-                    <p className="mt-2">{course.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            
-            <h3 className="text-center text-primary mb-4 mt-5">Learning Paths</h3>
-            <div className="platform-stack">
-              {[
-                { title: "Beginner IT Professional", desc: "Foundational knowledge and essential skills.", icon: <FaGraduationCap /> },
-                { title: "Mid-Level Specialist", desc: "Advanced techniques and specialized domains.", icon: <FaLaptopCode /> },
-                { title: "Enterprise Team Training", desc: "Collaborative skills for IT departments.", icon: <FaUserTie /> },
-                { title: "Certification Preparation", desc: "Focused exam readiness programs.", icon: <FaShieldAlt /> },
-                { title: "Executive Technology Overview", desc: "Strategic understanding for decision-makers.", icon: <FaCogs /> }
-              ].map((path, index) => (
-                <motion.div className="stack-layer" key={index} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1 }}>
-                  <div className="stack-icon">{path.icon}</div>
-                  <div className="stack-content">
-                    <h5>{path.title}</h5>
-                    <p>{path.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -131,12 +125,12 @@ const ITTechnologyTrainingPage = () => {
             <h2 className="text-center text-primary mb-4">Key Benefits</h2>
             <div className="row">
               {[
-                { title: "Upskill with Confidence", desc: "Gain skills required for cutting-edge technologies.", icon: <FaGraduationCap size={40} className="benefit-icon" /> },
-                { title: "Accelerate Career Growth", desc: "Prepare for in-demand IT roles and positions.", icon: <FaRocket size={40} className="benefit-icon" /> },
-                { title: "Boost Team Productivity", desc: "Equip IT teams to deliver faster, safer services.", icon: <FaChartLine size={40} className="benefit-icon" /> },
-                { title: "Enhance Project Success", desc: "Minimize downtime and deployment issues.", icon: <FaTools size={40} className="benefit-icon" /> },
-                { title: "Achieve Certification Goals", desc: "Improve pass rates for key industry certifications.", icon: <FaShieldAlt size={40} className="benefit-icon" /> },
-                { title: "Practical Skill Development", desc: "Learn by doing with hands-on environments.", icon: <FaLaptopCode size={40} className="benefit-icon" /> }
+                { title: "Upskill with Confidence", desc: "Gain the skills required to work with cutting-edge technologies.", icon: <FaGraduationCap size={40} className="benefit-icon" /> },
+                { title: "Accelerate Career Growth", desc: "Prepare for in-demand roles such as Network Engineer, DevOps Specialist, Cloud Architect, or Security Analyst.", icon: <FaRocket size={40} className="benefit-icon" /> },
+                { title: "Boost Team Productivity", desc: "Equip your IT teams to deliver faster, safer, and more reliable services.", icon: <FaChartLine size={40} className="benefit-icon" /> },
+                { title: "Enhance Project Success", desc: "Minimize downtime and deployment issues by training teams ahead of digital transformation initiatives.", icon: <FaTools size={40} className="benefit-icon" /> },
+                { title: "Achieve Certification Goals", desc: "Improve pass rates for key industry certifications through guided training and mock exams.", icon: <FaShieldAlt size={40} className="benefit-icon" /> },
+                { title: "Practical Skill Development", desc: "Learn by doing with hands-on environments that mirror real-world scenarios.", icon: <FaLaptopCode size={40} className="benefit-icon" /> }
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
                   <div className="card shadow-lg border-0 p-4 h-100 benefit-card">
@@ -171,12 +165,12 @@ const ITTechnologyTrainingPage = () => {
             <h2 className="text-center text-primary mb-4">Training Solutions</h2>
             <div className="solutions-grid">
               {[
-                { title: "Network Engineering Training", desc: "LAN/WAN, SD-WAN, routing & switching, MPLS, BGP, OSPF, VLANs, and network automation.", icon: <FaCogs size={40} /> },
-                { title: "Cloud & Virtualization Training", desc: "AWS, Azure, Docker, Kubernetes, VMware with infrastructure as code and CI/CD pipelines.", icon: <FaCloudUploadAlt size={40} /> },
-                { title: "Cybersecurity Training", desc: "Firewalls, endpoint security, threat detection, security audits, SIEM, and compliance.", icon: <FaShieldAlt size={40} /> },
-                { title: "DevOps & Automation Training", desc: "Jenkins, Ansible, Terraform, GitHub Actions, CI/CD, and automated provisioning.", icon: <FaLaptopCode size={40} /> },
-                { title: "IT Infrastructure & Support Training", desc: "ITIL, Windows/Linux administration, monitoring, virtualization, and remote IT support.", icon: <FaTools size={40} /> },
-                { title: "Custom Corporate IT Training", desc: "Tailored for teams undergoing digital transformation or network modernization.", icon: <FaUserTie size={40} /> }
+                { title: "Network Engineering Training", desc: "LAN/WAN, SD-WAN, routing & switching, MPLS, BGP, OSPF, VLANs, and network automation. Tools: Cisco, Juniper, Arista, EVE-NG, GNS3.", icon: <FaCogs size={40} /> },
+                { title: "Cloud & Virtualization Training", desc: "AWS, Azure, Docker, Kubernetes, VMware with infrastructure as code, CI/CD pipelines, and container orchestration.", icon: <FaCloudUploadAlt size={40} /> },
+                { title: "Cybersecurity Training", desc: "Firewalls, endpoint security, threat detection, security audits, SIEM, and compliance. Certification Paths: CompTIA Security+, CEH, CISSP, ISO 27001.", icon: <FaShieldAlt size={40} /> },
+                { title: "DevOps & Automation Training", desc: "Jenkins, Ansible, Terraform, GitHub Actions, CI/CD, automated provisioning, monitoring with project-based delivery.", icon: <FaLaptopCode size={40} /> },
+                { title: "IT Infrastructure & Support Training", desc: "ITIL, Windows/Linux system administration, monitoring, virtualization, and remote IT support best practices.", icon: <FaTools size={40} /> },
+                { title: "Custom Corporate IT Training Programs", desc: "Designed for internal IT teams or clients undergoing digital transformation or network modernization projects.", icon: <FaUserTie size={40} /> }
               ].map((solution, index) => (
                 <motion.div className="solution-card" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
                   <div className="solution-icon">{solution.icon}</div>
@@ -259,8 +253,8 @@ const ITTechnologyTrainingPage = () => {
       </div>
       <div className="hero-overlay"></div>
 
-     {/* Tabs Section */}
-     <section className="tabs-section py-5 bg-light">
+      {/* Tabs Section */}
+      <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">

@@ -9,15 +9,15 @@ import techTransformation from '../assets/tech-transformation.avif';
 const TechnologyTransitionPage = () => {
   const [activeTab, setActiveTab] = useState('overview');
   
-  // Four tabs to match the Infrastructure as Code page
+  // Modified tabs - removed features tab and replaced technologies with why choose us
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
-    { id: 'features', label: 'Key Features', icon: <FaCheckCircle /> },
-    { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
-    { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
-    { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
+    { id: 'whychooseus', label: 'Why Choose Us', icon: <FaAward /> },
+    { id: 'benefits', label: 'Key Benefits', icon: <FaCheckCircle /> },
+    { id: 'solutions', label: 'Key Solutions', icon: <FaRocket /> },
     { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
+  
   const faqs = [
     { question: "What's the difference between technology transition and transformation?", answer: "Transition is the process of migrating from an old to a new technology. Transformation is a broader initiative that includes reimagining processes, business models, and user experiences through new technologies." },
     { question: "How long does a transition and transformation project take?", answer: "It depends on scope and complexity. Some projects may take weeks, while others span several months or more. We work with you to define clear timelines and milestones." },
@@ -36,7 +36,8 @@ const TechnologyTransitionPage = () => {
               <div className="col-12">
                 <div className="card shadow-lg border-0 p-4 mb-5 gradient-card">
                   <p className="text-center text-light fw-bold mb-0">
-                    In today's rapidly evolving digital landscape, organizations must continuously adapt their technology environments to remain competitive, efficient, and secure. Technology Transition and Transformation (T3) refers to the structured process of moving from outdated, legacy, or inefficient systems to modern, optimized, and scalable technology platforms.
+                   In today’s rapidly evolving digital landscape, organizations must continuously adapt their technology environments to remain competitive, efficient, and secure. Technology Transition and Transformation (T3) refers to the structured process of moving from outdated, legacy, or inefficient systems to modern, optimized, and scalable technology platforms.
+Whether it’s migrating from on-premises to the cloud, integrating modern DevOps practices, or overhauling legacy infrastructure, our T3 services help businesses embrace change with minimal risk and maximum value.
                   </p>
                 </div>
               </div>
@@ -52,30 +53,8 @@ const TechnologyTransitionPage = () => {
               </div>
             </div>
             
-            <h3 className="text-center text-primary mb-4">Why Choose Us</h3>
-            <div className="why-choose-timeline">
-              {[
-                { reason: "Proven Expertise", desc: "Years of hands-on experience across multiple industries", icon: <FaUserTie size={24} /> },
-                { reason: "Tailored Approach", desc: "Custom transformation plans for your unique environment", icon: <FaCogs size={24} /> },
-                { reason: "Business-First Focus", desc: "Aligning technical transitions with strategic outcomes", icon: <FaChartLine size={24} /> },
-                { reason: "Risk Mitigation", desc: "Systematic frameworks to reduce downtime and disruption", icon: <FaShieldAlt size={24} /> },
-                { reason: "End-to-End Partnership", desc: "From planning to execution and beyond", icon: <FaRocket size={24} /> }
-              ].map((item, index) => (
-                <motion.div className="timeline-item" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.2 }}>
-                  <div className="timeline-icon">{item.icon}</div>
-                  <div className="timeline-content">
-                    <h5>{item.reason}</h5>
-                    <p>{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        );
-      case 'features':
-        return (
-          <div className="container py-5">
-            <h2 className="text-center text-primary mb-4">Key Features</h2>
+            {/* Key Features section moved from separate tab to overview */}
+            <h3 className="text-center text-primary mb-4">Key Features</h3>
             <div className="row">
               {[
                 { title: "Assessment & Readiness Evaluation", desc: "Comprehensive analysis of your current IT landscape to understand technical, operational, and business needs.", icon: <FaChartBar size={40} className="feature-icon" /> },
@@ -109,6 +88,56 @@ const TechnologyTransitionPage = () => {
                   <div className="step-content">
                     <h5>{step.phase}</h5>
                     <p>{step.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        );
+      case 'whychooseus':
+        return (
+          <div className="container py-5">
+            <h2 className="text-center text-primary mb-4">Why Choose Us</h2>
+            
+            <div className="row mb-5">
+              <div className="col-md-8 mx-auto">
+                <div className="card shadow-lg border-0 p-4 mb-5">
+                  <p className="text-center mb-0">
+                    With years of experience across diverse industries, our team brings trusted expertise to every technology transition and transformation project. We take a tailored approach focused on your business outcomes and minimize risk every step of the way.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="row">
+              {[
+                { title: "Proven Expertise", desc: "With years of hands-on experience across industries, our team has successfully led multiple high-impact transitions.", icon: <FaUserTie size={40} className="whychoose-icon" /> },
+                { title: "Tailored Approach", desc: "We don't believe in one-size-fits-all. Each transformation plan is custom-built for your unique environment and goals.", icon: <FaCogs size={40} className="whychoose-icon" /> },
+                { title: "Business-First Focus", desc: "We align technical transitions with strategic business outcomes—ensuring technology enables growth, not complexity.", icon: <FaChartLine size={40} className="whychoose-icon" /> },
+                { title: "Risk Mitigation Professionals", desc: "Our systematic risk assessment frameworks reduce downtime, data loss, and operational disruption.", icon: <FaShieldAlt size={40} className="whychoose-icon" /> },
+                { title: "End-to-End Partnership", desc: "From planning to execution and beyond, we walk the entire journey with you.", icon: <FaRocket size={40} className="whychoose-icon" /> }
+              ].map((item, index) => (
+                <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
+                  <div className="card shadow-lg border-0 p-4 h-100 whychoose-card">
+                    <div className="text-center mb-3">{item.icon}</div>
+                    <h5 className="text-center">{item.title}</h5>
+                    <p className="text-center">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            
+            <h3 className="text-center text-primary mb-4 mt-5">Client Success Stories</h3>
+            <div className="success-stories">
+              {[
+                { company: "Enterprise Financial Institution", result: "Reduced infrastructure costs by 40% through cloud migration while improving system reliability by 99.99%." },
+                { company: "Healthcare Services Provider", result: "Modernized legacy applications to improve patient data access speeds by 300% and achieve HIPAA compliance." },
+                { company: "Retail Chain", result: "Transformed e-commerce platform resulting in 65% faster page loads and 28% increase in conversion rates." }
+              ].map((story, index) => (
+                <motion.div className="story-card" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1}} transition={{ delay: index * 0.2 }}>
+                  <div className="story-content">
+                    <h5>{story.company}</h5>
+                    <p>{story.result}</p>
                   </div>
                 </motion.div>
               ))}

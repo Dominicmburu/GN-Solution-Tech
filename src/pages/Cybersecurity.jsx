@@ -18,7 +18,8 @@ import {
   FaTools,
   FaAward,
   FaQuestionCircle,
-  FaCheckCircle
+  FaCheckCircle,
+  FaTrophy
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
@@ -31,9 +32,9 @@ const CybersecurityAsAServicePage = () => {
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
-    { id: 'features', label: 'Key Features', icon: <FaCheckCircle /> },
-    { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
-    { id: 'solutions', label: 'Solutions', icon: <FaCogs /> },
+    { id: 'whychooseus', label: 'Why Choose Us', icon: <FaTrophy /> },
+    { id: 'benefits', label: 'Key Benefits', icon: <FaAward /> },
+    { id: 'solutions', label: 'Key Solutions', icon: <FaCogs /> },
     { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
 
@@ -78,9 +79,9 @@ const CybersecurityAsAServicePage = () => {
               <div className="col-12">
                 <div style={{ backgroundColor: 'var(--tt-color)' }} className="card shadow-lg border-0 p-4 mb-5">
                   <p className="text-center text-light fw-bold mb-0">
-                    Cybersecurity as a Service (CSaaS) is a comprehensive, scalable, and proactive approach to securing your digital assets.
-                    We combine advanced technology, expert analysis, and strategic advisory services to deliver continuous protection tailored to your organization's needs.
-                  </p>
+                   In today's digital-first world, organizations face growing threats from cybercriminals targeting critical systems, data, and infrastructure. Cybersecurity is no longer optional—it's essential. At gnsolutions.eu, we provide Cybersecurity as a Service (CSaaS), a comprehensive, scalable, and proactive approach to securing your digital assets. Our services are designed to protect your business against ever-evolving threats, ensuring confidentiality, integrity, and availability of your data and systems.
+We combine advanced technology, expert analysis, and strategic advisory services to deliver continuous protection tailored to your organization's needs.
+</p>
                 </div>
               </div>
             </div>
@@ -93,28 +94,33 @@ const CybersecurityAsAServicePage = () => {
             <div className="row">
               {[
                 {
-                  title: "Proven Expertise",
-                  desc: "A team of certified cybersecurity professionals with real-world experience across diverse industries.",
-                  icon: <FaUserShield size={40} style={{ color: "var(--primary-color)" }} />
-                },
-                {
-                  title: "End-to-End Coverage",
-                  desc: "From risk assessments to active defense, we cover every aspect of your cybersecurity journey.",
+                  title: "24/7 Threat Monitoring",
+                  desc: "Real-time monitoring and rapid incident response to detect and neutralize threats before they escalate.",
                   icon: <FaShieldAlt size={40} style={{ color: "var(--primary-color)" }} />
                 },
                 {
-                  title: "Custom Solutions",
-                  desc: "Tailored strategies that align with your specific risks and operations.",
-                  icon: <FaCogs size={40} style={{ color: "var(--primary-color)" }} />
+                  title: "Cloud & On-Premises Security",
+                  desc: "End-to-end protection across hybrid environments, including public/private clouds and on-premise infrastructure.",
+                  icon: <FaCloud size={40} style={{ color: "var(--primary-color)" }} />
                 },
                 {
-                  title: "Integrated Support",
-                  desc: "Seamless coordination between security, IT, and business teams for effective protection.",
+                  title: "Advanced Threat Intelligence",
+                  desc: "Stay ahead of emerging threats with actionable insights and threat feeds from global sources.",
+                  icon: <FaNetworkWired size={40} style={{ color: "var(--primary-color)" }} />
+                },
+                {
+                  title: "Compliance Management",
+                  desc: "Support for regulatory standards like GDPR, ISO 27001, HIPAA, and PCI-DSS.",
+                  icon: <FaLock size={40} style={{ color: "var(--primary-color)" }} />
+                },
+                {
+                  title: "Scalable & Managed Services",
+                  desc: "Flexible plans tailored to your size and risk profile, with optional add-ons for extended security needs.",
                   icon: <FaUsers size={40} style={{ color: "var(--primary-color)" }} />
                 },
                 {
-                  title: "Transparent Reporting",
-                  desc: "Clear, actionable insights into your threat landscape and security posture.",
+                  title: "Security Automation",
+                  desc: "Integration with SOAR tools for faster detection, triage, and mitigation of security incidents.",
                   icon: <FaDatabase size={40} style={{ color: "var(--primary-color)" }} />
                 }
               ].map((feature, index) => (
@@ -308,44 +314,39 @@ const CybersecurityAsAServicePage = () => {
             `}</style>
           </div>
         );
-      case 'features':
+      case 'whychooseus':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Features</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Why Choose Us</h2>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
             <div className="row">
               {[
                 {
-                  title: "24/7 Threat Monitoring",
-                  desc: "Real-time monitoring and rapid incident response to neutralize threats.",
+                  title: "Proven Expertise",
+                  desc: "A team of certified cybersecurity professionals with real-world experience across diverse industries.",
+                  icon: <FaUserShield size={40} style={{ color: "var(--primary-color)" }} />
+                },
+                {
+                  title: "End-to-End Coverage",
+                  desc: "From risk assessments to active defense, we cover every aspect of your cybersecurity journey.",
                   icon: <FaShieldAlt size={40} style={{ color: "var(--primary-color)" }} />
                 },
                 {
-                  title: "Cloud & On-Premises Security",
-                  desc: "End-to-end protection across hybrid environments.",
-                  icon: <FaCloud size={40} style={{ color: "var(--primary-color)" }} />
+                  title: "Custom Solutions",
+                  desc: "Every business is unique. We deliver tailored strategies that align with your specific risks and operations.",
+                  icon: <FaCogs size={40} style={{ color: "var(--primary-color)" }} />
                 },
                 {
-                  title: "Advanced Threat Intelligence",
-                  desc: "Actionable insights from global threat feeds.",
-                  icon: <FaNetworkWired size={40} style={{ color: "var(--primary-color)" }} />
+                  title: "Integrated Support",
+                  desc: "Seamless coordination between security, IT, and business teams for faster, more effective protection.",
+                  icon: <FaUsers size={40} style={{ color: "var(--primary-color)" }} />
                 },
                 {
-                  title: "Compliance Management",
-                  desc: "Support for GDPR, ISO 27001, HIPAA, and PCI-DSS.",
-                  icon: <FaLock size={40} style={{ color: "var(--primary-color)" }} />
-                },
-                {
-                  title: "Scalable Services",
-                  desc: "Flexible plans tailored to your size and risk profile.",
-                  icon: <FaServer size={40} style={{ color: "var(--primary-color)" }} />
-                },
-                {
-                  title: "Security Automation",
-                  desc: "Integration with SOAR tools for faster incident mitigation.",
-                  icon: <FaSyncAlt size={40} style={{ color: "var(--primary-color)" }} />
+                  title: "Transparent Reporting",
+                  desc: "Clear, actionable insights into your threat landscape and security posture.",
+                  icon: <FaDatabase size={40} style={{ color: "var(--primary-color)" }} />
                 }
               ].map((feature, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
@@ -358,24 +359,114 @@ const CybersecurityAsAServicePage = () => {
               ))}
             </div>
 
-            <h3 className="text-center text-primary mb-4 mt-5">Technology Stack</h3>
-            <div className="platform-stack">
-              {[
-                { layer: "Threat Detection", desc: "SIEM, Behavioral Analytics, ML", icon: <FaExclamationTriangle style={{ color: "var(--primary-color)" }} /> },
-                { layer: "Network Security", desc: "Firewalls, IDS/IPS", icon: <FaNetworkWired style={{ color: "var(--primary-color)" }} /> },
-                { layer: "Endpoint Protection", desc: "Antivirus, EDR Solutions", icon: <FaServer style={{ color: "var(--primary-color)" }} /> },
-                { layer: "Cloud Security", desc: "CSPM, IAM, Encryption", icon: <FaCloud style={{ color: "var(--primary-color)" }} /> },
-                { layer: "Incident Response", desc: "SOAR, Forensics Tools", icon: <FaSyncAlt style={{ color: "var(--primary-color)" }} /> }
-              ].map((layer, index) => (
-                <motion.div className="stack-layer" key={index} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1 }}>
-                  <div className="stack-icon">{layer.icon}</div>
-                  <div className="stack-content">
-                    <h5 style={{ color: "var(--ct-color)" }}>{layer.layer}</h5>
-                    <p>{layer.desc}</p>
-                  </div>
+            <h3 className="text-center text-primary mb-4 mt-5">Our Security Approach</h3>
+            <div className="row">
+              <div className="col-md-6 mb-4">
+                <motion.div 
+                  className="card border-0 p-4 h-100" 
+                  style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <h4 style={{ color: "var(--ct-color)" }}>Proactive Security</h4>
+                  <p>
+                    We take a proactive approach to security, constantly monitoring for threats and vulnerabilities before they can be exploited. Our team works to stay ahead of attackers by implementing preventative measures and security controls tailored to your business needs.
+                  </p>
+                  <ul className="list-unstyled">
+                    <li><FaCheckCircle style={{ color: "var(--primary-color)", marginRight: "8px" }} /> Continuous vulnerability scanning</li>
+                    <li><FaCheckCircle style={{ color: "var(--primary-color)", marginRight: "8px" }} /> Threat intelligence integration</li>
+                    <li><FaCheckCircle style={{ color: "var(--primary-color)", marginRight: "8px" }} /> Security posture assessment</li>
+                  </ul>
                 </motion.div>
-              ))}
+              </div>
+              <div className="col-md-6 mb-4">
+                <motion.div 
+                  className="card border-0 p-4 h-100" 
+                  style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <h4 style={{ color: "var(--ct-color)" }}>Strategic Partnership</h4>
+                  <p>
+                    We believe cybersecurity is a partnership. We work closely with your team to understand your business goals, challenges, and specific security needs. This collaborative approach ensures our security solutions align with your business strategy.
+                  </p>
+                  <ul className="list-unstyled">
+                    <li><FaCheckCircle style={{ color: "var(--primary-color)", marginRight: "8px" }} /> Regular security reviews</li>
+                    <li><FaCheckCircle style={{ color: "var(--primary-color)", marginRight: "8px" }} /> Business-aligned security roadmaps</li>
+                    <li><FaCheckCircle style={{ color: "var(--primary-color)", marginRight: "8px" }} /> Knowledge transfer and training</li>
+                  </ul>
+                </motion.div>
+              </div>
             </div>
+
+            <h3 className="text-center text-primary mb-4 mt-5">Our Team's Expertise</h3>
+            <motion.div 
+              className="card border-0 p-4 mb-5" 
+              style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <div className="row">
+                <div className="col-md-4 mb-3 mb-md-0">
+                  <div className="text-center">
+                    <div style={{
+                      backgroundColor: "var(--primary-color)",
+                      width: "80px",
+                      height: "80px",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      margin: "0 auto 15px"
+                    }}>
+                      <FaUserShield size={36} color="#fff" />
+                    </div>
+                    <h5 style={{ color: "var(--ct-color)" }}>Certified Experts</h5>
+                    <p>Our team holds industry-leading certifications including CISSP, CEH, CISM, and CompTIA Security+</p>
+                  </div>
+                </div>
+                <div className="col-md-4 mb-3 mb-md-0">
+                  <div className="text-center">
+                    <div style={{
+                      backgroundColor: "var(--primary-color)",
+                      width: "80px",
+                      height: "80px",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      margin: "0 auto 15px"
+                    }}>
+                      <FaTools size={36} color="#fff" />
+                    </div>
+                    <h5 style={{ color: "var(--ct-color)" }}>Industry Experience</h5>
+                    <p>Extensive experience securing environments across financial services, healthcare, retail, and manufacturing</p>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="text-center">
+                    <div style={{
+                      backgroundColor: "var(--primary-color)",
+                      width: "80px",
+                      height: "80px",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      margin: "0 auto 15px"
+                    }}>
+                      <FaSyncAlt size={36} color="#fff" />
+                    </div>
+                    <h5 style={{ color: "var(--ct-color)" }}>Continuous Learning</h5>
+                    <p>Our team stays updated with the latest threats, technologies, and security practices through ongoing education</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
           </div>
         );
       case 'benefits':
@@ -477,6 +568,7 @@ const CybersecurityAsAServicePage = () => {
             </div>
           </div>
         );
+
       case 'solutions':
         return (
           <div className="container py-5">
