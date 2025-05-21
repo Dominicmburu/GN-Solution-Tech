@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 
 // Hero background image - update path as needed
-import backgroundImage from "../assets/Enterprise.jpg";
+import backgroundImage from "../assets/enterprise.jpg";
 
 // Enterprise solutions with detailed information
 const enterpriseSolutions = [
