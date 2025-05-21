@@ -35,9 +35,8 @@ const InfrastructureAsCodeIntro = () => {
           </div>
           <div className="col-lg-7">
             <p className="intro-text">
-              Infrastructure as Code (IaC) is a modern approach to provisioning and managing IT infrastructure using 
-              machine-readable configuration files, rather than through manual processes. It allows system administrators 
-              and DevOps teams to define infrastructure using code, enabling repeatable, reliable, and automated deployments.
+              Infrastructure as Code (IaC) is a modern approach to provisioning and managing IT infrastructure using machine-readable configuration files, rather than through manual processes. It allows system administrators and DevOps teams to define infrastructure using code, enabling repeatable, reliable, and automated deployments. This approach streamlines the management of resources and minimizes human error, ensuring consistency across environments.
+              By treating infrastructure definitions just like application code, teams gain the ability to version, review, and reuse configurations in a consistent and automated way.
             </p>
           </div>
         </div>
@@ -51,10 +50,9 @@ const InfrastructureAsCode = () => {
   
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
-    { id: 'features', label: 'Key Features', icon: <FaCheckCircle /> },
-    { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
-    { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
-    { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
+    { id: 'why-choose-us', label: 'Why Choose Us', icon: <FaAward /> },
+    { id: 'benefits', label: 'Key Benefits', icon: <FaRocket /> },
+    { id: 'solutions', label: 'Key Solutions', icon: <FaTools /> },
     { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
 
@@ -113,7 +111,7 @@ const InfrastructureAsCode = () => {
     switch (activeTab) {
       case 'overview':
         return (
-          <div className="container py-5">
+          <><div className="container py-5">
             <div className="intro-box">
               <InfrastructureAsCodeIntro />
             </div>
@@ -123,20 +121,20 @@ const InfrastructureAsCode = () => {
             </div>
             <div className="row">
               {[
-                { 
-                  title: "Declarative Definitions", 
-                  desc: "Define the desired end state of resources and let the IaC engine handle provisioning steps.", 
-                  icon: <FaCheckCircle size={40} style={{ color: "var(--primary-color)" }} /> 
+                {
+                  title: "Declarative Definitions",
+                  desc: "Define the desired end state of resources and let the IaC engine handle provisioning steps.",
+                  icon: <FaCheckCircle size={40} style={{ color: "var(--primary-color)" }} />
                 },
-                { 
-                  title: "Idempotency", 
-                  desc: "Applying the same configuration multiple times yields the same infrastructure state, preventing configuration drift.", 
-                  icon: <FaCheckCircle size={40} style={{ color: "var(--primary-color)" }} /> 
+                {
+                  title: "Idempotency",
+                  desc: "Applying the same configuration multiple times yields the same infrastructure state, preventing configuration drift.",
+                  icon: <FaCheckCircle size={40} style={{ color: "var(--primary-color)" }} />
                 },
-                { 
-                  title: "Version Control", 
-                  desc: "Store all infrastructure definitions in source control (Git), enabling collaboration, history tracking, and rollback.", 
-                  icon: <FaCheckCircle size={40} style={{ color: "var(--primary-color)" }} /> 
+                {
+                  title: "Version Control",
+                  desc: "Store all infrastructure definitions in source control (Git), enabling collaboration, history tracking, and rollback.",
+                  icon: <FaCheckCircle size={40} style={{ color: "var(--primary-color)" }} />
                 }
               ].map((principle, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
@@ -148,11 +146,55 @@ const InfrastructureAsCode = () => {
                 </motion.div>
               ))}
             </div>
-            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Use Cases of Infrastructure as Code</h3>
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Features of Our IaC Service</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <div className="row">
+            <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
+              {[
+                {
+                  title: "Code-Driven Infrastructure",
+                  icon: <FaCode size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Use industry-standard tools (Terraform, Ansible, CloudFormation, etc.) to define infrastructure resources programmatically."
+                },
+                {
+                  title: "Multi-Cloud & Hybrid Support",
+                  icon: <FaCloud size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Deploy infrastructure on AWS, Azure, Google Cloud, or on-premises data centers with consistent automation."
+                },
+                {
+                  title: "Modular and Reusable Templates",
+                  icon: <FaLayerGroup size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Use customizable and scalable code modules for common services like load balancers, firewalls, and databases."
+                },
+                {
+                  title: "CI/CD Integration",
+                  icon: <FaRocket size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Seamlessly integrate with your CI/CD pipelines for automated infrastructure testing and delivery."
+                },
+                {
+                  title: "Drift Detection & Compliance",
+                  icon: <FaTools size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Automatically detect and remediate configuration drift and enforce policies for compliance and security."
+                },
+                {
+                  title: "Role-Based Access Control & Auditing",
+                  icon: <FaLock size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Track changes and manage who can apply, modify, or destroy infrastructure using granular access control."
+                }
+              ].map((feature, index) => (
+                <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
+                  <div className="card border-0 p-4 h-100 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="mb-3">{feature.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }}>{feature.title}</h5>
+                    <p className="text-muted mb-0">{feature.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div><h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Use Cases of Infrastructure as Code</h3><div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div><div className="row">
               {[
                 { title: "Cloud Infrastructure", desc: "Rapidly provision and manage cloud resources." },
                 { title: "Hybrid Environments", desc: "Consistently manage resources across multiple platforms." },
@@ -166,186 +208,70 @@ const InfrastructureAsCode = () => {
                   </div>
                 </motion.div>
               ))}
-            </div>
-            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Why Choose Us</h3>
-            <div className="d-flex justify-content-center mb-5">
-              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-            </div>
-            <div className="row">
-              {[
-                { 
-                  title: "Expertise Across Technologies", 
-                  desc: "Our team has hands-on experience with leading tools like Terraform, Ansible, and Pulumi.", 
-                  icon: <FaTools size={40} style={{ color: "var(--primary-color)" }} /> 
-                },
-                { 
-                  title: "Security and Compliance First", 
-                  desc: "We integrate DevSecOps practices, ensuring your infrastructure is compliant and protected.", 
-                  icon: <FaLock size={40} style={{ color: "var(--primary-color)" }} /> 
-                },
-                { 
-                  title: "Customized Solutions", 
-                  desc: "We tailor IaC strategies to your environment, whether starting fresh or transitioning.", 
-                  icon: <FaCode size={40} style={{ color: "var(--primary-color)" }} /> 
-                }
-              ].map((feature, index) => (
-                <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
-                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{feature.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
-                    <p className="text-center">{feature.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+            </div></>
+          
         );
-      case 'features':
+      
+      case 'why-choose-us':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Features of Our IaC Service</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Why Choose Us</h2>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
             <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
               {[
                 { 
-                  title: "Code-Driven Infrastructure", 
-                  icon: <FaCode size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
-                  desc: "Use industry-standard tools (Terraform, Ansible, CloudFormation, etc.) to define infrastructure resources programmatically." 
+                  title: "Expertise Across Technologies", 
+                  icon: <FaTools size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
+                  desc: "Our team has hands-on experience with leading tools like Terraform, Ansible, and Pulumi, and across platforms including AWS, Azure, GCP, and VMware." 
                 },
                 { 
-                  title: "Multi-Cloud & Hybrid Support", 
-                  icon: <FaCloud size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
-                  desc: "Deploy infrastructure on AWS, Azure, Google Cloud, or on-premises data centers with consistent automation." 
+                  title: "Customized Solutions", 
+                  icon: <FaLayerGroup size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
+                  desc: "We don't believe in one-size-fits-all. We tailor IaC strategies to your environment, whether you're starting fresh or transitioning from manual configurations." 
                 },
                 { 
-                  title: "Modular and Reusable Templates", 
-                  icon: <FaLayerGroup size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
-                  desc: "Use customizable and scalable code modules for common services like load balancers, firewalls, and databases." 
+                  title: "Security and Compliance First", 
+                  icon: <FaLock size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
+                  desc: "We integrate DevSecOps practices, ensuring your infrastructure is compliant, auditable, and protected by policy-as-code." 
                 },
                 { 
-                  title: "CI/CD Integration", 
-                  icon: <FaRocket size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
-                  desc: "Seamlessly integrate with your CI/CD pipelines for automated infrastructure testing and delivery." 
+                  title: "End-to-End Delivery", 
+                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
+                  desc: "From architecture design to code development, deployment, and ongoing support—we handle it all." 
                 },
                 { 
-                  title: "Drift Detection & Compliance", 
-                  icon: <FaTools size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
-                  desc: "Automatically detect and remediate configuration drift and enforce policies for compliance and security." 
-                },
-                { 
-                  title: "Role-Based Access Control", 
-                  icon: <FaServer size={30} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
-                  desc: "Track changes and manage who can apply, modify, or destroy infrastructure using granular access control." 
+                  title: "Training and Handover", 
+                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
+                  desc: "We empower your teams with documentation, training, and best practices so you remain in control." 
                 }
-              ].map((feature, index) => (
+              ].map((advantage, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="mb-3">{feature.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{feature.title}</h5>
-                    <p className="text-muted mb-0">{feature.desc}</p>
+                    <div className="mb-3">{advantage.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }}>{advantage.title}</h5>
+                    <p className="text-muted mb-0">{advantage.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
             <motion.div className="row mt-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }}>
               <div className="col-12">
-                <div className="card border-0 p-4" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                  <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Why Choose Us</h3>
-                  <div className="d-flex justify-content-center mb-5">
-                    <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-                  </div>
-                  <div className="row">
-                    {[
-                      { title: "Expertise Across Technologies", desc: "Our team has hands-on experience with leading tools like Terraform, Ansible, and Pulumi, and across platforms including AWS, Azure, GCP, and VMware." },
-                      { title: "Customized Solutions", desc: "We don't believe in one-size-fits-all. We tailor IaC strategies to your environment, whether you're starting fresh or transitioning from manual configurations." },
-                      { title: "Security and Compliance First", desc: "We integrate DevSecOps practices, ensuring your infrastructure is compliant, auditable, and protected by policy-as-code." },
-                      { title: "End-to-End Delivery", desc: "From architecture design to code development, deployment, and ongoing support—we handle it all." },
-                      { title: "Training and Handover", desc: "We empower your teams with documentation, training, and best practices so you remain in control." }
-                    ].map((item, index) => (
-                      <div className="col-md-6 mb-3" key={index}>
-                        <div className="d-flex">
-                          <div className="me-3">
-                            <FaCheckCircle style={{ color: "var(--primary-color)" }} size={20} />
-                          </div>
-                          <div>
-                            <h6 style={{ color: "var(--ct-color)" }} className="mb-1">{item.title}</h6>
-                            <p className="text-muted small mb-0">{item.desc}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                <div className="card border-0 p-5 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                  <h3 style={{ color: "var(--tt-color)" }} className="mb-4">We don't just automate infrastructure—we engineer resilience, speed, and agility into your business.</h3>
+                  <Link to="/contact" className="btn" style={{
+                    backgroundColor: "var(--primary-color)",
+                    color: "#fff",
+                    padding: "12px 25px",
+                    borderRadius: "30px",
+                    fontWeight: "600",
+                    transition: "all 0.3s ease"
+                  }}>
+                    Start Your IaC Journey <FaArrowRight className="ms-2" />
+                  </Link>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        );
-      case 'technologies':
-        return (
-          <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Technologies & Tools</h2>
-            <div className="d-flex justify-content-center mb-5">
-              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-            </div>
-            <motion.div className="row text-center" variants={containerVariants} initial="hidden" animate="visible">
-              {[
-                { name: "Terraform", icon: <FaCloud size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, desc: "Infrastructure provisioning across multiple cloud providers" },
-                { name: "Kubernetes", icon: <FaServer size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, desc: "Container orchestration platform for application deployment" },
-                { name: "Docker", icon: <FaTools size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, desc: "Containerization platform for consistent application environments" },
-                { name: "Ansible", icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, desc: "Configuration management and application deployment tool" }
-              ].map((tech, index) => (
-                <motion.div className="col-md-3 mb-4" key={index} variants={itemVariants}>
-                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="mb-3">{tech.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{tech.name}</h5>
-                    <p className="text-muted mt-2 mb-0">{tech.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-4 mt-5">Popular IaC Tools Comparison</h3>
-            <div className="d-flex justify-content-center mb-5">
-              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-            </div>
-            <motion.div className="table-responsive" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.5 }}>
-              <table className="table table-bordered table-hover">
-                <thead style={{ backgroundColor: "#f8f9fa" }}>
-                  <tr>
-                    <th>Tool</th>
-                    <th>Best For</th>
-                    <th>Learning Curve</th>
-                    <th>Cloud Support</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Terraform</strong></td>
-                    <td>Multi-cloud infrastructure</td>
-                    <td>Moderate</td>
-                    <td>AWS, Azure, GCP, Oracle, and more</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Ansible</strong></td>
-                    <td>Configuration management</td>
-                    <td>Easy</td>
-                    <td>Any (agentless)</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Kubernetes</strong></td>
-                    <td>Container orchestration</td>
-                    <td>Steep</td>
-                    <td>All major clouds</td>
-                  </tr>
-                  <tr>
-                    <td><strong>CloudFormation</strong></td>
-                    <td>AWS resources</td>
-                    <td>Moderate</td>
-                    <td>AWS only</td>
-                  </tr>
-                </tbody>
-              </table>
             </motion.div>
           </div>
         );
@@ -364,7 +290,7 @@ const InfrastructureAsCode = () => {
                   desc: "Provision infrastructure in minutes instead of hours or days." 
                 },
                 { 
-                  title: "Consistency", 
+                  title: "Consistency and Repeatability", 
                   icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Eliminate human error by automating standard environments with code." 
                 },
@@ -376,15 +302,15 @@ const InfrastructureAsCode = () => {
                 { 
                   title: "Cost Optimization", 
                   icon: <FaServer size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Decommission unused resources automatically and track infrastructure costs." 
+                  desc: "Decommission unused resources automatically and track infrastructure costs with greater visibility." 
                 },
                 { 
-                  title: "Version Control", 
+                  title: "Version Control and Auditability", 
                   icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Track changes, roll back to previous states, and maintain a full audit trail." 
+                  desc: "Track changes, roll back to previous states, and maintain a full audit trail using Git-based workflows." 
                 },
                 { 
-                  title: "Disaster Recovery", 
+                  title: "Disaster Recovery Ready", 
                   icon: <FaCloud size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Rebuild entire environments from code in case of a failure or outage." 
                 }
@@ -460,7 +386,7 @@ const InfrastructureAsCode = () => {
                   desc: "Custom-built infrastructure automation frameworks using Terraform, Ansible, or a hybrid approach." 
                 },
                 { 
-                  title: "Multi-Cloud Deployments", 
+                  title: "Multi-Cloud and Hybrid Deployments", 
                   icon: <FaCloud size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Unified IaC strategies across AWS, Azure, GCP, and on-premises environments." 
                 },
@@ -475,12 +401,12 @@ const InfrastructureAsCode = () => {
                   desc: "Enforce security, compliance, and governance through tools like OPA (Open Policy Agent)." 
                 },
                 { 
-                  title: "Modular Templates", 
+                  title: "Modular & Reusable Templates", 
                   icon: <FaLayerGroup size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Pre-built modules for common services to ensure quick, reliable deployments." 
                 },
                 { 
-                  title: "IaC as a Service", 
+                  title: "IaC as a Service (IaCaaS)", 
                   icon: <FaTools size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
                   desc: "Fully managed IaC delivery and support, enabling you to focus on your core business." 
                 }
@@ -513,6 +439,7 @@ const InfrastructureAsCode = () => {
             </motion.div>
           </div>
         );
+
       case 'faqs':
         return (
           <div className="container py-5">

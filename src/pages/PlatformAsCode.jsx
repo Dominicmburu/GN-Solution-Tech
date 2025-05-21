@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { 
   FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, 
   FaDocker, FaGitlab, FaJenkins, FaCogs, FaShieldAlt, FaCloudDownloadAlt, 
-  FaSyncAlt, FaUsersCog, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle 
+  FaSyncAlt, FaUsersCog, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle,
+  FaHeadset, FaUserShield, FaChartLine, FaEye
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
@@ -18,9 +19,9 @@ const PlatformAsCodeIntro = () => (
       <div className="col-12">
         <div className="card shadow-lg border-0 p-4 mb-5 gradient-card">
           <p className="text-center text-light fw-bold mb-0">
-            Platform as Code (PaaC) is a modern IT delivery model that enables organizations to define, provision, 
-            and manage entire technology platforms using code—extending beyond infrastructure to include services, 
-            runtime environments, network configurations, security policies, monitoring, and CI/CD pipelines.
+           Platform as Code (PaaC) as a Service is a modern IT delivery model that enables organizations to define, provision, and manage entire technology platforms using code. Unlike Infrastructure as Code (IaC), which focuses on provisioning infrastructure, PaaC extends this concept to include the entire application platform stack—services, runtime environments, network configurations, security policies, monitoring, CI/CD pipelines, and more—all written and maintained as code.
+At GN Solutions, our PaaC as a Service offering abstracts the complexity of building and operating cloud-native platforms, empowering businesses to accelerate innovation, ensure consistency, and reduce operational overhead.
+
           </p>
         </div>
       </div>
@@ -33,9 +34,9 @@ const PlatformAsCodePage = () => {
   
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
-    { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
-    { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
-    { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
+    { id: 'whychooseus', label: 'Why Choose Us', icon: <FaAward /> },
+    { id: 'benefits', label: 'Key Benefits', icon: <FaCheckCircle /> },
+    { id: 'solutions', label: 'Key Solutions', icon: <FaRocket /> },
     { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
 
@@ -50,7 +51,7 @@ const PlatformAsCodePage = () => {
     },
     { 
       question: "Do I need to have DevOps experience to implement Platform as Code?", 
-      answer: "Not necessarily. While DevOps experience is beneficial, our services include setup, configuration, training, and support to help organizations of all technical levels implement Platform as Code solutions effectively." 
+      answer: "Not at all. We offer a fully managed service. Our team handles everything from setup and configuration to training and support." 
     },
     { 
       question: "Can platform blueprints be customized for specific business needs?", 
@@ -160,94 +161,140 @@ const PlatformAsCodePage = () => {
             </div>
           </div>
         );
-      case 'technologies':
+      case 'whychooseus':
         return (
           <div className="container py-5">
-            <h2 className="text-center text-primary mb-4">Technologies & Tools</h2>
-            <motion.div className="row text-center" variants={containerVariants} initial="hidden" animate="visible">
+            <h2 className="text-center text-primary mb-4">Why Choose Our Platform as Code Service</h2>
+            <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
               {[
                 { 
-                  name: "Docker & Kubernetes", 
-                  icon: <FaDocker size={40} className="tech-icon" />, 
-                  desc: "Containerization and orchestration for consistent application environments" 
+                  title: "End-to-End Expertise", 
+                  desc: "From architecture design to automation and support, we bring full-stack knowledge across networks, DevOps, cloud, and platforms.",
+                  icon: <FaUserShield size={40} className="why-choose-icon" />
                 },
                 { 
-                  name: "Terraform & Ansible", 
-                  icon: <FaServer size={40} className="tech-icon" />, 
-                  desc: "Infrastructure and configuration automation at scale" 
+                  title: "Custom-Built Solutions", 
+                  desc: "Every PaaC deployment is tailored to your business, compliance, and operational needs.",
+                  icon: <FaTools size={40} className="why-choose-icon" />
                 },
                 { 
-                  name: "CI/CD Tools", 
-                  icon: <FaJenkins size={40} className="tech-icon" />, 
-                  desc: "Jenkins, GitHub Actions, GitLab CI for continuous delivery pipelines" 
+                  title: "Faster Time to Value", 
+                  desc: "Our templated platform blueprints and automation pipelines accelerate time to deployment by up to 70%.",
+                  icon: <FaChartLine size={40} className="why-choose-icon" />
                 },
                 { 
-                  name: "Cloud Providers", 
-                  icon: <FaCloud size={40} className="tech-icon" />, 
-                  desc: "AWS, Azure, GCP with unified deployment templates" 
+                  title: "Security-First Mindset", 
+                  desc: "Security policies, IAM roles, network segmentation, and encryption are integrated from Day 0.",
+                  icon: <FaShieldAlt size={40} className="why-choose-icon" />
+                },
+                { 
+                  title: "Ongoing Support and Optimization", 
+                  desc: "We offer 24/7 support, performance monitoring, and continuous improvement of your platform codebase.",
+                  icon: <FaHeadset size={40} className="why-choose-icon" />
+                },
+                { 
+                  title: "Reusable Blueprints and Modules", 
+                  desc: "Create and share platform blueprints for repeatable deployments across teams or environments.",
+                  icon: <FaLayerGroup size={40} className="why-choose-icon" />
                 }
-              ].map((tech, index) => (
-                <motion.div className="col-md-6 col-lg-3 mb-4" key={index} variants={itemVariants}>
-                  <div className="card shadow-lg border-0 p-4 h-100 tech-card">
-                    {tech.icon}
-                    <h5>{tech.name}</h5>
-                    <p className="mt-2">{tech.desc}</p>
+              ].map((item, index) => (
+                <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
+                  <div className="card shadow-lg border-0 p-4 h-100 why-choose-card">
+                    <div className="text-center mb-3">
+                      {item.icon}
+                    </div>
+                    <h5 className="text-center">{item.title}</h5>
+                    <p className="text-center">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
             
-            <h3 className="text-center text-primary mb-4 mt-5">Platform Component Stack</h3>
-            <div className="platform-stack">
-              {[
-                { name: "Applications", desc: "Microservices, APIs, Web Applications", icon: <FaRocket /> },
-                { name: "CI/CD & DevOps", desc: "Automated Build, Test, Deploy Pipelines", icon: <FaJenkins /> },
-                { name: "Containers & Orchestration", desc: "Docker, Kubernetes, Service Mesh", icon: <FaDocker /> },
-                { name: "Middleware & Services", desc: "Databases, Message Queues, Caches", icon: <FaCogs /> },
-                { name: "Infrastructure", desc: "Compute, Storage, Networking", icon: <FaServer /> }
-              ].map((layer, index) => (
-                <motion.div className="stack-layer" key={index} variants={itemVariants} initial="hidden" animate="visible">
-                  <div className="stack-icon">{layer.icon}</div>
-                  <div className="stack-content">
-                    <h5>{layer.name}</h5>
-                    <p>{layer.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            
-            <h3 className="text-center text-primary mb-4 mt-5">Integration Ecosystem</h3>
-            <div className="integration-ecosystem">
-              <div className="ecosystem-center">
-                <div className="center-icon">
-                  <FaLayerGroup size={50} />
-                  <h5>Platform as Code</h5>
-                </div>
-              </div>
-              <div className="ecosystem-connections">
-                {[
-                  { name: "Security Tools", icon: <FaShieldAlt size={24} /> },
-                  { name: "Monitoring", icon: <FaCogs size={24} /> },
-                  { name: "Version Control", icon: <FaGitlab size={24} /> },
-                  { name: "Cloud Services", icon: <FaCloud size={24} /> },
-                  { name: "CI/CD Pipelines", icon: <FaJenkins size={24} /> },
-                  { name: "Container Registry", icon: <FaDocker size={24} /> }
-                ].map((item, index) => (
+            <h3 className="text-center text-primary mb-4 mt-5">Our Approach to Platform as Code</h3>
+            <div className="approach-container">
+              <div className="row">
+                <div className="col-md-6">
                   <motion.div 
-                    className="ecosystem-item" 
-                    key={index}
+                    className="approach-card"
                     variants={itemVariants}
                     initial="hidden"
                     animate="visible"
-                    style={{ 
-                      transform: `rotate(${index * 60}deg) translate(120px) rotate(-${index * 60}deg)`
-                    }}
                   >
-                    <div className="ecosystem-icon">{item.icon}</div>
-                    <div className="ecosystem-name">{item.name}</div>
+                    <h4>Multi-Cloud and Hybrid Support</h4>
+                    <p>
+                      Our Platform as Code service enables deployment across AWS, Azure, GCP, or on-premise 
+                      environments with unified code templates. We manage the complexity of different cloud 
+                      providers so you can focus on your applications.
+                    </p>
                   </motion.div>
-                ))}
+                </div>
+                <div className="col-md-6">
+                  <motion.div 
+                    className="approach-card"
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <h4>Automated Lifecycle Management</h4>
+                    <p>
+                      We implement full lifecycle management (create, update, destroy) for your platform components, 
+                      ensuring that every resource is properly provisioned, updated, and decommissioned when needed.
+                    </p>
+                  </motion.div>
+                </div>
               </div>
+              <div className="row mt-4">
+                <div className="col-md-6">
+                  <motion.div 
+                    className="approach-card"
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <h4>Proactive Performance Optimization</h4>
+                    <p>
+                      Our team continuously monitors and optimizes your platform for performance, 
+                      cost efficiency, and security using HA architectures, auto-scaling, and 
+                      self-healing components.
+                    </p>
+                  </motion.div>
+                </div>
+                <div className="col-md-6">
+                  <motion.div 
+                    className="approach-card"
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <h4>Knowledge Transfer & Training</h4>
+                    <p>
+                      We don't just build your platform—we ensure your team knows how to leverage it. 
+                      Our comprehensive training and documentation empowers your developers and operators.
+                    </p>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+            
+            <h3 className="text-center text-primary mb-4 mt-5">Our Commitment to Success</h3>
+            <div className="commitment-container">
+              <motion.div 
+                className="commitment-banner"
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <div className="commitment-content">
+                  <FaEye size={40} className="mb-3" />
+                  <h4>Vision</h4>
+                  <p>
+                    We believe that Platform as Code is not just about technology, but about enabling 
+                    organizations to innovate faster, operate more efficiently, and scale confidently. 
+                    We're committed to helping you transform your technology delivery through automation, 
+                    consistency, and operational excellence.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         );
@@ -399,39 +446,6 @@ const PlatformAsCodePage = () => {
                   </div>
                   <h5>{solution.title}</h5>
                   <p>{solution.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-            
-            <h3 className="text-center text-primary mb-4 mt-5">Why Choose Our Platform as Code Service</h3>
-            <div className="why-choose-us">
-              {[
-                { 
-                  title: "End-to-End Expertise", 
-                  desc: "From architecture design to automation and support, we bring full-stack knowledge across networks, DevOps, cloud, and platforms." 
-                },
-                { 
-                  title: "Custom-Built Solutions", 
-                  desc: "Every PaaC deployment is tailored to your business, compliance, and operational needs." 
-                },
-                { 
-                  title: "Faster Time to Value", 
-                  desc: "Our templated platform blueprints and automation pipelines accelerate time to deployment by up to 70%." 
-                },
-                { 
-                  title: "Security-First Mindset", 
-                  desc: "Security policies, IAM roles, network segmentation, and encryption are integrated from Day 0." 
-                }
-              ].map((item, index) => (
-                <motion.div 
-                  className="why-choose-item" 
-                  key={index}
-                  variants={itemVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <h5>{item.title}</h5>
-                  <p>{item.desc}</p>
                 </motion.div>
               ))}
             </div>

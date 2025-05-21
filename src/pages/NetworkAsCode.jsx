@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, FaCheck, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle, FaLock } from "react-icons/fa";
+import { FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, FaCheck, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle, FaLock, FaHandshake, FaShieldAlt, FaUsersCog } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
 import "../assets/css/network.css";
@@ -21,7 +21,12 @@ const NetworkAsCodeIntro = () => {
           </div>
           <div className="col-lg-7">
             <p className="intro-text">
-              Network as Code (NaC) transforms network management by applying DevOps principles to networking. Using code to define, deploy, and manage network configurations, NaC enables automation, version control, and testing for LAN, WAN, SD-WAN, firewalls, VPNs, and cloud-native networks. At GN Solutions, our NaC approach delivers agility, reliability, and consistency across cloud, hybrid, or on-prem environments.
+              At GN Solutions, our Network as Code approach brings DevOps-style agility, automation, and intelligence to networking — whether in the cloud, hybrid, or on-prem environments.
+            </p>
+            <p className="intro-text">
+             Network as Code (NaC) represents the evolution of network management into a programmable, automated, and scalable discipline. Traditionally, network operations have been manual, error-prone, and reactive. With NaC, your network infrastructure is managed using code — enabling you to define, provision, test, and manage your network the same way software is developed.
+NaC transforms networks from static, device-by-device management into dynamic, code-driven environments. This accelerates service delivery, improves consistency, and enhances visibility and control across your infrastructure. Whether it’s managing WAN, LAN, security policies, or cloud connectivity — NaC brings agility, reliability, and automation to your networking operations. This brings DevOps principles to networking—enabling teams to deploy, test, and scale network changes faster, with confidence and consistency.
+
             </p>
           </div>
         </div>
@@ -35,9 +40,9 @@ const NetworkAsCode = () => {
   
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
-    { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
-    { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
-    { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
+    { id: 'whychooseus', label: 'Why Choose Us', icon: <FaHandshake /> },
+    { id: 'benefits', label: 'Key Benefits', icon: <FaAward /> },
+    { id: 'solutions', label: 'Key Solutions', icon: <FaRocket /> },
     { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
 
@@ -84,37 +89,7 @@ const NetworkAsCode = () => {
             <div className="intro-box">
               <NetworkAsCodeIntro />
             </div>
-            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Why Choose Us</h3>
-            <div className="d-flex justify-content-center mb-5">
-              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-            </div>
-            <div className="row">
-              {[
-                { 
-                  title: "Vendor-Neutral Expertise", 
-                  desc: "Our solutions are platform-agnostic, supporting multi-vendor environments like Cisco, Juniper, and Arista.", 
-                  icon: <FaTools size={40} style={{ color: "var(--primary-color)" }} /> 
-                },
-                { 
-                  title: "Secure by Design", 
-                  desc: "Integrated RBAC, auditing, and compliance ensure your network is protected.", 
-                  icon: <FaLock size={40} style={{ color: "var(--primary-color)" }} /> 
-                },
-                { 
-                  title: "Tailored Solutions", 
-                  desc: "Customized NaC implementations for cloud, on-prem, or hybrid environments.", 
-                  icon: <FaCode size={40} style={{ color: "var(--primary-color)" }} /> 
-                }
-              ].map((feature, index) => (
-                <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
-                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{feature.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
-                    <p className="text-center">{feature.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+           
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Use Cases of Network as Code</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
@@ -228,73 +203,145 @@ const NetworkAsCode = () => {
             </div>
           </div>
         );
-      case 'technologies':
+      case 'whychooseus':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Technologies</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Why Choose GN Solutions</h2>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <div className="row text-center mb-5">
+            
+            <div className="row mb-5">
+              <div className="col-md-6">
+                <motion.div 
+                  className="p-4 bg-white rounded shadow-lg h-100"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5 }}
+                  style={{ border: "1px solid rgba(var(--primary-color-rgb), 0.2)" }}
+                >
+                  <h3 style={{ color: "var(--ct-color)" }} className="mb-4">Our Expertise</h3>
+                  <p>At GN Solutions, we bring deep experience in network engineering, DevOps, and automation to help enterprises evolve their legacy networks into programmable, future-ready infrastructures.</p>
+                  
+                  <div className="mt-4">
+                    <h5 style={{ color: "var(--primary-color)" }}>We design NaC solutions that are:</h5>
+                    <ul className="list-unstyled mt-3">
+                      {[
+                        "Vendor-neutral and platform-agnostic",
+                        "Secure by design, with integrated RBAC, auditing, and compliance",
+                        "Tailored to your environment—cloud, on-prem, or hybrid"
+                      ].map((item, idx) => (
+                        <li key={idx} className="mb-2 d-flex align-items-center">
+                          <FaCheckCircle style={{ color: "var(--primary-color)", marginRight: "10px" }} />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              </div>
+              
+              <div className="col-md-6">
+                <motion.div
+                  className="p-4 bg-white rounded shadow-lg h-100"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  style={{ border: "1px solid rgba(var(--primary-color-rgb), 0.2)" }}
+                >
+                  <h3 style={{ color: "var(--ct-color)" }} className="mb-4">Technology Stack</h3>
+                  
+                  <div className="d-flex flex-wrap">
+                    {[
+                      { name: "Infrastructure as Code", icon: <FaCloud size={24} style={{ color: "var(--primary-color)" }} /> },
+                      { name: "Vendor-Agnostic Automation", icon: <FaCode size={24} style={{ color: "var(--primary-color)" }} /> },
+                      { name: "CI/CD Integration", icon: <FaServer size={24} style={{ color: "var(--primary-color)" }} /> },
+                      { name: "Version Control", icon: <FaCode size={24} style={{ color: "var(--primary-color)" }} /> },
+                      { name: "Automated Testing", icon: <FaCheck size={24} style={{ color: "var(--primary-color)" }} /> },
+                      { name: "Event-Driven Automation", icon: <FaRocket size={24} style={{ color: "var(--primary-color)" }} /> }
+                    ].map((tech, idx) => (
+                      <div key={idx} className="tech-badge d-flex align-items-center mb-3 me-3 p-2 rounded" style={{ 
+                        backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
+                        border: "1px solid rgba(var(--primary-color-rgb), 0.2)"
+                      }}>
+                        {tech.icon}
+                        <span className="ms-2">{tech.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Our Core Strengths</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            
+            <div className="row">
               {[
-                { name: "Infrastructure as Code for Networking", icon: <FaCloud size={40} style={{ color: "var(--primary-color)" }} />, desc: "Use code to define routers, switches, firewalls, and policies." },
-                { name: "Vendor-Agnostic Automation", icon: <FaCode size={40} style={{ color: "var(--primary-color)" }} />, desc: "Support for multi-vendor environments including Cisco, Juniper, Arista, and more." },
-                { name: "CI/CD Integration", icon: <FaServer size={40} style={{ color: "var(--primary-color)" }} />, desc: "Seamlessly integrate network changes into your DevOps pipelines with validation and testing." },
-                { name: "Version Control & Auditability", icon: <FaTools size={40} style={{ color: "var(--primary-color)" }} />, desc: "Full change tracking using Git and other VCS tools." },
-                { name: "Automated Validation & Testing", icon: <FaServer size={40} style={{ color: "var(--primary-color)" }} />, desc: "Perform pre-deployment checks, compliance enforcement, and rollback strategies." },
-                { name: "Event-Driven Automation", icon: <FaRocket size={40} style={{ color: "var(--primary-color)" }} />, desc: "Respond automatically to incidents using real-time telemetry and triggers." }
-              ].map((tech, index) => (
-                <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
+                { 
+                  title: "Vendor-Neutral Approach", 
+                  desc: "We support multi-vendor environments including Cisco, Juniper, Arista, Fortinet, and more.",
+                  icon: <FaHandshake size={40} style={{ color: "var(--primary-color)" }} />
+                },
+                { 
+                  title: "Security-First Design", 
+                  desc: "Our solutions enhance security by removing manual intervention, enforcing policy compliance, and offering auditable change logs.",
+                  icon: <FaShieldAlt size={40} style={{ color: "var(--primary-color)" }} />
+                },
+                { 
+                  title: "Comprehensive Team Training", 
+                  desc: "We provide complete enablement through workshops, documentation, playbooks, and hands-on training for your teams.",
+                  icon: <FaUsersCog size={40} style={{ color: "var(--primary-color)" }} />
+                }
+              ].map((strength, index) => (
+                <motion.div 
+                  className="col-md-4 mb-4" 
+                  key={index} 
+                  initial={{ opacity: 0, y: 20 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  transition={{ delay: index * 0.2 }}
+                >
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{tech.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{tech.name}</h5>
-                    <p>{tech.desc}</p>
+                    <div className="text-center mb-3">{strength.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{strength.title}</h5>
+                    <p className="text-center">{strength.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
-            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Popular NaC Tools Comparison</h3>
-            <div className="d-flex justify-content-center mb-5">
-              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-            </div>
-            <div className="table-responsive">
-              <table className="table table-bordered">
-                <thead style={{ backgroundColor: "#f8f9fa" }}>
-                  <tr>
-                    <th>Tool</th>
-                    <th>Best For</th>
-                    <th>Learning Curve</th>
-                    <th>Network Support</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Ansible</td>
-                    <td>Multi-vendor network automation</td>
-                    <td>Easy</td>
-                    <td>Almost all network vendors</td>
-                  </tr>
-                  <tr>
-                    <td>Terraform</td>
-                    <td>Cloud network infrastructure</td>
-                    <td>Moderate</td>
-                    <td>Cloud providers, some physical network devices</td>
-                  </tr>
-                  <tr>
-                    <td>Cisco NSO</td>
-                    <td>Service orchestration</td>
-                    <td>Steep</td>
-                    <td>Multi-vendor support</td>
-                  </tr>
-                  <tr>
-                    <td>Python + NAPALM</td>
-                    <td>Custom network automation</td>
-                    <td>Moderate</td>
-                    <td>Major vendors (Cisco, Juniper, Arista)</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            
+            <motion.div 
+              className="card border-0 p-5 mt-5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              style={{ 
+                boxShadow: "0 15px 30px rgba(0,0,0,0.15)", 
+                background: "linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.05) 0%, rgba(var(--primary-color-rgb), 0.15) 100%)",
+                borderRadius: "12px"
+              }}
+            >
+              <div className="row align-items-center">
+                <div className="col-md-8">
+                  <h3 style={{ color: "var(--ct-color)" }}>From Legacy to Future-Ready</h3>
+                  <p className="mb-0">Whether you're modernizing your infrastructure or starting from scratch, we help you get there faster, safer, and smarter. Our phased approach ensures a smooth transition without disrupting your operations.</p>
+                </div>
+                <div className="col-md-4 text-center text-md-end mt-4 mt-md-0">
+                  <Link to="/contact" className="btn" style={{
+                    backgroundColor: "var(--primary-color)",
+                    color: "#fff",
+                    padding: "12px 25px",
+                    borderRadius: "30px",
+                    fontWeight: "600",
+                    transition: "all 0.3s ease"
+                  }}>
+                    Schedule a Consultation <FaArrowRight style={{ marginLeft: "8px" }} />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
           </div>
         );
       case 'benefits':
@@ -335,7 +382,7 @@ const NetworkAsCode = () => {
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
                     <h5 style={{ color: "var(--ct-color)" }}>{story.company}</h5>
-                    <p>{story.desc}</p>
+                    <p>{story.result}</p>
                   </div>
                 </motion.div>
               ))}
@@ -366,6 +413,7 @@ const NetworkAsCode = () => {
             </div>
           </div>
         );
+
       case 'faqs':
         return (
           <div className="container py-5">

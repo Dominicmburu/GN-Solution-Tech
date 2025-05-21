@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaNetworkWired, FaShieldAlt, FaChartLine, FaTools, FaSyncAlt, FaHeadset, FaRocket, FaArrowRight, FaCogs, FaSearch, FaInfoCircle, FaCheckCircle, FaQuestionCircle, FaAward } from 'react-icons/fa';
+import { FaNetworkWired, FaShieldAlt, FaChartLine, FaTools, FaSyncAlt, FaHeadset, FaRocket, FaArrowRight, FaCogs, FaSearch, FaInfoCircle, FaCheckCircle, FaQuestionCircle, FaAward, FaUserTie, FaHandshake, FaBalanceScale } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Accordion } from 'react-bootstrap';
 import '../assets/css/ManagedNetworkServices.css';
@@ -22,7 +22,9 @@ const ManagedNetworkServicesIntro = () => {
           </div>
           <div className="col-lg-7">
             <p className="intro-text">
-              Managed Network Services provide end-to-end design, implementation, monitoring, and management of your enterprise network infrastructure. From LANs and WANs to wireless environments and SD-WANs, these services ensure reliable connectivity, optimized performance, and enhanced security—all while reducing the operational burden on your internal IT teams and providing 24/7 expertise and support.
+             In today's connected world, a resilient and secure network infrastructure is crucial for business continuity and growth. Our Managed Network Services offer end-to-end design, implementation, monitoring, and management of your enterprise network infrastructure—whether it's Local Area Networks (LAN), Wide Area Networks (WAN), Wireless LANs (WLAN), SD-WAN or hybrid environments.
+We act as your extended IT team, taking responsibility for the performance, availability, and security of your network. Our services are tailored to meet the unique demands of your business, ensuring reliable connectivity, optimized performance, and simplified operations—24/7.
+
             </p>
           </div>
         </div>
@@ -37,9 +39,9 @@ const ManagedNetworkServicesPage = () => {
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
-    { id: 'technologies', label: 'Technologies', icon: <FaTools /> },
-    { id: 'benefits', label: 'Benefits', icon: <FaAward /> },
-    { id: 'solutions', label: 'Solutions', icon: <FaRocket /> },
+    { id: 'whychooseus', label: 'Why Choose Us', icon: <FaAward /> },
+    { id: 'benefits', label: 'Key Benefits', icon: <FaCheckCircle /> },
+    { id: 'solutions', label: 'Key Solutions', icon: <FaRocket /> },
     { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
 
@@ -287,10 +289,82 @@ const ManagedNetworkServicesPage = () => {
             </div>
           </div>
         );
-      case 'technologies':
+      case 'whychooseus':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Technologies & Tools</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Why Choose Our Managed Network Services</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            
+            {/* Why Choose Us Cards Section */}
+            <div className="row mb-5">
+              {[
+                { 
+                  title: "Experience & Expertise", 
+                  desc: "With certified network engineers and years of real-world experience, we deliver reliable, standards-based network solutions.", 
+                  icon: <FaUserTie size={40} style={{ color: "var(--primary-color)" }} /> 
+                },
+                { 
+                  title: "Customized Service Models", 
+                  desc: "Choose from fully managed, co-managed, or on-demand support based on your business needs.", 
+                  icon: <FaHandshake size={40} style={{ color: "var(--primary-color)" }} /> 
+                },
+                { 
+                  title: "Vendor-Neutral Approach", 
+                  desc: "We integrate and manage leading technologies from Cisco, Juniper, Fortinet, Aruba, and others—tailored to your environment.", 
+                  icon: <FaBalanceScale size={40} style={{ color: "var(--primary-color)" }} /> 
+                },
+                { 
+                  title: "Proactive, Not Reactive", 
+                  desc: "Our systems predict and prevent issues with AI-enhanced monitoring, reducing downtime and costly outages.", 
+                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)" }} /> 
+                },
+                { 
+                  title: "Customer-Centric Support", 
+                  desc: "You'll always have access to a dedicated account manager and a knowledgeable support team that understands your environment.", 
+                  icon: <FaHeadset size={40} style={{ color: "var(--primary-color)" }} /> 
+                }
+              ].map((feature, index) => (
+                <motion.div className="col-md-6 col-lg-4 mb-4" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
+                  <div className="card border-0 p-4 h-100"
+                    style={{ 
+                      boxShadow: "0 10px 20px rgba(0,0,0,0.1)", 
+                      border: "1px solid #eaeaea",
+                      transition: "transform 0.3s ease, box-shadow 0.3s ease"
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.transform = "translateY(-10px)";
+                      e.currentTarget.style.boxShadow = "0 15px 30px rgba(0,0,0,0.15)";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "0 10px 20px rgba(0,0,0,0.1)";
+                    }}
+                  >
+                    <div className="text-center mb-3">
+                      <div style={{
+                        width: "80px",
+                        height: "80px",
+                        borderRadius: "50%",
+                        backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        margin: "0 auto 15px"
+                      }}>
+                        {feature.icon}
+                      </div>
+                    </div>
+                    <h5 style={{ color: "var(--ct-color)" }} className="text-center mb-3">{feature.title}</h5>
+                    <p className="text-center">{feature.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Technologies We Support Section */}
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Technologies We Support</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
@@ -311,208 +385,34 @@ const ManagedNetworkServicesPage = () => {
                 </motion.div>
               ))}
             </div>
-            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Network Stack</h3>
-            <div className="d-flex justify-content-center mb-5">
-              <div style={{
-                width: "120px",
-                height: "5px",
-                backgroundColor: "var(--primary-color)",
-                borderRadius: "10px"
-              }}></div>
-            </div>
-            <div className="row mb-5">
-              <div className="col-lg-6">
-                <div className="platform-stack mb-3">
-                  {[
-                    { title: "Network Security", desc: "Firewalls, IDS/IPS, and VPN.", icon: <FaShieldAlt style={{ color: "white" }} /> },
-                    { title: "Wireless Networking", desc: "WLAN and access points.", icon: <FaRocket style={{ color: "white" }} /> },
-                    { title: "Core Networking", desc: "Routers, switches, and SD-WAN.", icon: <FaNetworkWired style={{ color: "white" }} /> }
-                  ].map((layer, index) => (
-                    <motion.div
-                      className="stack-layer"
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        marginBottom: "25px",
-                        backgroundColor: "var(--cardt-color)",
-                        padding: "15px 20px",
-                        borderRadius: "12px",
-                        boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
-                        border: "1px solid rgba(0,0,0,0.06)",
-                        transition: "transform 0.3s ease",
-                        cursor: "pointer",
-                      }}
-                      whileHover={{
-                        transform: "translateY(-5px)",
-                        boxShadow: "0 12px 25px rgba(0,0,0,0.08)"
-                      }}
-                    >
-                      <div className="icon-circle-net" style={{
-                        backgroundColor: "var(--primary-color)",
-                        width: "55px",
-                        height: "55px",
-                        borderRadius: "12px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        marginRight: "20px",
-                        boxShadow: "0 5px 15px rgba(var(--primary-color-rgb), 0.3)"
-                      }}>
-                        {layer.icon}
-                      </div>
-                      <div className="stack-content">
-                        <h5 style={{
-                          color: "var(--ct-color)",
-                          fontWeight: "600",
-                          marginBottom: "5px"
-                        }}>{layer.title}</h5>
-                        <p style={{
-                          marginBottom: "0",
-                          opacity: "0.85",
-                          fontSize: "15px"
-                        }}>{layer.desc}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <motion.div
-                  className="architecture-image-container"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 }}
+            
+            {/* Customer Testimonial or Highlight Section */}
+            <div className="row mt-5">
+              <div className="col-12">
+                <motion.div 
+                  className="testimonial-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
                   style={{
-                    backgroundColor: "var(--cardt-color)",
                     borderRadius: "15px",
-                    padding: "25px",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-                    border: "1px solid rgba(0,0,0,0.05)",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    position: "relative",
-                    overflow: "hidden"
+                    overflow: "hidden",
+                    boxShadow: "0 15px 30px rgba(0,0,0,0.1)",
+                    background: "linear-gradient(135deg, var(--primary-color) 0%, #402456 100%)",
+                    padding: "3rem"
                   }}
                 >
-                  <div style={{
-                    position: "absolute",
-                    top: "0",
-                    right: "0",
-                    width: "150px",
-                    height: "150px",
-                    backgroundColor: "var(--primary-color)",
-                    opacity: "0.05",
-                    borderRadius: "0 0 0 100%"
-                  }}></div>
-                  <h5 style={{
-                    color: "var(--tt-color)",
-                    fontSize: "20px",
-                    fontWeight: "600",
-                    textAlign: "center",
-                    marginBottom: "20px",
-                    position: "relative",
-                    zIndex: "1"
-                  }}>Network Architecture</h5>
-                  <div style={{
-                    padding: "10px",
-                    backgroundColor: "rgba(var(--primary-color-rgb), 0.03)",
-                    borderRadius: "10px",
-                    marginBottom: "20px"
-                  }}>
-                    <img
-                      src={networkArchitectureImage}
-                      alt="Network architecture diagram showing integrated technologies"
-                      className="img-fluid mb-3"
-                      style={{
-                        maxHeight: "300px",
-                        objectFit: "contain",
-                        borderRadius: "8px",
-                        boxShadow: "0 5px 15px rgba(0,0,0,0.1)"
-                      }}
-                    />
+                  <div className="row align-items-center">
+                    <div className="col-lg-8 mx-auto text-center">
+                      <FaQuestionCircle size={50} style={{ color: "white", opacity: 0.8, marginBottom: "20px" }} />
+                      <h4 style={{ color: "white", marginBottom: "20px" }}>Expert Support When You Need It Most</h4>
+                      <p style={{ color: "white", fontSize: "18px", fontStyle: "italic", opacity: 0.9, marginBottom: "25px" }}>
+                        "We understand that your network is the backbone of your business operations. That's why we're committed to providing expert support 24/7/365, ensuring that your systems remain operational and secure at all times."
+                      </p>
+                      <div style={{ width: "80px", height: "4px", backgroundColor: "white", margin: "0 auto" }}></div>
+                    </div>
                   </div>
-                  <p style={{
-                    textAlign: "center",
-                    marginBottom: "0",
-                    color: "var(--ct-color)",
-                    opacity: "0.7",
-                    fontSize: "14px",
-                    fontStyle: "italic"
-                  }}>
-                    Comprehensive architecture design for optimal network performance
-                  </p>
                 </motion.div>
-              </div>
-            </div>
-            <div className="platform-stack" style={{
-              backgroundColor: "rgba(var(--primary-color-rgb), 0.04)",
-              padding: "25px",
-              borderRadius: "15px",
-              border: "1px dashed rgba(var(--primary-color-rgb), 0.2)"
-            }}>
-              <div className="text-center mb-4">
-                <h5 style={{
-                  color: "var(--tt-color)",
-                  display: "inline-block",
-                  borderBottom: "2px solid var(--primary-color)",
-                  paddingBottom: "8px"
-                }}>Management & Monitoring</h5>
-              </div>
-              <div className="row">
-                {[
-                  { title: "Monitoring Tools", desc: "Real-time analytics and dashboards.", icon: <FaChartLine style={{ color: "white" }} /> },
-                  { title: "Configuration Management", desc: "Automated backups and policies.", icon: <FaCogs style={{ color: "white" }} /> }
-                ].map((layer, index) => (
-                  <div className="col-md-6" key={index}>
-                    <motion.div
-                      className="stack-layer"
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.2 }}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        backgroundColor: "white",
-                        padding: "15px 20px",
-                        borderRadius: "10px",
-                        boxShadow: "0 5px 15px rgba(0,0,0,0.03)",
-                        height: "100%"
-                      }}
-                    >
-                      <div className="icon-circle-net" style={{
-                        backgroundColor: "var(--primary-color)",
-                        width: "50px",
-                        height: "50px",
-                        borderRadius: "50%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        marginRight: "15px"
-                      }}>
-                        {layer.icon}
-                      </div>
-                      <div className="stack-content">
-                        <h5 style={{
-                          color: "var(--ct-color)",
-                          fontSize: "17px",
-                          fontWeight: "600",
-                          marginBottom: "5px"
-                        }}>{layer.title}</h5>
-                        <p style={{
-                          marginBottom: "0",
-                          fontSize: "14px",
-                          opacity: "0.85"
-                        }}>{layer.desc}</p>
-                      </div>
-                    </motion.div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
@@ -620,6 +520,7 @@ const ManagedNetworkServicesPage = () => {
             </div>
           </div>
         );
+
       case 'solutions':
         return (
           <div className="container py-5">
