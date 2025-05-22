@@ -1,25 +1,27 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { 
-  FaCloud, 
-  FaTools, 
-  FaServer, 
-  FaRocket, 
-  FaCode, 
-  FaLayerGroup, 
-  FaArrowRight, 
-  FaInfoCircle, 
-  FaAward, 
-  FaQuestionCircle, 
-  FaCheckCircle, 
-  FaLock, 
-  FaCheck 
+import {
+  FaCloud,
+  FaTools,
+  FaServer,
+  FaRocket,
+  FaCode,
+  FaLayerGroup,
+  FaArrowRight,
+  FaInfoCircle,
+  FaAward,
+  FaQuestionCircle,
+  FaCheckCircle,
+  FaLock,
+  FaCheck
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
 import "../assets/css/infrastructure.css";
 import "../assets/css/TabsSection.css";
 import backgroundImage from "../assets/platform.webp";
+import PageBanner from '../components/common/PageBanner';
+
 
 // Intro Section Component
 const InfrastructureAsCodeIntro = () => {
@@ -47,7 +49,13 @@ const InfrastructureAsCodeIntro = () => {
 
 const InfrastructureAsCode = () => {
   const [activeTab, setActiveTab] = useState('overview');
-  
+  const [activeKey, setActiveKey] = useState(null);
+
+
+  const handleAccordionChange = (eventKey) => {
+    setActiveKey(eventKey);
+  };
+
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
     { id: 'why-choose-us', label: 'Why Choose Us', icon: <FaAward /> },
@@ -57,51 +65,51 @@ const InfrastructureAsCode = () => {
   ];
 
   const faqs = [
-    { 
-      question: "What's the difference between traditional infrastructure management and IaC?", 
-      answer: "Traditional infrastructure is manually configured, which is time-consuming and error-prone. IaC automates this using scripts or configuration files, making deployments faster, more consistent, and scalable." 
+    {
+      question: "What's the difference between traditional infrastructure management and IaC?",
+      answer: "Traditional infrastructure is manually configured, which is time-consuming and error-prone. IaC automates this using scripts or configuration files, making deployments faster, more consistent, and scalable."
     },
-    { 
-      question: "Can IaC work with both cloud and on-prem environments?", 
-      answer: "Yes. Our IaC solutions support hybrid and multi-cloud environments, allowing you to manage everything from a single source of truth." 
+    {
+      question: "Can IaC work with both cloud and on-prem environments?",
+      answer: "Yes. Our IaC solutions support hybrid and multi-cloud environments, allowing you to manage everything from a single source of truth."
     },
-    { 
-      question: "Do I need to know how to code to use your IaC service?", 
-      answer: "Not at all. We design and manage everything for you. However, we provide training and documentation if your team wishes to take over or collaborate." 
+    {
+      question: "Do I need to know how to code to use your IaC service?",
+      answer: "Not at all. We design and manage everything for you. However, we provide training and documentation if your team wishes to take over or collaborate."
     },
-    { 
-      question: "Is Infrastructure as Code secure?", 
-      answer: "Yes. IaC allows for security policies to be codified and enforced automatically. We implement role-based access control, encryption, and secure secret management as part of our deployments." 
+    {
+      question: "Is Infrastructure as Code secure?",
+      answer: "Yes. IaC allows for security policies to be codified and enforced automatically. We implement role-based access control, encryption, and secure secret management as part of our deployments."
     },
-    { 
-      question: "What if I already have some infrastructure deployed manually?", 
-      answer: "We offer infrastructure state import and refactoring services to bring your existing environments under IaC management without disrupting operations." 
+    {
+      question: "What if I already have some infrastructure deployed manually?",
+      answer: "We offer infrastructure state import and refactoring services to bring your existing environments under IaC management without disrupting operations."
     },
-    { 
-      question: "What tools are commonly used for IaC?", 
-      answer: "Common tools include Terraform, Ansible, Kubernetes, Docker, AWS CloudFormation, and Azure Resource Manager templates." 
+    {
+      question: "What tools are commonly used for IaC?",
+      answer: "Common tools include Terraform, Ansible, Kubernetes, Docker, AWS CloudFormation, and Azure Resource Manager templates."
     },
-    { 
-      question: "How does IaC improve security?", 
-      answer: "IaC improves security by enabling consistent security policies, automated compliance checking, and reducing human error in infrastructure configuration." 
+    {
+      question: "How does IaC improve security?",
+      answer: "IaC improves security by enabling consistent security policies, automated compliance checking, and reducing human error in infrastructure configuration."
     }
   ];
 
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         staggerChildren: 0.1
       }
     }
   };
-  
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.4 }
     }
@@ -209,9 +217,9 @@ const InfrastructureAsCode = () => {
                 </motion.div>
               ))}
             </div></>
-          
+
         );
-      
+
       case 'why-choose-us':
         return (
           <div className="container py-5">
@@ -221,30 +229,30 @@ const InfrastructureAsCode = () => {
             </div>
             <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
               {[
-                { 
-                  title: "Expertise Across Technologies", 
-                  icon: <FaTools size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Our team has hands-on experience with leading tools like Terraform, Ansible, and Pulumi, and across platforms including AWS, Azure, GCP, and VMware." 
+                {
+                  title: "Expertise Across Technologies",
+                  icon: <FaTools size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Our team has hands-on experience with leading tools like Terraform, Ansible, and Pulumi, and across platforms including AWS, Azure, GCP, and VMware."
                 },
-                { 
-                  title: "Customized Solutions", 
-                  icon: <FaLayerGroup size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "We don't believe in one-size-fits-all. We tailor IaC strategies to your environment, whether you're starting fresh or transitioning from manual configurations." 
+                {
+                  title: "Customized Solutions",
+                  icon: <FaLayerGroup size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "We don't believe in one-size-fits-all. We tailor IaC strategies to your environment, whether you're starting fresh or transitioning from manual configurations."
                 },
-                { 
-                  title: "Security and Compliance First", 
-                  icon: <FaLock size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "We integrate DevSecOps practices, ensuring your infrastructure is compliant, auditable, and protected by policy-as-code." 
+                {
+                  title: "Security and Compliance First",
+                  icon: <FaLock size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "We integrate DevSecOps practices, ensuring your infrastructure is compliant, auditable, and protected by policy-as-code."
                 },
-                { 
-                  title: "End-to-End Delivery", 
-                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "From architecture design to code development, deployment, and ongoing support—we handle it all." 
+                {
+                  title: "End-to-End Delivery",
+                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "From architecture design to code development, deployment, and ongoing support—we handle it all."
                 },
-                { 
-                  title: "Training and Handover", 
-                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "We empower your teams with documentation, training, and best practices so you remain in control." 
+                {
+                  title: "Training and Handover",
+                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "We empower your teams with documentation, training, and best practices so you remain in control."
                 }
               ].map((advantage, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
@@ -284,35 +292,35 @@ const InfrastructureAsCode = () => {
             </div>
             <motion.div className="row text-center" variants={containerVariants} initial="hidden" animate="visible">
               {[
-                { 
-                  title: "Speed and Efficiency", 
-                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Provision infrastructure in minutes instead of hours or days." 
+                {
+                  title: "Speed and Efficiency",
+                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Provision infrastructure in minutes instead of hours or days."
                 },
-                { 
-                  title: "Consistency and Repeatability", 
-                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Eliminate human error by automating standard environments with code." 
+                {
+                  title: "Consistency and Repeatability",
+                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Eliminate human error by automating standard environments with code."
                 },
-                { 
-                  title: "Scalability", 
-                  icon: <FaLayerGroup size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Easily replicate infrastructure across multiple environments and regions." 
+                {
+                  title: "Scalability",
+                  icon: <FaLayerGroup size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Easily replicate infrastructure across multiple environments and regions."
                 },
-                { 
-                  title: "Cost Optimization", 
-                  icon: <FaServer size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Decommission unused resources automatically and track infrastructure costs with greater visibility." 
+                {
+                  title: "Cost Optimization",
+                  icon: <FaServer size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Decommission unused resources automatically and track infrastructure costs with greater visibility."
                 },
-                { 
-                  title: "Version Control and Auditability", 
-                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Track changes, roll back to previous states, and maintain a full audit trail using Git-based workflows." 
+                {
+                  title: "Version Control and Auditability",
+                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Track changes, roll back to previous states, and maintain a full audit trail using Git-based workflows."
                 },
-                { 
-                  title: "Disaster Recovery Ready", 
-                  icon: <FaCloud size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Rebuild entire environments from code in case of a failure or outage." 
+                {
+                  title: "Disaster Recovery Ready",
+                  icon: <FaCloud size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Rebuild entire environments from code in case of a failure or outage."
                 }
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
@@ -380,35 +388,35 @@ const InfrastructureAsCode = () => {
             </div>
             <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
               {[
-                { 
-                  title: "IaC Framework Development", 
-                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Custom-built infrastructure automation frameworks using Terraform, Ansible, or a hybrid approach." 
+                {
+                  title: "IaC Framework Development",
+                  icon: <FaCode size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Custom-built infrastructure automation frameworks using Terraform, Ansible, or a hybrid approach."
                 },
-                { 
-                  title: "Multi-Cloud and Hybrid Deployments", 
-                  icon: <FaCloud size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Unified IaC strategies across AWS, Azure, GCP, and on-premises environments." 
+                {
+                  title: "Multi-Cloud and Hybrid Deployments",
+                  icon: <FaCloud size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Unified IaC strategies across AWS, Azure, GCP, and on-premises environments."
                 },
-                { 
-                  title: "CI/CD Pipeline Integration", 
-                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Automate your full software delivery lifecycle, including infrastructure updates." 
+                {
+                  title: "CI/CD Pipeline Integration",
+                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Automate your full software delivery lifecycle, including infrastructure updates."
                 },
-                { 
-                  title: "Policy as Code", 
-                  icon: <FaServer size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Enforce security, compliance, and governance through tools like OPA (Open Policy Agent)." 
+                {
+                  title: "Policy as Code",
+                  icon: <FaServer size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Enforce security, compliance, and governance through tools like OPA (Open Policy Agent)."
                 },
-                { 
-                  title: "Modular & Reusable Templates", 
-                  icon: <FaLayerGroup size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Pre-built modules for common services to ensure quick, reliable deployments." 
+                {
+                  title: "Modular & Reusable Templates",
+                  icon: <FaLayerGroup size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Pre-built modules for common services to ensure quick, reliable deployments."
                 },
-                { 
-                  title: "IaC as a Service (IaCaaS)", 
-                  icon: <FaTools size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />, 
-                  desc: "Fully managed IaC delivery and support, enabling you to focus on your core business." 
+                {
+                  title: "IaC as a Service (IaCaaS)",
+                  icon: <FaTools size={40} style={{ color: "var(--primary-color)", marginBottom: "1rem" }} />,
+                  desc: "Fully managed IaC delivery and support, enabling you to focus on your core business."
                 }
               ].map((solution, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
@@ -447,25 +455,43 @@ const InfrastructureAsCode = () => {
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <motion.div className="accordion-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.5 }}>
-              <Accordion defaultActiveKey="0">
-                {faqs.map((faq, index) => (
-                  <Accordion.Item eventKey={index.toString()} key={index} style={{
-                    marginBottom: "15px",
-                    borderRadius: "8px",
-                    overflow: "hidden",
-                    border: "1px solid rgba(var(--primary-color-rgb), 0.2)"
-                  }}>
-                    <Accordion.Header>
-                      <span style={{ color: "var(--ct-color)", fontWeight: "600" }}>{faq.question}</span>
-                    </Accordion.Header>
-                    <Accordion.Body style={{ backgroundColor: "#f9fbff" }}>
-                      <p>{faq.answer}</p>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                ))}
-              </Accordion>
-            </motion.div>
+
+            <div className="faqs-container custom-accordion">
+              {faqs.map((faq, index) => (
+                <motion.div
+                  className="faq-item"
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Accordion
+                    activeKey={activeKey}
+                    onSelect={handleAccordionChange}>
+                    <Accordion.Item 
+                    eventKey={index.toString()} key={index} 
+                    style={{
+                      marginBottom: "15px",
+                      borderRadius: "8px",
+                      overflow: "hidden",
+                    }}>
+                      <Accordion.Header>
+                        <div className="faq-question">
+                          <span className="question-icon" style={{ paddingRight: "5px" }}>Q</span>
+                          <span className="question-text" style={{ fontWeight: "600" }}>{faq.question}</span>
+                        </div>
+                      </Accordion.Header>
+                      <Accordion.Body style={{ backgroundColor: "#f9fbff" }}>
+                        <div className="faq-answer">
+                          <span className="answer-icon" style={{ color: "var(--tt-color)" }}>A</span>
+                          <p>{faq.answer}</p>
+                        </div>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                </motion.div>
+              ))}
+            </div>
             <motion.div className="mt-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }}>
               <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Resources to Learn More</h3>
               <div className="d-flex justify-content-center mb-5">
@@ -501,7 +527,7 @@ const InfrastructureAsCode = () => {
                 ))}
               </div>
             </motion.div>
-          </div>
+          </div >
         );
       default:
         return <div>Content not found</div>;
@@ -510,65 +536,26 @@ const InfrastructureAsCode = () => {
 
   return (
     <div className="container-fluid p-0">
-      {/* Hero Section */}
-      <div 
-        className="hero-section text-white d-flex flex-column align-items-center justify-content-center"
-        style={{ 
-          background: `linear-gradient(rgba(0, 0, 30, 0.7), rgba(0, 0, 30, 0.8)), url(${backgroundImage}) center/cover no-repeat`,
-          height: "60vh",
-          position: "relative"
-        }}
-      >
-        <motion.div className="container text-center" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h1 className="display-3 fw-bold mb-3" style={{ color: "#fff" }}>
-              Infrastructure as Code: Automate Your Platform
-            </h1>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            <p className="lead fs-4 mb-4" style={{ color: "#fff" }}>
-              Transform Infrastructure Management Through Intelligent Automation
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-          >
-            <Link to="/contact" className="btn" style={{
-              backgroundColor: "var(--primary-color)",
-              color: "#fff",
-              padding: "12px 25px",
-              borderRadius: "30px",
-              fontWeight: "600",
-              transition: "all 0.3s ease"
-            }}>
-              Get Started <FaArrowRight style={{ marginLeft: "8px" }} />
-            </Link>
-          </motion.div>
-        </motion.div>
-      </div>
+      <PageBanner
+        title="Infrastructure as Code - Automate Your Platform"
+        subtitle="Transform Infrastructure Management Through Intelligent Automation"
+        backgroundImage={backgroundImage}
+        background="#0a1033"
+        currentpage="Infrastructure as Code"
+      />
       {/* Tabs Section */}
       <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <motion.div 
+              <motion.div
                 className="text-center mb-5"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-              ></motion.div>    
+              ></motion.div>
               <div className="custom-tabs-container">
-                <motion.div 
+                <motion.div
                   className="tab-navigation mb-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -578,7 +565,7 @@ const InfrastructureAsCode = () => {
                     {tabs.map((tab) => (
                       <li className="nav-item" key={tab.id} role="presentation">
                         <button
-                          className={`nav-link ${activeTab === tab.id ? 'active' : ''}`}
+                          className={`nav-link-tab ${activeTab === tab.id ? 'active' : ''}`}
                           onClick={() => setActiveTab(tab.id)}
                           id={`${tab.id}-tab`}
                           type="button"
@@ -589,7 +576,7 @@ const InfrastructureAsCode = () => {
                             borderBottom: activeTab === tab.id ? `3px solid var(--primary-color)` : 'none'
                           }}
                         >
-                          <i className="tab-icon" style={{ color: "var(--primary-color)" }}>{tab.icon}</i>
+                          <i className="tab-icon" style={{ color: "var(--tt-color)" }}>{tab.icon}</i>
                           <span style={{ color: "var(--tt-color)" }} className="tab-text ms-2">{tab.label}</span>
                         </button>
                       </li>
@@ -619,7 +606,7 @@ const InfrastructureAsCode = () => {
       {/* Testimonials Section */}
       <section className="py-5 bg-white">
         <div className="container">
-          <motion.div 
+          <motion.div
             className="text-center mb-5"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -629,7 +616,7 @@ const InfrastructureAsCode = () => {
             <h2 style={{ color: "var(--tt-color)" }} className="display-5 fw-bold">What Our Clients Say</h2>
             <p className="lead text-muted">Success stories from businesses that transformed with IaC</p>
           </motion.div>
-          <motion.div 
+          <motion.div
             className="row"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -641,8 +628,8 @@ const InfrastructureAsCode = () => {
               { quote: "The ability to version control our infrastructure has been a game-changer for our team's productivity.", author: "DevOps Lead, Financial Services" },
               { quote: "The monitoring and security integration has helped us maintain compliance while moving faster.", author: "Security Director, Healthcare Tech" }
             ].map((testimonial, index) => (
-              <motion.div 
-                className="col-lg-4 mb-4" 
+              <motion.div
+                className="col-lg-4 mb-4"
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -672,7 +659,7 @@ const InfrastructureAsCode = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-8 text-center text-lg-start">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}

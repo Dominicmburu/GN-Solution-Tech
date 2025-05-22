@@ -7,7 +7,7 @@ const CTASection = () => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-7 mb-3 mb-lg-0">
-            <h4 className="text-purple mb-0 fw-bold">
+            <h4 style={{color: 'var(--card-color)'}} className="mb-0 fw-bold">
               Transform Your IT Infrastructure with Intelligent Automation
             </h4>
           </div>

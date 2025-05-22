@@ -42,16 +42,14 @@ const TabsSection = () => {
     }
   };
 
-  // Style object for tabs text
   const tabTextStyle = {
-    color: '#594099', // Signature purple color
+    color: 'var(--tt-color)',
     fontWeight: 500
   };
 
-  // Style object for active tab text
   const activeTabTextStyle = {
-    color: '#594099', // Keep the same purple color
-    fontWeight: 700 // Make active tab text bolder
+    color: 'var(--tt-color)', 
+    fontWeight: 700 
   };
 
   return (
@@ -75,7 +73,7 @@ const TabsSection = () => {
                           aria-selected={activeTab === tab.id}
                           style={activeTab === tab.id ? activeTabTextStyle : tabTextStyle}
                         >
-                          <i className={`${tab.icon} tab-icon`} style={{ color: '#594099' }}></i>
+                          <i className={`${tab.icon} tab-icon`} style={{ color: 'var(--tt-color)' }}></i>
                           <span className="tab-text">{tab.label}</span>
                         </button>
                       </li>
