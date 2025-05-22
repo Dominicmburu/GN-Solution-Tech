@@ -297,7 +297,7 @@ const ManagedNetworkServicesPage = () => {
       case 'whychooseus':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Why Choose Our Managed Network Services</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Why Choose Our Managed Network Services</h2>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
@@ -533,7 +533,7 @@ const ManagedNetworkServicesPage = () => {
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <div className="solutions-grid">
+            <div className="solutions-grid mb-5">
               {[
                 { title: "Network Design & Implementation", desc: "Custom network architectures for your business.", icon: <FaTools size={40} style={{ color: "var(--primary-color)" }} /> },
                 { title: "SD-WAN Deployment", desc: "Optimize connectivity with software-defined WAN.", icon: <FaNetworkWired size={40} style={{ color: "var(--primary-color)" }} /> },
