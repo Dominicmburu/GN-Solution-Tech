@@ -886,7 +886,8 @@ We combine advanced technology, expert analysis, and strategic advisory services
       <PageBanner
         title="Cybersecurity as a Service"
         subtitle="Comprehensive protection for your digital assets"
-        backgroundImage={backgroundImage}
+        backgroundImage="https://i.pinimg.com/736x/c9/8f/d7/c98fd754b643148cdd249734fce4f0dd.jpg"
+        // backgroundImage={backgroundImage}
         background="#0a1033"
         currentpage="Cybersecurity as a Service"
       />

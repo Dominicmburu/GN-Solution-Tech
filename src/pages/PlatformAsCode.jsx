@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { 
-  FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, 
-  FaDocker, FaGitlab, FaJenkins, FaCogs, FaShieldAlt, FaCloudDownloadAlt, 
+import {
+  FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight,
+  FaDocker, FaGitlab, FaJenkins, FaCogs, FaShieldAlt, FaCloudDownloadAlt,
   FaSyncAlt, FaUsersCog, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle,
   FaHeadset, FaUserShield, FaChartLine, FaEye
 } from "react-icons/fa";
@@ -19,8 +19,8 @@ const PlatformAsCodeIntro = () => (
       <div className="col-12">
         <div className="card shadow-lg border-0 p-4 mb-5 gradient-card">
           <p className="text-center text-light fw-bold mb-0">
-           Platform as Code (PaaC) as a Service is a modern IT delivery model that enables organizations to define, provision, and manage entire technology platforms using code. Unlike Infrastructure as Code (IaC), which focuses on provisioning infrastructure, PaaC extends this concept to include the entire application platform stack—services, runtime environments, network configurations, security policies, monitoring, CI/CD pipelines, and more—all written and maintained as code.
-At GN Solutions, our PaaC as a Service offering abstracts the complexity of building and operating cloud-native platforms, empowering businesses to accelerate innovation, ensure consistency, and reduce operational overhead.
+            Platform as Code (PaaC) as a Service is a modern IT delivery model that enables organizations to define, provision, and manage entire technology platforms using code. Unlike Infrastructure as Code (IaC), which focuses on provisioning infrastructure, PaaC extends this concept to include the entire application platform stack—services, runtime environments, network configurations, security policies, monitoring, CI/CD pipelines, and more—all written and maintained as code.
+            At GN Solutions, our PaaC as a Service offering abstracts the complexity of building and operating cloud-native platforms, empowering businesses to accelerate innovation, ensure consistency, and reduce operational overhead.
 
           </p>
         </div>
@@ -31,7 +31,7 @@ At GN Solutions, our PaaC as a Service offering abstracts the complexity of buil
 
 const PlatformAsCodePage = () => {
   const [activeTab, setActiveTab] = useState('overview');
-  
+
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
     { id: 'whychooseus', label: 'Why Choose Us', icon: <FaAward /> },
@@ -41,36 +41,36 @@ const PlatformAsCodePage = () => {
   ];
 
   const faqs = [
-    { 
-      question: "What is Platform as Code?", 
-      answer: "Platform as Code (PaaC) is a methodology that defines, provisions, and manages entire technology platforms using code. Unlike Infrastructure as Code (IaC) which focuses on provisioning infrastructure, PaaC extends this concept to include the entire application platform stack—services, runtime environments, network configurations, security policies, monitoring, CI/CD pipelines, and more." 
+    {
+      question: "What is Platform as Code?",
+      answer: "Platform as Code (PaaC) is a methodology that defines, provisions, and manages entire technology platforms using code. Unlike Infrastructure as Code (IaC) which focuses on provisioning infrastructure, PaaC extends this concept to include the entire application platform stack—services, runtime environments, network configurations, security policies, monitoring, CI/CD pipelines, and more."
     },
-    { 
-      question: "How is PaaC different from Infrastructure as Code (IaC)?", 
-      answer: "IaC focuses on provisioning infrastructure (VMs, networks, etc.), while PaaC includes everything from infrastructure to middleware, applications, observability, and security policies—essentially the entire platform lifecycle." 
+    {
+      question: "How is PaaC different from Infrastructure as Code (IaC)?",
+      answer: "IaC focuses on provisioning infrastructure (VMs, networks, etc.), while PaaC includes everything from infrastructure to middleware, applications, observability, and security policies—essentially the entire platform lifecycle."
     },
-    { 
-      question: "Do I need to have DevOps experience to implement Platform as Code?", 
-      answer: "Not at all. We offer a fully managed service. Our team handles everything from setup and configuration to training and support." 
+    {
+      question: "Do I need to have DevOps experience to implement Platform as Code?",
+      answer: "Not at all. We offer a fully managed service. Our team handles everything from setup and configuration to training and support."
     },
-    { 
-      question: "Can platform blueprints be customized for specific business needs?", 
-      answer: "Yes, all platform templates are modular and can be tailored to your specific business and compliance requirements." 
+    {
+      question: "Can platform blueprints be customized for specific business needs?",
+      answer: "Yes, all platform templates are modular and can be tailored to your specific business and compliance requirements."
     },
-    { 
-      question: "Which tools and technologies are supported for Platform as Code?", 
-      answer: "We support Terraform, Ansible, Helm, Kubernetes, Docker, Jenkins, GitHub, AWS, Azure, GCP, OpenShift, and many more technologies that enable codifying platform components." 
+    {
+      question: "Which tools and technologies are supported for Platform as Code?",
+      answer: "We support Terraform, Ansible, Helm, Kubernetes, Docker, Jenkins, GitHub, AWS, Azure, GCP, OpenShift, and many more technologies that enable codifying platform components."
     },
-    { 
-      question: "How does Platform as Code ensure security and compliance?", 
-      answer: "Security is integrated into every step—from IAM policies and encryption to compliance-as-code (CIS, NIST, ISO frameworks). Platform as Code enables embedding governance, access controls, and compliance checks directly into platform code." 
+    {
+      question: "How does Platform as Code ensure security and compliance?",
+      answer: "Security is integrated into every step—from IAM policies and encryption to compliance-as-code (CIS, NIST, ISO frameworks). Platform as Code enables embedding governance, access controls, and compliance checks directly into platform code."
     }
   ];
 
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: { staggerChildren: 0.1 }
     }
@@ -90,33 +90,33 @@ const PlatformAsCodePage = () => {
               <h3 className="text-center text-primary mb-4">Key Features</h3>
               <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
                 {[
-                  { 
-                    title: "Declarative Platform Definitions", 
+                  {
+                    title: "Declarative Platform Definitions",
                     desc: "Define full-stack platform configurations (infrastructure + services + policies) using YAML, JSON, or HCL code.",
                     icon: <FaCode size={40} className="feature-icon" />
                   },
-                  { 
-                    title: "Multi-Cloud Support", 
+                  {
+                    title: "Multi-Cloud Support",
                     desc: "Seamlessly deploy across AWS, Azure, GCP, or on-premise environments with unified code templates.",
                     icon: <FaCloud size={40} className="feature-icon" />
                   },
-                  { 
-                    title: "Automated Provisioning", 
+                  {
+                    title: "Automated Provisioning",
                     desc: "Auto-provision infrastructure, services, and applications with full lifecycle management.",
                     icon: <FaRocket size={40} className="feature-icon" />
                   },
-                  { 
-                    title: "Security as Code", 
+                  {
+                    title: "Security as Code",
                     desc: "Embed governance, access controls, and compliance checks directly into platform code.",
                     icon: <FaShieldAlt size={40} className="feature-icon" />
                   },
-                  { 
-                    title: "CI/CD Integration", 
+                  {
+                    title: "CI/CD Integration",
                     desc: "Integrated with Jenkins, GitHub Actions, GitLab CI, or ArgoCD for continuous delivery.",
                     icon: <FaJenkins size={40} className="feature-icon" />
                   },
-                  { 
-                    title: "Observability as Code", 
+                  {
+                    title: "Observability as Code",
                     desc: "Deploy monitoring, logging, and alerting configurations automatically as part of the platform.",
                     icon: <FaCogs size={40} className="feature-icon" />
                   }
@@ -132,32 +132,183 @@ const PlatformAsCodePage = () => {
                   </motion.div>
                 ))}
               </motion.div>
-              
-              <h3 className="text-center text-primary mb-4 mt-5">Implementation Process</h3>
-              <div className="implementation-timeline">
+
+              <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Implementation Process</h3>
+              <div className="d-flex justify-content-center mb-5">
+                <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+              </div>
+
+              {/* Implementation Timeline - Vertical responsive design */}
+              <div className="position-relative py-3" style={{ marginBottom: "50px" }}>
+                {/* Vertical timeline line */}
+                <div className="position-absolute" style={{
+                  top: "0",
+                  bottom: "0",
+                  left: "50%",
+                  width: "4px",
+                  backgroundColor: "var(--primary-color)",
+                  transform: "translateX(-50%)"
+                }}></div>
+
                 {[
-                  { step: "Define Requirements", icon: <FaLayerGroup size={24} /> }, 
-                  { step: "Select Platform Tools", icon: <FaTools size={24} /> }, 
-                  { step: "Develop Platform Code", icon: <FaCode size={24} /> }, 
-                  { step: "Test & Validate", icon: <FaServer size={24} /> },
-                  { step: "Deploy & Monitor", icon: <FaRocket size={24} /> }
+                  {
+                    step: "Define Requirements",
+                    desc: "Establish clear objectives and platform specifications",
+                    icon: <FaLayerGroup size={24} />,
+                    nodeIcon: <FaLayerGroup size={20} />
+                  },
+                  {
+                    step: "Select Platform Tools",
+                    desc: "Choose appropriate technologies and frameworks",
+                    icon: <FaTools size={24} />,
+                    nodeIcon: <FaTools size={20} />
+                  },
+                  {
+                    step: "Develop Platform Code",
+                    desc: "Build and implement core platform functionality",
+                    icon: <FaCode size={24} />,
+                    nodeIcon: <FaCode size={20} />
+                  },
+                  {
+                    step: "Test & Validate",
+                    desc: "Comprehensive testing and quality assurance",
+                    icon: <FaServer size={24} />,
+                    nodeIcon: <FaServer size={20} />
+                  },
+                  {
+                    step: "Deploy & Monitor",
+                    desc: "Launch platform and establish monitoring systems",
+                    icon: <FaRocket size={24} />,
+                    nodeIcon: <FaRocket size={20} />
+                  }
                 ].map((step, index) => (
-                  <motion.div 
-                    className="timeline-item" 
-                    key={index} 
-                    variants={itemVariants}
-                    initial="hidden"
-                    animate="visible"
+                  <motion.div
+                    className="row mb-5 position-relative"
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: index * 0.2 }}
                   >
-                    <div className="timeline-icon">
-                      {step.icon}
+                    {/* Timeline node/circle with icon - properly centered */}
+                    <div className="col-12 d-flex justify-content-center" style={{
+                      marginBottom: "0px",
+                      height: "0px"
+                    }}>
+                      <div style={{
+                        width: "60px",
+                        height: "60px",
+                        borderRadius: "50%",
+                        backgroundColor: "#402456",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "#fff",
+                        border: "4px solid var(--primary-color)",
+                        boxShadow: "0 0 0 5px rgba(255,255,255,0.8)",
+                        zIndex: "2",
+                        position: "relative",
+                        top: "-30px"
+                      }}>
+                        <div style={{
+                          width: "42px",
+                          height: "42px",
+                          borderRadius: "50%",
+                          backgroundColor: "var(--primary-color)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontWeight: "bold"
+                        }}>
+                          {step.nodeIcon}
+                        </div>
+                      </div>
                     </div>
-                    <div className="timeline-content">
-                      <h5>{step.step}</h5>
+
+                    {/* Content Card */}
+                    <div className={`col-md-5 ${index % 2 === 0 ? "offset-md-1 pe-md-5 text-md-end" : "offset-md-6 ps-md-5 text-md-start"}`}>
+                      <div style={{
+                        backgroundColor: "white",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        boxShadow: "0 6px 15px rgba(0,0,0,0.1)",
+                        border: "1px solid rgba(0,0,0,0.05)",
+                        position: "relative",
+                        marginTop: "-20px"
+                      }}>
+                        {/* Triangle pointer */}
+                        <div style={{
+                          position: "absolute",
+                          top: "20px",
+                          [index % 2 === 0 ? "right" : "left"]: "-10px",
+                          width: "20px",
+                          height: "20px",
+                          backgroundColor: "white",
+                          transform: "rotate(45deg)",
+                          borderLeft: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                          borderBottom: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                          borderRight: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                          borderTop: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none"
+                        }}></div>
+
+                        <div className="d-flex align-items-center" style={{
+                          marginBottom: "12px",
+                        }}>
+                          <div style={{
+                            backgroundColor: "var(--primary-color)",
+                            borderRadius: "50%",
+                            width: "38px",
+                            height: "38px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            marginRight: "12px",
+                            color: "white"
+                          }}>
+                            {step.icon}
+                          </div>
+                          <h5 style={{
+                            color: "var(--ct-color)",
+                            margin: "0",
+                            fontWeight: "600"
+                          }}>{step.step}</h5>
+                        </div>
+                        <p style={{
+                          margin: "0",
+                          color: "#666",
+                          fontSize: "15px"
+                        }}>{step.desc}</p>
+                      </div>
                     </div>
                   </motion.div>
                 ))}
               </div>
+
+              {/* Responsive styles for mobile */}
+              <style jsx>{`
+        @media (max-width: 767px) {
+          .position-relative > div:first-child {
+            left: 20px !important;
+            transform: none !important;
+          }
+          .col-md-5 {
+            margin-left: 60px !important;
+            padding-left: 20px !important;
+            text-align: left !important;
+          }
+          .col-md-5 > div > div:first-of-type {
+            left: -10px !important;
+            right: auto !important;
+            border-left: 1px solid rgba(0,0,0,0.05) !important;
+            border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+            border-right: none !important;
+            border-top: none !important;
+          }
+          .col-12.d-flex.justify-content-center {
+            justify-content: flex-start !important;
+            padding-left: 20px !important;
+          }
+        }
+      `}</style>
             </div>
           </div>
         );
@@ -167,33 +318,33 @@ const PlatformAsCodePage = () => {
             <h2 className="text-center text-primary mb-4">Why Choose Our Platform as Code Service</h2>
             <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
               {[
-                { 
-                  title: "End-to-End Expertise", 
+                {
+                  title: "End-to-End Expertise",
                   desc: "From architecture design to automation and support, we bring full-stack knowledge across networks, DevOps, cloud, and platforms.",
                   icon: <FaUserShield size={40} className="why-choose-icon" />
                 },
-                { 
-                  title: "Custom-Built Solutions", 
+                {
+                  title: "Custom-Built Solutions",
                   desc: "Every PaaC deployment is tailored to your business, compliance, and operational needs.",
                   icon: <FaTools size={40} className="why-choose-icon" />
                 },
-                { 
-                  title: "Faster Time to Value", 
+                {
+                  title: "Faster Time to Value",
                   desc: "Our templated platform blueprints and automation pipelines accelerate time to deployment by up to 70%.",
                   icon: <FaChartLine size={40} className="why-choose-icon" />
                 },
-                { 
-                  title: "Security-First Mindset", 
+                {
+                  title: "Security-First Mindset",
                   desc: "Security policies, IAM roles, network segmentation, and encryption are integrated from Day 0.",
                   icon: <FaShieldAlt size={40} className="why-choose-icon" />
                 },
-                { 
-                  title: "Ongoing Support and Optimization", 
+                {
+                  title: "Ongoing Support and Optimization",
                   desc: "We offer 24/7 support, performance monitoring, and continuous improvement of your platform codebase.",
                   icon: <FaHeadset size={40} className="why-choose-icon" />
                 },
-                { 
-                  title: "Reusable Blueprints and Modules", 
+                {
+                  title: "Reusable Blueprints and Modules",
                   desc: "Create and share platform blueprints for repeatable deployments across teams or environments.",
                   icon: <FaLayerGroup size={40} className="why-choose-icon" />
                 }
@@ -209,12 +360,12 @@ const PlatformAsCodePage = () => {
                 </motion.div>
               ))}
             </motion.div>
-            
+
             <h3 className="text-center text-primary mb-4 mt-5">Our Approach to Platform as Code</h3>
             <div className="approach-container">
               <div className="row">
                 <div className="col-md-6">
-                  <motion.div 
+                  <motion.div
                     className="approach-card"
                     variants={itemVariants}
                     initial="hidden"
@@ -222,14 +373,14 @@ const PlatformAsCodePage = () => {
                   >
                     <h4>Multi-Cloud and Hybrid Support</h4>
                     <p>
-                      Our Platform as Code service enables deployment across AWS, Azure, GCP, or on-premise 
-                      environments with unified code templates. We manage the complexity of different cloud 
+                      Our Platform as Code service enables deployment across AWS, Azure, GCP, or on-premise
+                      environments with unified code templates. We manage the complexity of different cloud
                       providers so you can focus on your applications.
                     </p>
                   </motion.div>
                 </div>
                 <div className="col-md-6">
-                  <motion.div 
+                  <motion.div
                     className="approach-card"
                     variants={itemVariants}
                     initial="hidden"
@@ -237,7 +388,7 @@ const PlatformAsCodePage = () => {
                   >
                     <h4>Automated Lifecycle Management</h4>
                     <p>
-                      We implement full lifecycle management (create, update, destroy) for your platform components, 
+                      We implement full lifecycle management (create, update, destroy) for your platform components,
                       ensuring that every resource is properly provisioned, updated, and decommissioned when needed.
                     </p>
                   </motion.div>
@@ -245,7 +396,7 @@ const PlatformAsCodePage = () => {
               </div>
               <div className="row mt-4">
                 <div className="col-md-6">
-                  <motion.div 
+                  <motion.div
                     className="approach-card"
                     variants={itemVariants}
                     initial="hidden"
@@ -253,14 +404,14 @@ const PlatformAsCodePage = () => {
                   >
                     <h4>Proactive Performance Optimization</h4>
                     <p>
-                      Our team continuously monitors and optimizes your platform for performance, 
-                      cost efficiency, and security using HA architectures, auto-scaling, and 
+                      Our team continuously monitors and optimizes your platform for performance,
+                      cost efficiency, and security using HA architectures, auto-scaling, and
                       self-healing components.
                     </p>
                   </motion.div>
                 </div>
                 <div className="col-md-6">
-                  <motion.div 
+                  <motion.div
                     className="approach-card"
                     variants={itemVariants}
                     initial="hidden"
@@ -268,17 +419,17 @@ const PlatformAsCodePage = () => {
                   >
                     <h4>Knowledge Transfer & Training</h4>
                     <p>
-                      We don't just build your platform—we ensure your team knows how to leverage it. 
+                      We don't just build your platform—we ensure your team knows how to leverage it.
                       Our comprehensive training and documentation empowers your developers and operators.
                     </p>
                   </motion.div>
                 </div>
               </div>
             </div>
-            
+
             <h3 className="text-center text-primary mb-4 mt-5">Our Commitment to Success</h3>
             <div className="commitment-container">
-              <motion.div 
+              <motion.div
                 className="commitment-banner"
                 variants={itemVariants}
                 initial="hidden"
@@ -288,9 +439,9 @@ const PlatformAsCodePage = () => {
                   <FaEye size={40} className="mb-3" />
                   <h4>Vision</h4>
                   <p>
-                    We believe that Platform as Code is not just about technology, but about enabling 
-                    organizations to innovate faster, operate more efficiently, and scale confidently. 
-                    We're committed to helping you transform your technology delivery through automation, 
+                    We believe that Platform as Code is not just about technology, but about enabling
+                    organizations to innovate faster, operate more efficiently, and scale confidently.
+                    We're committed to helping you transform your technology delivery through automation,
                     consistency, and operational excellence.
                   </p>
                 </div>
@@ -304,35 +455,35 @@ const PlatformAsCodePage = () => {
             <h2 className="text-center text-primary mb-4">Key Benefits</h2>
             <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
               {[
-                { 
-                  title: "Consistency", 
-                  icon: <FaLayerGroup size={40} className="benefit-icon" />, 
-                  desc: "Identical environments across development, staging, and production eliminate 'it works on my machine' problems" 
+                {
+                  title: "Consistency",
+                  icon: <FaLayerGroup size={40} className="benefit-icon" />,
+                  desc: "Identical environments across development, staging, and production eliminate 'it works on my machine' problems"
                 },
-                { 
-                  title: "Rapid Scalability", 
-                  icon: <FaRocket size={40} className="benefit-icon" />, 
-                  desc: "Spin up fully-configured environments in minutes—scalable on demand" 
+                {
+                  title: "Rapid Scalability",
+                  icon: <FaRocket size={40} className="benefit-icon" />,
+                  desc: "Spin up fully-configured environments in minutes—scalable on demand"
                 },
-                { 
-                  title: "DevOps Efficiency", 
-                  icon: <FaUsersCog size={40} className="benefit-icon" />, 
-                  desc: "Eliminate manual configurations, reduce errors, and increase team productivity" 
+                {
+                  title: "DevOps Efficiency",
+                  icon: <FaUsersCog size={40} className="benefit-icon" />,
+                  desc: "Eliminate manual configurations, reduce errors, and increase team productivity"
                 },
-                { 
-                  title: "Cost Reduction", 
-                  icon: <FaCloudDownloadAlt size={40} className="benefit-icon" />, 
-                  desc: "Automate repetitive tasks and optimize cloud/resource utilization to cut down OPEX" 
+                {
+                  title: "Cost Reduction",
+                  icon: <FaCloudDownloadAlt size={40} className="benefit-icon" />,
+                  desc: "Automate repetitive tasks and optimize cloud/resource utilization to cut down OPEX"
                 },
-                { 
-                  title: "Auditability", 
-                  icon: <FaShieldAlt size={40} className="benefit-icon" />, 
-                  desc: "Full platform state is version-controlled and auditable—perfect for meeting regulatory requirements" 
+                {
+                  title: "Auditability",
+                  icon: <FaShieldAlt size={40} className="benefit-icon" />,
+                  desc: "Full platform state is version-controlled and auditable—perfect for meeting regulatory requirements"
                 },
-                { 
-                  title: "Automation", 
-                  icon: <FaSyncAlt size={40} className="benefit-icon" />, 
-                  desc: "Streamlines software deployment and update processes with consistent results" 
+                {
+                  title: "Automation",
+                  icon: <FaSyncAlt size={40} className="benefit-icon" />,
+                  desc: "Streamlines software deployment and update processes with consistent results"
                 }
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
@@ -346,21 +497,21 @@ const PlatformAsCodePage = () => {
                 </motion.div>
               ))}
             </motion.div>
-            
+
             <h3 className="text-center text-primary mb-4 mt-5">Success Stories</h3>
             <div className="success-stories">
               {[
-                { 
-                  company: "Enterprise Financial Services", 
-                  result: "Reduced platform deployment time from weeks to hours using platform-as-code practices, with 90% fewer configuration errors." 
+                {
+                  company: "Enterprise Financial Services",
+                  result: "Reduced platform deployment time from weeks to hours using platform-as-code practices, with 90% fewer configuration errors."
                 },
-                { 
-                  company: "Global Media Company", 
-                  result: "Automated deployments and configuration management reduced downtime by 80% and accelerated feature releases by 60%." 
+                {
+                  company: "Global Media Company",
+                  result: "Automated deployments and configuration management reduced downtime by 80% and accelerated feature releases by 60%."
                 },
-                { 
-                  company: "Healthcare Solutions Provider", 
-                  result: "CI/CD pipelines and containerization with platform-as-code enabled compliance-as-code, reducing audit preparation time by 70%." 
+                {
+                  company: "Healthcare Solutions Provider",
+                  result: "CI/CD pipelines and containerization with platform-as-code enabled compliance-as-code, reducing audit preparation time by 70%."
                 }
               ].map((story, index) => (
                 <motion.div className="story-card" key={index} variants={itemVariants} initial="hidden" animate="visible">
@@ -368,11 +519,11 @@ const PlatformAsCodePage = () => {
                     <h5>{story.company}</h5>
                     <p>{story.result}</p>
                   </div>
-                </motion.div> 
+                </motion.div>
               ))}
-              
+
             </div>
-            
+
             <div className="metrics-banner mt-5">
               <h3 className="text-center mb-4">ROI of Platform as Code</h3>
               <div className="metrics-container">
@@ -382,8 +533,8 @@ const PlatformAsCodePage = () => {
                   { value: "35%", label: "Reduction in Development Costs" },
                   { value: "60%", label: "More Releases per Month" }
                 ].map((metric, index) => (
-                  <motion.div 
-                    className="metric" 
+                  <motion.div
+                    className="metric"
                     key={index}
                     variants={itemVariants}
                     initial="hidden"
@@ -403,40 +554,40 @@ const PlatformAsCodePage = () => {
             <h2 className="text-center text-primary mb-4">Key Solutions We Deliver</h2>
             <div className="solutions-grid">
               {[
-                { 
-                  title: "Cloud Migration & Modernization", 
+                {
+                  title: "Cloud Migration & Modernization",
                   desc: "Lift-and-shift legacy apps into cloud-native platforms using code.",
-                  icon: <FaCloud size={40} /> 
+                  icon: <FaCloud size={40} />
                 },
-                { 
-                  title: "Kubernetes & Container Management", 
+                {
+                  title: "Kubernetes & Container Management",
                   desc: "Define clusters, Helm charts, ingress controllers, observability stacks, GitOps workflows and service meshes as code.",
-                  icon: <FaDocker size={40} /> 
+                  icon: <FaDocker size={40} />
                 },
-                { 
-                  title: "Developer Self-Service Portals", 
+                {
+                  title: "Developer Self-Service Portals",
                   desc: "Portals that allow developers to spin up entire application stacks using PaaC blueprints.",
-                  icon: <FaUsersCog size={40} /> 
+                  icon: <FaUsersCog size={40} />
                 },
-                { 
-                  title: "CI/CD Pipeline Automation", 
+                {
+                  title: "CI/CD Pipeline Automation",
                   desc: "Codify build, test, and deployment workflows for repeatable delivery processes.",
-                  icon: <FaJenkins size={40} /> 
+                  icon: <FaJenkins size={40} />
                 },
-                { 
-                  title: "Disaster Recovery as Code", 
+                {
+                  title: "Disaster Recovery as Code",
                   desc: "Automatically recover full platforms in alternate regions or datacenters using version-controlled platform definitions.",
-                  icon: <FaSyncAlt size={40} /> 
+                  icon: <FaSyncAlt size={40} />
                 },
-                { 
-                  title: "DevSecOps Pipelines", 
+                {
+                  title: "DevSecOps Pipelines",
                   desc: "Pipelines that build, test, secure, and deploy PaaC environments with vulnerability scanning and policy enforcement.",
-                  icon: <FaShieldAlt size={40} /> 
+                  icon: <FaShieldAlt size={40} />
                 }
               ].map((solution, index) => (
-                <motion.div 
-                  className="solution-card" 
-                  key={index} 
+                <motion.div
+                  className="solution-card"
+                  key={index}
                   variants={itemVariants}
                   initial="hidden"
                   animate="visible"
@@ -457,8 +608,8 @@ const PlatformAsCodePage = () => {
             <h2 className="text-center text-primary mb-4">Frequently Asked Questions</h2>
             <div className="faqs-container">
               {faqs.map((faq, index) => (
-                <motion.div 
-                  className="faq-item" 
+                <motion.div
+                  className="faq-item"
                   key={index}
                   variants={itemVariants}
                   initial="hidden"
@@ -483,7 +634,7 @@ const PlatformAsCodePage = () => {
                 </motion.div>
               ))}
             </div>
-            
+
             <div className="mt-5">
               <h3 className="text-center text-primary mb-4">Resources to Learn More</h3>
               <div className="resources-grid">
@@ -536,15 +687,15 @@ const PlatformAsCodePage = () => {
   return (
     <div className="container-fluid p-0">
       {/* Hero Section */}
-      <div 
+      <div
         className="hero-section text-white d-flex flex-column align-items-center justify-content-center"
-        style={{ 
+        style={{
           background: `linear-gradient(rgba(0, 0, 30, 0.7), rgba(0, 0, 30, 0.8)), url(${backgroundImage}) center/cover no-repeat`,
           height: "60vh",
           position: "relative"
         }}
       >
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -577,14 +728,14 @@ const PlatformAsCodePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <motion.div 
+              <motion.div
                 className="text-center mb-5"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-              ></motion.div>    
+              ></motion.div>
               <div className="custom-tabs-container">
-                <motion.div 
+                <motion.div
                   className="tab-navigation mb-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

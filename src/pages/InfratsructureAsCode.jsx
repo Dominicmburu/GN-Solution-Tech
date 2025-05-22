@@ -353,27 +353,135 @@ const InfrastructureAsCode = () => {
                 </motion.div>
               ))}
             </motion.div>
-            <motion.div className="row mt-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.5 }}>
+            <motion.div
+              className="row mt-5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.5 }}
+            >
               <div className="col-12">
-                <div className="card border-0 p-4" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                  <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-4">ROI of Infrastructure as Code</h3>
+                <div className="metrics-banner">
+                  <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">ROI of Infrastructure as Code</h3>
                   <div className="d-flex justify-content-center mb-5">
                     <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
                   </div>
                   <div className="row">
                     {[
-                      { value: "30-50%", label: "Reduction in operational costs" },
-                      { value: "75%", label: "Faster deployment time" },
-                      { value: "90%", label: "Reduction in configuration errors" }
+                      {
+                        value: "30-50%",
+                        label: "Reduction in operational costs",
+                        image: "https://i.pinimg.com/736x/cf/91/c4/cf91c43d36fc951cd8199fda571770da.jpg",
+                        alt: "Cost Reduction"
+                      },
+                      {
+                        value: "75%",
+                        label: "Faster deployment time",
+                        image: "https://i.pinimg.com/736x/89/c1/4f/89c14f387f878f4be3797bd52bf152a5.jpg",
+                        alt: "Fast Deployment"
+                      },
+                      {
+                        value: "90%",
+                        label: "Reduction in configuration errors",
+                        image: "https://i.pinimg.com/736x/f7/bd/eb/f7bdebbd732438479a7de7f3a56c3e7b.jpg",
+                        alt: "Error Reduction"
+                      }
                     ].map((metric, index) => (
-                      <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
-                        <div className="text-center">
-                          <h4 style={{ color: "var(--primary-color)" }}>{metric.value}</h4>
-                          <p className="text-muted">{metric.label}</p>
+                      <motion.div
+                        className="col-md-4 col-sm-6 mb-4"
+                        key={index}
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: index * 0.1 }}
+                      >
+                        <div className="card border-0 pb-4 text-center h-100 position-relative overflow-hidden"
+                          style={{
+                            boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                            border: "1px solid rgba(0,0,0,0.05)",
+                            borderRadius: "12px",
+                            background: "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
+                            transition: "all 0.3s ease"
+                          }}
+                        >
+                          {/* Background accent */}
+                          <div className="position-absolute top-0 start-0 w-100" style={{
+                            height: "4px",
+                            background: "linear-gradient(90deg, var(--primary-color) 0%, rgba(var(--primary-color-rgb, 240, 139, 10), 0.6) 100%)"
+                          }}></div>
+
+                          {/* Metric circle background */}
+                          <div className="position-absolute" style={{
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            width: "120px",
+                            height: "120px",
+                            borderRadius: "50%",
+                            background: "linear-gradient(135deg, rgba(var(--primary-color-rgb, 240, 139, 10), 0.05) 0%, rgba(var(--primary-color-rgb, 240, 139, 10), 0.1) 100%)",
+                            zIndex: "1"
+                          }}></div>
+
+                          <div className="position-relative" style={{ zIndex: "2" }}>
+                            {/* Image */}
+                            <div className="mb-3">
+                              <img
+                                src={metric.image}
+                                alt={metric.alt}
+                                style={{
+                                  width: "100%",
+                                  height: "250px",
+                                  objectFit: "cover",
+                                  borderRadius: "8px",
+                                  opacity: "0.9"
+                                }}
+                              />
+                            </div>
+
+                            <div className="metric-value mb-2" style={{
+                              color: "var(--primary-color)",
+                              fontSize: "3rem",
+                              fontWeight: "800",
+                              lineHeight: "1"
+                            }}>
+                              {metric.value}
+                            </div>
+                            <div className="metric-label" style={{
+                              color: "var(--ct-color)",
+                              fontSize: "0.95rem",
+                              fontWeight: "600",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                              lineHeight: "1.3"
+                            }}>
+                              {metric.label}
+                            </div>
+                          </div>
+
+                          <div className="position-absolute bottom-0 start-50 translate-middle-x" style={{
+                            width: "30px",
+                            height: "2px",
+                            backgroundColor: "var(--primary-color)",
+                            opacity: "0.6"
+                          }}></div>
                         </div>
                       </motion.div>
                     ))}
                   </div>
+                  <style jsx>{`
+        @media (max-width: 768px) {
+          .metric-value {
+            font-size: 2.5rem !important;
+          }
+          .metric-label {
+            font-size: 0.85rem !important;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .col-sm-6 {
+            margin-bottom: 1.5rem;
+          }
+        }
+      `}</style>
                 </div>
               </div>
             </motion.div>
@@ -468,13 +576,13 @@ const InfrastructureAsCode = () => {
                   <Accordion
                     activeKey={activeKey}
                     onSelect={handleAccordionChange}>
-                    <Accordion.Item 
-                    eventKey={index.toString()} key={index} 
-                    style={{
-                      marginBottom: "15px",
-                      borderRadius: "8px",
-                      overflow: "hidden",
-                    }}>
+                    <Accordion.Item
+                      eventKey={index.toString()} key={index}
+                      style={{
+                        marginBottom: "15px",
+                        borderRadius: "8px",
+                        overflow: "hidden",
+                      }}>
                       <Accordion.Header>
                         <div className="faq-question">
                           <span className="question-icon" style={{ paddingRight: "5px" }}>Q</span>
@@ -549,7 +657,7 @@ const InfrastructureAsCode = () => {
           <div className="row">
             <div className="col-lg-12">
               <motion.div
-                className="text-center mb-5"
+                className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}

@@ -704,7 +704,8 @@ const ManagedNetworkServicesPage = () => {
       <PageBanner
         title="Managed Network Services"
         subtitle="End-to-end network management for reliable, secure, and scalable connectivity"
-        backgroundImage={backgroundImage}
+        // backgroundImage={backgroundImage}
+        backgroundImage="https://i.pinimg.com/736x/cb/23/0f/cb230f95556f05c3ae9b592b6ffe6a3e.jpg"
         background="#0a1033"
         currentpage="Managed Network Services"
       />
