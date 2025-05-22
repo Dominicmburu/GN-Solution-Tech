@@ -31,13 +31,13 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
   // Determine background style based on props
   const bannerStyle = {
     backgroundColor: background || "#0a1033",
-    padding: "100px 0 80px",
+    padding: "120px 0 80px",
     position: "relative",
     overflow: "hidden",
     ...(backgroundImage && {
       backgroundImage: `linear-gradient(rgba(10, 16, 51, 0.4), rgba(10, 16, 51, 0.3)), url(${backgroundImage})`,
       backgroundSize: "cover",
-      backgroundPosition: "bottom center",
+      backgroundPosition: "top center",
       backgroundRepeat: "no-repeat",
       // backgroundAttachment: "fixed"
     })

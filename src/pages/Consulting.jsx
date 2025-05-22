@@ -18,16 +18,16 @@ import {
 // Hero background image - update path as needed
 import backgroundImage from "../assets/Consulting.jpeg";
 
-// Define color scheme (equivalent to :root variables)
-const colors = {
-  primaryColor: "#f08b0a",
-  ttColor: "#301934",
-  founderColor: "#1e0f20",
-  ctColor: "#000000",
-  cardColor: "#F2F2F2",
-  mutedColor: "rgba(0, 0, 0, 0.6)",
-  white: "#ffffff",
-};
+
+// const colors = {
+//   primaryColor: "#f08b0a",
+//   ttColor: "#301934",
+//   founderColor: "#1e0f20",
+//   ctColor: "#000000",
+//   cardColor: "#F2F2F2",
+//   mutedColor: "rgba(0, 0, 0, 0.6)",
+//   white: "#ffffff",
+// };
 
 // Styled components
 const HeroSection = styled(motion.div)`

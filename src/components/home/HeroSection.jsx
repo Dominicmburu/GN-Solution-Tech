@@ -97,7 +97,7 @@ const HeroSection = () => {
       className="hero-section position-relative"
       style={{
         backgroundColor: '#0a1033',
-        padding: isMobile ? "100px 0 120px" : "140px 0 200px",
+        padding: isMobile ? "100px 0 120px" : "140px 0 100px",
         position: 'relative',
         overflow: 'hidden',
         minHeight: isMobile ? '600px' : '420px'

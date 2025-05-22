@@ -6,6 +6,7 @@ import { Accordion } from 'react-bootstrap';
 import "../assets/css/network.css";
 import "../assets/css/TabsSection.css";
 import backgroundImage from "../assets/network-as-code.webp";
+import PageBanner from '../components/common/PageBanner';
 
 // Intro Section Component
 const NetworkAsCodeIntro = () => {
@@ -24,8 +25,8 @@ const NetworkAsCodeIntro = () => {
               At GN Solutions, our Network as Code approach brings DevOps-style agility, automation, and intelligence to networking — whether in the cloud, hybrid, or on-prem environments.
             </p>
             <p className="intro-text">
-             Network as Code (NaC) represents the evolution of network management into a programmable, automated, and scalable discipline. Traditionally, network operations have been manual, error-prone, and reactive. With NaC, your network infrastructure is managed using code — enabling you to define, provision, test, and manage your network the same way software is developed.
-NaC transforms networks from static, device-by-device management into dynamic, code-driven environments. This accelerates service delivery, improves consistency, and enhances visibility and control across your infrastructure. Whether it’s managing WAN, LAN, security policies, or cloud connectivity — NaC brings agility, reliability, and automation to your networking operations. This brings DevOps principles to networking—enabling teams to deploy, test, and scale network changes faster, with confidence and consistency.
+              Network as Code (NaC) represents the evolution of network management into a programmable, automated, and scalable discipline. Traditionally, network operations have been manual, error-prone, and reactive. With NaC, your network infrastructure is managed using code — enabling you to define, provision, test, and manage your network the same way software is developed.
+              NaC transforms networks from static, device-by-device management into dynamic, code-driven environments. This accelerates service delivery, improves consistency, and enhances visibility and control across your infrastructure. Whether it’s managing WAN, LAN, security policies, or cloud connectivity — NaC brings agility, reliability, and automation to your networking operations. This brings DevOps principles to networking—enabling teams to deploy, test, and scale network changes faster, with confidence and consistency.
 
             </p>
           </div>
@@ -37,7 +38,9 @@ NaC transforms networks from static, device-by-device management into dynamic, c
 
 const NetworkAsCode = () => {
   const [activeTab, setActiveTab] = useState('overview');
-  
+  const [activeKey, setActiveKey] = useState(null);
+
+
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
     { id: 'whychooseus', label: 'Why Choose Us', icon: <FaHandshake /> },
@@ -47,39 +50,43 @@ const NetworkAsCode = () => {
   ];
 
   const faqs = [
-    { 
-      question: "Is Network as Code suitable for small and medium businesses?", 
-      answer: "Yes. NaC can be scaled to fit the needs of SMBs, offering cost-effective automation and enhanced reliability without enterprise-level complexity." 
+    {
+      question: "Is Network as Code suitable for small and medium businesses?",
+      answer: "Yes. NaC can be scaled to fit the needs of SMBs, offering cost-effective automation and enhanced reliability without enterprise-level complexity."
     },
-    { 
-      question: "What kind of networks can be automated with NaC?", 
-      answer: "LAN, WAN, SD-WAN, data center networks, firewalls, VPNs, and even cloud-native networking — all can be managed with NaC." 
+    {
+      question: "What kind of networks can be automated with NaC?",
+      answer: "LAN, WAN, SD-WAN, data center networks, firewalls, VPNs, and even cloud-native networking — all can be managed with NaC."
     },
-    { 
-      question: "What platform tools do you use to implement NaC?", 
-      answer: "We use a combination of open-source and commercial tools, such as Ansible, Terraform, Python, NETCONF/RESTCONF, Jenkins, GitHub, Kafka, cloud-native SDKs, and more — across vendors like Cisco, Juniper, Arista, Palo Alto, etc." 
+    {
+      question: "What platform tools do you use to implement NaC?",
+      answer: "We use a combination of open-source and commercial tools, such as Ansible, Terraform, Python, NETCONF/RESTCONF, Jenkins, GitHub, Kafka, cloud-native SDKs, and more — across vendors like Cisco, Juniper, Arista, Palo Alto, etc."
     },
-    { 
-      question: "How long does a typical NaC implementation take?", 
-      answer: "From weeks to a few months depending on scope. We follow a phased rollout — starting with pilot automation and scaling gradually." 
+    {
+      question: "How long does a typical NaC implementation take?",
+      answer: "From weeks to a few months depending on scope. We follow a phased rollout — starting with pilot automation and scaling gradually."
     },
-    { 
-      question: "Will you help train our internal team?", 
-      answer: "Yes. We provide complete enablement: workshops, documentation, playbooks, and hands-on training for your teams." 
+    {
+      question: "Will you help train our internal team?",
+      answer: "Yes. We provide complete enablement: workshops, documentation, playbooks, and hands-on training for your teams."
     },
-    { 
-      question: "What's the difference between Network as Code and traditional network automation?", 
-      answer: "Traditional automation may use scripts or tools to push changes, but NaC introduces version control, testing, modular code, and repeatable deployments — just like in software development." 
+    {
+      question: "What's the difference between Network as Code and traditional network automation?",
+      answer: "Traditional automation may use scripts or tools to push changes, but NaC introduces version control, testing, modular code, and repeatable deployments — just like in software development."
     },
-    { 
-      question: "Do I need to replace my current infrastructure to use Network as Code?", 
-      answer: "Not at all. We work with your existing hardware and software platforms, integrating NaC practices around them." 
+    {
+      question: "Do I need to replace my current infrastructure to use Network as Code?",
+      answer: "Not at all. We work with your existing hardware and software platforms, integrating NaC practices around them."
     },
-    { 
-      question: "Is Network as Code secure?", 
-      answer: "Yes — in fact, it enhances security by removing manual intervention, enforcing policy compliance, and offering auditable change logs." 
+    {
+      question: "Is Network as Code secure?",
+      answer: "Yes — in fact, it enhances security by removing manual intervention, enforcing policy compliance, and offering auditable change logs."
     }
   ];
+
+  const handleAccordionChange = (eventKey) => {
+    setActiveKey(eventKey);
+  };
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -89,7 +96,7 @@ const NetworkAsCode = () => {
             <div className="intro-box">
               <NetworkAsCodeIntro />
             </div>
-           
+
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Use Cases of Network as Code</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
@@ -156,41 +163,41 @@ const NetworkAsCode = () => {
             </div>
             <div className="row">
               {[
-                { 
-                  title: "NaC Framework Design", 
-                  desc: "Custom architecture for integrating NaC into your existing environment—toolchain selection, workflows, and policies." 
+                {
+                  title: "NaC Framework Design",
+                  desc: "Custom architecture for integrating NaC into your existing environment—toolchain selection, workflows, and policies."
                 },
-                { 
-                  title: "Automated Provisioning & Configuration", 
-                  desc: "Use tools like Ansible, Terraform, or Nornir to automate switch, router, firewall, and SD-WAN configuration." 
+                {
+                  title: "Automated Provisioning & Configuration",
+                  desc: "Use tools like Ansible, Terraform, or Nornir to automate switch, router, firewall, and SD-WAN configuration."
                 },
-                { 
-                  title: "CI/CD for Networking", 
-                  desc: "Implement pipelines to test and deploy network changes using Jenkins, GitLab CI, or GitHub Actions." 
+                {
+                  title: "CI/CD for Networking",
+                  desc: "Implement pipelines to test and deploy network changes using Jenkins, GitLab CI, or GitHub Actions."
                 },
-                { 
-                  title: "Digital Twin & Network Simulation", 
-                  desc: "Build EVE-NG or container-based test environments to validate changes before production." 
+                {
+                  title: "Digital Twin & Network Simulation",
+                  desc: "Build EVE-NG or container-based test environments to validate changes before production."
                 },
-                { 
-                  title: "Telemetry & Event-Driven Automation", 
-                  desc: "Integrate with Kafka, Fluentd, or Prometheus to enable real-time monitoring and reactive workflows." 
+                {
+                  title: "Telemetry & Event-Driven Automation",
+                  desc: "Integrate with Kafka, Fluentd, or Prometheus to enable real-time monitoring and reactive workflows."
                 },
-                { 
-                  title: "Configuration Drift Detection", 
-                  desc: "Real-time detection and correction of unauthorized changes." 
+                {
+                  title: "Configuration Drift Detection",
+                  desc: "Real-time detection and correction of unauthorized changes."
                 },
-                { 
-                  title: "Multi-Cloud & Hybrid Networking", 
-                  desc: "Automate and manage connectivity across AWS, Azure, GCP, and on-prem." 
+                {
+                  title: "Multi-Cloud & Hybrid Networking",
+                  desc: "Automate and manage connectivity across AWS, Azure, GCP, and on-prem."
                 },
-                { 
-                  title: "Compliance as Code", 
-                  desc: "Embed policy checks and security baselines in every deployment." 
+                {
+                  title: "Compliance as Code",
+                  desc: "Embed policy checks and security baselines in every deployment."
                 },
-                { 
-                  title: "Training & Consulting", 
-                  desc: "Upskill your team or bring in our experts to accelerate your NaC journey." 
+                {
+                  title: "Training & Consulting",
+                  desc: "Upskill your team or bring in our experts to accelerate your NaC journey."
                 }
               ].map((solution, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
@@ -210,10 +217,10 @@ const NetworkAsCode = () => {
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            
+
             <div className="row mb-5">
               <div className="col-md-6">
-                <motion.div 
+                <motion.div
                   className="p-4 bg-white rounded shadow-lg h-100"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -222,7 +229,7 @@ const NetworkAsCode = () => {
                 >
                   <h3 style={{ color: "var(--ct-color)" }} className="mb-4">Our Expertise</h3>
                   <p>At GN Solutions, we bring deep experience in network engineering, DevOps, and automation to help enterprises evolve their legacy networks into programmable, future-ready infrastructures.</p>
-                  
+
                   <div className="mt-4">
                     <h5 style={{ color: "var(--primary-color)" }}>We design NaC solutions that are:</h5>
                     <ul className="list-unstyled mt-3">
@@ -240,7 +247,7 @@ const NetworkAsCode = () => {
                   </div>
                 </motion.div>
               </div>
-              
+
               <div className="col-md-6">
                 <motion.div
                   className="p-4 bg-white rounded shadow-lg h-100"
@@ -250,7 +257,7 @@ const NetworkAsCode = () => {
                   style={{ border: "1px solid rgba(var(--primary-color-rgb), 0.2)" }}
                 >
                   <h3 style={{ color: "var(--ct-color)" }} className="mb-4">Technology Stack</h3>
-                  
+
                   <div className="d-flex flex-wrap">
                     {[
                       { name: "Infrastructure as Code", icon: <FaCloud size={24} style={{ color: "var(--primary-color)" }} /> },
@@ -260,7 +267,7 @@ const NetworkAsCode = () => {
                       { name: "Automated Testing", icon: <FaCheck size={24} style={{ color: "var(--primary-color)" }} /> },
                       { name: "Event-Driven Automation", icon: <FaRocket size={24} style={{ color: "var(--primary-color)" }} /> }
                     ].map((tech, idx) => (
-                      <div key={idx} className="tech-badge d-flex align-items-center mb-3 me-3 p-2 rounded" style={{ 
+                      <div key={idx} className="tech-badge d-flex align-items-center mb-3 me-3 p-2 rounded" style={{
                         backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
                         border: "1px solid rgba(var(--primary-color-rgb), 0.2)"
                       }}>
@@ -277,30 +284,30 @@ const NetworkAsCode = () => {
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            
+
             <div className="row">
               {[
-                { 
-                  title: "Vendor-Neutral Approach", 
+                {
+                  title: "Vendor-Neutral Approach",
                   desc: "We support multi-vendor environments including Cisco, Juniper, Arista, Fortinet, and more.",
                   icon: <FaHandshake size={40} style={{ color: "var(--primary-color)" }} />
                 },
-                { 
-                  title: "Security-First Design", 
+                {
+                  title: "Security-First Design",
                   desc: "Our solutions enhance security by removing manual intervention, enforcing policy compliance, and offering auditable change logs.",
                   icon: <FaShieldAlt size={40} style={{ color: "var(--primary-color)" }} />
                 },
-                { 
-                  title: "Comprehensive Team Training", 
+                {
+                  title: "Comprehensive Team Training",
                   desc: "We provide complete enablement through workshops, documentation, playbooks, and hands-on training for your teams.",
                   icon: <FaUsersCog size={40} style={{ color: "var(--primary-color)" }} />
                 }
               ].map((strength, index) => (
-                <motion.div 
-                  className="col-md-4 mb-4" 
-                  key={index} 
-                  initial={{ opacity: 0, y: 20 }} 
-                  animate={{ opacity: 1, y: 0 }} 
+                <motion.div
+                  className="col-md-4 mb-4"
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2 }}
                 >
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
@@ -311,14 +318,14 @@ const NetworkAsCode = () => {
                 </motion.div>
               ))}
             </div>
-            
-            <motion.div 
+
+            <motion.div
               className="card border-0 p-5 mt-5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              style={{ 
-                boxShadow: "0 15px 30px rgba(0,0,0,0.15)", 
+              style={{
+                boxShadow: "0 15px 30px rgba(0,0,0,0.15)",
                 background: "linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.05) 0%, rgba(var(--primary-color-rgb), 0.15) 100%)",
                 borderRadius: "12px"
               }}
@@ -417,27 +424,48 @@ const NetworkAsCode = () => {
       case 'faqs':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Frequently Asked Questions</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Frequently Asked Questions</h2>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <Accordion>
+
+            <div className="faqs-container custom-accordion">
               {faqs.map((faq, index) => (
-                <Accordion.Item eventKey={index.toString()} key={index} style={{
-                  marginBottom: "15px",
-                  borderRadius: "8px",
-                  overflow: "hidden",
-                  border: "1px solid rgba(var(--primary-color-rgb), 0.2)"
-                }}>
-                  <Accordion.Header>
-                    <span style={{ color: "var(--ct-color)", fontWeight: "600" }}>{faq.question}</span>
-                  </Accordion.Header>
-                  <Accordion.Body style={{ backgroundColor: "#f9fbff" }}>
-                    <p>{faq.answer}</p>
-                  </Accordion.Body>
-                </Accordion.Item>
+                <motion.div
+                  className="faq-item"
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Accordion
+                    activeKey={activeKey}
+                    onSelect={handleAccordionChange}>
+                    <Accordion.Item
+                      eventKey={index.toString()}
+                      style={{
+                        marginBottom: "15px",
+                        borderRadius: "8px",
+                        overflow: "hidden"
+                      }}
+                    >
+                      <Accordion.Header>
+                        <div className="faq-question">
+                          <span className="question-icon" style={{ paddingRight: "5px" }}>Q</span>
+                          <span className="question-text" style={{ fontWeight: "600" }}>{faq.question}</span>
+                        </div>
+                      </Accordion.Header>
+                      <Accordion.Body style={{ backgroundColor: "var(--card-color)" }}>
+                        <div className="faq-answer">
+                          <span className="answer-icon" style={{ color: "var(--tt-color)" }}>A</span>
+                          <p>{faq.answer}</p>
+                        </div>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                </motion.div>
               ))}
-            </Accordion>
+            </div>
             <div className="mt-5">
               <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Resources to Learn More</h3>
               <div className="d-flex justify-content-center mb-5">
@@ -471,7 +499,7 @@ const NetworkAsCode = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </div >
         );
       default:
         return <div>Content not found</div>;
@@ -480,62 +508,27 @@ const NetworkAsCode = () => {
 
   return (
     <div className="container-fluid p-0">
-      {/* Hero Section */}
-      <div 
-        className="hero-section text-white text-center d-flex flex-column align-items-center justify-content-center"
-        style={{ 
-          background: `linear-gradient(rgba(0, 0, 30, 0.7), rgba(0, 0, 30, 0.8)), url(${backgroundImage}) center/cover no-repeat`, 
-          height: "60vh"
-        }}
-      >
-        <motion.h1 
-          className="display-4 fw-bold"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          style={{ color: "#fff" }}
-        >
-          Network as Code: Automate Your Infrastructure
-        </motion.h1>
-        <motion.p
-          className="lead"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          style={{ fontSize: "1.5rem", marginBottom: "20px" }}
-        >
-          Leverage automation to deploy, manage, and optimize networks efficiently.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <Link to="/contact" className="btn" style={{
-            backgroundColor: "var(--primary-color)",
-            color: "#fff",
-            padding: "12px 25px",
-            borderRadius: "30px",
-            fontWeight: "600",
-            transition: "all 0.3s ease"
-          }}>
-            Get Started <FaArrowRight style={{ marginLeft: "8px" }} />
-          </Link>
-        </motion.div>
-      </div>
+      <PageBanner
+        title="Network as Code - Automate Your Infrastructure"
+        subtitle="Leverage automation to deploy, manage, and optimize networks efficiently."
+        backgroundImage={backgroundImage}
+        background="#0a1033"
+        currentpage="Network as Code"
+      />
+
       {/* Tabs Section */}
       <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <motion.div 
-                className="text-center mb-5"
+              <motion.div
+                className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-              ></motion.div>    
+              ></motion.div>
               <div className="custom-tabs-container">
-                <motion.div 
+                <motion.div
                   className="tab-navigation mb-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -545,7 +538,7 @@ const NetworkAsCode = () => {
                     {tabs.map((tab) => (
                       <li className="nav-item" key={tab.id} role="presentation">
                         <button
-                          className={`nav-link ${activeTab === tab.id ? 'active' : ''}`}
+                          className={`nav-link-tab ${activeTab === tab.id ? 'active' : ''}`}
                           onClick={() => setActiveTab(tab.id)}
                           id={`${tab.id}-tab`}
                           type="button"
@@ -556,7 +549,7 @@ const NetworkAsCode = () => {
                             borderBottom: activeTab === tab.id ? `3px solid var(--primary-color)` : 'none'
                           }}
                         >
-                          <i className="tab-icon" style={{ color: "var(--primary-color)" }}>{tab.icon}</i>
+                          <i className="tab-icon" style={{ color: "var(--tt-color)" }}>{tab.icon}</i>
                           <span style={{ color: "var(--tt-color)" }}>{tab.label}</span>
                         </button>
                       </li>

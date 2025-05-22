@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import PageBanner from '../components/common/PageBanner';
+
 import {
   FaShieldAlt,
   FaCloud,
@@ -19,8 +21,13 @@ import {
   FaAward,
   FaQuestionCircle,
   FaCheckCircle,
-  FaTrophy
+  FaTrophy,
+  FaNotesMedical,
+  FaStore,
+  FaDollarSign,
+  FaClock,
 } from "react-icons/fa";
+
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
 import '../assets/css/cybersecurity.css';
@@ -29,6 +36,12 @@ import "../assets/css/cybersecurity.css";
 
 const CybersecurityAsAServicePage = () => {
   const [activeTab, setActiveTab] = useState('overview');
+    const [activeKey, setActiveKey] = useState(null);
+  
+
+    const handleAccordionChange = (eventKey) => {
+    setActiveKey(eventKey);
+  };
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
@@ -63,34 +76,47 @@ const CybersecurityAsAServicePage = () => {
       question: "Is my data safe with you?",
       answer: "Yes. We follow strict data protection protocols, encrypt all client data, and comply with privacy laws such as GDPR."
     },
-    { 
-      question: "Can I customize the services I need?", 
+    {
+      question: "Can I customize the services I need?",
       answer: "Yes, we offer modular services. You can choose only what's relevant to your business risk profile and goals."
     }
   ];
 
+  const CybersecurityServicesIntro = () => {
+    return (
+      <section className="intro-section">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-5">
+              <div className="section-divider"></div>
+              <h1 className="main-title">
+                What is Cybersecurity as a Service?
+              </h1>
+            </div>
+            <div className="col-lg-7">
+              <p className="intro-text">
+                Cybersecurity as a Service (CSaaS) is a comprehensive, scalable, and proactive approach to securing your digital assets. We combine advanced technology, expert analysis, and strategic advisory services to deliver continuous protection tailored to your organization's needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   const renderTabContent = () => {
     switch (activeTab) {
+
       case 'overview':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">What is Cybersecurity as a Service?</h2>
-            <div className="row">
-              <div className="col-12">
-                <div style={{ backgroundColor: 'var(--tt-color)' }} className="card shadow-lg border-0 p-4 mb-5">
-                  <p className="text-center text-light fw-bold mb-0">
-                   In today's digital-first world, organizations face growing threats from cybercriminals targeting critical systems, data, and infrastructure. Cybersecurity is no longer optional—it's essential. At gnsolutions.eu, we provide Cybersecurity as a Service (CSaaS), a comprehensive, scalable, and proactive approach to securing your digital assets. Our services are designed to protect your business against ever-evolving threats, ensuring confidentiality, integrity, and availability of your data and systems.
-We combine advanced technology, expert analysis, and strategic advisory services to deliver continuous protection tailored to your organization's needs.
-</p>
-                </div>
-              </div>
+            <div className="intro-box">
+              <CybersecurityServicesIntro />
             </div>
-
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Key Features</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-
             <div className="row">
               {[
                 {
@@ -134,8 +160,7 @@ We combine advanced technology, expert analysis, and strategic advisory services
                 </motion.div>
               ))}
             </div>
-
-            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Implementation Process</h3>
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Implementation Process</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
@@ -281,37 +306,37 @@ We combine advanced technology, expert analysis, and strategic advisory services
                       }}>{step.desc}</p>
                     </div>
                   </div>
-                  <div className="col-5"></div>
                 </motion.div>
               ))}
             </div>
 
             {/* Responsive styles for mobile */}
             <style jsx>{`
-              @media (max-width: 767px) {
-                .position-relative > div:first-child {
-                  left: 20px !important;
-                  transform: none !important;
-                }
-                .col-md-5 {
-                  margin-left: 60px !important;
-                  padding-left: 20px !important;
-                  text-align: left !important;
-                }
-                .col-md-5 > div > div:first-of-type {
-                  left: -10px !important;
-                  right: auto !important;
-                  border-left: 1px solid rgba(0,0,0,0.05) !important;
-                  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
-                  border-right: none !important;
-                  border-top: none !important;
-                }
-                .col-12.d-flex.justify-content-center {
-                  justify-content: flex-start !important;
-                  padding-left: 20px !important;
-                }
-              }
-            `}</style>
+  @media (max-width: 767px) {
+    .position-relative > div:first-child {
+      left: 20px !important;
+      transform: none !important;
+    }
+    .col-md-5 {
+      margin-left: 60px !important;
+      padding-left: 20px !important;
+      text-align: left !important;
+    }
+    .col-md-5 > div > div:first-of-type {
+      left: -10px !important;
+      right: auto !important;
+      border-left: 1px solid rgba(0,0,0,0.05) !important;
+      border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+      border-right: none !important;
+      border-top: none !important;
+    }
+    .col-12.d-flex.justify-content-center {
+      justify-content: flex-start !important;
+      padding-left: 20px !important;
+    }
+  }
+}
+`}</style>
           </div>
         );
       case 'whychooseus':
@@ -359,11 +384,14 @@ We combine advanced technology, expert analysis, and strategic advisory services
               ))}
             </div>
 
-            <h3 className="text-center text-primary mb-4 mt-5">Our Security Approach</h3>
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Our Security Approach</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
             <div className="row">
               <div className="col-md-6 mb-4">
-                <motion.div 
-                  className="card border-0 p-4 h-100" 
+                <motion.div
+                  className="card border-0 p-4 h-100"
                   style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -381,8 +409,8 @@ We combine advanced technology, expert analysis, and strategic advisory services
                 </motion.div>
               </div>
               <div className="col-md-6 mb-4">
-                <motion.div 
-                  className="card border-0 p-4 h-100" 
+                <motion.div
+                  className="card border-0 p-4 h-100"
                   style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -401,9 +429,12 @@ We combine advanced technology, expert analysis, and strategic advisory services
               </div>
             </div>
 
-            <h3 className="text-center text-primary mb-4 mt-5">Our Team's Expertise</h3>
-            <motion.div 
-              className="card border-0 p-4 mb-5" 
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-4 mt-5">Our Team's Expertise</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <motion.div
+              className="card border-0 p-4 mb-5"
               style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -472,14 +503,14 @@ We combine advanced technology, expert analysis, and strategic advisory services
       case 'benefits':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Benefits</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Key Benefits</h2>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
             <div className="row">
               {[
-                { 
-                  title: "Reduced Risk Exposure", 
+                {
+                  title: "Reduced Risk Exposure",
                   desc: "Identify and mitigate vulnerabilities before they're exploited.",
                   icon: <FaShieldAlt size={40} style={{ color: "var(--primary-color)" }} />
                 },
@@ -514,30 +545,66 @@ We combine advanced technology, expert analysis, and strategic advisory services
               ))}
             </div>
 
-            <h3 className="text-center text-primary mb-4 mt-5">Success Stories</h3>
-            <div className="success-stories">
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Success Stories</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <div className="row">
               {[
                 {
                   company: "Financial Institution",
-                  result: "Reduced cyber incidents by 80% with 24/7 monitoring and MDR services."
+                  result: "Reduced cyber incidents by 80% with 24/7 monitoring and MDR services.",
+                  icon: <FaShieldAlt size={36} style={{ color: "#fff" }} />,
+                  color: "linear-gradient(135deg, #f08b0a, #f08b0a)"
                 },
                 {
                   company: "Healthcare Provider",
-                  result: "Achieved HIPAA compliance in 3 months with our compliance management solutions."
+                  result: "Achieved HIPAA compliance in 3 months with our compliance management solutions.",
+                  icon: <FaNotesMedical size={36} style={{ color: "#fff" }} />,
+                  color: "linear-gradient(135deg, #301934, #301934)"
                 },
                 {
                   company: "Retail Chain",
-                  result: "Prevented ransomware attacks through endpoint security and employee training."
+                  result: "Prevented ransomware attacks through endpoint security and employee training.",
+                  icon: <FaStore size={36} style={{ color: "#fff" }} />,
+                  color: "linear-gradient(135deg, #000000, #000000)"
                 }
               ].map((story, index) => (
-                <motion.div className="col-lg-4 mb-4" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.2 }}>
-                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <h5 style={{ color: "var(--ct-color)" }}>{story.company}</h5>
-                    <p>{story.result}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                <div className="col-lg-4 mb-4" key={index}>
+                  <motion.div
+                    className="success-story-card h-100"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    style={{
+                      borderRadius: "12px",
+                      overflow: "hidden",
+                      boxShadow: "0 15px 30px rgba(0,0,0,0.1)",
+                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column"
+                    }}
+                  >
+                    <div className="story-header p-4 d-flex align-items-center" style={{ background: story.color }}>
+                      <div className="story-icon me-3 d-flex align-items-center justify-content-center rounded-circle"
+                        style={{
+                          background: "rgba(255,255,255,0.2)",
+                          width: "60px",
+                          height: "60px"
+                        }}>
+                        {story.icon}
+                      </div>
+                      <h5 className="text-white mb-0">{story.company}</h5>
+                    </div>
+                    <div className="story-content p-4 bg-white flex-grow-1 d-flex align-items-center">
+                      <p className="mb-0">{story.result}</p>
+                    </div>
+                  </motion.div>
+                </div>
+              ))
+              }
+            </div >
 
             <div className="metrics-banner mt-5">
               <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">ROI of Cybersecurity as a Service</h3>
@@ -546,37 +613,120 @@ We combine advanced technology, expert analysis, and strategic advisory services
               </div>
               <div className="row">
                 {[
-                  { value: "90%", label: "Threat Detection Rate" },
-                  { value: "50%", label: "Reduction in Incident Costs" },
-                  { value: "70%", label: "Faster Compliance" },
-                  { value: "85%", label: "Improved Security Posture" }
+                  { value: "90%", label: "Threat Detection Rate", image: "https://i.pinimg.com/736x/e5/90/e3/e590e3ed03eafc3c8816b34dcd21f70b.jpg", alt: "Threat Detection" },
+                  { value: "50%", label: "Reduction in Incident Costs", image: "https://i.pinimg.com/736x/37/b8/69/37b86959ba823a2d8c06b1eb8ba76f5c.jpg", alt: "Cost Reduction" },
+                  { value: "70%", label: "Faster Compliance", image: "https://i.pinimg.com/736x/0f/47/9b/0f479b6baa1f2129ae4566b7ddbb4445.jpg", alt: "Compliance Speed" },
+                  { value: "85%", label: "Improved Security Posture", image: "https://i.pinimg.com/736x/cd/45/2e/cd452efc1cafe7c3d9eaca4ecf0ce375.jpg", alt: "Security Improvement" }
                 ].map((metric, index) => (
                   <motion.div
-                    className="metric"
+                    className="col-md-3 col-sm-6 mb-4"
                     key={index}
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <div className="card border-0 p-4 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                      <div className="metric-value" style={{ color: "var(--primary-color)", fontSize: "2rem", fontWeight: "bold" }}>{metric.value}</div>
-                      <div className="metric-label">{metric.label}</div>
+                    <div className="card border-0 pb-4 text-center h-100 position-relative overflow-hidden"
+                      style={{
+                        boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                        border: "1px solid rgba(0,0,0,0.05)",
+                        borderRadius: "12px",
+                        background: "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
+                        transition: "all 0.3s ease"
+                      }}
+                    >
+                      {/* Background accent */}
+                      <div className="position-absolute top-0 start-0 w-100" style={{
+                        height: "4px",
+                        background: "linear-gradient(90deg, var(--primary-color) 0%, rgba(var(--primary-color-rgb, 64, 36, 86), 0.6) 100%)"
+                      }}></div>
+
+                      {/* Metric circle background */}
+                      <div className="position-absolute" style={{
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        width: "120px",
+                        height: "120px",
+                        borderRadius: "50%",
+                        background: "linear-gradient(135deg, rgba(var(--primary-color-rgb, 64, 36, 86), 0.05) 0%, rgba(var(--primary-color-rgb, 64, 36, 86), 0.1) 100%)",
+                        zIndex: "1"
+                      }}></div>
+
+                      <div className="position-relative" style={{ zIndex: "2" }}>
+                        {/* Image */}
+                        <div className="mb-3">
+                          <img
+                            src={metric.image}
+                            alt={metric.alt}
+                            style={{
+                              width: "100%",
+                              height: "250px",
+                              objectFit: "cover",
+                              borderRadius: "8px",
+                              // border: "2px solid var(--primary-color)",
+                              opacity: "0.9"
+                            }}
+                          />
+                        </div>
+
+                        <div className="metric-value mb-2" style={{
+                          color: "var(--primary-color)",
+                          fontSize: "3rem",
+                          fontWeight: "800",
+                          lineHeight: "1"
+                        }}>
+                          {metric.value}
+                        </div>
+                        <div className="metric-label" style={{
+                          color: "var(--ct-color)",
+                          fontSize: "0.95rem",
+                          fontWeight: "600",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.5px",
+                          lineHeight: "1.3"
+                        }}>
+                          {metric.label}
+                        </div>
+                      </div>
+
+                      <div className="position-absolute bottom-0 start-50 translate-middle-x" style={{
+                        width: "30px",
+                        height: "2px",
+                        backgroundColor: "var(--primary-color)",
+                        opacity: "0.6"
+                      }}></div>
                     </div>
                   </motion.div>
                 ))}
               </div>
+              <style jsx>{`
+    @media (max-width: 768px) {
+      .metric-value {
+        font-size: 2.5rem !important;
+      }
+      .metric-label {
+        font-size: 0.85rem !important;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .col-sm-6 {
+        margin-bottom: 1.5rem;
+      }
+    }
+  `}</style>
             </div>
-          </div>
+          </div >
         );
 
       case 'solutions':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Core Cybersecurity Solutions</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Core Cybersecurity Solutions</h2>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <div className="row">
+            <div className="solutions-grid">
               {[
                 {
                   title: "Penetration Testing",
@@ -635,12 +785,12 @@ We combine advanced technology, expert analysis, and strategic advisory services
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
+                  style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
+                
                 >
-                  <div className="card border-0 p-4" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
                     <div className="text-center mb-3">{solution.icon}</div>
                     <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
                     <p>{solution.desc}</p>
-                  </div>
                 </motion.div>
               ))}
             </div>
@@ -649,11 +799,11 @@ We combine advanced technology, expert analysis, and strategic advisory services
       case 'faqs':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Frequently Asked Questions</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Frequently Asked Questions</h2>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <div className="faqs-container">
+            <div className="faqs-container custom-accordion">
               {faqs.map((faq, index) => (
                 <motion.div
                   className="faq-item"
@@ -662,22 +812,25 @@ We combine advanced technology, expert analysis, and strategic advisory services
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Accordion>
-                    <Accordion.Item eventKey={index.toString()} style={{
+                  <Accordion
+                  activeKey={activeKey}
+                    onSelect={handleAccordionChange}>
+                    <Accordion.Item 
+                    eventKey={index.toString()} 
+                    style={{
                       marginBottom: "15px",
                       borderRadius: "8px",
-                      overflow: "hidden",
-                      border: "1px solid rgba(var(--primary-color-rgb), 0.2)"
+                      overflow: "hidden"
                     }}>
                       <Accordion.Header>
                         <div className="faq-question">
-                          <span className="question-icon" style={{ backgroundColor: "var(--primary-color)" }}>Q</span>
+                          <span className="question-icon" style={{ paddingRight: "5px" }}>Q</span>
                           <span className="question-text" style={{ color: "var(--ct-color)", fontWeight: "600" }}>{faq.question}</span>
                         </div>
                       </Accordion.Header>
-                      <Accordion.Body style={{ backgroundColor: "#f9fbff" }}>
+                      <Accordion.Body style={{ backgroundColor: "var(--card-color)" }}>
                         <div className="faq-answer">
-                          <span className="answer-icon" style={{ backgroundColor: "var(--tt-color)" }}>A</span>
+                          <span className="answer-icon" style={{ color: "var(--tt-color)" }}>A</span>
                           <p>{faq.answer}</p>
                         </div>
                       </Accordion.Body>
@@ -729,63 +882,28 @@ We combine advanced technology, expert analysis, and strategic advisory services
 
   return (
     <div className="container-fluid p-0">
-      {/* Hero Section */}
-      <div
-        className="hero-section text-white d-flex flex-column align-items-center justify-content-center"
-        style={{
-          background: `linear-gradient(rgba(0, 0, 30, 0.7), rgba(0, 0, 30, 0.8)), url(${backgroundImage}) center/cover no-repeat`,
-          height: "60vh",
-          position: "relative",
-          marginBottom: "-20px"
-        }}
-      >
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Cybersecurity as a Service
-        </motion.h1>
-        <motion.p
-          className="hero-subtitle"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        >
-          Comprehensive protection for your digital assets
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <Link to="/contact" className="btn" style={{
-            backgroundColor: "var(--primary-color)",
-            color: "#fff",
-            padding: "12px 25px",
-            borderRadius: "30px",
-            fontWeight: "600",
-            transition: "all 0.3s ease"
-          }}>
-            Get Started <FaArrowRight style={{ marginLeft: "8px" }} />
-          </Link>
-        </motion.div>
-      </div>
+      <PageBanner
+        title="Cybersecurity as a Service"
+        subtitle="Comprehensive protection for your digital assets"
+        backgroundImage={backgroundImage}
+        background="#0a1033"
+        currentpage="Cybersecurity as a Service"
+      />
 
       {/* Tabs Section */}
       <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <motion.div 
-                className="text-center mb-5"
+              <motion.div
+                className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-              >        
+              >
               </motion.div>
               <div className="custom-tabs-container">
-                <motion.div 
+                <motion.div
                   className="tab-navigation mb-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -795,7 +913,7 @@ We combine advanced technology, expert analysis, and strategic advisory services
                     {tabs.map((tab) => (
                       <li className="nav-item" key={tab.id} role="presentation">
                         <button
-                          className={`nav-link ${activeTab === tab.id ? 'active' : ''}`}
+                          className={`nav-link-tab ${activeTab === tab.id ? 'active' : ''}`}
                           onClick={() => setActiveTab(tab.id)}
                           id={`${tab.id}-tab`}
                           type="button"
@@ -806,14 +924,14 @@ We combine advanced technology, expert analysis, and strategic advisory services
                             borderBottom: activeTab === tab.id ? `3px solid var(--primary-color)` : 'none'
                           }}
                         >
-                          <i className="tab-icon" style={{ color: "var(--primary-color)" }}>{tab.icon}</i>
+                          <i className="tab-icon" style={{ color: "var(--tt-color)" }}>{tab.icon}</i>
                           <span style={{ color: "var(--tt-color)" }}>{tab.label}</span>
                         </button>
                       </li>
                     ))}
                   </ul>
                 </motion.div>
-                
+
                 {/* Tab content */}
                 <div className="tab-content-container mt-4">
                   <div className="tab-content" id="csaasTabsContent">

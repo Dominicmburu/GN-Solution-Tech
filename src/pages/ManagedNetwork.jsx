@@ -22,8 +22,8 @@ const ManagedNetworkServicesIntro = () => {
           </div>
           <div className="col-lg-7">
             <p className="intro-text">
-             In today's connected world, a resilient and secure network infrastructure is crucial for business continuity and growth. Our Managed Network Services offer end-to-end design, implementation, monitoring, and management of your enterprise network infrastructure—whether it's Local Area Networks (LAN), Wide Area Networks (WAN), Wireless LANs (WLAN), SD-WAN or hybrid environments.
-We act as your extended IT team, taking responsibility for the performance, availability, and security of your network. Our services are tailored to meet the unique demands of your business, ensuring reliable connectivity, optimized performance, and simplified operations—24/7.
+              In today's connected world, a resilient and secure network infrastructure is crucial for business continuity and growth. Our Managed Network Services offer end-to-end design, implementation, monitoring, and management of your enterprise network infrastructure—whether it's Local Area Networks (LAN), Wide Area Networks (WAN), Wireless LANs (WLAN), SD-WAN or hybrid environments.
+              We act as your extended IT team, taking responsibility for the performance, availability, and security of your network. Our services are tailored to meet the unique demands of your business, ensuring reliable connectivity, optimized performance, and simplified operations—24/7.
 
             </p>
           </div>
@@ -36,6 +36,7 @@ We act as your extended IT team, taking responsibility for the performance, avai
 
 const ManagedNetworkServicesPage = () => {
   const [activeTab, setActiveTab] = useState('overview');
+  const [activeKey, setActiveKey] = useState(null);
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
@@ -53,6 +54,10 @@ const ManagedNetworkServicesPage = () => {
     { question: "How do you ensure security and compliance?", answer: "We integrate robust security features like firewall management, role-based access, logging, and compliance reporting to meet industry standards." },
     { question: "What are your SLAs (Service Level Agreements)?", answer: "Our SLAs cover uptime, response time, resolution targets, and performance metrics—customized to your needs." }
   ];
+
+  const handleAccordionChange = (eventKey) => {
+    setActiveKey(eventKey);
+  };
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -87,157 +92,157 @@ const ManagedNetworkServicesPage = () => {
               ))}
             </div>
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Implementation Process</h3>
-<div className="d-flex justify-content-center mb-5">
-  <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-</div>
-
-{/* Implementation Timeline - Vertical responsive design */}
-<div className="position-relative py-3" style={{ marginBottom: "50px" }}>
-  {/* Vertical timeline line */}
-  <div className="position-absolute" style={{
-    top: "0",
-    bottom: "0",
-    left: "50%",
-    width: "4px",
-    backgroundColor: "var(--primary-color)",
-    transform: "translateX(-50%)"
-  }}></div>
-  
-  {[
-    { 
-      step: "Network Assessment", 
-      desc: "Comprehensive evaluation of your current infrastructure", 
-      icon: <FaSearch size={24} />,
-      nodeIcon: <FaSearch size={20} /> 
-    },
-    { 
-      step: "Design & Planning", 
-      desc: "Custom architecture tailored to your business needs", 
-      icon: <FaTools size={24} />,
-      nodeIcon: <FaTools size={20} />
-    },
-    { 
-      step: "Implementation", 
-      desc: "Seamless deployment with minimal disruption", 
-      icon: <FaNetworkWired size={24} />,
-      nodeIcon: <FaNetworkWired size={20} />
-    },
-    { 
-      step: "Monitoring & Management", 
-      desc: "24/7 proactive oversight and support", 
-      icon: <FaCogs size={24} />,
-      nodeIcon: <FaCogs size={20} />
-    },
-    { 
-      step: "Optimization", 
-      desc: "Continuous improvement and performance tuning", 
-      icon: <FaSyncAlt size={24} />,
-      nodeIcon: <FaSyncAlt size={20} />
-    }
-  ].map((step, index) => (
-    <motion.div
-      className="row mb-5 position-relative"
-      key={index}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: index * 0.2 }}
-    >
-      {/* Timeline node/circle with icon - properly centered */}
-      <div className="col-12 d-flex justify-content-center" style={{
-        marginBottom: "0px",
-        height: "0px"
-      }}>
-        <div style={{
-          width: "60px",
-          height: "60px",
-          borderRadius: "50%",
-          backgroundColor: "#402456",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#fff",
-          border: "4px solid var(--primary-color)",
-          boxShadow: "0 0 0 5px rgba(255,255,255,0.8)",
-          zIndex: "2",
-          position: "relative",
-          top: "-30px"
-        }}>
-          <div style={{
-            width: "42px", 
-            height: "42px",
-            borderRadius: "50%",
-            backgroundColor: "var(--primary-color)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontWeight: "bold"
-          }}>
-            {step.nodeIcon}
-          </div>
-        </div>
-      </div>
-
-      {/* Content Card */}
-      <div className={`col-md-5 ${index % 2 === 0 ? "offset-md-1 pe-md-5 text-md-end" : "offset-md-6 ps-md-5 text-md-start"}`}>
-        <div style={{
-          backgroundColor: "white",
-          padding: "20px",
-          borderRadius: "8px",
-          boxShadow: "0 6px 15px rgba(0,0,0,0.1)",
-          border: "1px solid rgba(0,0,0,0.05)",
-          position: "relative",
-          marginTop: "-20px"
-        }}>
-          {/* Triangle pointer */}
-          <div style={{
-            position: "absolute",
-            top: "20px",
-            [index % 2 === 0 ? "right" : "left"]: "-10px",
-            width: "20px",
-            height: "20px",
-            backgroundColor: "white",
-            transform: "rotate(45deg)",
-            borderLeft: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
-            borderBottom: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
-            borderRight: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
-            borderTop: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none"
-          }}></div>
-
-          <div className="d-flex align-items-center" style={{
-            marginBottom: "12px",
-          }}>
-            <div style={{
-              backgroundColor: "var(--primary-color)",
-              borderRadius: "50%",
-              width: "38px",
-              height: "38px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginRight: "12px",
-              color: "white"
-            }}>
-              {step.icon}
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <h5 style={{ 
-              color: "var(--ct-color)",
-              margin: "0",
-              fontWeight: "600"
-            }}>{step.step}</h5>
-          </div>
-          <p style={{
-            margin: "0",
-            color: "#666",
-            fontSize: "15px"
-          }}>{step.desc}</p>
-        </div>
-      </div>
-    </motion.div>
-  ))}
-</div>
 
-{/* Responsive styles for mobile */}
-<style jsx>{`
+            {/* Implementation Timeline - Vertical responsive design */}
+            <div className="position-relative py-3" style={{ marginBottom: "50px" }}>
+              {/* Vertical timeline line */}
+              <div className="position-absolute" style={{
+                top: "0",
+                bottom: "0",
+                left: "50%",
+                width: "4px",
+                backgroundColor: "var(--primary-color)",
+                transform: "translateX(-50%)"
+              }}></div>
+
+              {[
+                {
+                  step: "Network Assessment",
+                  desc: "Comprehensive evaluation of your current infrastructure",
+                  icon: <FaSearch size={24} />,
+                  nodeIcon: <FaSearch size={20} />
+                },
+                {
+                  step: "Design & Planning",
+                  desc: "Custom architecture tailored to your business needs",
+                  icon: <FaTools size={24} />,
+                  nodeIcon: <FaTools size={20} />
+                },
+                {
+                  step: "Implementation",
+                  desc: "Seamless deployment with minimal disruption",
+                  icon: <FaNetworkWired size={24} />,
+                  nodeIcon: <FaNetworkWired size={20} />
+                },
+                {
+                  step: "Monitoring & Management",
+                  desc: "24/7 proactive oversight and support",
+                  icon: <FaCogs size={24} />,
+                  nodeIcon: <FaCogs size={20} />
+                },
+                {
+                  step: "Optimization",
+                  desc: "Continuous improvement and performance tuning",
+                  icon: <FaSyncAlt size={24} />,
+                  nodeIcon: <FaSyncAlt size={20} />
+                }
+              ].map((step, index) => (
+                <motion.div
+                  className="row mb-5 position-relative"
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  {/* Timeline node/circle with icon - properly centered */}
+                  <div className="col-12 d-flex justify-content-center" style={{
+                    marginBottom: "0px",
+                    height: "0px"
+                  }}>
+                    <div style={{
+                      width: "60px",
+                      height: "60px",
+                      borderRadius: "50%",
+                      backgroundColor: "#402456",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#fff",
+                      border: "4px solid var(--primary-color)",
+                      boxShadow: "0 0 0 5px rgba(255,255,255,0.8)",
+                      zIndex: "2",
+                      position: "relative",
+                      top: "-30px"
+                    }}>
+                      <div style={{
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "50%",
+                        backgroundColor: "var(--primary-color)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontWeight: "bold"
+                      }}>
+                        {step.nodeIcon}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content Card */}
+                  <div className={`col-md-5 ${index % 2 === 0 ? "offset-md-1 pe-md-5 text-md-end" : "offset-md-6 ps-md-5 text-md-start"}`}>
+                    <div style={{
+                      backgroundColor: "white",
+                      padding: "20px",
+                      borderRadius: "8px",
+                      boxShadow: "0 6px 15px rgba(0,0,0,0.1)",
+                      border: "1px solid rgba(0,0,0,0.05)",
+                      position: "relative",
+                      marginTop: "-20px"
+                    }}>
+                      {/* Triangle pointer */}
+                      <div style={{
+                        position: "absolute",
+                        top: "20px",
+                        [index % 2 === 0 ? "right" : "left"]: "-10px",
+                        width: "20px",
+                        height: "20px",
+                        backgroundColor: "white",
+                        transform: "rotate(45deg)",
+                        borderLeft: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                        borderBottom: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                        borderRight: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                        borderTop: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none"
+                      }}></div>
+
+                      <div className="d-flex align-items-center" style={{
+                        marginBottom: "12px",
+                      }}>
+                        <div style={{
+                          backgroundColor: "var(--primary-color)",
+                          borderRadius: "50%",
+                          width: "38px",
+                          height: "38px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          marginRight: "12px",
+                          color: "white"
+                        }}>
+                          {step.icon}
+                        </div>
+                        <h5 style={{
+                          color: "var(--ct-color)",
+                          margin: "0",
+                          fontWeight: "600"
+                        }}>{step.step}</h5>
+                      </div>
+                      <p style={{
+                        margin: "0",
+                        color: "#666",
+                        fontSize: "15px"
+                      }}>{step.desc}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Responsive styles for mobile */}
+            <style jsx>{`
   @media (max-width: 767px) {
     .position-relative > div:first-child {
       left: 20px !important;
@@ -296,40 +301,40 @@ const ManagedNetworkServicesPage = () => {
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            
+
             {/* Why Choose Us Cards Section */}
             <div className="row mb-5">
               {[
-                { 
-                  title: "Experience & Expertise", 
-                  desc: "With certified network engineers and years of real-world experience, we deliver reliable, standards-based network solutions.", 
-                  icon: <FaUserTie size={40} style={{ color: "var(--primary-color)" }} /> 
+                {
+                  title: "Experience & Expertise",
+                  desc: "With certified network engineers and years of real-world experience, we deliver reliable, standards-based network solutions.",
+                  icon: <FaUserTie size={40} style={{ color: "var(--primary-color)" }} />
                 },
-                { 
-                  title: "Customized Service Models", 
-                  desc: "Choose from fully managed, co-managed, or on-demand support based on your business needs.", 
-                  icon: <FaHandshake size={40} style={{ color: "var(--primary-color)" }} /> 
+                {
+                  title: "Customized Service Models",
+                  desc: "Choose from fully managed, co-managed, or on-demand support based on your business needs.",
+                  icon: <FaHandshake size={40} style={{ color: "var(--primary-color)" }} />
                 },
-                { 
-                  title: "Vendor-Neutral Approach", 
-                  desc: "We integrate and manage leading technologies from Cisco, Juniper, Fortinet, Aruba, and others—tailored to your environment.", 
-                  icon: <FaBalanceScale size={40} style={{ color: "var(--primary-color)" }} /> 
+                {
+                  title: "Vendor-Neutral Approach",
+                  desc: "We integrate and manage leading technologies from Cisco, Juniper, Fortinet, Aruba, and others—tailored to your environment.",
+                  icon: <FaBalanceScale size={40} style={{ color: "var(--primary-color)" }} />
                 },
-                { 
-                  title: "Proactive, Not Reactive", 
-                  desc: "Our systems predict and prevent issues with AI-enhanced monitoring, reducing downtime and costly outages.", 
-                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)" }} /> 
+                {
+                  title: "Proactive, Not Reactive",
+                  desc: "Our systems predict and prevent issues with AI-enhanced monitoring, reducing downtime and costly outages.",
+                  icon: <FaRocket size={40} style={{ color: "var(--primary-color)" }} />
                 },
-                { 
-                  title: "Customer-Centric Support", 
-                  desc: "You'll always have access to a dedicated account manager and a knowledgeable support team that understands your environment.", 
-                  icon: <FaHeadset size={40} style={{ color: "var(--primary-color)" }} /> 
+                {
+                  title: "Customer-Centric Support",
+                  desc: "You'll always have access to a dedicated account manager and a knowledgeable support team that understands your environment.",
+                  icon: <FaHeadset size={40} style={{ color: "var(--primary-color)" }} />
                 }
               ].map((feature, index) => (
                 <motion.div className="col-md-6 col-lg-4 mb-4" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
                   <div className="card border-0 p-4 h-100"
-                    style={{ 
-                      boxShadow: "0 10px 20px rgba(0,0,0,0.1)", 
+                    style={{
+                      boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
                       border: "1px solid #eaeaea",
                       transition: "transform 0.3s ease, box-shadow 0.3s ease"
                     }}
@@ -362,7 +367,7 @@ const ManagedNetworkServicesPage = () => {
                 </motion.div>
               ))}
             </div>
-            
+
             {/* Technologies We Support Section */}
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Technologies We Support</h3>
             <div className="d-flex justify-content-center mb-5">
@@ -385,12 +390,12 @@ const ManagedNetworkServicesPage = () => {
                 </motion.div>
               ))}
             </div>
-            
+
             {/* Customer Testimonial or Highlight Section */}
             <div className="row mt-5">
               <div className="col-12">
-                <motion.div 
-                  className="testimonial-card"
+                <motion.div
+                  className="card shadow-lg border-0"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
@@ -398,7 +403,7 @@ const ManagedNetworkServicesPage = () => {
                     borderRadius: "15px",
                     overflow: "hidden",
                     boxShadow: "0 15px 30px rgba(0,0,0,0.1)",
-                    background: "linear-gradient(135deg, var(--primary-color) 0%, #402456 100%)",
+                    background: "linear-gradient(135deg, var(--primary-color) 0%, var(--tt-color) 100%)",
                     padding: "3rem"
                   }}
                 >
@@ -618,6 +623,7 @@ const ManagedNetworkServicesPage = () => {
             </div>
           </div>
         );
+
       case 'faqs':
         return (
           <div className="container py-5">
@@ -625,28 +631,36 @@ const ManagedNetworkServicesPage = () => {
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <div className="faqs-container">
+
+            <div className="faqs-container custom-accordion">
               {faqs.map((faq, index) => (
-                <motion.div className="faq-item" key={index} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
-                  <Accordion>
+                <motion.div
+                  className="faq-item"
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Accordion
+                    activeKey={activeKey}
+                    onSelect={handleAccordionChange}>
                     <Accordion.Item
                       eventKey={index.toString()}
                       style={{
                         marginBottom: "15px",
                         borderRadius: "8px",
-                        overflow: "hidden",
-                        border: "1px solid rgba(var(--primary-color-rgb), 0.2)"
+                        overflow: "hidden"
                       }}
                     >
                       <Accordion.Header>
                         <div className="faq-question">
-                          <span className="question-icon" style={{ backgroundColor: "var(--primary-color)" }}>Q</span>
-                          <span className="question-text" style={{ color: "var(--ct-color)", fontWeight: "600" }}>{faq.question}</span>
+                          <span className="question-icon" style={{ paddingRight: "5px" }}>Q</span>
+                          <span className="question-text" style={{ fontWeight: "600" }}>{faq.question}</span>
                         </div>
                       </Accordion.Header>
-                      <Accordion.Body style={{ backgroundColor: "#f9fbff" }}>
+                      <Accordion.Body style={{ backgroundColor: "var(--card-color)" }}>
                         <div className="faq-answer">
-                          <span className="answer-icon" style={{ backgroundColor: "var(--tt-color)" }}>A</span>
+                          <span className="answer-icon" style={{ color: "var(--tt-color)" }}>A</span>
                           <p>{faq.answer}</p>
                         </div>
                       </Accordion.Body>
@@ -663,7 +677,7 @@ const ManagedNetworkServicesPage = () => {
                 borderRadius: "30px",
                 fontWeight: "600",
                 transition: "all 0.3s ease",
-                boxShadow: "0 4px 15px rgba(var(--primary-color-rgb), 0.3)"
+                boxShadow: "0 4px 15px var(--primary-color)"
               }}>
                 Have More Questions? Contact Us <FaArrowRight style={{ marginLeft: "8px" }} />
               </Link>
@@ -673,6 +687,16 @@ const ManagedNetworkServicesPage = () => {
       default:
         return <div>Content not found</div>;
     }
+  };
+
+  const tabTextStyle = {
+    color: 'var(--tt-color)',
+    fontWeight: 500
+  };
+
+  const activeTabTextStyle = {
+    color: 'var(--tt-color)',
+    fontWeight: 700
   };
 
   return (
@@ -689,15 +713,15 @@ const ManagedNetworkServicesPage = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <motion.div 
-                className="text-center mb-5"
+              <motion.div
+                className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-              >        
-              </motion.div>    
+              >
+              </motion.div>
               <div className="custom-tabs-container">
-                <motion.div 
+                <motion.div
                   className="tab-navigation mb-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -707,18 +731,16 @@ const ManagedNetworkServicesPage = () => {
                     {tabs.map((tab) => (
                       <li className="nav-item" key={tab.id} role="presentation">
                         <button
-                          className={`nav-link ${activeTab === tab.id ? 'active' : ''}`}
+                          className={`nav-link-tab ${activeTab === tab.id ? 'active' : ''}`}
                           onClick={() => setActiveTab(tab.id)}
                           id={`${tab.id}-tab`}
                           type="button"
                           role="tab"
                           aria-controls={tab.id}
                           aria-selected={activeTab === tab.id}
-                          style={{
-                            borderBottom: activeTab === tab.id ? `3px solid var(--primary-color)` : 'none'
-                          }}
+                          style={activeTab === tab.id ? activeTabTextStyle : tabTextStyle}
                         >
-                          <i className="tab-icon" style={{ color: "var(--primary-color)" }}>{tab.icon}</i>
+                          <i className="tab-icon" style={{ color: "var(--tt-color)" }}>{tab.icon}</i>
                           <span style={{ color: "var(--tt-color)" }}>{tab.label}</span>
                         </button>
                       </li>

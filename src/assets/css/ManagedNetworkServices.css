@@ -152,7 +152,43 @@
 .tabs-section {
     padding: 50px 0;
     /* background-color: #f8f9fa; */
-}.hero-overlay {
+}
+.hero-overlay {
     pointer-events: none;
   }
+
+
+
+.custom-accordion .accordion-button {
+  background-color: var(--card-color) !important;
+  color: var(--ct-color) !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-weight: 600;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+  background-color: var(--purple-hover) !important;
+  color: var(--ct-color) !important;
+}
+
+.custom-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(143, 138, 156, 0.25) !important;
+}
+
+.custom-accordion .accordion-button:hover {
+  background-color: var(--card-color) !important;
+}
+
+/* Make the arrow icon white */
+.custom-accordion .accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+.custom-accordion .accordion-item {
+  border: 1px solid var(--purple-light) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
   
