@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, FaCheck, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle, FaLock, FaHandshake, FaShieldAlt, FaUsersCog } from "react-icons/fa";
+import { FaCloud, FaCogs, FaRobot, FaCube, FaChartLine, FaClipboardCheck, FaGraduationCap,  FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, FaCheck, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle, FaLock, FaHandshake, FaShieldAlt, FaUsersCog } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
 import "../assets/css/network.css";
@@ -49,6 +49,54 @@ const NetworkAsCode = () => {
     { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
 
+  const solutions = [
+    {
+      title: "NaC Framework Design",
+      desc: "Custom architecture for integrating NaC into your existing environment—toolchain selection, workflows, and policies.",
+      icon: <FaCogs size={28} />
+    },
+    {
+      title: "Automated Provisioning & Configuration",
+      desc: "Use tools like Ansible, Terraform, or Nornir to automate switch, router, firewall, and SD-WAN configuration.",
+      icon: <FaRobot size={28} />
+    },
+    {
+      title: "CI/CD for Networking",
+      desc: "Implement pipelines to test and deploy network changes using Jenkins, GitLab CI, or GitHub Actions.",
+      icon: <FaCode size={28} />
+    },
+    {
+      title: "Digital Twin & Network Simulation",
+      desc: "Build EVE-NG or container-based test environments to validate changes before production.",
+      icon: <FaCube size={28} />
+    },
+    {
+      title: "Telemetry & Event-Driven Automation",
+      desc: "Integrate with Kafka, Fluentd, or Prometheus to enable real-time monitoring and reactive workflows.",
+      icon: <FaChartLine size={28} />
+    },
+    {
+      title: "Configuration Drift Detection",
+      desc: "Real-time detection and correction of unauthorized changes.",
+      icon: <FaShieldAlt size={28} />
+    },
+    {
+      title: "Multi-Cloud & Hybrid Networking",
+      desc: "Automate and manage connectivity across AWS, Azure, GCP, and on-prem.",
+      icon: <FaCloud size={28} />
+    },
+    {
+      title: "Compliance as Code",
+      desc: "Embed policy checks and security baselines in every deployment.",
+      icon: <FaClipboardCheck size={28} />
+    },
+    {
+      title: "Training & Consulting",
+      desc: "Upskill your team or bring in our experts to accelerate your NaC journey.",
+      icon: <FaGraduationCap size={28} />
+    }
+  ];
+
   const faqs = [
     {
       question: "Is Network as Code suitable for small and medium businesses?",
@@ -84,6 +132,18 @@ const NetworkAsCode = () => {
     }
   ];
 
+const colorSchemes = [
+    { primary: '#f08b0a', secondary: '#F2F2F2', accent: '#301934' }, // Orange primary with light gray secondary
+    { primary: '#301934', secondary: '#F2F2F2', accent: '#f08b0a' }, // Dark purple primary with orange accent
+    { primary: '#1e0f20', secondary: '#F2F2F2', accent: '#f08b0a' }, // Founder dark with orange accent
+    { primary: '#f08b0a', secondary: '#301934', accent: '#F2F2F2' }, // Orange primary with dark purple secondary
+    { primary: '#000000', secondary: '#F2F2F2', accent: '#f08b0a' }, // Black primary with orange accent
+    { primary: '#301934', secondary: '#f08b0a', accent: '#1e0f20' }, // Dark purple with orange secondary
+    { primary: '#1e0f20', secondary: '#301934', accent: '#f08b0a' }, // Founder dark with purple secondary
+    { primary: '#f08b0a', secondary: '#1e0f20', accent: '#F2F2F2' }, // Orange with founder dark secondary
+    { primary: '#FFFFFF', secondary: '#301934', accent: '#f08b0a' }  // Black with purple secondary
+];
+
   const handleAccordionChange = (eventKey) => {
     setActiveKey(eventKey);
   };
@@ -116,39 +176,147 @@ const NetworkAsCode = () => {
                 </motion.div>
               ))}
             </div>
+
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Implementation Steps</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <div className="implementation-timeline position-relative">
-              <div className="timeline-connector"></div>
+
+            {/* Implementation Timeline - Vertical responsive design */}
+            <div className="position-relative py-3" style={{ marginBottom: "50px" }}>
+              {/* Vertical timeline line */}
+              <div className="position-absolute" style={{
+                top: "0",
+                bottom: "0",
+                left: "50%",
+                width: "4px",
+                backgroundColor: "var(--primary-color)",
+                transform: "translateX(-50%)"
+              }}></div>
+
               {[
-                { step: "Define Network Requirements", desc: "Assess your network and automation goals", icon: <FaLayerGroup size={24} /> },
-                { step: "Choose Automation Tools", desc: "Select tools like Ansible or Terraform", icon: <FaTools size={24} /> },
-                { step: "Implement Version Control", desc: "Set up Git for configuration management", icon: <FaCode size={24} /> },
-                { step: "Monitor & Validate", desc: "Ensure reliability with continuous monitoring", icon: <FaCheck size={24} /> }
+                {
+                  step: "Define Network Requirements",
+                  desc: "Assess your network and automation goals",
+                  icon: <FaLayerGroup size={24} />,
+                  nodeIcon: <FaLayerGroup size={20} />
+                },
+                {
+                  step: "Choose Automation Tools",
+                  desc: "Select tools like Ansible or Terraform",
+                  icon: <FaTools size={24} />,
+                  nodeIcon: <FaTools size={20} />
+                },
+                {
+                  step: "Implement Version Control",
+                  desc: "Set up Git for configuration management",
+                  icon: <FaCode size={24} />,
+                  nodeIcon: <FaCode size={20} />
+                },
+                {
+                  step: "Monitor & Validate",
+                  desc: "Ensure reliability with continuous monitoring",
+                  icon: <FaCheck size={24} />,
+                  nodeIcon: <FaCheck size={20} />
+                }
               ].map((step, index) => (
                 <motion.div
-                  className={`d-flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                  className="row mb-5 position-relative"
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ delay: index * 0.2 }}
                 >
-                  <div className="timeline-content-wrapper col-5">
-                    <div className="timeline-content p-4 bg-white rounded shadow-sm">
-                      <h5 style={{ color: "var(--ct-color)" }}>{step.step}</h5>
-                      <p className="mb-0 text-muted">{step.desc}</p>
-                    </div>
-                  </div>
-                  <div className="timeline-icon-wrapper col-2 d-flex justify-content-center">
-                    <div className="timeline-icon-circle">
-                      <div style={{ color: "#fff", backgroundColor: "var(--primary-color)" }} className="timeline-icon d-flex align-items-center justify-content-center">
-                        {step.icon}
+                  {/* Timeline node/circle with icon - properly centered */}
+                  <div className="col-12 d-flex justify-content-center" style={{
+                    marginBottom: "0px",
+                    height: "0px"
+                  }}>
+                    <div style={{
+                      width: "60px",
+                      height: "60px",
+                      borderRadius: "50%",
+                      backgroundColor: "#402456",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#fff",
+                      border: "4px solid var(--primary-color)",
+                      boxShadow: "0 0 0 5px rgba(255,255,255,0.8)",
+                      zIndex: "2",
+                      position: "relative",
+                      top: "-30px"
+                    }}>
+                      <div style={{
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "50%",
+                        backgroundColor: "var(--primary-color)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontWeight: "bold"
+                      }}>
+                        {step.nodeIcon}
                       </div>
                     </div>
                   </div>
-                  <div className="col-5"></div>
+
+                  {/* Content Card */}
+                  <div className={`col-md-5 ${index % 2 === 0 ? "offset-md-1 pe-md-5 text-md-end" : "offset-md-6 ps-md-5 text-md-start"}`}>
+                    <div style={{
+                      backgroundColor: "white",
+                      padding: "20px",
+                      borderRadius: "8px",
+                      boxShadow: "0 6px 15px rgba(0,0,0,0.1)",
+                      border: "1px solid rgba(0,0,0,0.05)",
+                      position: "relative",
+                      marginTop: "-20px"
+                    }}>
+                      {/* Triangle pointer */}
+                      <div style={{
+                        position: "absolute",
+                        top: "20px",
+                        [index % 2 === 0 ? "right" : "left"]: "-10px",
+                        width: "20px",
+                        height: "20px",
+                        backgroundColor: "white",
+                        transform: "rotate(45deg)",
+                        borderLeft: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                        borderBottom: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                        borderRight: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                        borderTop: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none"
+                      }}></div>
+
+                      <div className="d-flex align-items-center" style={{
+                        marginBottom: "12px",
+                      }}>
+                        <div style={{
+                          backgroundColor: "var(--primary-color)",
+                          borderRadius: "50%",
+                          width: "38px",
+                          height: "38px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          marginRight: "12px",
+                          color: "white"
+                        }}>
+                          {step.icon}
+                        </div>
+                        <h5 style={{
+                          color: "var(--ct-color)",
+                          margin: "0",
+                          fontWeight: "600"
+                        }}>{step.step}</h5>
+                      </div>
+                      <p style={{
+                        margin: "0",
+                        color: "#666",
+                        fontSize: "15px"
+                      }}>{step.desc}</p>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -157,58 +325,140 @@ const NetworkAsCode = () => {
       case 'solutions':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Solutions We Provide</h2>
-            <div className="d-flex justify-content-center mb-5">
-              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-            </div>
-            <div className="row">
-              {[
-                {
-                  title: "NaC Framework Design",
-                  desc: "Custom architecture for integrating NaC into your existing environment—toolchain selection, workflows, and policies."
-                },
-                {
-                  title: "Automated Provisioning & Configuration",
-                  desc: "Use tools like Ansible, Terraform, or Nornir to automate switch, router, firewall, and SD-WAN configuration."
-                },
-                {
-                  title: "CI/CD for Networking",
-                  desc: "Implement pipelines to test and deploy network changes using Jenkins, GitLab CI, or GitHub Actions."
-                },
-                {
-                  title: "Digital Twin & Network Simulation",
-                  desc: "Build EVE-NG or container-based test environments to validate changes before production."
-                },
-                {
-                  title: "Telemetry & Event-Driven Automation",
-                  desc: "Integrate with Kafka, Fluentd, or Prometheus to enable real-time monitoring and reactive workflows."
-                },
-                {
-                  title: "Configuration Drift Detection",
-                  desc: "Real-time detection and correction of unauthorized changes."
-                },
-                {
-                  title: "Multi-Cloud & Hybrid Networking",
-                  desc: "Automate and manage connectivity across AWS, Azure, GCP, and on-prem."
-                },
-                {
-                  title: "Compliance as Code",
-                  desc: "Embed policy checks and security baselines in every deployment."
-                },
-                {
-                  title: "Training & Consulting",
-                  desc: "Upskill your team or bring in our experts to accelerate your NaC journey."
-                }
-              ].map((solution, index) => (
-                <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
-                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
-                    <p>{solution.desc}</p>
+      <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Solutions We Provide</h2>
+      <div className="d-flex justify-content-center mb-5">
+        <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+      </div>
+      <div className="row">
+        {solutions.map((solution, index) => {
+          const colors = colorSchemes[index % colorSchemes.length];
+          return (
+            <motion.div 
+              className="col-md-4 mb-4" 
+              key={index} 
+              initial={{ opacity: 0, y: 30 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ delay: index * 0.1 }}
+            >
+              <div 
+                className="card border-0 p-4 h-100 position-relative overflow-hidden"
+                style={{ 
+                  boxShadow: `0 10px 30px var(--card-color)20`,
+                  border: `1px solid var(--card-color)20`,
+                  borderRadius: "16px",
+                  background: `linear-gradient(135deg, var(--card-color) 0%, #ffffff 100%)`,
+                  transition: "all 0.3s ease",
+                  cursor: "pointer"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-8px)";
+                  e.currentTarget.style.boxShadow = `0 20px 40px var(--ct-color)30`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = `0 10px 30px ${colors.primary}20`;
+                }}
+              >
+                {/* <div 
+                  className="position-absolute top-0 end-0"
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.accent} 100%)`,
+                    clipPath: "polygon(100% 0, 0 0, 100% 100%)",
+                    opacity: "0.1"
+                  }}
+                ></div> */}
+
+                <div 
+                  className="position-absolute start-0 top-0 bottom-0"
+                  style={{
+                    width: "4px",
+                    borderRadius: "0 2px 2px 0"
+                  }}
+                ></div>
+
+                <div className="mb-3 d-flex align-items-center">
+                  <div 
+                    className="d-flex align-items-center justify-content-center me-3"
+                    style={{
+                      width: "60px",
+                      height: "60px",
+                      borderRadius: "16px",
+                      background: "#F2F2F2",
+                      color: "var(--primary-color)",
+                    }}
+                  >
+                    {solution.icon}
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+                  <div style={{
+                    width: "40px",
+                    height: "2px",
+                  }}></div>
+                </div>
+
+                {/* Content */}
+                <h5 
+                  className="mb-3"
+                  style={{ 
+                    color: "var(--ct-color)",
+                    fontWeight: "700",
+                    fontSize: "1.1rem",
+                    lineHeight: "1.3"
+                  }}
+                >
+                  {solution.title}
+                </h5>
+                <p 
+                  className="mb-0"
+                  style={{
+                    color: "#64748b",
+                    fontSize: "0.95rem",
+                    lineHeight: "1.6"
+                  }}
+                >
+                  {solution.desc}
+                </p>
+
+                {/* Bottom accent */}
+                <div 
+                  className="position-absolute bottom-0 start-50 translate-middle-x"
+                  style={{
+                    width: "40px",
+                    height: "3px",
+                    // background: `linear-gradient(90deg, ${colors.primary} 0%, ${colors.accent} 100%)`,
+                    borderRadius: "2px 2px 0 0",
+                    opacity: "0.6"
+                  }}
+                ></div>
+
+                {/* Floating orb decoration */}
+                <div 
+                  className="position-absolute"
+                  style={{
+                    bottom: "20px",
+                    right: "20px",
+                    width: "8px",
+                    height: "8px",
+                    borderRadius: "50%",
+                    // background: colors.primary,
+                    opacity: "0.4"
+                  }}
+                ></div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .col-md-4 {
+            margin-bottom: 2rem;
+          }
+        }
+      `}</style>
+    </div>
         );
       case 'whychooseus':
         return (
@@ -396,25 +646,128 @@ const NetworkAsCode = () => {
             </div>
             <div className="row mt-5">
               <div className="col-12">
-                <div className="card border-0 p-4" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                <div className="metrics-banner">
                   <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">ROI of Network as Code</h3>
                   <div className="d-flex justify-content-center mb-5">
                     <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
                   </div>
                   <div className="row">
                     {[
-                      { value: "40%", label: "Reduction in operational costs" },
-                      { value: "80%", label: "Faster network deployment" },
-                      { value: "95%", label: "Reduction in configuration errors" }
+                      {
+                        value: "40%",
+                        label: "Reduction in operational costs",
+                        image: "https://i.pinimg.com/736x/cf/91/c4/cf91c43d36fc951cd8199fda571770da.jpg",
+                        alt: "Cost Reduction"
+                      },
+                      {
+                        value: "80%",
+                        label: "Faster network deployment",
+                        image: "https://i.pinimg.com/736x/89/c1/4f/89c14f387f878f4be3797bd52bf152a5.jpg",
+                        alt: "Fast Deployment"
+                      },
+                      {
+                        value: "95%",
+                        label: "Reduction in configuration errors",
+                        image: "https://i.pinimg.com/736x/f7/bd/eb/f7bdebbd732438479a7de7f3a56c3e7b.jpg",
+                        alt: "Error Reduction"
+                      }
                     ].map((metric, index) => (
-                      <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
-                        <div className="text-center">
-                          <h4 style={{ color: "var(--primary-color)" }}>{metric.value}</h4>
-                          <p>{metric.label}</p>
+                      <motion.div
+                        className="col-md-4 col-sm-6 mb-4"
+                        key={index}
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: index * 0.1 }}
+                      >
+                        <div className="card border-0 pb-4 text-center h-100 position-relative overflow-hidden"
+                          style={{
+                            boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                            border: "1px solid rgba(0,0,0,0.05)",
+                            borderRadius: "12px",
+                            background: "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
+                            transition: "all 0.3s ease"
+                          }}
+                        >
+                          {/* Background accent */}
+                          <div className="position-absolute top-0 start-0 w-100" style={{
+                            height: "4px",
+                            background: "linear-gradient(90deg, var(--primary-color) 0%, rgba(var(--primary-color-rgb, 64, 36, 86), 0.6) 100%)"
+                          }}></div>
+
+                          {/* Metric circle background */}
+                          <div className="position-absolute" style={{
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            width: "120px",
+                            height: "120px",
+                            borderRadius: "50%",
+                            background: "linear-gradient(135deg, rgba(var(--primary-color-rgb, 64, 36, 86), 0.05) 0%, rgba(var(--primary-color-rgb, 64, 36, 86), 0.1) 100%)",
+                            zIndex: "1"
+                          }}></div>
+
+                          <div className="position-relative" style={{ zIndex: "2" }}>
+                            {/* Image */}
+                            <div className="mb-3">
+                              <img
+                                src={metric.image}
+                                alt={metric.alt}
+                                style={{
+                                  width: "100%",
+                                  height: "250px",
+                                  objectFit: "cover",
+                                  borderRadius: "8px",
+                                  opacity: "0.9"
+                                }}
+                              />
+                            </div>
+
+                            <div className="metric-value mb-2" style={{
+                              color: "var(--primary-color)",
+                              fontSize: "3rem",
+                              fontWeight: "800",
+                              lineHeight: "1"
+                            }}>
+                              {metric.value}
+                            </div>
+                            <div className="metric-label" style={{
+                              color: "var(--ct-color)",
+                              fontSize: "0.95rem",
+                              fontWeight: "600",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                              lineHeight: "1.3"
+                            }}>
+                              {metric.label}
+                            </div>
+                          </div>
+
+                          <div className="position-absolute bottom-0 start-50 translate-middle-x" style={{
+                            width: "30px",
+                            height: "2px",
+                            backgroundColor: "var(--primary-color)",
+                            opacity: "0.6"
+                          }}></div>
                         </div>
                       </motion.div>
                     ))}
                   </div>
+                  <style jsx>{`
+            @media (max-width: 768px) {
+              .metric-value {
+                font-size: 2.5rem !important;
+              }
+              .metric-label {
+                font-size: 0.85rem !important;
+              }
+            }
+            
+            @media (max-width: 576px) {
+              .col-sm-6 {
+                margin-bottom: 1.5rem;
+              }
+            }
+          `}</style>
                 </div>
               </div>
             </div>

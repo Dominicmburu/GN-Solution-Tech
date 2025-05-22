@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaRocket, FaLaptopCode, FaShieldAlt, FaCloudUploadAlt, FaCogs, FaUserTie, FaArrowRight, FaQuestionCircle, FaTools, FaSyncAlt, FaChartLine, FaChartBar, FaAward, FaCheckCircle, FaInfoCircle } from 'react-icons/fa';
+import { FaRocket, FaSearch, FaDrawPolygon, FaHammer,FaExchangeAlt, FaLaptopCode, FaShieldAlt, FaCloudUploadAlt, FaCogs, FaUserTie, FaArrowRight, FaQuestionCircle, FaTools, FaSyncAlt, FaChartLine, FaChartBar, FaAward, FaCheckCircle, FaInfoCircle } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Accordion } from 'react-bootstrap';
 import '../assets/css/TechnologyTransition.css';
@@ -8,7 +8,7 @@ import techTransformation from '../assets/tech-transformation.avif';
 
 const TechnologyTransitionPage = () => {
   const [activeTab, setActiveTab] = useState('overview');
-  
+
   // Modified tabs - removed features tab and replaced technologies with why choose us
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
@@ -17,7 +17,7 @@ const TechnologyTransitionPage = () => {
     { id: 'solutions', label: 'Key Solutions', icon: <FaRocket /> },
     { id: 'faqs', label: 'FAQs', icon: <FaQuestionCircle /> }
   ];
-  
+
   const faqs = [
     { question: "What's the difference between technology transition and transformation?", answer: "Transition is the process of migrating from an old to a new technology. Transformation is a broader initiative that includes reimagining processes, business models, and user experiences through new technologies." },
     { question: "How long does a transition and transformation project take?", answer: "It depends on scope and complexity. Some projects may take weeks, while others span several months or more. We work with you to define clear timelines and milestones." },
@@ -36,13 +36,13 @@ const TechnologyTransitionPage = () => {
               <div className="col-12">
                 <div className="card shadow-lg border-0 p-4 mb-5 gradient-card">
                   <p className="text-center text-light fw-bold mb-0">
-                   In today’s rapidly evolving digital landscape, organizations must continuously adapt their technology environments to remain competitive, efficient, and secure. Technology Transition and Transformation (T3) refers to the structured process of moving from outdated, legacy, or inefficient systems to modern, optimized, and scalable technology platforms.
-Whether it’s migrating from on-premises to the cloud, integrating modern DevOps practices, or overhauling legacy infrastructure, our T3 services help businesses embrace change with minimal risk and maximum value.
+                    In today’s rapidly evolving digital landscape, organizations must continuously adapt their technology environments to remain competitive, efficient, and secure. Technology Transition and Transformation (T3) refers to the structured process of moving from outdated, legacy, or inefficient systems to modern, optimized, and scalable technology platforms.
+                    Whether it’s migrating from on-premises to the cloud, integrating modern DevOps practices, or overhauling legacy infrastructure, our T3 services help businesses embrace change with minimal risk and maximum value.
                   </p>
                 </div>
               </div>
             </div>
-            
+
             <div className="row mb-5">
               <div className="col-12">
                 <div className="card shadow-sm border-0 p-4">
@@ -52,7 +52,7 @@ Whether it’s migrating from on-premises to the cloud, integrating modern DevOp
                 </div>
               </div>
             </div>
-            
+
             {/* Key Features section moved from separate tab to overview */}
             <h3 className="text-center text-primary mb-4">Key Features</h3>
             <div className="row">
@@ -73,32 +73,196 @@ Whether it’s migrating from on-premises to the cloud, integrating modern DevOp
                 </motion.div>
               ))}
             </div>
-            
-            <h3 className="text-center text-primary mb-4 mt-5">Our Approach</h3>
-            <div className="approach-timeline">
+
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Our Approach</h3>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+
+            {/* Implementation Timeline - Vertical responsive design */}
+            <div className="position-relative py-3" style={{ marginBottom: "50px" }}>
+              {/* Vertical timeline line */}
+              <div className="position-absolute" style={{
+                top: "0",
+                bottom: "0",
+                left: "50%",
+                width: "4px",
+                backgroundColor: "var(--primary-color)",
+                transform: "translateX(-50%)"
+              }}></div>
+
               {[
-                { phase: "1. Discover", desc: "Assessment of current state and requirements gathering" },
-                { phase: "2. Design", desc: "Architecture design and transformation roadmap creation" },
-                { phase: "3. Build", desc: "Environment preparation and implementation" },
-                { phase: "4. Transition", desc: "Staged migration with testing and validation" },
-                { phase: "5. Optimize", desc: "Performance tuning and continuous improvement" }
+                {
+                  phase: "1. Discover",
+                  desc: "Assessment of current state and requirements gathering",
+                  icon: <FaSearch size={24} />,
+                  nodeIcon: <FaSearch size={20} />,
+                  number: "1"
+                },
+                {
+                  phase: "2. Design",
+                  desc: "Architecture design and transformation roadmap creation",
+                  icon: <FaDrawPolygon size={24} />,
+                  nodeIcon: <FaDrawPolygon size={20} />,
+                  number: "2"
+                },
+                {
+                  phase: "3. Build",
+                  desc: "Environment preparation and implementation",
+                  icon: <FaHammer size={24} />,
+                  nodeIcon: <FaHammer size={20} />,
+                  number: "3"
+                },
+                {
+                  phase: "4. Transition",
+                  desc: "Staged migration with testing and validation",
+                  icon: <FaExchangeAlt size={24} />,
+                  nodeIcon: <FaExchangeAlt size={20} />,
+                  number: "4"
+                },
+                {
+                  phase: "5. Optimize",
+                  desc: "Performance tuning and continuous improvement",
+                  icon: <FaChartLine size={24} />,
+                  nodeIcon: <FaChartLine size={20} />,
+                  number: "5"
+                }
               ].map((step, index) => (
-                <motion.div className="approach-step" key={index} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.2 }}>
-                  <div className="step-number">{index + 1}</div>
-                  <div className="step-content">
-                    <h5>{step.phase}</h5>
-                    <p>{step.desc}</p>
+                <motion.div
+                  className="row mb-5 position-relative"
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  {/* Timeline node/circle with number - properly centered */}
+                  <div className="col-12 d-flex justify-content-center" style={{
+                    marginBottom: "0px",
+                    height: "0px"
+                  }}>
+                    <div style={{
+                      width: "60px",
+                      height: "60px",
+                      borderRadius: "50%",
+                      backgroundColor: "#402456",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#fff",
+                      border: "4px solid var(--primary-color)",
+                      boxShadow: "0 0 0 5px rgba(255,255,255,0.8)",
+                      zIndex: "2",
+                      position: "relative",
+                      top: "-30px"
+                    }}>
+                      <div style={{
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "50%",
+                        backgroundColor: "var(--primary-color)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontWeight: "bold",
+                        fontSize: "18px"
+                      }}>
+                        {step.number}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content Card */}
+                  <div className={`col-md-5 ${index % 2 === 0 ? "offset-md-1 pe-md-5 text-md-end" : "offset-md-6 ps-md-5 text-md-start"}`}>
+                    <div style={{
+                      backgroundColor: "white",
+                      padding: "20px",
+                      borderRadius: "8px",
+                      boxShadow: "0 6px 15px rgba(0,0,0,0.1)",
+                      border: "1px solid rgba(0,0,0,0.05)",
+                      position: "relative",
+                      marginTop: "-20px"
+                    }}>
+                      {/* Triangle pointer */}
+                      <div style={{
+                        position: "absolute",
+                        top: "20px",
+                        [index % 2 === 0 ? "right" : "left"]: "-10px",
+                        width: "20px",
+                        height: "20px",
+                        backgroundColor: "white",
+                        transform: "rotate(45deg)",
+                        borderLeft: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                        borderBottom: index % 2 !== 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                        borderRight: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none",
+                        borderTop: index % 2 === 0 ? "1px solid rgba(0,0,0,0.05)" : "none"
+                      }}></div>
+
+                      <div className="d-flex align-items-center" style={{
+                        marginBottom: "12px",
+                      }}>
+                        <div style={{
+                          backgroundColor: "var(--primary-color)",
+                          borderRadius: "50%",
+                          width: "38px",
+                          height: "38px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          marginRight: "12px",
+                          color: "white"
+                        }}>
+                          {step.icon}
+                        </div>
+                        <h5 style={{
+                          color: "var(--ct-color)",
+                          margin: "0",
+                          fontWeight: "600"
+                        }}>{step.phase}</h5>
+                      </div>
+                      <p style={{
+                        margin: "0",
+                        color: "#666",
+                        fontSize: "15px"
+                      }}>{step.desc}</p>
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </div>
+
+            {/* Responsive styles for mobile */}
+            <style jsx>{`
+        @media (max-width: 767px) {
+          .position-relative > div:first-child {
+            left: 20px !important;
+            transform: none !important;
+          }
+          .col-md-5 {
+            margin-left: 60px !important;
+            padding-left: 20px !important;
+            text-align: left !important;
+          }
+          .col-md-5 > div > div:first-of-type {
+            left: -10px !important;
+            right: auto !important;
+            border-left: 1px solid rgba(0,0,0,0.05) !important;
+            border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+            border-right: none !important;
+            border-top: none !important;
+          }
+          .col-12.d-flex.justify-content-center {
+            justify-content: flex-start !important;
+            padding-left: 20px !important;
+          }
+        }
+      `}</style>
           </div>
         );
       case 'whychooseus':
         return (
           <div className="container py-5">
             <h2 className="text-center text-primary mb-4">Why Choose Us</h2>
-            
+
             <div className="row mb-5">
               <div className="col-md-8 mx-auto">
                 <div className="card shadow-lg border-0 p-4 mb-5">
@@ -108,7 +272,7 @@ Whether it’s migrating from on-premises to the cloud, integrating modern DevOp
                 </div>
               </div>
             </div>
-            
+
             <div className="row">
               {[
                 { title: "Proven Expertise", desc: "With years of hands-on experience across industries, our team has successfully led multiple high-impact transitions.", icon: <FaUserTie size={40} className="whychoose-icon" /> },
@@ -126,7 +290,7 @@ Whether it’s migrating from on-premises to the cloud, integrating modern DevOp
                 </motion.div>
               ))}
             </div>
-            
+
             <h3 className="text-center text-primary mb-4 mt-5">Client Success Stories</h3>
             <div className="success-stories">
               {[
@@ -134,7 +298,7 @@ Whether it’s migrating from on-premises to the cloud, integrating modern DevOp
                 { company: "Healthcare Services Provider", result: "Modernized legacy applications to improve patient data access speeds by 300% and achieve HIPAA compliance." },
                 { company: "Retail Chain", result: "Transformed e-commerce platform resulting in 65% faster page loads and 28% increase in conversion rates." }
               ].map((story, index) => (
-                <motion.div className="story-card" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1}} transition={{ delay: index * 0.2 }}>
+                <motion.div className="story-card" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
                   <div className="story-content">
                     <h5>{story.company}</h5>
                     <p>{story.result}</p>
@@ -166,7 +330,7 @@ Whether it’s migrating from on-premises to the cloud, integrating modern DevOp
                 </motion.div>
               ))}
             </div>
-            
+
             <h3 className="text-center text-primary mb-4 mt-5">Success Stories</h3>
             <div className="success-stories">
               {[
@@ -174,7 +338,7 @@ Whether it’s migrating from on-premises to the cloud, integrating modern DevOp
                 { company: "Healthcare Services Provider", result: "Modernized legacy applications to improve patient data access speeds by 300% and achieve HIPAA compliance." },
                 { company: "Retail Chain", result: "Transformed e-commerce platform resulting in 65% faster page loads and 28% increase in conversion rates." }
               ].map((story, index) => (
-                <motion.div className="story-card" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1}} transition={{ delay: index * 0.2 }}>
+                <motion.div className="story-card" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
                   <div className="story-content">
                     <h5>{story.company}</h5>
                     <p>{story.result}</p>
@@ -204,7 +368,7 @@ Whether it’s migrating from on-premises to the cloud, integrating modern DevOp
                 </motion.div>
               ))}
             </div>
-            
+
             <h3 className="text-center text-primary mb-4 mt-5">Transformation Methodologies</h3>
             <div className="methodology-container">
               {[
@@ -256,14 +420,14 @@ Whether it’s migrating from on-premises to the cloud, integrating modern DevOp
 
   return (
     <div className="container-fluid p-0">
-    <div 
-      className="hero-section text-white d-flex flex-column align-items-center justify-content-center"
-      style={{ 
-        background: `linear-gradient(rgba(0, 30, 60, 0.7), rgba(0, 30, 60, 0.8)), url(${techTransformation}) center/cover no-repeat`,
-        height: "60vh",
-        position: "relative"
-      }}
-    >
+      <div
+        className="hero-section text-white d-flex flex-column align-items-center justify-content-center"
+        style={{
+          background: `linear-gradient(rgba(0, 30, 60, 0.7), rgba(0, 30, 60, 0.8)), url(${techTransformation}) center/cover no-repeat`,
+          height: "60vh",
+          position: "relative"
+        }}
+      >
         <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           Technology Transition & Transformation
         </motion.h1>
@@ -278,21 +442,21 @@ Whether it’s migrating from on-premises to the cloud, integrating modern DevOp
       </div>
       <div className="hero-overlay"></div>
 
-     {/* Tabs Section */}
-     <section className="tabs-section py-5 bg-light">
+      {/* Tabs Section */}
+      <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <motion.div 
+              <motion.div
                 className="text-center mb-5"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-              >        
-              </motion.div>    
+              >
+              </motion.div>
               <div className="custom-tabs-container">
                 {/* Tab navigation */}
-                <motion.div 
+                <motion.div
                   className="tab-navigation mb-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -317,7 +481,7 @@ Whether it’s migrating from on-premises to the cloud, integrating modern DevOp
                     ))}
                   </ul>
                 </motion.div>
-                
+
                 {/* Tab content */}
                 <div className="tab-content-container">
                   <div className="tab-content" id="iacTabsContent">
