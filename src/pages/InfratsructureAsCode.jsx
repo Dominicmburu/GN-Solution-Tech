@@ -710,58 +710,7 @@ const InfrastructureAsCode = () => {
             </div>
           </div>
         </div>
-      </section>
-      {/* Testimonials Section */}
-      <section className="py-5 bg-white">
-        <div className="container">
-          <motion.div
-            className="text-center mb-5"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 style={{ color: "var(--tt-color)" }} className="display-5 fw-bold">What Our Clients Say</h2>
-            <p className="lead text-muted">Success stories from businesses that transformed with IaC</p>
-          </motion.div>
-          <motion.div
-            className="row"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ staggerChildren: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {[
-              { quote: "Our deployment time went from days to minutes, and configuration errors dropped by over 90%.", author: "CTO, Global Retail Company" },
-              { quote: "The ability to version control our infrastructure has been a game-changer for our team's productivity.", author: "DevOps Lead, Financial Services" },
-              { quote: "The monitoring and security integration has helped us maintain compliance while moving faster.", author: "Security Director, Healthcare Tech" }
-            ].map((testimonial, index) => (
-              <motion.div
-                className="col-lg-4 mb-4"
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2, duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                  <div className="d-flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} style={{ color: "var(--primary-color)" }} className="me-1">★</span>
-                    ))}
-                  </div>
-                  <p className="testimonial-quote mb-4">"{testimonial.quote}"</p>
-                  <div className="d-flex align-items-center mt-auto">
-                    <div>
-                      <p style={{ color: "var(--ct-color)" }} className="mb-0 fw-bold">{testimonial.author}</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      </section>      
       {/* Call to Action */}
       <section style={{ backgroundColor: "var(--tt-color)", padding: "50px 0" }}>
         <div className="container">
