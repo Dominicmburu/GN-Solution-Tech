@@ -21,12 +21,12 @@ const ManagedNetworkServicesIntro = () => {
             </h1>
           </div>
           <div className="col-lg-7">
-            <p className="intro-text">
+            <p className="intro-text" style={{ textAlign: 'justify' }}>
               In today's connected world, a resilient and secure network infrastructure is crucial for business continuity and growth. Our Managed Network Services offer end-to-end design, implementation, monitoring, and management of your enterprise network infrastructure—whether it's Local Area Networks (LAN), Wide Area Networks (WAN), Wireless LANs (WLAN), SD-WAN or hybrid environments.
               We act as your extended IT team, taking responsibility for the performance, availability, and security of your network. Our services are tailored to meet the unique demands of your business, ensuring reliable connectivity, optimized performance, and simplified operations—24/7.
-
             </p>
           </div>
+
         </div>
       </div>
     </section>
@@ -705,7 +705,7 @@ const ManagedNetworkServicesPage = () => {
         title="Managed Network Services"
         subtitle="End-to-end network management for reliable, secure, and scalable connectivity"
         // backgroundImage={backgroundImage}
-        backgroundImage="https://i.pinimg.com/736x/cb/23/0f/cb230f95556f05c3ae9b592b6ffe6a3e.jpg"
+        backgroundImage="https://www.ntc.edu/sites/default/files/styles/full_width_16_9/public/2021-06/network-technician-header_0.jpg?itok=S1vB5UZR"
         background="#0a1033"
         currentpage="Managed Network Services"
       />
