@@ -36,7 +36,7 @@ const InfrastructureAsCodeIntro = () => {
             </h1>
           </div>
           <div className="col-lg-7">
-            <p className="intro-text">
+            <p className="intro-text" style={{ textAlign: 'justify' }}>
               Infrastructure as Code (IaC) is a modern approach to provisioning and managing IT infrastructure using machine-readable configuration files, rather than through manual processes. It allows system administrators and DevOps teams to define infrastructure using code, enabling repeatable, reliable, and automated deployments. This approach streamlines the management of resources and minimizes human error, ensuring consistency across environments.
               By treating infrastructure definitions just like application code, teams gain the ability to version, review, and reuse configurations in a consistent and automated way.
             </p>

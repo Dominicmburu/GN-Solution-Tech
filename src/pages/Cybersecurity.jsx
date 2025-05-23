@@ -94,7 +94,7 @@ const CybersecurityAsAServicePage = () => {
               </h1>
             </div>
             <div className="col-lg-7">
-              <p className="intro-text">
+              <p className="intro-text" style={{ textAlign: 'justify' }}>
                In today’s digital-first world, organizations face growing threats from cybercriminals targeting critical systems, data, and infrastructure. Cybersecurity is no longer optional—it’s essential. At gnsolutions.eu, we provide Cybersecurity as a Service (CSaaS), a comprehensive, scalable, and proactive approach to securing your digital assets. Our services are designed to protect your business against ever-evolving threats, ensuring confidentiality, integrity, and availability of your data and systems.
 We combine advanced technology, expert analysis, and strategic advisory services to deliver continuous protection tailored to your organization's needs.
                </p>

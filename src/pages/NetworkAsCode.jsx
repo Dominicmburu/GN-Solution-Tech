@@ -21,10 +21,10 @@ const NetworkAsCodeIntro = () => {
             </h1>
           </div>
           <div className="col-lg-7">
-            <p className="intro-text">
+            <p className="intro-text" >
               At GN Solutions, our Network as Code approach brings DevOps-style agility, automation, and intelligence to networking — whether in the cloud, hybrid, or on-prem environments.
             </p>
-            <p className="intro-text">
+            <p className="intro-text" style={{ textAlign: 'justify' }}>
               Network as Code (NaC) represents the evolution of network management into a programmable, automated, and scalable discipline. Traditionally, network operations have been manual, error-prone, and reactive. With NaC, your network infrastructure is managed using code — enabling you to define, provision, test, and manage your network the same way software is developed.
               NaC transforms networks from static, device-by-device management into dynamic, code-driven environments. This accelerates service delivery, improves consistency, and enhances visibility and control across your infrastructure. Whether it’s managing WAN, LAN, security policies, or cloud connectivity — NaC brings agility, reliability, and automation to your networking operations. This brings DevOps principles to networking—enabling teams to deploy, test, and scale network changes faster, with confidence and consistency.
 
