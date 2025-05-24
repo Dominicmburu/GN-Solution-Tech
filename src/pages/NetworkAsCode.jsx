@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaCloud, FaCogs, FaRobot, FaCube, FaChartLine, FaClipboardCheck, FaGraduationCap,  FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, FaCheck, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle, FaLock, FaHandshake, FaShieldAlt, FaUsersCog } from "react-icons/fa";
+import { FaCloud, FaCogs, FaRobot, FaCube, FaChartLine, FaClipboardCheck, FaGraduationCap, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, FaCheck, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle, FaLock, FaHandshake, FaShieldAlt, FaUsersCog } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
 import "../assets/css/network.css";
@@ -21,13 +21,12 @@ const NetworkAsCodeIntro = () => {
             </h1>
           </div>
           <div className="col-lg-7">
-            <p className="intro-text" >
+            <p className="intro-text">
               At GN Solutions, our Network as Code approach brings DevOps-style agility, automation, and intelligence to networking — whether in the cloud, hybrid, or on-prem environments.
             </p>
             <p className="intro-text" style={{ textAlign: 'justify' }}>
               Network as Code (NaC) represents the evolution of network management into a programmable, automated, and scalable discipline. Traditionally, network operations have been manual, error-prone, and reactive. With NaC, your network infrastructure is managed using code — enabling you to define, provision, test, and manage your network the same way software is developed.
               NaC transforms networks from static, device-by-device management into dynamic, code-driven environments. This accelerates service delivery, improves consistency, and enhances visibility and control across your infrastructure. Whether it’s managing WAN, LAN, security policies, or cloud connectivity — NaC brings agility, reliability, and automation to your networking operations. This brings DevOps principles to networking—enabling teams to deploy, test, and scale network changes faster, with confidence and consistency.
-
             </p>
           </div>
         </div>
@@ -39,7 +38,6 @@ const NetworkAsCodeIntro = () => {
 const NetworkAsCode = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const [activeKey, setActiveKey] = useState(null);
-
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <FaInfoCircle /> },
@@ -132,17 +130,17 @@ const NetworkAsCode = () => {
     }
   ];
 
-const colorSchemes = [
-    { primary: '#f08b0a', secondary: '#F2F2F2', accent: '#301934' }, // Orange primary with light gray secondary
-    { primary: '#301934', secondary: '#F2F2F2', accent: '#f08b0a' }, // Dark purple primary with orange accent
-    { primary: '#1e0f20', secondary: '#F2F2F2', accent: '#f08b0a' }, // Founder dark with orange accent
-    { primary: '#f08b0a', secondary: '#301934', accent: '#F2F2F2' }, // Orange primary with dark purple secondary
-    { primary: '#000000', secondary: '#F2F2F2', accent: '#f08b0a' }, // Black primary with orange accent
-    { primary: '#301934', secondary: '#f08b0a', accent: '#1e0f20' }, // Dark purple with orange secondary
-    { primary: '#1e0f20', secondary: '#301934', accent: '#f08b0a' }, // Founder dark with purple secondary
-    { primary: '#f08b0a', secondary: '#1e0f20', accent: '#F2F2F2' }, // Orange with founder dark secondary
-    { primary: '#FFFFFF', secondary: '#301934', accent: '#f08b0a' }  // Black with purple secondary
-];
+  const colorSchemes = [
+    { primary: '#f08b0a', secondary: '#F2F2F2', accent: '#301934' },
+    { primary: '#301934', secondary: '#F2F2F2', accent: '#f08b0a' },
+    { primary: '#1e0f20', secondary: '#F2F2F2', accent: '#f08b0a' },
+    { primary: '#f08b0a', secondary: '#301934', accent: '#F2F2F2' },
+    { primary: '#000000', secondary: '#F2F2F2', accent: '#f08b0a' },
+    { primary: '#301934', secondary: '#f08b0a', accent: '#1e0f20' },
+    { primary: '#1e0f20', secondary: '#301934', accent: '#f08b0a' },
+    { primary: '#f08b0a', secondary: '#1e0f20', accent: '#F2F2F2' },
+    { primary: '#FFFFFF', secondary: '#301934', accent: '#f08b0a' }
+  ];
 
   const handleAccordionChange = (eventKey) => {
     setActiveKey(eventKey);
@@ -158,9 +156,34 @@ const colorSchemes = [
             </div>
 
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Use Cases of Network as Code</h3>
-            <div className="d-flex justify-content-center mb-5">
+            <div className="d-flex justify-content-center mb-4">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
+            <motion.div
+              className="use-case-image-container mb-4"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <img
+                src="https://i.pinimg.com/736x/c9/a2/e3/c9a2e37ce95e36aaa867f56103b299ba.jpg"
+                alt="Network as Code Use Case Illustration"
+                style={{
+                  width: "100%",
+                  maxWidth: "500px",
+                  height: "auto",
+                  borderRadius: "12px",
+                  boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+                  border: "1px solid rgba(var(--primary-color-rgb), 0.2)",
+                  objectFit: "cover",
+                  transition: "transform 0.3s ease",
+                  display: "block",
+                  margin: "0 auto"
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              />
+            </motion.div>
             <div className="row">
               {[
                 { title: "Cloud Network Automation", desc: "Automatically provision and configure cloud network resources." },
@@ -182,9 +205,7 @@ const colorSchemes = [
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
 
-            {/* Implementation Timeline - Vertical responsive design */}
             <div className="position-relative py-3" style={{ marginBottom: "50px" }}>
-              {/* Vertical timeline line */}
               <div className="position-absolute" style={{
                 top: "0",
                 bottom: "0",
@@ -227,7 +248,6 @@ const colorSchemes = [
                   animate={{ opacity: 1 }}
                   transition={{ delay: index * 0.2 }}
                 >
-                  {/* Timeline node/circle with icon - properly centered */}
                   <div className="col-12 d-flex justify-content-center" style={{
                     marginBottom: "0px",
                     height: "0px"
@@ -262,7 +282,6 @@ const colorSchemes = [
                     </div>
                   </div>
 
-                  {/* Content Card */}
                   <div className={`col-md-5 ${index % 2 === 0 ? "offset-md-1 pe-md-5 text-md-end" : "offset-md-6 ps-md-5 text-md-start"}`}>
                     <div style={{
                       backgroundColor: "white",
@@ -273,7 +292,6 @@ const colorSchemes = [
                       position: "relative",
                       marginTop: "-20px"
                     }}>
-                      {/* Triangle pointer */}
                       <div style={{
                         position: "absolute",
                         top: "20px",
@@ -320,145 +338,134 @@ const colorSchemes = [
                 </motion.div>
               ))}
             </div>
+            <style jsx>{`
+              @media (max-width: 768px) {
+                .use-case-image-container {
+                  text-align: center;
+                }
+                .use-case-image-container img {
+                  max-width: 100%;
+                }
+              }
+            `}</style>
           </div>
         );
       case 'solutions':
         return (
           <div className="container py-5">
-      <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Solutions We Provide</h2>
-      <div className="d-flex justify-content-center mb-5">
-        <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-      </div>
-      <div className="row">
-        {solutions.map((solution, index) => {
-          const colors = colorSchemes[index % colorSchemes.length];
-          return (
-            <motion.div 
-              className="col-md-4 mb-4" 
-              key={index} 
-              initial={{ opacity: 0, y: 30 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: index * 0.1 }}
-            >
-              <div 
-                className="card border-0 p-4 h-100 position-relative overflow-hidden"
-                style={{ 
-                  boxShadow: `0 10px 30px var(--card-color)20`,
-                  border: `1px solid var(--card-color)20`,
-                  borderRadius: "16px",
-                  background: `linear-gradient(135deg, var(--card-color) 0%, #ffffff 100%)`,
-                  transition: "all 0.3s ease",
-                  cursor: "pointer"
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-8px)";
-                  e.currentTarget.style.boxShadow = `0 20px 40px var(--ct-color)30`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = `0 10px 30px ${colors.primary}20`;
-                }}
-              >
-                {/* <div 
-                  className="position-absolute top-0 end-0"
-                  style={{
-                    width: "60px",
-                    height: "60px",
-                    background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.accent} 100%)`,
-                    clipPath: "polygon(100% 0, 0 0, 100% 100%)",
-                    opacity: "0.1"
-                  }}
-                ></div> */}
-
-                <div 
-                  className="position-absolute start-0 top-0 bottom-0"
-                  style={{
-                    width: "4px",
-                    borderRadius: "0 2px 2px 0"
-                  }}
-                ></div>
-
-                <div className="mb-3 d-flex align-items-center">
-                  <div 
-                    className="d-flex align-items-center justify-content-center me-3"
-                    style={{
-                      width: "60px",
-                      height: "60px",
-                      borderRadius: "16px",
-                      background: "#F2F2F2",
-                      color: "var(--primary-color)",
-                    }}
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-4">Key Solutions We Provide</h2>
+            <div className="d-flex justify-content-center mb-5">
+              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
+            </div>
+            <div className="row">
+              {solutions.map((solution, index) => {
+                const colors = colorSchemes[index % colorSchemes.length];
+                return (
+                  <motion.div
+                    className="col-md-4 mb-4"
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
                   >
-                    {solution.icon}
-                  </div>
-                  <div style={{
-                    width: "40px",
-                    height: "2px",
-                  }}></div>
-                </div>
-
-                {/* Content */}
-                <h5 
-                  className="mb-3"
-                  style={{ 
-                    color: "var(--ct-color)",
-                    fontWeight: "700",
-                    fontSize: "1.1rem",
-                    lineHeight: "1.3"
-                  }}
-                >
-                  {solution.title}
-                </h5>
-                <p 
-                  className="mb-0"
-                  style={{
-                    color: "#64748b",
-                    fontSize: "0.95rem",
-                    lineHeight: "1.6"
-                  }}
-                >
-                  {solution.desc}
-                </p>
-
-                {/* Bottom accent */}
-                <div 
-                  className="position-absolute bottom-0 start-50 translate-middle-x"
-                  style={{
-                    width: "40px",
-                    height: "3px",
-                    // background: `linear-gradient(90deg, ${colors.primary} 0%, ${colors.accent} 100%)`,
-                    borderRadius: "2px 2px 0 0",
-                    opacity: "0.6"
-                  }}
-                ></div>
-
-                {/* Floating orb decoration */}
-                <div 
-                  className="position-absolute"
-                  style={{
-                    bottom: "20px",
-                    right: "20px",
-                    width: "8px",
-                    height: "8px",
-                    borderRadius: "50%",
-                    // background: colors.primary,
-                    opacity: "0.4"
-                  }}
-                ></div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
-
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .col-md-4 {
-            margin-bottom: 2rem;
-          }
-        }
-      `}</style>
-    </div>
+                    <div
+                      className="card border-0 p-4 h-100 position-relative overflow-hidden"
+                      style={{
+                        boxShadow: `0 10px 30px ${colors.primary}20`,
+                        border: `1px solid ${colors.primary}20`,
+                        borderRadius: "16px",
+                        background: `linear-gradient(135deg, ${colors.primary} 0%, #ffffff 100%)`,
+                        transition: "all 0.3s ease",
+                        cursor: "pointer"
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "translateY(-8px)";
+                        e.currentTarget.style.boxShadow = `0 20px 40px ${colors.primary}30`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "translateY(0)";
+                        e.currentTarget.style.boxShadow = `0 10px 30px ${colors.primary}20`;
+                      }}
+                    >
+                      <div
+                        className="position-absolute start-0 top-0 bottom-0"
+                        style={{
+                          width: "4px",
+                          borderRadius: "0 2px 2px 0"
+                        }}
+                      ></div>
+                      <div className="mb-3 d-flex align-items-center">
+                        <div
+                          className="d-flex align-items-center justify-content-center me-3"
+                          style={{
+                            width: "60px",
+                            height: "60px",
+                            borderRadius: "16px",
+                            background: "#F2F2F2",
+                            color: "var(--primary-color)",
+                          }}
+                        >
+                          {solution.icon}
+                        </div>
+                        <div style={{
+                          width: "40px",
+                          height: "2px",
+                        }}></div>
+                      </div>
+                      <h5
+                        className="mb-3"
+                        style={{
+                          color: "var(--ct-color)",
+                          fontWeight: "700",
+                          fontSize: "1.1rem",
+                          lineHeight: "1.3"
+                        }}
+                      >
+                        {solution.title}
+                      </h5>
+                      <p
+                        className="mb-0"
+                        style={{
+                          color: "#64748b",
+                          fontSize: "0.95rem",
+                          lineHeight: "1.6"
+                        }}
+                      >
+                        {solution.desc}
+                      </p>
+                      <div
+                        className="position-absolute bottom-0 start-50 translate-middle-x"
+                        style={{
+                          width: "40px",
+                          height: "3px",
+                          borderRadius: "2px 2px 0 0",
+                          opacity: "0.6"
+                        }}
+                      ></div>
+                      <div
+                        className="position-absolute"
+                        style={{
+                          bottom: "20px",
+                          right: "20px",
+                          width: "8px",
+                          height: "8px",
+                          borderRadius: "50%",
+                          opacity: "0.4"
+                        }}
+                      ></div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+            <style jsx>{`
+              @media (max-width: 768px) {
+                .col-md-4 {
+                  margin-bottom: 2rem;
+                }
+              }
+            `}</style>
+          </div>
         );
       case 'whychooseus':
         return (
@@ -467,7 +474,6 @@ const colorSchemes = [
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-
             <div className="row mb-5">
               <div className="col-md-6">
                 <motion.div
@@ -479,7 +485,6 @@ const colorSchemes = [
                 >
                   <h3 style={{ color: "var(--ct-color)" }} className="mb-4">Our Expertise</h3>
                   <p>At GN Solutions, we bring deep experience in network engineering, DevOps, and automation to help enterprises evolve their legacy networks into programmable, future-ready infrastructures.</p>
-
                   <div className="mt-4">
                     <h5 style={{ color: "var(--primary-color)" }}>We design NaC solutions that are:</h5>
                     <ul className="list-unstyled mt-3">
@@ -497,7 +502,6 @@ const colorSchemes = [
                   </div>
                 </motion.div>
               </div>
-
               <div className="col-md-6">
                 <motion.div
                   className="p-4 bg-white rounded shadow-lg h-100"
@@ -507,7 +511,6 @@ const colorSchemes = [
                   style={{ border: "1px solid rgba(var(--primary-color-rgb), 0.2)" }}
                 >
                   <h3 style={{ color: "var(--ct-color)" }} className="mb-4">Technology Stack</h3>
-
                   <div className="d-flex flex-wrap">
                     {[
                       { name: "Infrastructure as Code", icon: <FaCloud size={24} style={{ color: "var(--primary-color)" }} /> },
@@ -529,12 +532,10 @@ const colorSchemes = [
                 </motion.div>
               </div>
             </div>
-
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Our Core Strengths</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-
             <div className="row">
               {[
                 {
@@ -568,7 +569,6 @@ const colorSchemes = [
                 </motion.div>
               ))}
             </div>
-
             <motion.div
               className="card border-0 p-5 mt-5"
               initial={{ opacity: 0, y: 20 }}
@@ -688,13 +688,10 @@ const colorSchemes = [
                             transition: "all 0.3s ease"
                           }}
                         >
-                          {/* Background accent */}
                           <div className="position-absolute top-0 start-0 w-100" style={{
                             height: "4px",
                             background: "linear-gradient(90deg, var(--primary-color) 0%, rgba(var(--primary-color-rgb, 64, 36, 86), 0.6) 100%)"
                           }}></div>
-
-                          {/* Metric circle background */}
                           <div className="position-absolute" style={{
                             top: "50%",
                             left: "50%",
@@ -705,9 +702,7 @@ const colorSchemes = [
                             background: "linear-gradient(135deg, rgba(var(--primary-color-rgb, 64, 36, 86), 0.05) 0%, rgba(var(--primary-color-rgb, 64, 36, 86), 0.1) 100%)",
                             zIndex: "1"
                           }}></div>
-
                           <div className="position-relative" style={{ zIndex: "2" }}>
-                            {/* Image */}
                             <div className="mb-3">
                               <img
                                 src={metric.image}
@@ -721,7 +716,6 @@ const colorSchemes = [
                                 }}
                               />
                             </div>
-
                             <div className="metric-value mb-2" style={{
                               color: "var(--primary-color)",
                               fontSize: "3rem",
@@ -741,7 +735,6 @@ const colorSchemes = [
                               {metric.label}
                             </div>
                           </div>
-
                           <div className="position-absolute bottom-0 start-50 translate-middle-x" style={{
                             width: "30px",
                             height: "2px",
@@ -753,27 +746,25 @@ const colorSchemes = [
                     ))}
                   </div>
                   <style jsx>{`
-            @media (max-width: 768px) {
-              .metric-value {
-                font-size: 2.5rem !important;
-              }
-              .metric-label {
-                font-size: 0.85rem !important;
-              }
-            }
-            
-            @media (max-width: 576px) {
-              .col-sm-6 {
-                margin-bottom: 1.5rem;
-              }
-            }
-          `}</style>
+                    @media (max-width: 768px) {
+                      .metric-value {
+                        font-size: 2.5rem !important;
+                      }
+                      .metric-label {
+                        font-size: 0.85rem !important;
+                      }
+                    }
+                    @media (max-width: 576px) {
+                      .col-sm-6 {
+                        margin-bottom: 1.5rem;
+                      }
+                    }
+                  `}</style>
                 </div>
               </div>
             </div>
           </div>
         );
-
       case 'faqs':
         return (
           <div className="container py-5">
@@ -781,7 +772,6 @@ const colorSchemes = [
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-
             <div className="faqs-container custom-accordion">
               {faqs.map((faq, index) => (
                 <motion.div
@@ -852,7 +842,7 @@ const colorSchemes = [
                 ))}
               </div>
             </div>
-          </div >
+          </div>
         );
       default:
         return <div>Content not found</div>;
@@ -868,8 +858,6 @@ const colorSchemes = [
         background="#0a1033"
         currentpage="Network as Code"
       />
-
-      {/* Tabs Section */}
       <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
@@ -929,7 +917,6 @@ const colorSchemes = [
           </div>
         </div>
       </section>
-      {/* Call to Action */}
       <section style={{
         backgroundColor: "var(--tt-color)",
         padding: "50px 0",

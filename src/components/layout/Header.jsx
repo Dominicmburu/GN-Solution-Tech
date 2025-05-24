@@ -144,7 +144,7 @@ const Header = () => {
           link: "/services/it-help-desk-support"
         },
         {
-          title: "IT Remote & Smart Hands Support",
+          title: "Remote & Smart Hands Support",
           link: "/services/remote-smart-hands"
         }
       ]

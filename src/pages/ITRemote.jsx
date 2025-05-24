@@ -261,7 +261,7 @@ const ITRemoteSmartHandsPage = () => {
       case 'whychooseus':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Why Choose Our IT Remote and Smart Hands Support</h2>
+            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Why Choose Our Remote and Smart Hands Support</h2>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
@@ -560,7 +560,7 @@ const ITRemoteSmartHandsPage = () => {
   return (
     <div>
       <PageBanner
-        title="Reliable Remote & On-Site IT Support – Anywhere, Anytime"
+        title= "Remote and Smart Hands Support"
         subtitle="Your trusted partner for 24/7 technical assistance, remote infrastructure management, and physical data center support."
         backgroundImage={backgroundImage}
         ctaButtons={[
