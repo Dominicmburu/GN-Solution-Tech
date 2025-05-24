@@ -32,7 +32,7 @@ const ITTechnologyTrainingPage = () => {
       case 'overview':
         return (
           <div className="container py-5">
-            <h2 className="text-center text-primary mb-4">What is IT Technology Training?</h2>
+            <h2 className="text-center text-primary mb-4"> IT Technology Training...</h2>
             <div className="row">
               <div className="col-12">
                 <div className="card shadow-lg border-0 p-4 mb-5 gradient-card">

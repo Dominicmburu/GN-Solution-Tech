@@ -90,7 +90,7 @@ const CybersecurityAsAServicePage = () => {
             <div className="col-lg-5">
               <div className="section-divider"></div>
               <h1 className="main-title">
-                What is Cybersecurity as a Service?
+                Cybersecurity as a Service...
               </h1>
             </div>
             <div className="col-lg-7">
