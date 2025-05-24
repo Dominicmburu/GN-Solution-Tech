@@ -4,6 +4,7 @@ import { FaNetworkWired, FaShieldAlt, FaChartLine, FaTools, FaSyncAlt, FaHeadset
 import { motion } from 'framer-motion';
 import { Accordion } from 'react-bootstrap';
 import '../assets/css/ITRemote.css';
+import '../assets/css/TabsSection.css'; // Importing the same TabsSection.css as ITHelpDeskSupport.js
 import backgroundImage from '../assets/managed3.jpg';
 import networkMonitoringImage from '../assets/network-monitor.jpg';
 import networkArchitectureImage from '../assets/network-architecture300.jpg';
@@ -17,14 +18,13 @@ const ITRemoteSmartHandsIntro = () => {
           <div className="col-lg-5">
             <div className="section-divider"></div>
             <h1 className="main-title">
-              What is IT Remote and Smart Hands Support?
+              Remote and Smart Hands Support...
             </h1>
           </div>
           <div className="col-lg-7">
             <p className="intro-text" style={{ textAlign: 'justify' }}>
               In today's fast-paced digital world, uninterrupted IT operations are essential to business success. IT Remote and Smart Hands Support refers to on-demand technical assistance delivered remotely or physically at data centers and client locations. Whether it’s basic troubleshooting, hardware swaps, software configuration, or full-scale infrastructure support, our service ensures your IT environment remains operational, secure, and efficient—without needing your internal team on-site.
-This service is ideal for businesses managing geographically distributed infrastructure or relying on colocation data centers, branch offices, and remote locations. Our certified engineers act as your extended IT team—available 24/7.
-
+              This service is ideal for businesses managing geographically distributed infrastructure or relying on colocation data centers, branch offices, and remote locations. Our certified engineers act as your extended IT team—available 24/7.
             </p>
           </div>
         </div>
@@ -488,11 +488,11 @@ const ITRemoteSmartHandsPage = () => {
       case 'solutions':
         return (
           <div className="container py-5">
-            <h2 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Key Solutions</h2>
+            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Key Solutions</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <div className="solutions-grid mb-5">
+            <div className="row">
               {[
                 { title: "Hardware Installation & Replacement", desc: "Racking/stacking, component swaps, and professional cabling services.", icon: <FaWrench size={40} style={{ color: "var(--primary-color)" }} /> },
                 { title: "Server & Network Equipment Configuration", desc: "BIOS, firmware, network settings, and OS installation support.", icon: <FaServer size={40} style={{ color: "var(--primary-color)" }} /> },
@@ -501,37 +501,11 @@ const ITRemoteSmartHandsPage = () => {
                 { title: "Physical Site Checks", desc: "Environmental checks for temperature, humidity, and cable integrity.", icon: <FaEye size={40} style={{ color: "var(--primary-color)" }} /> },
                 { title: "Software Support", desc: "Remote configuration, patches, application troubleshooting, and backups.", icon: <FaLaptopCode size={40} style={{ color: "var(--primary-color)" }} /> }
               ].map((solution, index) => (
-                <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
+                <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                   <div className="card border-0 p-4 h-100"
-                    style={{
-                      boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-                      border: "1px solid #eaeaea",
-                      transition: "transform 0.3s ease, box-shadow 0.3s ease"
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.transform = "translateY(-10px)";
-                      e.currentTarget.style.boxShadow = "0 15px 30px rgba(0,0,0,0.15)";
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow = "0 10px 20px rgba(0,0,0,0.1)";
-                    }}
-                  >
-                    <div className="text-center mb-3">
-                      <div style={{
-                        width: "80px",
-                        height: "80px",
-                        borderRadius: "50%",
-                        backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        margin: "0 auto 15px"
-                      }}>
-                        {solution.icon}
-                      </div>
-                    </div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center mb-3">{solution.title}</h5>
+                    style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <div className="text-center mb-3">{solution.icon}</div>
+                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{solution.title}</h5>
                     <p className="text-center">{solution.desc}</p>
                   </div>
                 </motion.div>
@@ -593,35 +567,77 @@ const ITRemoteSmartHandsPage = () => {
           { label: "Request Support", link: "/request-support", style: { backgroundColor: "var(--primary-color)", border: "none", padding: "10px 20px" } },
           { label: "Talk to an Expert", link: "/contact-expert", style: { borderColor: "var(--primary-color)", color: "var(--primary-color)", padding: "10px 20px" } }
         ]}
+        style={{
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          height: '400px',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
       />
-      <div className="container py-5">
-        <div className="tabs-section">
-          <ul className="nav nav-tabs justify-content-center mb-5">
-            {tabs.map((tab) => (
-              <li className="nav-item" key={tab.id}>
-                <button
-                  className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
-                  onClick={() => setActiveTab(tab.id)}
-                  style={{
-                    color: activeTab === tab.id ? "var(--primary-color)" : "var(--ct-color)",
-                    border: "none",
-                    borderBottom: activeTab === tab.id ? "3px solid var(--primary-color)" : "none",
-                    fontWeight: "600",
-                    padding: "10px 20px",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px"
-                  }}
+      <section className="tabs-section py-5 bg-light">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <motion.div
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              ></motion.div>
+              <div className="custom-tabs-container">
+                <motion.div
+                  className="tab-navigation mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
                 >
-                  {tab.icon}
-                  {tab.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-          {renderTabContent()}
+                  <ul className="nav custom-tabs justify-content-center flex-nowrap overflow-auto" id="remoteSmartHandsTabs" role="tablist">
+                    {tabs.map((tab) => (
+                      <li className="nav-item" key={tab.id} role="presentation">
+                        <button
+                          className={`nav-link-tab ${activeTab === tab.id ? 'active' : ''}`}
+                          onClick={() => setActiveTab(tab.id)}
+                          id={`${tab.id}-tab`}
+                          type="button"
+                          role="tab"
+                          aria-controls={tab.id}
+                          aria-selected={activeTab === tab.id}
+                          style={{
+                            borderBottom: activeTab === tab.id ? `3px solid var(--primary-color)` : 'none'
+                          }}
+                        >
+                          <i className="tab-icon" style={{ color: "var(--tt-color)" }}>{tab.icon}</i>
+                          <span style={{ color: "var(--tt-color)" }} className="tab-text ms-2">{tab.label}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+                <div className="tab-content-container">
+                  <div className="tab-content" id="remoteSmartHandsTabsContent">
+                    <motion.div
+                      className="tab-pane show active"
+                      id="tabContent"
+                      role="tabpanel"
+                      key={activeTab}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {renderTabContent()}
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

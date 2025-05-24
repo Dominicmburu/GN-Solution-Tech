@@ -17,7 +17,7 @@ const ManagedNetworkServicesIntro = () => {
           <div className="col-lg-5">
             <div className="section-divider"></div>
             <h1 className="main-title">
-              What is managed network services?
+              Managed network services...
             </h1>
           </div>
           <div className="col-lg-7">

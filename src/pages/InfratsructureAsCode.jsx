@@ -32,7 +32,7 @@ const InfrastructureAsCodeIntro = () => {
           <div className="col-lg-5">
             <div className="section-divider"></div>
             <h1 className="main-title">
-              What is Infrastructure as Code?
+              Infrastructure as Code...
             </h1>
           </div>
           <div className="col-lg-7">
