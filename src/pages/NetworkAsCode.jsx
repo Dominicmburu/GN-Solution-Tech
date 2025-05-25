@@ -357,114 +357,22 @@ const NetworkAsCode = () => {
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <div className="row">
-              {solutions.map((solution, index) => {
-                const colors = colorSchemes[index % colorSchemes.length];
-                return (
-                  <motion.div
-                    className="col-md-4 mb-4"
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <div
-                      className="card border-0 p-4 h-100 position-relative overflow-hidden"
-                      style={{
-                        boxShadow: `0 10px 30px ${colors.primary}20`,
-                        border: `1px solid ${colors.primary}20`,
-                        borderRadius: "16px",
-                        background: `linear-gradient(135deg, ${colors.primary} 0%, #ffffff 100%)`,
-                        transition: "all 0.3s ease",
-                        cursor: "pointer"
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = "translateY(-8px)";
-                        e.currentTarget.style.boxShadow = `0 20px 40px ${colors.primary}30`;
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = "translateY(0)";
-                        e.currentTarget.style.boxShadow = `0 10px 30px ${colors.primary}20`;
-                      }}
-                    >
-                      <div
-                        className="position-absolute start-0 top-0 bottom-0"
-                        style={{
-                          width: "4px",
-                          borderRadius: "0 2px 2px 0"
-                        }}
-                      ></div>
-                      <div className="mb-3 d-flex align-items-center">
-                        <div
-                          className="d-flex align-items-center justify-content-center me-3"
-                          style={{
-                            width: "60px",
-                            height: "60px",
-                            borderRadius: "16px",
-                            background: "#F2F2F2",
-                            color: "var(--primary-color)",
-                          }}
-                        >
-                          {solution.icon}
-                        </div>
-                        <div style={{
-                          width: "40px",
-                          height: "2px",
-                        }}></div>
-                      </div>
-                      <h5
-                        className="mb-3"
-                        style={{
-                          color: "var(--ct-color)",
-                          fontWeight: "700",
-                          fontSize: "1.1rem",
-                          lineHeight: "1.3"
-                        }}
-                      >
-                        {solution.title}
-                      </h5>
-                      <p
-                        className="mb-0"
-                        style={{
-                          color: "#64748b",
-                          fontSize: "0.95rem",
-                          lineHeight: "1.6"
-                        }}
-                      >
-                        {solution.desc}
-                      </p>
-                      <div
-                        className="position-absolute bottom-0 start-50 translate-middle-x"
-                        style={{
-                          width: "40px",
-                          height: "3px",
-                          borderRadius: "2px 2px 0 0",
-                          opacity: "0.6"
-                        }}
-                      ></div>
-                      <div
-                        className="position-absolute"
-                        style={{
-                          bottom: "20px",
-                          right: "20px",
-                          width: "8px",
-                          height: "8px",
-                          borderRadius: "50%",
-                          opacity: "0.4"
-                        }}
-                      ></div>
-                    </div>
-                  </motion.div>
-                );
-              })}
+            <div className="solutions-grid mb-5">
+              {solutions.map((solution, index) => (
+                <motion.div
+                  className="solution-card"
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
+                >
+                  <div className="icon-circle-core">{solution.icon}</div>
+                  <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
+                  <p>{solution.desc}</p>
+                </motion.div>
+              ))}
             </div>
-            <style jsx>{`
-              @media (max-width: 768px) {
-                .col-md-4 {
-                  margin-bottom: 2rem;
-                }
-              }
-            `}</style>
           </div>
         );
       case 'whychooseus':

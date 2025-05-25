@@ -85,7 +85,7 @@ const ITHelpDeskSupport = () => {
                   <div className="row">
                     <div className="col-lg-5">
                       <div className="section-divider"></div>
-                      <h1 className="main-title">IT Help Desk Support</h1>
+                      <h1 className="main-title">IT Help Desk Support...</h1>
                     </div>
                     <div className="col-lg-7">
                       <p className="intro-text" style={{ textAlign: 'justify' }}>
