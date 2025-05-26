@@ -159,31 +159,7 @@ const NetworkAsCode = () => {
             <div className="d-flex justify-content-center mb-4">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <motion.div
-              className="use-case-image-container mb-4"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <img
-                src="https://i.pinimg.com/736x/c9/a2/e3/c9a2e37ce95e36aaa867f56103b299ba.jpg"
-                alt="Network as Code Use Case Illustration"
-                style={{
-                  width: "100%",
-                  maxWidth: "500px",
-                  height: "auto",
-                  borderRadius: "12px",
-                  boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
-                  border: "1px solid rgba(var(--primary-color-rgb), 0.2)",
-                  objectFit: "cover",
-                  transition: "transform 0.3s ease",
-                  display: "block",
-                  margin: "0 auto"
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-              />
-            </motion.div>
+            
             <div className="row">
               {[
                 { title: "Cloud Network Automation", desc: "Automatically provision and configure cloud network resources." },

@@ -8,7 +8,7 @@ const ContactSection = () => {
       city: 'Dublin',
       address: 'GN Solutions HQ,The Oaks, Scholastown Wood, Dublin 16',
       email: 'info@gnsolutions.eu',
-      phone: '+ 353 (0) 874 896 800'
+      phone: '+353 89 278 5147'
     }
   ];
 
