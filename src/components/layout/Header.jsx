@@ -425,7 +425,7 @@ const Header = () => {
                 to="/blogs"
                 onClick={closeNav}
               >
-                Blogs
+                Resources
               </Link>
             </li>
             <li className="nav-item" style={{ marginRight: '0' }}>
