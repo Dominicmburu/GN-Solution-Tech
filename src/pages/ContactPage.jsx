@@ -70,7 +70,7 @@ const ContactPage = () => {
     {
       icon: <FaPhone className="contact-icon" />,
       title: 'Phone Support',
-      info: '+353 (0) 874 896 800',
+      info: '+353 89 278 5147',
       subInfo: 'Monday to Friday, 9am - 6pm'
     },
     {
