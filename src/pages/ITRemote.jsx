@@ -511,26 +511,6 @@ const ITRemoteSmartHandsPage = () => {
                 </motion.div>
               ))}
             </div>
-            <div className="row mt-5">
-              <div className="col-lg-8 mx-auto text-center">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <h3 style={{ color: "var(--tt-color)" }} className="mb-3">Ready to Optimize Your IT Operations?</h3>
-                  <p className="mb-4">Our IT Remote and Smart Hands Support services are designed to keep your infrastructure running smoothly, no matter where you are.</p>
-                  <div className="d-flex justify-content-center gap-3">
-                    <Link to="/request-support" className="btn btn-primary" style={{ backgroundColor: "var(--primary-color)", border: "none", padding: "10px 20px" }}>
-                      Request Support
-                    </Link>
-                    <Link to="/contact-expert" className="btn btn-outline-primary" style={{ borderColor: "var(--primary-color)", color: "var(--primary-color)", padding: "10px 20px" }}>
-                      Talk to an Expert
-                    </Link>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
           </div>
         );
 
@@ -541,14 +521,57 @@ const ITRemoteSmartHandsPage = () => {
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            <Accordion activeKey={activeKey} onSelect={handleAccordionChange}>
+
+            <div className="faqs-container custom-accordion">
               {faqs.map((faq, index) => (
-                <Accordion.Item eventKey={index.toString()} key={index}>
-                  <Accordion.Header>{faq.question}</Accordion.Header>
-                  <Accordion.Body>{faq.answer}</Accordion.Body>
-                </Accordion.Item>
+                <motion.div
+                  className="faq-item"
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Accordion
+                    activeKey={activeKey}
+                    onSelect={handleAccordionChange}>
+                    <Accordion.Item
+                      eventKey={index.toString()}
+                      style={{
+                        marginBottom: "15px",
+                        borderRadius: "8px",
+                        overflow: "hidden"
+                      }}
+                    >
+                      <Accordion.Header>
+                        <div className="faq-question">
+                          <span className="question-icon" style={{ paddingRight: "5px" }}>Q</span>
+                          <span className="question-text" style={{ fontWeight: "600" }}>{faq.question}</span>
+                        </div>
+                      </Accordion.Header>
+                      <Accordion.Body style={{ backgroundColor: "var(--card-color)" }}>
+                        <div className="faq-answer">
+                          <span className="answer-icon" style={{ color: "var(--tt-color)" }}>A</span>
+                          <p>{faq.answer}</p>
+                        </div>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                </motion.div>
               ))}
-            </Accordion>
+            </div>
+            <div className="text-center mt-5">
+              <Link to="/contact" className="btn" style={{
+                backgroundColor: "var(--primary-color)",
+                color: "#fff",
+                padding: "12px 30px",
+                borderRadius: "30px",
+                fontWeight: "600",
+                transition: "all 0.3s ease",
+                boxShadow: "0 4px 15px var(--primary-color)"
+              }}>
+                Have More Questions? Contact Us <FaArrowRight style={{ marginLeft: "8px" }} />
+              </Link>
+            </div>
           </div>
         );
 
@@ -560,7 +583,7 @@ const ITRemoteSmartHandsPage = () => {
   return (
     <div>
       <PageBanner
-        title= "Remote and Smart Hands Support"
+        title="Remote and Smart Hands Support"
         subtitle="Your trusted partner for 24/7 technical assistance, remote infrastructure management, and physical data center support."
         backgroundImage={backgroundImage}
         ctaButtons={[
@@ -634,6 +657,33 @@ const ITRemoteSmartHandsPage = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style={{
+        backgroundColor: "var(--tt-color)",
+        padding: "50px 0",
+        marginTop: "40px"
+      }}>
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-8 text-center text-lg-start">
+              <h3 className="text-white mb-3">Ready to Optimize Your IT Operations?</h3>
+              <p className="text-white-50 mb-0">Our IT Remote and Smart Hands Support services are designed to keep your infrastructure running smoothly, no matter where you are.</p>
+            </div>
+            <div className="col-lg-4 text-center text-lg-end mt-4 mt-lg-0">
+              <Link to="/contact" className="btn" style={{
+                backgroundColor: "var(--primary-color)",
+                color: "#fff",
+                padding: "12px 25px",
+                borderRadius: "30px",
+                fontWeight: "600",
+                transition: "all 0.3s ease"
+              }}>
+                Request Support <FaArrowRight style={{ marginLeft: "8px" }} />
+              </Link>
             </div>
           </div>
         </div>
