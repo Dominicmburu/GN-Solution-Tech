@@ -23,7 +23,7 @@ const CTASection = () => {
                 <a href="tel:+353874896800" className="text-decoration-none d-flex align-items-center me-3">
                   <div className="d-flex align-items-center">
                     <FaPhone color="#f08b0a" size={14} />
-                    <span className="ms-2 text-white">+ 353 (0) 874 896 800‬</span>
+                    <span className="ms-2 text-white">+353 89 278 5147</span>
                   </div>
                 </a>
                 

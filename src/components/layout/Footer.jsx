@@ -106,7 +106,7 @@ const Footer = () => {
           <div className="footer-bottom pt-4 mt-4 border-top" style={{ borderColor: 'rgba(48, 25, 52, 0.15)' }}>
             <div className="d-flex flex-wrap justify-content-center align-items-center text-center gap-md-4">
               <p className="mb-md-0 mb-2" style={{ fontSize: '0.85rem', opacity: '0.9', color: '#301934' }}>GN Solutions Headquarters</p>
-              <p className="mb-md-0 mb-2" style={{ fontSize: '0.85rem', opacity: '0.9', color: '#301934' }}>Dublin Office: + 353 (0) 874 896 800‬</p>
+              <p className="mb-md-0 mb-2" style={{ fontSize: '0.85rem', opacity: '0.9', color: '#301934' }}>Dublin Office: +353 89 278 5147</p>
               <p className="mb-0" style={{ fontSize: '0.85rem', opacity: '0.9', color: '#301934' }}>© 2025 GN Solutions. All rights reserved.</p>
             </div>
           </div>

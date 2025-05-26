@@ -67,6 +67,64 @@ const ManagedNetworkServicesPage = () => {
             <div className="intro-box">
               <ManagedNetworkServicesIntro />
             </div>
+
+            <motion.div
+  className="use-case-image-container mb-4"
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+  style={{
+    position: "relative",
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "3rem"
+  }}
+>
+  <div style={{
+    position: "relative",
+    maxWidth: "500px",
+    width: "100%",
+    borderRadius: "16px",
+    overflow: "hidden",
+    boxShadow: "0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(var(--primary-color-rgb), 0.1)",
+    background: "linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.05) 0%, rgba(255,255,255,0.1) 100%)",
+    padding: "8px"
+  }}>
+    <img
+      src="https://i.pinimg.com/736x/c9/a2/e3/c9a2e37ce95e36aaa867f56103b299ba.jpg"
+      alt="Network as Code Use Case Illustration"
+      style={{
+        width: "100%",
+        height: "300px",
+        borderRadius: "12px",
+        objectFit: "cover",
+        transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+        filter: "brightness(1.05) contrast(1.1)"
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "scale(1.02)";
+        e.currentTarget.style.filter = "brightness(1.1) contrast(1.15)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "scale(1)";
+        e.currentTarget.style.filter = "brightness(1.05) contrast(1.1)";
+      }}
+    />
+    
+    {/* Gradient overlay for better text integration */}
+    <div style={{
+      position: "absolute",
+      top: "8px",
+      left: "8px",
+      right: "8px",
+      bottom: "8px",
+      borderRadius: "12px",
+      background: "linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.1) 0%, transparent 50%, rgba(var(--primary-color-rgb), 0.05) 100%)",
+      pointerEvents: "none"
+    }}></div>
+  </div>
+</motion.div>
+
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Key Features</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
@@ -710,7 +768,7 @@ const ManagedNetworkServicesPage = () => {
         currentpage="Managed Network Services"
       />
       <div className="hero-overlay"></div>
-      
+
       <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
