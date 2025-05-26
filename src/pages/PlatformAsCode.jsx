@@ -480,37 +480,7 @@ const PlatformAsCode = () => {
                   </div>
                 </motion.div>
               ))}
-            </div>
-            <motion.div
-              className="card border-0 p-5 mt-5"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              style={{
-                boxShadow: "0 15px 30px rgba(0,0,0,0.15)",
-                background: "linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.05) 0%, rgba(var(--primary-color-rgb), 0.15) 100%)",
-                borderRadius: "12px"
-              }}
-            >
-              <div className="row align-items-center">
-                <div className="col-md-8">
-                  <h3 style={{ color: "var(--ct-color)" }}>From Legacy to Future-Ready</h3>
-                  <p className="mb-0">Whether you're modernizing your platform or starting from scratch, we help you get there faster, safer, and smarter. Our phased approach ensures a smooth transition without disrupting your operations.</p>
-                </div>
-                <div className="col-md-4 text-center text-md-end mt-4 mt-md-0">
-                  <Link to="/contact" className="btn" style={{
-                    backgroundColor: "var(--primary-color)",
-                    color: "#fff",
-                    padding: "12px 25px",
-                    borderRadius: "30px",
-                    fontWeight: "600",
-                    transition: "all 0.3s ease"
-                  }}>
-                    Schedule a Consultation <FaArrowRight style={{ marginLeft: "8px" }} />
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
+            </div>            
           </div>
         );
       case 'benefits':

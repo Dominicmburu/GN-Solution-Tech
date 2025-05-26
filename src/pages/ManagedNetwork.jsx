@@ -710,6 +710,7 @@ const ManagedNetworkServicesPage = () => {
         currentpage="Managed Network Services"
       />
       <div className="hero-overlay"></div>
+      
       <section className="tabs-section py-5 bg-light">
         <div className="container">
           <div className="row">
