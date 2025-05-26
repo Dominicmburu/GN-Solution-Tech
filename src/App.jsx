@@ -21,6 +21,7 @@ import ServiceTemplate from './pages/ServiceTemplate';
 import EnterpriseSolutions from './pages/EnterprisesSolution';
 import ITRemoteSmartHandsPage from './pages/ITRemote';
 import ITHelpDeskSupport from './pages/HelpDesk';
+import ITProjectManagementPage from './pages/ITProjectManagement';
 // import Consulting from './pages/Consulting';
 
 
@@ -47,6 +48,7 @@ function App() {
         <Route path="/services/enterprise-solutions" element={<Layout><EnterpriseSolutions /> </Layout>} />
         <Route path="services/remote-smart-hands" element={<Layout><ITRemoteSmartHandsPage /></Layout>} />
         <Route path="services/it-help-desk-support" element={<Layout><ITHelpDeskSupport /> </Layout>} />
+        <Route path="services/it-project-management" element={<Layout><ITProjectManagementPage /> </Layout>} />
 
         {/* <Route path="/services/it-consulting-services" element={<Layout><Consulting /> </Layout>} /> */}
       </Routes>
