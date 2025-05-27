@@ -13,12 +13,16 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="contact-section py-5" style={{ backgroundColor: "#f8f9fa" }}>
+    <section className="contact-section " style={{ backgroundColor: "#f8f9fa" }}>
       <div className="container">
         <div className="row">
           <div className="col-lg-6 mb-4 mb-lg-0">
             <h2 className="mb-4" style={{ color: "var(--tt-color)" }}>Transform Your IT Infrastructure with Expert Solutions</h2>
-            <p className="text-muted mb-5">GN Solutions specializes in enterprise-grade business automation, cybersecurity, and cloud infrastructure services. Let us help you secure and optimize your digital transformation journey.</p>
+            <p className="text-muted mb-5">GN Solutions offers enterprise-grade business automation, cybersecurity, and cloud infrastructure services. Our experienced team provides tailored solutions to meet each client's needs.
+Our business automation services enhance productivity by streamlining operations and reducing manual errors with advanced technologies.
+In cybersecurity, we protect your business against evolving threats, ensuring data confidentiality, integrity, and availability through assessments, threat monitoring, risk management, and incident response.
+For cloud infrastructure, we deliver scalable, secure solutions to optimize your cloud environment or deploy hybrid systems, focusing on performance and cost-effectiveness.
+Partner with GN Solutions for your digital transformation and join the many businesses that trust us for innovative technology and exceptional service.</p>
             
             <div className="row">
               {locations.slice(0, 2).map((location, index) => (

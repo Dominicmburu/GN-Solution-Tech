@@ -19,7 +19,7 @@ const FeatureCard = ({ icon, title, description }) => {
         {icon}
       </div>
       <h5 style={{color: 'var(--ct-color)'}} className="mb-3">{title}</h5>
-      <p className="text-muted mb-0">{description}</p>
+      <p className="text-muted mb-0" style={{ fontSize: "15px" }}>{description}</p>
     </div>
   );
 };
