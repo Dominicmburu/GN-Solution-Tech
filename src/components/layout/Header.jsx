@@ -400,7 +400,7 @@ const Header = () => {
               </div>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 className="nav-link"
                 style={{
@@ -413,7 +413,7 @@ const Header = () => {
               >
                 About Us
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link
                 className="nav-link"

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaChartLine, FaLightbulb, FaShieldAlt, FaSyncAlt, FaNetworkWired, FaCloud, FaUsers, FaGlobe, FaCoins } from 'react-icons/fa';
+import { FaChartLine, FaLightbulb, FaShieldAlt, FaSyncAlt, FaNetworkWired, FaCloud, FaUsers, FaGlobe, FaCoins, FaLock } from 'react-icons/fa';
 import PageBanner from '../components/common/PageBanner';
 // import TeamMember from '../components/about/TeamMember';
 import '../assets/css/AboutPage.css';
@@ -10,34 +10,39 @@ const AboutPage = () => {
 
   const companyValues = [
     {
-      icon: <FaNetworkWired style={{ color: "var(--primary-color)" }} size={36} />,
-      title: "Network Expertise",
-      description: "With over 17 years in telecommunications, we deliver robust, scalable network solutions for enterprises of all sizes."
-    },
-    {
       icon: <FaLightbulb style={{ color: "var(--primary-color)" }} size={36} />,
       title: "Innovation",
-      description: "We leverage cutting-edge technologies and methodologies to solve complex IT infrastructure challenges."
+      description: "We embrace cutting-edge technologies and continuously seek innovative solutions to drive business success."
     },
     {
       icon: <FaShieldAlt style={{ color: "var(--primary-color)" }} size={36} />,
-      title: "Security",
-      description: "Our experience with enterprise-grade security protocols ensures your network and data remain protected."
+      title: "Customer-Centricity",
+      description: "Our clients are at the heart of everything we do. We prioritize their needs and work diligently to exceed their expectations."
     },
     {
       icon: <FaCloud style={{ color: "var(--primary-color)" }} size={36} />,
-      title: "Automation",
-      description: "We implement DevOps practices and network automation to increase efficiency and reduce operational costs."
+      title: "Integrity",
+      description: "We adhere to the highest ethical standards, ensuring transparency, honesty, and trustworthiness in all our engagements."
     },
     {
       icon: <FaChartLine style={{ color: "var(--primary-color)" }} size={36} />,
-      title: "Performance",
-      description: "Our solutions are designed to maximize network performance with 99.95% SLA adherence."
+      title: "Excellence",
+      description: "We strive for excellence in every aspect of our operations, delivering top-notch services and products that set industry benchmarks."
     },
     {
       icon: <FaSyncAlt style={{ color: "var(--primary-color)" }} size={36} />,
-      title: "Adaptability",
-      description: "We rapidly adapt to evolving technologies and business requirements to keep our clients ahead."
+      title: "Resilience",
+      description: "We foster resilience by developing robust and scalable solutions that adapt to changing business environments and challenges."
+    },
+    {
+      icon: <FaUsers style={{ color: "var(--primary-color)" }} size={36} />,
+      title: "Collaboration",
+      description: "We believe in the power of teamwork and collaboration, leveraging diverse expertise to achieve common goals and drive innovation."
+    },
+    {
+      icon: <FaLock style={{ color: "var(--primary-color)" }} size={36} />,
+      title: "Security",
+      description: "We prioritize cybersecurity, safeguarding our clients’ digital assets and ensuring their peace of mind in an increasingly complex cyber landscape."
     }
   ];
 
@@ -155,95 +160,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Mission & Vision Section with Diagonal Design */}
-      <section className="py-5 position-relative" style={{ backgroundColor: "#f8f9fa", overflow: "hidden" }}>
-        <div className="diagonal-bg position-absolute top-0 start-0 w-100 h-100" style={{ background: "linear-gradient(135deg, rgba(6, 26, 138, 0.07) 25%, transparent 25%)" }}></div>
-        <div className="container position-relative">
-          <div className="row justify-content-center mb-5">
-            <div className="col-lg-8 text-center">
-              <h2 className="fw-bold mb-4" style={{ color: "var(--tt-color)" }}>Our Mission & Vision</h2>
-              <div className="d-flex justify-content-center mb-4">
-                <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-6 mb-4 mb-md-0">
-              <div className="card mission-vision-card h-100"
-                style={{
-                  boxShadow: isHovered
-                    ? '0 20px 38px rgba(0,0,0,0.25), 0 15px 12px rgba(0,0,0,0.32)'
-                    : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
-                  transition: 'all 0.3s ease-in-out',
-                }}>
-                <div className="card-body p-4">
-                  <div className="d-flex align-items-center mb-4">
-                    <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
-                      <i className="fas fa-rocket text-white"></i>
-                    </div>
-                    <h3 className="fw-bold m-0" style={{ color: "var(--ct-color)" }}>Mission</h3>
-                  </div>
-                  <p className="card-text">To empower enterprises through expert network design, automation, and security solutions that deliver 99.95% SLA adherence while reducing operational costs.</p>
-                  <p className="card-text">We're committed to transforming IT operations through the seamless integration of DevOps practices, proactive monitoring, and service improvement plans tailored to each client's needs.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="card mission-vision-card h-100"
-              style={{
-                  boxShadow: isHovered
-                    ? '0 20px 38px rgba(0,0,0,0.25), 0 15px 12px rgba(0,0,0,0.32)'
-                    : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
-                  transition: 'all 0.3s ease-in-out',
-                }}>
-                <div className="card-body p-4">
-                  <div className="d-flex align-items-center mb-4">
-                    <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
-                      <i className="fas fa-eye text-white"></i>
-                    </div>
-                    <h3 className="fw-bold m-0" style={{ color: "var(--ct-color)" }}>Vision</h3>
-                  </div>
-                  <p className="card-text">To become the leading provider of network automation and security solutions that bridge the gap between traditional infrastructure and cloud-native technologies.</p>
-                  <p className="card-text">We envision a future where enterprise networks operate with minimal downtime, maximum security, and optimal efficiency through the strategic application of automation and DevOps practices.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Company Values Section */}
-      <section className="py-5">
-        <div className="container">
-          <div className="row justify-content-center mb-5">
-            <div className="col-lg-8 text-center">
-              <h2 className="fw-bold mb-3" style={{ color: "var(--tt-color)" }}>Our Core Values</h2>
-              <p className="text-muted">The principles that guide our work and relationships</p>
-            </div>
-          </div>
-          <div className="row">
-            {companyValues.map((value, index) => (
-              <div className="col-md-6 col-lg-4 mb-4" key={index}>
-                <div className="card values-card h-100 text-center"
-                style={{
-                  boxShadow: isHovered
-                    ? '0 20px 38px rgba(0,0,0,0.25), 0 15px 12px rgba(0,0,0,0.32)'
-                    : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
-                  transition: 'all 0.3s ease-in-out',
-                }}>
-                  <div className="card-body p-4">
-                    <div className="mb-3 card-icon">
-                      {value.icon}
-                    </div>
-                    <h4 className="fw-bold mb-3" style={{ color: "var(--ct-color)" }}>{value.title}</h4>
-                    <p className="card-text text-muted">{value.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Growth Timeline Section */}
       <section className="py-5" style={{ backgroundColor: "var(--tt-color)" }}>
