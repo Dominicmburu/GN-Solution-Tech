@@ -8,22 +8,22 @@ const WhyChooseUsSection = () => {
     {
       icon: <FaCogs size={40} color="var(--primary-color)" />,
       title: 'Enterprise-Grade Automation',
-      description: 'Pioneers in network-as-code solutions and infrastructure automation for seamless digital transformation across organizations.'
+      description: 'Streamline operations and reduce costs with network-as-code solutions and infrastructure automation tailored for seamless digital transformation.'
     },
     {
       icon: <FaLock size={40} color="var(--primary-color)" />,
       title: 'Full-Stack Security',
-      description: 'End-to-end cybersecurity solutions combining threat intelligence, zero-trust architecture, and military-grade encryption protocols.'
+      description: 'Protect your business with threat intelligence, zero-trust architecture, military-grade encryption, and continuous monitoring for robust cybersecurity.'
     },
     {
       icon: <FaCloud size={40} color="var(--primary-color)" />,
       title: 'Cloud Infrastructure Expertise',
-      description: 'Specialists in secure cloud migration, containerization, and building scalable hybrid cloud architectures for enterprise needs.'
+      description: 'Enhance agility with secure cloud migration, containerization, and scalable hybrid cloud architectures customized for enterprise performance.'
     },
     {
       icon: <FaHeadset size={40} color="var(--primary-color)" />,
       title: '24/7 Smart Hands Support',
-      description: 'Dedicated European-based technical teams providing round-the-clock IT management and emergency response services.'
+      description: 'Rely on our European-based teams for round-the-clock IT management, routine maintenance, and rapid emergency response services.'
     }
   ];
 
@@ -32,13 +32,20 @@ const WhyChooseUsSection = () => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-6 mb-4 mb-lg-0">
+            <div className="position-relative">
+              <img src="https://i.pinimg.com/736x/b2/4d/9d/b24d9d437384311b327970f16419b749.jpg" alt="IT Infrastructure Management" className="img-fluid rounded" />
+            </div>
+          </div>
+          <div className="col-lg-6">
             <SectionTitle 
               subtitle="Why Choose Us"
-              title={<span style={{ color: 'var(--tt-color)' }}>Enterprise IT Transformation Experts</span>}
+              title={<span style={{ color: 'var(--tt-color)' }}>Driving Enterprise Success Through IT Innovation</span>}
             />
             <p className="text-muted mb-4">
-              As a Dublin-based leader since 2022, we deliver cutting-edge business automation 
-              and secure infrastructure solutions tailored for European enterprises across all industries.
+              Since 2022, GN Solutions, headquartered in Dublin, has been a trusted leader in delivering 
+              state-of-the-art business automation, cybersecurity, and cloud infrastructure solutions. 
+              We empower European enterprises to achieve operational excellence, secure digital assets, 
+              and optimize cloud environments with innovative, tailored technologies.
             </p>
             
             <div className="row">
@@ -51,11 +58,6 @@ const WhyChooseUsSection = () => {
                   />
                 </div>
               ))}
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="position-relative">
-              <img src="https://i.pinimg.com/736x/b2/4d/9d/b24d9d437384311b327970f16419b749.jpg" alt="IT Infrastructure Management" className="img-fluid rounded" />
             </div>
           </div>
         </div>
