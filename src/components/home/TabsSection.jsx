@@ -9,8 +9,7 @@ const TabsSection = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const tabs = [
-    { id: 'about', label: 'About Us', icon: 'bi bi-building' },
-    { id: 'services', label: 'Our Services', icon: 'bi bi-gear-fill' },
+    { id: 'about', label: 'Company', icon: 'bi bi-building' },
     { id: 'why', label: 'Why Choose Us', icon: 'bi bi-trophy-fill' },
   ];
 
