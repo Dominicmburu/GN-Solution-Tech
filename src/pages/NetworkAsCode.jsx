@@ -6,7 +6,7 @@ import { Accordion } from 'react-bootstrap';
 import "../assets/css/network.css";
 import "../assets/css/TabsSection.css";
 import '../assets/css/ManagedNetworkServices.css';
-import backgroundImage from "../assets/network-as-code.webp";
+import backgroundImage from "../assets/network-as-codelll.jpeg";
 import PageBanner from '../components/common/PageBanner';
 import HoverLineCard from "../components/common/HoverLineCard";
 

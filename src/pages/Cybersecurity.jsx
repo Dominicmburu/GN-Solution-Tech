@@ -930,14 +930,24 @@ const CybersecurityAsAServicePage = () => {
 
   return (
     <div className="container-fluid p-0">
-      <PageBanner
-        title="Cybersecurity as a Service"
-        subtitle="Comprehensive protection for your digital assets"
-        backgroundImage="https://i.pinimg.com/736x/c9/8f/d7/c98fd754b643148cdd249734fce4f0dd.jpg"
-        // backgroundImage={backgroundImage}
-        background="#0a1033"
-        currentpage="Cybersecurity as a Service"
-      />
+      Modify your existing PageBanner usage
+<PageBanner
+  title="Cybersecurity as a Service"
+  subtitle="Comprehensive protection for your digital assets"
+  backgroundImage="https://i.pinimg.com/736x/c9/8f/d7/c98fd754b643148cdd249734fce4f0dd.jpg"
+  background="#0a1033"
+  currentpage="Cybersecurity as a Service"
+  className="full-screen-banner" // Add this class
+  style={{
+    minHeight: '100vh',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    backgroundAttachment: 'fixed',
+    width: '100vw',
+    marginLeft: 'calc(-50vw + 50%)',
+    marginRight: 'calc(-50vw + 50%)'
+  }}
+ />
 
       {/* Tabs Section */}
       <section className="tabs-section py-5 bg-light">
