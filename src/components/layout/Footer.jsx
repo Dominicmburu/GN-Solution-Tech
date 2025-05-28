@@ -32,7 +32,8 @@ const Footer = () => {
                 fontSize: '0.95rem', 
                 lineHeight: '1.7', 
                 letterSpacing: '0.02em',
-                color: '#301934'
+                color: '#301934',
+                textAlign: 'justify',
               }}>
                 GN Solutions delivers enterprise-grade IT automation and cybersecurity services,
                 empowering European businesses with secure, scalable infrastructure solutions.
@@ -44,7 +45,7 @@ const Footer = () => {
               <h5 className="fw-bold mb-3" style={{ fontSize: '1.1rem', letterSpacing: '0.05em', color: '#301934' }}>Company</h5>
               <ul className="list-unstyled footer-links" style={{ fontSize: '0.95rem' }}>
                 <li className="mb-2"><Link to="/" className="text-decoration-none hover-link">Home</Link></li>
-                <li className="mb-2"><Link to="/services" className="text-decoration-none hover-link">Services</Link></li>
+                <li className="mb-2"><Link to="/" className="text-decoration-none hover-link">Services</Link></li>
                 <li className="mb-2"><Link to="/products" className="text-decoration-none hover-link">Products</Link></li>
                 <li className="mb-2"><Link to="/aboutus" className="text-decoration-none hover-link">About Us</Link></li>
                 <li className="mb-2"><Link to="/blogs" className="text-decoration-none hover-link">Blogs</Link></li>

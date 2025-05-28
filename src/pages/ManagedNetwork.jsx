@@ -8,6 +8,8 @@ import backgroundImage from '../assets/managed.jpg';
 import networkMonitoringImage from '../assets/network-monitoring.jpg';
 import networkArchitectureImage from '../assets/network-architecture.jpg';
 import PageBanner from '../components/common/PageBanner';
+import HoverLineCard from '../components/common/HoverLineCard';
+import TechnologiesWeSupport from '../components/home/TechnologiesWeSupport';
 
 const ManagedNetworkServicesIntro = () => {
   return (
@@ -68,63 +70,6 @@ const ManagedNetworkServicesPage = () => {
               <ManagedNetworkServicesIntro />
             </div>
 
-            <motion.div
-  className="use-case-image-container mb-4"
-  initial={{ opacity: 0, scale: 0.95 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.5, delay: 0.2 }}
-  style={{
-    position: "relative",
-    display: "flex",
-    justifyContent: "center",
-    marginBottom: "3rem"
-  }}
->
-  <div style={{
-    position: "relative",
-    maxWidth: "500px",
-    width: "100%",
-    borderRadius: "16px",
-    overflow: "hidden",
-    boxShadow: "0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(var(--primary-color-rgb), 0.1)",
-    background: "linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.05) 0%, rgba(255,255,255,0.1) 100%)",
-    padding: "8px"
-  }}>
-    <img
-      src="https://i.pinimg.com/736x/c9/a2/e3/c9a2e37ce95e36aaa867f56103b299ba.jpg"
-      alt="Network as Code Use Case Illustration"
-      style={{
-        width: "100%",
-        height: "300px",
-        borderRadius: "12px",
-        objectFit: "cover",
-        transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-        filter: "brightness(1.05) contrast(1.1)"
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "scale(1.02)";
-        e.currentTarget.style.filter = "brightness(1.1) contrast(1.15)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "scale(1)";
-        e.currentTarget.style.filter = "brightness(1.05) contrast(1.1)";
-      }}
-    />
-    
-    {/* Gradient overlay for better text integration */}
-    <div style={{
-      position: "absolute",
-      top: "8px",
-      left: "8px",
-      right: "8px",
-      bottom: "8px",
-      borderRadius: "12px",
-      background: "linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.1) 0%, transparent 50%, rgba(var(--primary-color-rgb), 0.05) 100%)",
-      pointerEvents: "none"
-    }}></div>
-  </div>
-</motion.div>
-
             <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2">Key Features</h3>
             <div className="d-flex justify-content-center mb-5">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
@@ -142,9 +87,11 @@ const ManagedNetworkServicesPage = () => {
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                   <div className="card border-0 p-4 h-100"
                     style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{feature.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
-                    <p className="text-center">{feature.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{feature.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
+                      <p className="text-center">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -343,10 +290,14 @@ const ManagedNetworkServicesPage = () => {
               ].map((feature, index) => (
                 <motion.div className="col-md-6 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{feature.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
-                    <p className="text-center">{feature.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{feature.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
+                      <p className="text-center">{feature.desc}</p>
+                    </HoverLineCard>
+
                   </div>
+
                 </motion.div>
               ))}
             </div>
@@ -405,49 +356,32 @@ const ManagedNetworkServicesPage = () => {
                       e.currentTarget.style.boxShadow = "0 10px 20px rgba(0,0,0,0.1)";
                     }}
                   >
-                    <div className="text-center mb-3">
-                      <div style={{
-                        width: "80px",
-                        height: "80px",
-                        borderRadius: "50%",
-                        backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        margin: "0 auto 15px"
-                      }}>
-                        {feature.icon}
+                    <HoverLineCard>
+
+                      <div className="text-center mb-3">
+                        <div style={{
+                          width: "80px",
+                          height: "80px",
+                          borderRadius: "50%",
+                          backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          margin: "0 auto 15px"
+                        }}>
+                          {feature.icon}
+                        </div>
                       </div>
-                    </div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center mb-3">{feature.title}</h5>
-                    <p className="text-center">{feature.desc}</p>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center mb-3">{feature.title}</h5>
+                      <p className="text-center">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            {/* Technologies We Support Section */}
-            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Technologies We Support</h3>
-            <div className="d-flex justify-content-center mb-5">
-              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-            </div>
-            <div className="row text-center">
-              {[
-                { name: "Cisco Solutions", desc: "Routers, switches, and security appliances.", icon: <FaNetworkWired size={40} style={{ color: "var(--primary-color)" }} /> },
-                { name: "Juniper Networks", desc: "High-performance networking and security.", icon: <FaCogs size={40} style={{ color: "var(--primary-color)" }} /> },
-                { name: "Fortinet Firewalls", desc: "Advanced threat protection and VPN.", icon: <FaShieldAlt size={40} style={{ color: "var(--primary-color)" }} /> },
-                { name: "Aruba WLAN", desc: "Scalable wireless networking solutions.", icon: <FaRocket size={40} style={{ color: "var(--primary-color)" }} /> }
-              ].map((tech, index) => (
-                <motion.div className="col-md-6 col-lg-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
-                  <div className="card border-0 p-4 h-100 "
-                    style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    {tech.icon}
-                    <h5 style={{ color: "var(--ct-color)" }}>{tech.name}</h5>
-                    <p className="mt-2">{tech.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+
+            <TechnologiesWeSupport />
 
             {/* Customer Testimonial or Highlight Section */}
             <div className="row mt-5">
@@ -498,9 +432,11 @@ const ManagedNetworkServicesPage = () => {
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
                   <div className="card shadow-lg border-0 p-4 h-100 benefit-card">
-                    <div className="text-center mb-3">{benefit.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{benefit.title}</h5>
-                    <p className="text-center">{benefit.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{benefit.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{benefit.title}</h5>
+                      <p className="text-center">{benefit.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -572,11 +508,6 @@ const ManagedNetworkServicesPage = () => {
                     <div className="story-content p-4 bg-white flex-grow-1 d-flex align-items-center">
                       <p className="mb-0">{story.result}</p>
                     </div>
-                    <div className="story-footer p-3 text-center" style={{ background: "#f7f9fc", borderTop: "1px solid #eaeaea" }}>
-                      <a href="#" className="btn btn-sm" style={{ color: "var(--primary-color)", fontWeight: "600" }}>
-                        Read Case Study <FaArrowRight style={{ marginLeft: "5px", fontSize: "12px" }} />
-                      </a>
-                    </div>
                   </motion.div>
                 </div>
               ))}
@@ -602,16 +533,20 @@ const ManagedNetworkServicesPage = () => {
                 { title: "24/7 Support", desc: "Dedicated helpdesk for incident resolution.", icon: <FaHeadset size={40} style={{ color: "var(--primary-color)" }} /> }
               ].map((solution, index) => (
                 <motion.div
-                  className="solution-card"
+                  className="card solution-card"
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
                 >
-                  <div className="icon-circle-core">{solution.icon}</div>
-                  <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
-                  <p>{solution.desc}</p>
+                  <div className="card border-0 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <HoverLineCard>
+                      <div className="icon-circle-core">{solution.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
+                      <p>{solution.desc}</p>
+                    </HoverLineCard>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -660,26 +595,31 @@ const ManagedNetworkServicesPage = () => {
                       height: "100%"
                     }}
                   >
-                    <div className="card-header d-flex align-items-center p-4" style={{ background: "rgba(var(--primary-color-rgb), 0.08)", borderBottom: "1px solid rgba(var(--primary-color-rgb), 0.1)" }}>
-                      <div className="icon-container me-3 rounded-circle d-flex align-items-center justify-content-center"
-                        style={{
-                          background: "#fff",
-                          width: "60px",
-                          height: "60px",
-                          boxShadow: "0 4px 15px rgba(var(--primary-color-rgb), 0.2)"
-                        }}>
-                        {item.icon}
-                      </div>
-                      <h5 style={{ color: "var(--ct-color)", margin: 0 }}>{item.title}</h5>
-                    </div>
-                    <div className="card-body p-4">
-                      <p className="mb-0">{item.desc}</p>
+                    <div className="card border-0 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                      <HoverLineCard>
+                        <div className="card-header d-flex align-items-center p-4" style={{ background: "rgba(var(--primary-color-rgb), 0.08)", borderBottom: "1px solid rgba(var(--primary-color-rgb), 0.1)" }}>
+                          <div className="icon-container me-3 rounded-circle d-flex align-items-center justify-content-center"
+                            style={{
+                              background: "#fff",
+                              width: "60px",
+                              height: "60px",
+                              boxShadow: "0 4px 15px rgba(var(--primary-color-rgb), 0.2)"
+                            }}>
+                            {item.icon}
+                          </div>
+                          <h5 style={{ color: "var(--ct-color)", margin: 0 }}>{item.title}</h5>
+                        </div>
+                        <div className="card-body p-4">
+                          <p className="mb-0">{item.desc}</p>
+                        </div>
+                      </HoverLineCard>
                     </div>
                   </motion.div>
+
                 </div>
               ))}
             </div>
-          </div>
+          </div >
         );
 
       case 'faqs':

@@ -6,6 +6,7 @@ import { Accordion } from 'react-bootstrap';
 import '../assets/css/ITTechnologyTraining.css';
 import backgroundImage from '../assets/training.jpg';
 import PageBanner from '../components/common/PageBanner';
+import HoverLineCard from '../components/common/HoverLineCard';
 
 
 const ManagedITTrainingServicesIntro = () => {
@@ -83,9 +84,11 @@ const ITTechnologyTrainingPage = () => {
               ].map((feature, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                   <div className="card shadow-lg border-0 p-4 h-100 feature-card">
-                    <div className="text-center mb-3">{feature.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
-                    <p className="text-center">{feature.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{feature.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
+                      <p className="text-center">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -145,22 +148,24 @@ const ITTechnologyTrainingPage = () => {
                       e.currentTarget.style.boxShadow = "0 10px 20px rgba(0,0,0,0.1)";
                     }}
                   >
-                    <div className="text-center mb-3">
-                      <div style={{
-                        width: "80px",
-                        height: "80px",
-                        borderRadius: "50%",
-                        backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        margin: "0 auto 15px"
-                      }}>
-                        {feature.icon}
+                    <HoverLineCard>
+                      <div className="text-center mb-3">
+                        <div style={{
+                          width: "80px",
+                          height: "80px",
+                          borderRadius: "50%",
+                          backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          margin: "0 auto 15px"
+                        }}>
+                          {feature.icon}
+                        </div>
                       </div>
-                    </div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center mb-3">{feature.title}</h5>
-                    <p className="text-center">{feature.desc}</p>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center mb-3">{feature.title}</h5>
+                      <p className="text-center">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -433,9 +438,11 @@ const ITTechnologyTrainingPage = () => {
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
                   <div className="card shadow-lg border-0 p-4 h-100 benefit-card">
-                    <div className="text-center mb-3">{benefit.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{benefit.title}</h5>
-                    <p className="text-center">{benefit.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{benefit.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{benefit.title}</h5>
+                      <p className="text-center">{benefit.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -496,11 +503,6 @@ const ITTechnologyTrainingPage = () => {
                     <div className="story-content p-4 bg-white flex-grow-1 d-flex align-items-center">
                       <p className="mb-0">{story.result}</p>
                     </div>
-                    <div className="story-footer p-3 text-center" style={{ background: "#f7f9fc", borderTop: "1px solid #eaeaea" }}>
-                      <a href="#" className="btn btn-sm" style={{ color: "var(--primary-color)", fontWeight: "600" }}>
-                        Read Case Study <FaArrowRight style={{ marginLeft: "5px", fontSize: "12px" }} />
-                      </a>
-                    </div>
                   </motion.div>
                 </div>
               ))}
@@ -524,16 +526,20 @@ const ITTechnologyTrainingPage = () => {
                 { title: "Custom Corporate IT Training Programs", desc: "Designed for internal IT teams or clients undergoing digital transformation or network modernization projects.", icon: <FaUserTie size={40} style={{ color: "var(--primary-color)" }} /> }
               ].map((solution, index) => (
                 <motion.div
-                  className="solution-card"
+                  className="card solution-card"
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
                 >
-                  <div className="icon-circle-core">{solution.icon}</div>
-                  <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
-                  <p>{solution.desc}</p>
+                  <div className="card border-0 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <HoverLineCard>
+                      <div className="icon-circle-core">{solution.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
+                      <p>{solution.desc}</p>
+                    </HoverLineCard>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -583,20 +589,24 @@ const ITTechnologyTrainingPage = () => {
                       height: "100%"
                     }}
                   >
-                    <div className="card-header d-flex align-items-center p-4" style={{ background: "rgba(var(--primary-color-rgb), 0.08)", borderBottom: "1px solid rgba(var(--primary-color-rgb), 0.1)" }}>
-                      <div className="icon-container me-3 rounded-circle d-flex align-items-center justify-content-center"
-                        style={{
-                          background: "#fff",
-                          width: "60px",
-                          height: "60px",
-                          boxShadow: "0 4px 15px rgba(var(--primary-color-rgb), 0.2)"
-                        }}>
-                        {item.icon}
-                      </div>
-                      <h5 style={{ color: "var(--ct-color)", margin: 0 }}>{item.title}</h5>
-                    </div>
-                    <div className="card-body p-4">
-                      <p className="mb-0">{item.desc}</p>
+                    <div className="card border-0 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                      <HoverLineCard>
+                        <div className="card-header d-flex align-items-center p-4" style={{ background: "rgba(var(--primary-color-rgb), 0.08)", borderBottom: "1px solid rgba(var(--primary-color-rgb), 0.1)" }}>
+                          <div className="icon-container me-3 rounded-circle d-flex align-items-center justify-content-center"
+                            style={{
+                              background: "#fff",
+                              width: "60px",
+                              height: "60px",
+                              boxShadow: "0 4px 15px rgba(var(--primary-color-rgb), 0.2)"
+                            }}>
+                            {item.icon}
+                          </div>
+                          <h5 style={{ color: "var(--ct-color)", margin: 0 }}>{item.title}</h5>
+                        </div>
+                        <div className="card-body p-4">
+                          <p className="mb-0">{item.desc}</p>
+                        </div>
+                      </HoverLineCard>
                     </div>
                   </motion.div>
                 </div>

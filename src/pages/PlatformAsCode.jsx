@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   FaCloud, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight,
@@ -12,6 +12,7 @@ import "../assets/css/network.css";
 import "../assets/css/TabsSection.css";
 import backgroundImage from "../assets/platform3.webp";
 import PageBanner from '../components/common/PageBanner';
+import HoverLineCard from "../components/common/HoverLineCard";
 
 // Intro Section Component
 const PlatformAsCodeIntro = () => {
@@ -55,47 +56,47 @@ const PlatformAsCode = () => {
     {
       title: "PaaC Framework Design",
       desc: "Custom architecture for integrating PaaC into your environment—toolchain selection, workflows, and policies.",
-      icon: <FaCogs size={28} />
+      icon: <FaCogs size={40} />
     },
     {
       title: "Automated Platform Provisioning",
       desc: "Use tools like Terraform, Ansible, or Helm to automate infrastructure, services, and application stacks.",
-      icon: <FaRocket size={28} />
+      icon: <FaRocket size={40} />
     },
     {
       title: "CI/CD for Platforms",
       desc: "Implement pipelines with Jenkins, GitLab CI, or ArgoCD to test and deploy platform changes.",
-      icon: <FaCode size={28} />
+      icon: <FaCode size={40} />
     },
     {
       title: "Kubernetes & Container Orchestration",
       desc: "Define clusters, Helm charts, and service meshes as code for scalable deployments.",
-      icon: <FaDocker size={28} />
+      icon: <FaDocker size={40} />
     },
     {
       title: "Observability & Monitoring",
       desc: "Integrate Prometheus, Grafana, or ELK stack for real-time platform insights.",
-      icon: <FaChartLine size={28} />
+      icon: <FaChartLine size={40} />
     },
     {
       title: "Security & Compliance as Code",
       desc: "Embed IAM policies, encryption, and compliance checks (CIS, NIST) into platform code.",
-      icon: <FaShieldAlt size={28} />
+      icon: <FaShieldAlt size={40} />
     },
     {
       title: "Multi-Cloud Platform Management",
       desc: "Automate and manage platforms across AWS, Azure, GCP, and on-prem.",
-      icon: <FaCloud size={28} />
+      icon: <FaCloud size={40} />
     },
     {
       title: "Developer Self-Service Portals",
       desc: "Enable developers to spin up full platform stacks using PaaC blueprints.",
-      icon: <FaUsersCog size={28} />
+      icon: <FaUsersCog size={40} />
     },
     {
       title: "Training & Enablement",
       desc: "Upskill your team with workshops and hands-on PaaC training.",
-      icon: <FaLayerGroup size={28} />
+      icon: <FaLayerGroup size={40} />
     }
   ];
 
@@ -150,6 +151,44 @@ const PlatformAsCode = () => {
     setActiveKey(eventKey);
   };
 
+  const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
+
+  // Counter component with easing effect
+  const Counter = ({ end, duration = 2000 }) => {
+    const [count, setCount] = useState(0);
+    const endValue = parseInt(end.replace("+", "")) || parseInt(end);
+
+    useEffect(() => {
+      let startTime = null;
+      let animationFrame;
+
+      const animate = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1); // Progress from 0 to 1
+        const easedProgress = easeOutQuad(progress); // Apply easing
+        const currentCount = Math.floor(easedProgress * endValue);
+
+        setCount(currentCount);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+
+      return () => cancelAnimationFrame(animationFrame); // Cleanup on unmount
+    }, [end, duration]);
+
+    return (
+      <span>
+        {count}
+        {end.includes("+") ? "+" : ""}
+      </span>
+    );
+  };
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'overview':
@@ -197,8 +236,10 @@ const PlatformAsCode = () => {
               ].map((useCase, index) => (
                 <motion.div className="col-md-6 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <h5 style={{ color: "var(--ct-color)" }}>{useCase.title}</h5>
-                    <p>{useCase.desc}</p>
+                    <HoverLineCard>
+                      <h5 style={{ color: "var(--ct-color)" }}>{useCase.title}</h5>
+                      <p>{useCase.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -364,16 +405,20 @@ const PlatformAsCode = () => {
             <div className="solutions-grid mb-5">
               {solutions.map((solution, index) => (
                 <motion.div
-                  className="solution-card"
+                  className="card solution-card"
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
                 >
-                  <div className="icon-circle-core">{solution.icon}</div>
-                  <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
-                  <p>{solution.desc}</p>
+                  <div className="card border-0 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <HoverLineCard>
+                      <div className="icon-circle-core">{solution.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
+                      <p>{solution.desc}</p>
+                    </HoverLineCard>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -474,13 +519,15 @@ const PlatformAsCode = () => {
                   transition={{ delay: index * 0.2 }}
                 >
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{strength.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{strength.title}</h5>
-                    <p className="text-center">{strength.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{strength.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{strength.title}</h5>
+                      <p className="text-center">{strength.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
-            </div>            
+            </div>
           </div>
         );
       case 'benefits':
@@ -501,9 +548,11 @@ const PlatformAsCode = () => {
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <HoverLineCard>
                     <div className="text-center mb-3">{benefit.icon}</div>
                     <h5 style={{ color: "var(--ct-color)" }}>{benefit.title}</h5>
                     <p>{benefit.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -520,8 +569,10 @@ const PlatformAsCode = () => {
               ].map((story, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <HoverLineCard>
                     <h5 style={{ color: "var(--ct-color)" }}>{story.company}</h5>
                     <p>{story.result}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -536,19 +587,19 @@ const PlatformAsCode = () => {
                   <div className="row">
                     {[
                       {
-                        value: "40%",
+                        value: "40",
                         label: "Reduction in operational costs",
                         image: "https://i.pinimg.com/736x/cf/91/c4/cf91c43d36fc951cd8199fda571770da.jpg",
                         alt: "Cost Reduction"
                       },
                       {
-                        value: "80%",
+                        value: "80",
                         label: "Faster platform deployment",
                         image: "https://i.pinimg.com/736x/89/c1/4f/89c14f387f878f4be3797bd52bf152a5.jpg",
                         alt: "Fast Deployment"
                       },
                       {
-                        value: "95%",
+                        value: "95",
                         label: "Reduction in configuration errors",
                         image: "https://i.pinimg.com/736x/f7/bd/eb/f7bdebbd732438479a7de7f3a56c3e7b.jpg",
                         alt: "Error Reduction"
@@ -604,7 +655,8 @@ const PlatformAsCode = () => {
                               fontWeight: "800",
                               lineHeight: "1"
                             }}>
-                              {metric.value}
+                              <Counter end={metric.value} duration={4000} />%
+
                             </div>
                             <div className="metric-label" style={{
                               color: "var(--ct-color)",
@@ -708,17 +760,19 @@ const PlatformAsCode = () => {
                   },
                   {
                     title: "Community",
-                    items: ["Platform Engineering Community", "Cloud Native Computing Foundation", "DevOps Forums"]
+                    items: ["Platform Engineering Community", "Cloud Computing Foundation", "DevOps Forums"]
                   }
                 ].map((resource, index) => (
                   <div className="col-md-4 mb-4" key={index}>
                     <div className="card border-0 p-4" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                      <HoverLineCard>
                       <h5 style={{ color: "var(--ct-color)" }}>{resource.title}</h5>
                       <ul className="list-unstyled">
                         {resource.items.map((item, i) => (
                           <li key={i}><FaArrowRight style={{ color: "var(--primary-color)", marginRight: "8px" }} /> {item}</li>
                         ))}
                       </ul>
+                      </HoverLineCard>
                     </div>
                   </div>
                 ))}

@@ -9,6 +9,8 @@ import backgroundImage from '../assets/managed3.jpg';
 import networkMonitoringImage from '../assets/network-monitor.jpg';
 import networkArchitectureImage from '../assets/network-architecture300.jpg';
 import PageBanner from '../components/common/PageBanner';
+import HoverLineCard from '../components/common/HoverLineCard';
+import TechnologiesWeSupport from '../components/home/TechnologiesWeSupport';
 
 const ITRemoteSmartHandsIntro = () => {
   return (
@@ -83,9 +85,11 @@ const ITRemoteSmartHandsPage = () => {
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                   <div className="card border-0 p-4 h-100"
                     style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{feature.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
-                    <p className="text-center">{feature.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{feature.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
+                      <p className="text-center">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -309,47 +313,32 @@ const ITRemoteSmartHandsPage = () => {
                       e.currentTarget.style.boxShadow = "0 10px 20px rgba(0,0,0,0.1)";
                     }}
                   >
-                    <div className="text-center mb-3">
-                      <div style={{
-                        width: "80px",
-                        height: "80px",
-                        borderRadius: "50%",
-                        backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        margin: "0 auto 15px"
-                      }}>
-                        {feature.icon}
+                    <HoverLineCard>
+
+                      <div className="text-center mb-3">
+                        <div style={{
+                          width: "80px",
+                          height: "80px",
+                          borderRadius: "50%",
+                          backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          margin: "0 auto 15px"
+                        }}>
+                          {feature.icon}
+                        </div>
                       </div>
-                    </div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center mb-3">{feature.title}</h5>
-                    <p className="text-center">{feature.desc}</p>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center mb-3">{feature.title}</h5>
+                      <p className="text-center">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
             </div>
-            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Hardware & Technologies We Support</h3>
-            <div className="d-flex justify-content-center mb-5">
-              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-            </div>
-            <div className="row text-center">
-              {[
-                { name: "Cisco Equipment", desc: "Routers, switches, firewalls, and wireless systems.", icon: <FaNetworkWired size={40} style={{ color: "var(--primary-color)" }} /> },
-                { name: "Dell/HP Servers", desc: "Server hardware installation and maintenance.", icon: <FaServer size={40} style={{ color: "var(--primary-color)" }} /> },
-                { name: "Juniper Networks", desc: "High-performance networking and security devices.", icon: <FaCogs size={40} style={{ color: "var(--primary-color)" }} /> },
-                { name: "Custom Infrastructure", desc: "Multi-vendor and custom-built IT environments.", icon: <FaTools size={40} style={{ color: "var(--primary-color)" }} /> }
-              ].map((tech, index) => (
-                <motion.div className="col-md-6 col-lg-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
-                  <div className="card border-0 p-4 h-100"
-                    style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    {tech.icon}
-                    <h5 style={{ color: "var(--ct-color)" }}>{tech.name}</h5>
-                    <p className="mt-2">{tech.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+
+            <TechnologiesWeSupport />
+
             <div className="row mt-5">
               <div className="col-12">
                 <motion.div
@@ -399,9 +388,11 @@ const ITRemoteSmartHandsPage = () => {
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
                   <div className="card shadow-lg border-0 p-4 h-100 benefit-card">
-                    <div className="text-center mb-3">{benefit.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{benefit.title}</h5>
-                    <p className="text-center">{benefit.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{benefit.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{benefit.title}</h5>
+                      <p className="text-center">{benefit.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -473,11 +464,7 @@ const ITRemoteSmartHandsPage = () => {
                     <div className="story-content p-4 bg-white flex-grow-1 d-flex align-items-center">
                       <p className="mb-0">{story.result}</p>
                     </div>
-                    <div className="story-footer p-3 text-center" style={{ background: "#f7f9fc", borderTop: "1px solid #eaeaea" }}>
-                      <a href="#" className="btn btn-sm" style={{ color: "var(--primary-color)", fontWeight: "600" }}>
-                        Read Case Study <FaArrowRight style={{ marginLeft: "5px", fontSize: "12px" }} />
-                      </a>
-                    </div>
+
                   </motion.div>
                 </div>
               ))}
@@ -504,9 +491,11 @@ const ITRemoteSmartHandsPage = () => {
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                   <div className="card border-0 p-4 h-100"
                     style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{solution.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{solution.title}</h5>
-                    <p className="text-center">{solution.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{solution.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{solution.title}</h5>
+                      <p className="text-center">{solution.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}

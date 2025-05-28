@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaShieldAlt, FaBullseye, FaCloud, FaServer, FaChartLine, FaTools, FaSyncAlt, FaRocket, FaArrowRight, FaCogs, FaSearch, FaInfoCircle, FaCheckCircle,FaMobile , FaQuestionCircle, FaAward, FaUserTie, FaHandshake, FaBalanceScale, FaProjectDiagram, FaUsers, FaLightbulb, FaCalendarAlt, FaClipboardCheck, FaMoneyBillWave, FaFileAlt, FaTasks } from 'react-icons/fa';
+import { FaShieldAlt, FaBullseye, FaCloud, FaServer, FaChartLine, FaTools, FaSyncAlt, FaRocket, FaArrowRight, FaCogs, FaSearch, FaInfoCircle, FaCheckCircle, FaMobile, FaQuestionCircle, FaAward, FaUserTie, FaHandshake, FaBalanceScale, FaProjectDiagram, FaUsers, FaLightbulb, FaCalendarAlt, FaClipboardCheck, FaMoneyBillWave, FaFileAlt, FaTasks } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Accordion } from 'react-bootstrap';
 import '../assets/css/ManagedNetworkServices.css';
 import backgroundImage from '../assets/managed.jpg';
 import PageBanner from '../components/common/PageBanner';
+import HoverLineCard from '../components/common/HoverLineCard';
 
 const ITProjectManagementIntro = () => {
     return (
@@ -80,9 +81,11 @@ const ITProjectManagementPage = () => {
                                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                                     <div className="card border-0 p-4 h-100"
                                         style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                                        <div className="text-center mb-3">{feature.icon}</div>
-                                        <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
-                                        <p className="text-center">{feature.desc}</p>
+                                        <HoverLineCard>
+                                            <div className="text-center mb-3">{feature.icon}</div>
+                                            <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
+                                            <p className="text-center">{feature.desc}</p>
+                                        </HoverLineCard>
                                     </div>
                                 </motion.div>
                             ))}
@@ -281,9 +284,11 @@ const ITProjectManagementPage = () => {
                             ].map((feature, index) => (
                                 <motion.div className="col-md-6 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                                     <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                                        <div className="text-center mb-3">{feature.icon}</div>
-                                        <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
-                                        <p className="text-center">{feature.desc}</p>
+                                        <HoverLineCard>
+                                            <div className="text-center mb-3">{feature.icon}</div>
+                                            <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
+                                            <p className="text-center">{feature.desc}</p>
+                                        </HoverLineCard>
                                     </div>
                                 </motion.div>
                             ))}
@@ -348,22 +353,24 @@ const ITProjectManagementPage = () => {
                                             e.currentTarget.style.boxShadow = "0 10px 20px rgba(0,0,0,0.1)";
                                         }}
                                     >
-                                        <div className="text-center mb-3">
-                                            <div style={{
-                                                width: "80px",
-                                                height: "80px",
-                                                borderRadius: "50%",
-                                                backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
-                                                display: "flex",
-                                                alignItems: "center",
-                                                justifyContent: "center",
-                                                margin: "0 auto 15px"
-                                            }}>
-                                                {feature.icon}
+                                        <HoverLineCard>
+                                            <div className="text-center mb-3">
+                                                <div style={{
+                                                    width: "80px",
+                                                    height: "80px",
+                                                    borderRadius: "50%",
+                                                    backgroundColor: "rgba(var(--primary-color-rgb), 0.1)",
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    justifyContent: "center",
+                                                    margin: "0 auto 15px"
+                                                }}>
+                                                    {feature.icon}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <h5 style={{ color: "var(--ct-color)" }} className="text-center mb-3">{feature.title}</h5>
-                                        <p className="text-center">{feature.desc}</p>
+                                            <h5 style={{ color: "var(--ct-color)" }} className="text-center mb-3">{feature.title}</h5>
+                                            <p className="text-center">{feature.desc}</p>
+                                        </HoverLineCard>
                                     </div>
                                 </motion.div>
                             ))}
@@ -384,9 +391,11 @@ const ITProjectManagementPage = () => {
                                 <motion.div className="col-md-6 col-lg-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
                                     <div className="card border-0 p-4 h-100"
                                         style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                                        {tool.icon}
-                                        <h5 style={{ color: "var(--ct-color)" }}>{tool.name}</h5>
-                                        <p className="mt-2">{tool.desc}</p>
+                                        <HoverLineCard>
+                                            {tool.icon}
+                                            <h5 style={{ color: "var(--ct-color)" }}>{tool.name}</h5>
+                                            <p className="mt-2">{tool.desc}</p>
+                                        </HoverLineCard>
                                     </div>
                                 </motion.div>
                             ))}
@@ -441,9 +450,11 @@ const ITProjectManagementPage = () => {
                             ].map((benefit, index) => (
                                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
                                     <div className="card shadow-lg border-0 p-4 h-100 benefit-card">
-                                        <div className="text-center mb-3">{benefit.icon}</div>
-                                        <h5 style={{ color: "var(--ct-color)" }} className="text-center">{benefit.title}</h5>
-                                        <p className="text-center">{benefit.desc}</p>
+                                        <HoverLineCard>
+                                            <div className="text-center mb-3">{benefit.icon}</div>
+                                            <h5 style={{ color: "var(--ct-color)" }} className="text-center">{benefit.title}</h5>
+                                            <p className="text-center">{benefit.desc}</p>
+                                        </HoverLineCard>
                                     </div>
                                 </motion.div>
                             ))}
@@ -504,11 +515,6 @@ const ITProjectManagementPage = () => {
                                         <div className="story-content p-4 bg-white flex-grow-1 d-flex align-items-center">
                                             <p className="mb-0">{story.result}</p>
                                         </div>
-                                        <div className="story-footer p-3 text-center" style={{ background: "#f7f9fc", borderTop: "1px solid #eaeaea" }}>
-                                            <a href="#" className="btn btn-sm" style={{ color: "var(--primary-color)", fontWeight: "600" }}>
-                                                Read Case Study <FaArrowRight style={{ marginLeft: "5px", fontSize: "12px" }} />
-                                            </a>
-                                        </div>
                                     </motion.div>
                                 </div>
                             ))}
@@ -532,19 +538,23 @@ const ITProjectManagementPage = () => {
                                 { title: "Vendor Management & Procurement", desc: "RFP management, vendor selection, and third-party coordination.", icon: <FaHandshake size={40} style={{ color: "var(--primary-color)" }} /> }
                             ].map((solution, index) => (
                                 <motion.div
-                                    className="solution-card"
+                                    className="card solution-card"
                                     key={index}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.1 }}
                                     style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
                                 >
-                                    <div className="icon-circle-core">{solution.icon}</div>
-                                    <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
-                                    <p>{solution.desc}</p>
+                                    <div className="card border-0 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                                        <HoverLineCard>
+                                            <div className="icon-circle-core">{solution.icon}</div>
+                                            <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
+                                            <p>{solution.desc}</p>
+                                        </HoverLineCard>
+                                    </div>
                                 </motion.div>
                             ))}
-                        </div>                        
+                        </div>
                     </div>
                 );
 

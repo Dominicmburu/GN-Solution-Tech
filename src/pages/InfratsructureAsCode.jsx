@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   FaCloud,
@@ -21,6 +21,7 @@ import "../assets/css/infrastructure.css";
 import "../assets/css/TabsSection.css";
 import backgroundImage from "../assets/platform.webp";
 import PageBanner from '../components/common/PageBanner';
+import HoverLineCard from "../components/common/HoverLineCard";
 
 
 // Intro Section Component
@@ -54,6 +55,44 @@ const InfrastructureAsCode = () => {
 
   const handleAccordionChange = (eventKey) => {
     setActiveKey(eventKey);
+  };
+
+  const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
+
+  // Counter component with easing effect
+  const Counter = ({ end, duration = 2000 }) => {
+    const [count, setCount] = useState(0);
+    const endValue = parseInt(end.replace("+", "")) || parseInt(end);
+
+    useEffect(() => {
+      let startTime = null;
+      let animationFrame;
+
+      const animate = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1); // Progress from 0 to 1
+        const easedProgress = easeOutQuad(progress); // Apply easing
+        const currentCount = Math.floor(easedProgress * endValue);
+
+        setCount(currentCount);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+
+      return () => cancelAnimationFrame(animationFrame); // Cleanup on unmount
+    }, [end, duration]);
+
+    return (
+      <span>
+        {count}
+        {end.includes("+") ? "+" : ""}
+      </span>
+    );
   };
 
   const tabs = [
@@ -147,9 +186,11 @@ const InfrastructureAsCode = () => {
               ].map((principle, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{principle.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{principle.title}</h5>
-                    <p className="text-center">{principle.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{principle.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{principle.title}</h5>
+                      <p className="text-center">{principle.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -193,9 +234,11 @@ const InfrastructureAsCode = () => {
               ].map((feature, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="mb-3">{feature.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{feature.title}</h5>
-                    <p className="text-muted mb-0">{feature.desc}</p>
+                    <HoverLineCard>
+                      <div className="mb-3">{feature.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{feature.title}</h5>
+                      <p className="text-muted mb-0">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -211,8 +254,10 @@ const InfrastructureAsCode = () => {
               ].map((useCase, index) => (
                 <motion.div className="col-md-6 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <h5 style={{ color: "var(--ct-color)" }}>{useCase.title}</h5>
-                    <p>{useCase.desc}</p>
+                    <HoverLineCard>
+                      <h5 style={{ color: "var(--ct-color)" }}>{useCase.title}</h5>
+                      <p>{useCase.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -257,9 +302,11 @@ const InfrastructureAsCode = () => {
               ].map((advantage, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="mb-3">{advantage.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{advantage.title}</h5>
-                    <p className="text-muted mb-0">{advantage.desc}</p>
+                    <HoverLineCard>
+                      <div className="mb-3">{advantage.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{advantage.title}</h5>
+                      <p className="text-muted mb-0">{advantage.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -325,9 +372,11 @@ const InfrastructureAsCode = () => {
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="mb-3">{benefit.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{benefit.title}</h5>
-                    <p className="text-muted mt-2 mb-0">{benefit.desc}</p>
+                    <HoverLineCard>
+                      <div className="mb-3">{benefit.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{benefit.title}</h5>
+                      <p className="text-muted mt-2 mb-0">{benefit.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -344,11 +393,13 @@ const InfrastructureAsCode = () => {
               ].map((story, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="d-flex align-items-center mb-3">
-                      <FaCheckCircle style={{ color: "var(--primary-color)" }} className="me-2" size={24} />
-                      <h5 style={{ color: "var(--ct-color)" }} className="mb-0">{story.company}</h5>
-                    </div>
-                    <p className="mb-0">{story.result}</p>
+                    <HoverLineCard>
+                      <div className="d-flex align-items-center mb-3">
+                        <FaCheckCircle style={{ color: "var(--primary-color)" }} className="me-2" size={24} />
+                        <h5 style={{ color: "var(--ct-color)" }} className="mb-0">{story.company}</h5>
+                      </div>
+                      <p className="mb-0">{story.result}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -368,19 +419,19 @@ const InfrastructureAsCode = () => {
                   <div className="row">
                     {[
                       {
-                        value: "30-50%",
+                        value: "30-50",
                         label: "Reduction in operational costs",
                         image: "https://i.pinimg.com/736x/cf/91/c4/cf91c43d36fc951cd8199fda571770da.jpg",
                         alt: "Cost Reduction"
                       },
                       {
-                        value: "75%",
+                        value: "75",
                         label: "Faster deployment time",
                         image: "https://i.pinimg.com/736x/89/c1/4f/89c14f387f878f4be3797bd52bf152a5.jpg",
                         alt: "Fast Deployment"
                       },
                       {
-                        value: "90%",
+                        value: "90",
                         label: "Reduction in configuration errors",
                         image: "https://i.pinimg.com/736x/f7/bd/eb/f7bdebbd732438479a7de7f3a56c3e7b.jpg",
                         alt: "Error Reduction"
@@ -442,7 +493,8 @@ const InfrastructureAsCode = () => {
                               fontWeight: "800",
                               lineHeight: "1"
                             }}>
-                              {metric.value}
+                              <Counter end={metric.value} duration={4000} />%
+
                             </div>
                             <div className="metric-label" style={{
                               color: "var(--ct-color)",
@@ -529,9 +581,11 @@ const InfrastructureAsCode = () => {
               ].map((solution, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="mb-3">{solution.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{solution.title}</h5>
-                    <p className="text-muted text-center mb-0">{solution.desc}</p>
+                    <HoverLineCard>
+                      <div className="mb-3">{solution.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{solution.title}</h5>
+                      <p className="text-muted text-center mb-0">{solution.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -622,14 +676,16 @@ const InfrastructureAsCode = () => {
                 ].map((resource, index) => (
                   <div className="col-md-4 mb-4" key={index}>
                     <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                      <h5 style={{ color: "var(--ct-color)" }} className="mb-3">{resource.title}</h5>
-                      <ul className="list-unstyled">
-                        {resource.items.map((item, i) => (
-                          <li key={i} className="mb-2">
-                            <FaArrowRight style={{ color: "var(--primary-color)", marginRight: "8px" }} /> {item}
-                          </li>
-                        ))}
-                      </ul>
+                      <HoverLineCard>
+                        <h5 style={{ color: "var(--ct-color)" }} className="mb-3">{resource.title}</h5>
+                        <ul className="list-unstyled">
+                          {resource.items.map((item, i) => (
+                            <li key={i} className="mb-2">
+                              <FaArrowRight style={{ color: "var(--primary-color)", marginRight: "8px" }} /> {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </HoverLineCard>
                     </div>
                   </div>
                 ))}
@@ -710,7 +766,7 @@ const InfrastructureAsCode = () => {
             </div>
           </div>
         </div>
-      </section>      
+      </section>
       {/* Call to Action */}
       <section style={{ backgroundColor: "var(--tt-color)", padding: "50px 0" }}>
         <div className="container">

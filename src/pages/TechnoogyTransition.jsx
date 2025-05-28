@@ -6,6 +6,8 @@ import { Accordion } from 'react-bootstrap';
 import '../assets/css/TechnologyTransition.css';
 import techTransformation from '../assets/tech-transformation.avif';
 import PageBanner from '../components/common/PageBanner';
+import HoverLineCard from '../components/common/HoverLineCard';
+import TechnologiesWeSupport from '../components/home/TechnologiesWeSupport';
 
 const TechnologyTransitionIntro = () => {
   return (
@@ -76,9 +78,11 @@ const TechnologyTransitionPage = () => {
               ].map((feature, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <HoverLineCard>
                     <div className="text-center mb-3">{feature.icon}</div>
                     <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
                     <p className="text-center">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -244,6 +248,7 @@ const TechnologyTransitionPage = () => {
                       e.currentTarget.style.boxShadow = "0 10px 20px rgba(0,0,0,0.1)";
                     }}
                   >
+                    <HoverLineCard>
                     <div className="text-center mb-3">
                       <div style={{
                         width: "80px",
@@ -260,30 +265,14 @@ const TechnologyTransitionPage = () => {
                     </div>
                     <h5 style={{ color: "var(--ct-color)" }} className="text-center mb-3">{feature.title}</h5>
                     <p className="text-center">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
             </div>
-            <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Technologies We Support</h3>
-            <div className="d-flex justify-content-center mb-5">
-              <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-            </div>
-            <div className="row text-center">
-              {[
-                { name: "Cloud Platforms", desc: "Azure, AWS, GCP migration and optimization.", icon: <FaCloudUploadAlt size={40} style={{ color: "var(--primary-color)" }} /> },
-                { name: "DevOps Tools", desc: "CI/CD pipelines and Infrastructure as Code (IaC).", icon: <FaLaptopCode size={40} style={{ color: "var(--primary-color)" }} /> },
-                { name: "Virtualization", desc: "VMware, Hyper-V, and containerized environments.", icon: <FaCogs size={40} style={{ color: "var(--primary-color)" }} /> },
-                { name: "Collaboration Tools", desc: "Microsoft 365, Google Workspace, and VDI platforms.", icon: <FaUserTie size={40} style={{ color: "var(--primary-color)" }} /> },
-              ].map((tech, index) => (
-                <motion.div className="col-md-6 col-lg-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
-                  <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    {tech.icon}
-                    <h5 style={{ color: "var(--ct-color)" }}>{tech.name}</h5>
-                    <p className="mt-2">{tech.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            
+            <TechnologiesWeSupport/>
+
             <div className="row mt-5">
               <div className="col-12">
                 <motion.div
@@ -332,9 +321,11 @@ const TechnologyTransitionPage = () => {
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
                   <div className="card shadow-lg border-0 p-4 h-100 benefit-card">
+                    <HoverLineCard>
                     <div className="text-center mb-3">{benefit.icon}</div>
                     <h5 style={{ color: "var(--ct-color)" }} className="text-center">{benefit.title}</h5>
                     <p className="text-center">{benefit.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -403,12 +394,7 @@ const TechnologyTransitionPage = () => {
                     </div>
                     <div className="story-content p-4 bg-white flex-grow-1 d-flex align-items-center">
                       <p className="mb-0">{story.result}</p>
-                    </div>
-                    <div className="story-footer p-3 text-center" style={{ background: "#f7f9fc", borderTop: "1px solid #eaeaea" }}>
-                      <a href="#" className="btn btn-sm" style={{ color: "var(--primary-color)", fontWeight: "600" }}>
-                        Read Case Study <FaArrowRight style={{ marginLeft: "5px", fontSize: "12px" }} />
-                      </a>
-                    </div>
+                    </div>                    
                   </motion.div>
                 </div>
               ))}
@@ -432,16 +418,20 @@ const TechnologyTransitionPage = () => {
                 { title: "Application Transformation", desc: "Refactor applications for improved performance.", icon: <FaTools size={40} style={{ color: "var(--primary-color)" }} /> },
               ].map((solution, index) => (
                 <motion.div
-                  className="solution-card"
+                  className="card solution-card"
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
                 >
-                  <div className="icon-circle-core">{solution.icon}</div>
-                  <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
-                  <p>{solution.desc}</p>
+                  <div className="card border-0 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <HoverLineCard>
+                      <div className="icon-circle-core">{solution.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
+                      <p>{solution.desc}</p>
+                    </HoverLineCard>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -470,17 +460,24 @@ const TechnologyTransitionPage = () => {
                       height: "100%",
                     }}
                   >
-                    <div className="card-header d-flex align-items-center p-4" style={{ background: "rgba(var(--primary-color-rgb), 0.08)", borderBottom: "1px solid rgba(var(--primary-color-rgb), 0.1)" }}>
-                      <div
-                        className="icon-container me-3 rounded-circle d-flex align-items-center justify-content-center"
-                        style={{ background: "#fff", width: "60px", height: "60px", boxShadow: "0 4px 15px rgba(var(--primary-color-rgb), 0.2)" }}
-                      >
-                        {item.icon}
-                      </div>
-                      <h5 style={{ color: "var(--ct-color)", margin: 0 }}>{item.title}</h5>
-                    </div>
-                    <div className="card-body p-4">
-                      <p className="mb-0">{item.desc}</p>
+                    <div className="card border-0 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                      <HoverLineCard>
+                        <div className="card-header d-flex align-items-center p-4" style={{ background: "rgba(var(--primary-color-rgb), 0.08)", borderBottom: "1px solid rgba(var(--primary-color-rgb), 0.1)" }}>
+                          <div className="icon-container me-3 rounded-circle d-flex align-items-center justify-content-center"
+                            style={{
+                              background: "#fff",
+                              width: "60px",
+                              height: "60px",
+                              boxShadow: "0 4px 15px rgba(var(--primary-color-rgb), 0.2)"
+                            }}>
+                            {item.icon}
+                          </div>
+                          <h5 style={{ color: "var(--ct-color)", margin: 0 }}>{item.title}</h5>
+                        </div>
+                        <div className="card-body p-4">
+                          <p className="mb-0">{item.desc}</p>
+                        </div>
+                      </HoverLineCard>
                     </div>
                   </motion.div>
                 </div>
