@@ -82,10 +82,10 @@ const WhyChooseUsSection = () => {
           </div>
           <div className="col-lg-6">
             <SectionTitle
-              subtitle="Why Choose Us"
+              // subtitle="Why Choose Us"
               title={<span style={{ color: 'var(--tt-color)' }}>Driving Enterprise Success Through IT Innovation</span>}
             />
-            <p className="text-muted mb-4">
+            <p className="text-muted mb-4" style={{ textAlign: "justify" }}>
               Since 2022, we have established ourselves as a leading provider in Dublin, delivering state-of-the-art business automation and secure infrastructure solutions tailored specifically for European enterprises across diverse industries. Our firm commitment to innovation and excellence has earned us a reputation for transformative IT solutions that drive business success and growth.
             </p>
 
@@ -104,7 +104,9 @@ const WhyChooseUsSection = () => {
         </div>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-around', backgroundColor: '#f5f5f5', padding: '20px', margin: "40px 0", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+
+
+      <div className="container" style={{ display: 'flex', justifyContent: 'space-around', backgroundColor: '#f5f5f5', padding: '20px', margin: '40px auto', width: '80%', boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.15)' }}>
         <div style={{ textAlign: 'center' }}>
           <h3 style={{ color: 'var(--primary-color)', fontSize: '48px', fontWeight: 'bold', margin: '0' }}>
             <Counter end="96" duration={4000} />%

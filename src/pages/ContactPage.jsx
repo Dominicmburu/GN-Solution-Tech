@@ -158,7 +158,7 @@ const ContactPage = () => {
       <PageBanner 
         title="Contact & Support" 
         subtitle="Get in Touch with Our Expert Team"
-        backgroundImage={'https://i.pinimg.com/736x/ed/9c/4f/ed9c4f1621b11333d09c49df24179108.jpg'}
+        backgroundImage={'https://i.pinimg.com/736x/49/27/bd/4927bdc9ae1a9f13b940c3d82ed2665c.jpg'}
         background="#0a1033"
         currentpage="Contact"
       />
@@ -353,7 +353,7 @@ const ContactPage = () => {
                 </div>
                 <h4 className="mb-3">Phone Support</h4>
                 <p className="mb-3">Speak directly with our support team for urgent matters or complex issues.</p>
-                <p className="support-highlight" style={{ color: '#f08b0a' }}>+353 (0) 874 896 800</p>
+                <p className="support-highlight" style={{ color: '#f08b0a' }}>+353 89 278 5147</p>
                 <p className="support-hours">Mon-Fri: 9:00AM - 6:00PM</p>
               </div>
             </div>

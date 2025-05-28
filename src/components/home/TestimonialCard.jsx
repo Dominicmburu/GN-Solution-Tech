@@ -17,7 +17,7 @@ const TestimonialCard = ({ image, text, name, role }) => {
         <div className="testimonial-quote">
           <i className="fas fa-quote-left"></i>
         </div>
-        <p className="card-text mb-4">{text}</p>
+        <p className="card-text mb-4" style={{textAlign:"justify"}}>{text}</p>
         <div className="d-flex align-items-center">
           <div className="testimonial-image">
             <img 

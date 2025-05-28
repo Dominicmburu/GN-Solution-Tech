@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaLightbulb, FaUsers, FaShieldAlt, FaStar, FaHandshake, FaLock, FaRocket, FaChartLine, FaSyncAlt, FaCloud } from 'react-icons/fa';
 import CTASection from './CTASection';
+import HoverLineCard from '../common/HoverLineCard';
 
 // Easing function: easeOutQuad
 const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
@@ -102,22 +103,32 @@ const AboutSection = () => {
       <div className="container">
         {/* Main About Section */}
         <div className="row align-items-center mb-5">
-          <div className="col-lg-6 mb-4 mb-lg-0">
+          {/* <div className="col-lg-6 mb-4 mb-lg-0">
             <div className="position-relative">
               <div className="p-2 rounded" style={{ maxWidth: "550px", borderColor: 'var(--primary-color)', border: '2px solid var(--primary-color)' }}>
                 <img src="./images/image2.jpg" alt="Enterprise IT Solutions" className="img-fluid rounded" />
               </div>
             </div>
-          </div>
-          <div className="col-lg-6">
+          </div> */}
+          <div className="col-lg-12">
             <div className="about-content">
 
-              <p className="mb-4" style={{ textAlign: 'justify', letterSpacing: "1.5px" }}>
+              <p className="mb-4" style={{ textAlign: "justify" }}>
                 At GN Solutions, we understand the complexities and demands of today's dynamic business environment. Founded in Ireland in 2022, our mission is to provide businesses with innovative IT and technology solutions that consistently surpass their expectations.
+              </p>
+              <p className="mb-4" style={{ textAlign: "justify" }}>
                 Our transformation from a break/fix IT service provider to a comprehensive source for Managed IT Services, Cloud Solutions, Cyber Security, and proactive IT support demonstrates our commitment to remaining at the forefront of the digital world. We are experts in enterprise-grade IT infrastructure, utilizing the latest advancements to deliver robust and scalable solutions tailored to our clients’ specific needs.
+              </p>
+              <p className="mb-4" style={{ textAlign: "justify" }}>
                 Our proficiency in business process automation enables us to streamline operations, reduce manual efforts, and enhance productivity. By implementing state-of-the-art network automation and containerization technologies, we facilitate seamless cloud migration, ensuring that digital assets are secure and readily accessible.
+              </p>
+              <p className="mb-4" style={{ textAlign: "justify" }}>
                 Cybersecurity is a fundamental aspect of our services. We recognize the critical importance of safeguarding sensitive information and maintaining client trust. Through advanced security measures, we protect against threats and vulnerabilities, providing peace of mind in an increasingly complex cyber landscape.
+              </p>
+              <p className="mb-4" style={{ textAlign: "justify" }}>
                 At GN Solutions, we bridge the gap between traditional network infrastructure and next-generation automation technologies, delivering solutions that drive efficiency, innovation, and growth. Our dedicated team of experts works diligently to understand the unique challenges faced by each business and to develop strategies that convert those challenges into opportunities.
+              </p>
+              <p className="mb-4" style={{ textAlign: "justify" }}>
                 Whether enhancing existing systems or deploying new technologies, GN Solutions is committed to empowering organizations to excel in the digital age. Our bespoke solutions are designed to support business objectives, promote resilience, and provide a competitive edge in a rapidly evolving marketplace.
               </p>
 
@@ -150,7 +161,7 @@ const AboutSection = () => {
                       : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
                     transition: 'all 0.3s ease-in-out',
                   }}>
-                  <div className="card-body p-4">
+                  <HoverLineCard>
                     <div className="d-flex align-items-center mb-4">
                       <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                         <i className="fas fa-rocket text-white"></i>
@@ -159,7 +170,7 @@ const AboutSection = () => {
                     </div>
                     <p className="card-text">
                       Our mission is to empower businesses with innovative IT solutions that consistently exceed expectations. We strive to streamline operations, enhance productivity, ensure cybersecurity, and transform challenges into opportunities for growth in the digital age.</p>
-                  </div>
+                  </HoverLineCard>
                 </div>
               </div>
               <div className="col-md-6">
@@ -170,7 +181,7 @@ const AboutSection = () => {
                       : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
                     transition: 'all 0.3s ease-in-out',
                   }}>
-                  <div className="card-body p-4">
+                  <HoverLineCard>
                     <div className="d-flex align-items-center mb-4">
                       <div className="rounded-circle p-3 me-3" style={{ backgroundColor: "var(--primary-color)" }}>
                         <i className="fas fa-eye text-white"></i>
@@ -179,7 +190,7 @@ const AboutSection = () => {
                     </div>
                     <p className="card-text">
                       Our vision is to become a leading IT service provider by bridging traditional and next-generation technologies. We aim to set industry standards with tailored solutions that enhance resilience, efficiency, and innovation, helping organizations succeed in a dynamic market.</p>
-                  </div>
+                  </HoverLineCard>
                 </div>
               </div>
             </div>
@@ -205,13 +216,13 @@ const AboutSection = () => {
                         : '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.33)',
                       transition: 'all 0.3s ease-in-out',
                     }}>
-                    <div className="card-body p-4">
+                    <HoverLineCard>
                       <div className="mb-3 card-icon">
                         {value.icon}
                       </div>
                       <h4 className="fw-bold mb-3" style={{ color: "var(--ct-color)" }}>{value.title}</h4>
                       <p className="card-text text-muted">{value.description}</p>
-                    </div>
+                    </HoverLineCard>
                   </div>
                 </div>
               ))}
@@ -219,7 +230,7 @@ const AboutSection = () => {
           </div>
         </section>
 
-      </div>
+      </div >
 
       <CTASection />
 

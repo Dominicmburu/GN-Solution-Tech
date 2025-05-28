@@ -7,6 +7,7 @@ import "../assets/css/infrastructure.css";
 import "../assets/css/TabsSection.css";
 import backgroundImage from "../assets/IT HelpDesk.jpeg";
 import PageBanner from '../components/common/PageBanner';
+import HoverLineCard from "../components/common/HoverLineCard";
 
 const ITHelpDeskSupport = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -141,9 +142,11 @@ const ITHelpDeskSupport = () => {
               ].map((feature, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="mb-3">{feature.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{feature.title}</h5>
-                    <p className="text-muted mb-0">{feature.desc}</p>
+                    <HoverLineCard>
+                      <div className="mb-3">{feature.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{feature.title}</h5>
+                      <p className="text-muted mb-0">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -187,9 +190,11 @@ const ITHelpDeskSupport = () => {
               ].map((advantage, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="mb-3">{advantage.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{advantage.title}</h5>
-                    <p className="text-muted mb-0">{advantage.desc}</p>
+                    <HoverLineCard>
+                      <div className="mb-3">{advantage.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{advantage.title}</h5>
+                      <p className="text-muted mb-0">{advantage.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -250,9 +255,11 @@ const ITHelpDeskSupport = () => {
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="mb-3">{benefit.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{benefit.title}</h5>
-                    <p className="text-muted mt-2 mb-0">{benefit.desc}</p>
+                    <HoverLineCard>
+                      <div className="mb-3">{benefit.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{benefit.title}</h5>
+                      <p className="text-muted mt-2 mb-0">{benefit.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -306,9 +313,11 @@ const ITHelpDeskSupport = () => {
               ].map((solution, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} variants={itemVariants}>
                   <div className="card border-0 p-4 h-100 text-center" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="mb-3">{solution.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
-                    <p className="text-muted mb-0">{solution.desc}</p>
+                    <HoverLineCard>
+                      <div className="mb-3">{solution.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
+                      <p className="text-muted mb-0">{solution.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}

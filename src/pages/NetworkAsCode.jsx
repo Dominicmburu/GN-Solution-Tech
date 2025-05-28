@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaCloud, FaCogs, FaRobot, FaCube, FaChartLine, FaClipboardCheck, FaGraduationCap, FaTools, FaServer, FaRocket, FaCode, FaLayerGroup, FaArrowRight, FaCheck, FaQuestionCircle, FaAward, FaCheckCircle, FaInfoCircle, FaLock, FaHandshake, FaShieldAlt, FaUsersCog } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Accordion } from 'react-bootstrap';
 import "../assets/css/network.css";
 import "../assets/css/TabsSection.css";
+import '../assets/css/ManagedNetworkServices.css';
 import backgroundImage from "../assets/network-as-code.webp";
 import PageBanner from '../components/common/PageBanner';
+import HoverLineCard from "../components/common/HoverLineCard";
 
 // Intro Section Component
 const NetworkAsCodeIntro = () => {
@@ -51,47 +53,47 @@ const NetworkAsCode = () => {
     {
       title: "NaC Framework Design",
       desc: "Custom architecture for integrating NaC into your existing environment—toolchain selection, workflows, and policies.",
-      icon: <FaCogs size={28} />
+      icon: <FaCogs size={40} />
     },
     {
       title: "Automated Provisioning & Configuration",
       desc: "Use tools like Ansible, Terraform, or Nornir to automate switch, router, firewall, and SD-WAN configuration.",
-      icon: <FaRobot size={28} />
+      icon: <FaRobot size={40} />
     },
     {
       title: "CI/CD for Networking",
       desc: "Implement pipelines to test and deploy network changes using Jenkins, GitLab CI, or GitHub Actions.",
-      icon: <FaCode size={28} />
+      icon: <FaCode size={40} />
     },
     {
       title: "Digital Twin & Network Simulation",
       desc: "Build EVE-NG or container-based test environments to validate changes before production.",
-      icon: <FaCube size={28} />
+      icon: <FaCube size={40} />
     },
     {
       title: "Telemetry & Event-Driven Automation",
       desc: "Integrate with Kafka, Fluentd, or Prometheus to enable real-time monitoring and reactive workflows.",
-      icon: <FaChartLine size={28} />
+      icon: <FaChartLine size={40} />
     },
     {
       title: "Configuration Drift Detection",
       desc: "Real-time detection and correction of unauthorized changes.",
-      icon: <FaShieldAlt size={28} />
+      icon: <FaShieldAlt size={40} />
     },
     {
       title: "Multi-Cloud & Hybrid Networking",
       desc: "Automate and manage connectivity across AWS, Azure, GCP, and on-prem.",
-      icon: <FaCloud size={28} />
+      icon: <FaCloud size={40} />
     },
     {
       title: "Compliance as Code",
       desc: "Embed policy checks and security baselines in every deployment.",
-      icon: <FaClipboardCheck size={28} />
+      icon: <FaClipboardCheck size={40} />
     },
     {
       title: "Training & Consulting",
       desc: "Upskill your team or bring in our experts to accelerate your NaC journey.",
-      icon: <FaGraduationCap size={28} />
+      icon: <FaGraduationCap size={40} />
     }
   ];
 
@@ -146,6 +148,44 @@ const NetworkAsCode = () => {
     setActiveKey(eventKey);
   };
 
+  const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
+
+  // Counter component with easing effect
+  const Counter = ({ end, duration = 2000 }) => {
+    const [count, setCount] = useState(0);
+    const endValue = parseInt(end.replace("+", "")) || parseInt(end);
+
+    useEffect(() => {
+      let startTime = null;
+      let animationFrame;
+
+      const animate = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1); // Progress from 0 to 1
+        const easedProgress = easeOutQuad(progress); // Apply easing
+        const currentCount = Math.floor(easedProgress * endValue);
+
+        setCount(currentCount);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+
+      return () => cancelAnimationFrame(animationFrame); // Cleanup on unmount
+    }, [end, duration]);
+
+    return (
+      <span>
+        {count}
+        {end.includes("+") ? "+" : ""}
+      </span>
+    );
+  };
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'overview':
@@ -159,7 +199,7 @@ const NetworkAsCode = () => {
             <div className="d-flex justify-content-center mb-4">
               <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
             </div>
-            
+
             <div className="row">
               {[
                 { title: "Cloud Network Automation", desc: "Automatically provision and configure cloud network resources." },
@@ -169,8 +209,10 @@ const NetworkAsCode = () => {
               ].map((useCase, index) => (
                 <motion.div className="col-md-6 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <h5 style={{ color: "var(--ct-color)" }}>{useCase.title}</h5>
-                    <p>{useCase.desc}</p>
+                    <HoverLineCard>
+                      <h5 style={{ color: "var(--ct-color)" }}>{useCase.title}</h5>
+                      <p>{useCase.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -336,16 +378,20 @@ const NetworkAsCode = () => {
             <div className="solutions-grid mb-5">
               {solutions.map((solution, index) => (
                 <motion.div
-                  className="solution-card"
+                  className="card solution-card"
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
                 >
-                  <div className="icon-circle-core">{solution.icon}</div>
-                  <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
-                  <p>{solution.desc}</p>
+                  <div className="card border-0 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <HoverLineCard>
+                      <div className="icon-circle-core">{solution.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
+                      <p>{solution.desc}</p>
+                    </HoverLineCard>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -446,9 +492,11 @@ const NetworkAsCode = () => {
                   transition={{ delay: index * 0.2 }}
                 >
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{strength.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{strength.title}</h5>
-                    <p className="text-center">{strength.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{strength.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{strength.title}</h5>
+                      <p className="text-center">{strength.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -503,9 +551,11 @@ const NetworkAsCode = () => {
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{benefit.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{benefit.title}</h5>
-                    <p>{benefit.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{benefit.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{benefit.title}</h5>
+                      <p>{benefit.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -522,8 +572,10 @@ const NetworkAsCode = () => {
               ].map((story, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <h5 style={{ color: "var(--ct-color)" }}>{story.company}</h5>
-                    <p>{story.result}</p>
+                    <HoverLineCard>
+                      <h5 style={{ color: "var(--ct-color)" }}>{story.company}</h5>
+                      <p>{story.result}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -538,19 +590,19 @@ const NetworkAsCode = () => {
                   <div className="row">
                     {[
                       {
-                        value: "40%",
+                        value: "40",
                         label: "Reduction in operational costs",
                         image: "https://i.pinimg.com/736x/cf/91/c4/cf91c43d36fc951cd8199fda571770da.jpg",
                         alt: "Cost Reduction"
                       },
                       {
-                        value: "80%",
+                        value: "80",
                         label: "Faster network deployment",
                         image: "https://i.pinimg.com/736x/89/c1/4f/89c14f387f878f4be3797bd52bf152a5.jpg",
                         alt: "Fast Deployment"
                       },
                       {
-                        value: "95%",
+                        value: "95",
                         label: "Reduction in configuration errors",
                         image: "https://i.pinimg.com/736x/f7/bd/eb/f7bdebbd732438479a7de7f3a56c3e7b.jpg",
                         alt: "Error Reduction"
@@ -606,7 +658,8 @@ const NetworkAsCode = () => {
                               fontWeight: "800",
                               lineHeight: "1"
                             }}>
-                              {metric.value}
+                              <Counter end={metric.value} duration={4000} />%
+
                             </div>
                             <div className="metric-label" style={{
                               color: "var(--ct-color)",
@@ -715,12 +768,14 @@ const NetworkAsCode = () => {
                 ].map((resource, index) => (
                   <div className="col-md-4 mb-4" key={index}>
                     <div className="card border-0 p-4" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                      <HoverLineCard>
                       <h5 style={{ color: "var(--ct-color)" }}>{resource.title}</h5>
                       <ul className="list-unstyled">
                         {resource.items.map((item, i) => (
                           <li key={i}><FaArrowRight style={{ color: "var(--primary-color)", marginRight: "8px" }} /> {item}</li>
                         ))}
                       </ul>
+                      </HoverLineCard>
                     </div>
                   </div>
                 ))}

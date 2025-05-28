@@ -9,6 +9,7 @@ const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isServiceMenuOpen, setIsServiceMenuOpen] = useState(false);
   const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
+  const [isBlogMenuOpen, setIsBlogMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -45,6 +46,7 @@ const Header = () => {
     setIsNavOpen(!isNavOpen);
     if (isServiceMenuOpen) setIsServiceMenuOpen(false);
     if (isProductMenuOpen) setIsProductMenuOpen(false);
+    if (isBlogMenuOpen) setIsBlogMenuOpen(false);
   };
 
   const toggleServiceMenu = (e) => {
@@ -54,9 +56,9 @@ const Header = () => {
       setIsServiceMenuOpen(!isServiceMenuOpen);
       if (isProductMenuOpen) setIsProductMenuOpen(false);
     }
-    if (windowWidth >= 992) {
-      navigate('/services');
-    }
+    // if (windowWidth >= 992) {
+    //   navigate('/services');
+    // }
   };
 
   const toggleProductMenu = (e) => {
@@ -71,6 +73,18 @@ const Header = () => {
     }
   };
 
+  const toggleBlogMenu = (e) => { 
+    if (windowWidth < 992) {
+      e.preventDefault();
+      setIsBlogMenuOpen(!isBlogMenuOpen);
+      if (isServiceMenuOpen) setIsServiceMenuOpen(false);
+      if (isProductMenuOpen) setIsProductMenuOpen(false);
+    }
+    // if (windowWidth >= 992) {
+    //   navigate('/blogs');
+    // }
+  };
+
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
   };
@@ -79,6 +93,7 @@ const Header = () => {
     if (isNavOpen) setIsNavOpen(false);
     if (isServiceMenuOpen) setIsServiceMenuOpen(false);
     if (isProductMenuOpen) setIsProductMenuOpen(false);
+    if (isBlogMenuOpen) setIsBlogMenuOpen(false);
   };
 
   const isActive = (path) => {
@@ -166,6 +181,13 @@ const Header = () => {
         }
       ]
     }
+  ];
+
+  const blogs = [
+    {
+      title: "Blogs",
+      link: "/blogs"
+    },
   ];
 
   // Determine if we're on mobile view
@@ -414,20 +436,56 @@ const Header = () => {
                 About Us
               </Link>
             </li> */}
-            <li className="nav-item">
-              <Link
-                className="nav-link"
+
+            <li 
+              className={`nav-item dropdown ${isMobile ? '' : 'dropdown-hover'} ${isBlogMenuOpen ? 'show' : ''}`}
+              onMouseEnter={() => isMobile ? null : setIsBlogMenuOpen(true)}
+              onMouseLeave={() => isMobile ? null : setIsBlogMenuOpen(false)}
+            >
+              <a
+                className={`nav-link d-flex align-items-center ${isActive('/blogs') ? 'fw-bold' : ''}`}
+                href="#"
+                onClick={toggleBlogMenu}
                 style={{
                   color: getLinkColor('/blogs'),
-                  fontWeight: isActive('/blogs') ? 'bold' : 'normal',
                   padding: '10px 15px'
                 }}
-                to="/blogs"
-                onClick={closeNav}
               >
-                Resources
-              </Link>
+                Resources <FaChevronDown className="ms-1" size={12} />
+              </a>
+
+              <div
+                className="dropdown-menu"
+                style={{
+                  display: isBlogMenuOpen ? 'block' : 'none',
+                  backgroundColor: 'white',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
+                  borderTop: '3px solid var(--tt-color)',
+                  borderRadius: '0 0 8px 8px',
+                  padding: '15px',
+                  minWidth: '200px'
+                }}
+              >
+                {blogs.map((blog, index) => (
+                  <Link
+                    key={index}
+                    to={blog.link}
+                    className="dropdown-item d-flex align-items-center"
+                    style={{
+                      color: location.pathname === blog.link ? '#f08b0a' : '#333',
+                      padding: '10px 15px',
+                      transition: 'all 0.2s ease',
+                      borderLeft: location.pathname === blog.link ? '3px solid #f08b0a' : '3px solid transparent',
+                    }}
+                    onClick={closeNav}
+                  >
+                    {blog.title}
+                    <FaChevronRight className="ms-2" size={10} style={{ color: '#f08b0a' }} />
+                  </Link>
+                ))}
+              </div>
             </li>
+
             <li className="nav-item" style={{ marginRight: '0' }}>
               <Link
                 className="nav-link"

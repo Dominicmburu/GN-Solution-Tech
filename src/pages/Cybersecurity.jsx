@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PageBanner from '../components/common/PageBanner';
 
@@ -33,14 +33,53 @@ import { Accordion } from 'react-bootstrap';
 import '../assets/css/cybersecurity.css';
 import backgroundImage from "../assets/cybersecurity.jpeg";
 import "../assets/css/cybersecurity.css";
+import HoverLineCard from "../components/common/HoverLineCard";
 
 const CybersecurityAsAServicePage = () => {
   const [activeTab, setActiveTab] = useState('overview');
-    const [activeKey, setActiveKey] = useState(null);
-  
+  const [activeKey, setActiveKey] = useState(null);
 
-    const handleAccordionChange = (eventKey) => {
+
+  const handleAccordionChange = (eventKey) => {
     setActiveKey(eventKey);
+  };
+
+  const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
+
+  // Counter component with easing effect
+  const Counter = ({ end, duration = 2000 }) => {
+    const [count, setCount] = useState(0);
+    const endValue = parseInt(end.replace("+", "")) || parseInt(end);
+
+    useEffect(() => {
+      let startTime = null;
+      let animationFrame;
+
+      const animate = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1); // Progress from 0 to 1
+        const easedProgress = easeOutQuad(progress); // Apply easing
+        const currentCount = Math.floor(easedProgress * endValue);
+
+        setCount(currentCount);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+
+      return () => cancelAnimationFrame(animationFrame); // Cleanup on unmount
+    }, [end, duration]);
+
+    return (
+      <span>
+        {count}
+        {end.includes("+") ? "+" : ""}
+      </span>
+    );
   };
 
   const tabs = [
@@ -95,9 +134,9 @@ const CybersecurityAsAServicePage = () => {
             </div>
             <div className="col-lg-7">
               <p className="intro-text" style={{ textAlign: 'justify' }}>
-               In today’s digital-first world, organizations face growing threats from cybercriminals targeting critical systems, data, and infrastructure. Cybersecurity is no longer optional—it’s essential. At gnsolutions.eu, we provide Cybersecurity as a Service (CSaaS), a comprehensive, scalable, and proactive approach to securing your digital assets. Our services are designed to protect your business against ever-evolving threats, ensuring confidentiality, integrity, and availability of your data and systems.
-We combine advanced technology, expert analysis, and strategic advisory services to deliver continuous protection tailored to your organization's needs.
-               </p>
+                In today’s digital-first world, organizations face growing threats from cybercriminals targeting critical systems, data, and infrastructure. Cybersecurity is no longer optional—it’s essential. At gnsolutions.eu, we provide Cybersecurity as a Service (CSaaS), a comprehensive, scalable, and proactive approach to securing your digital assets. Our services are designed to protect your business against ever-evolving threats, ensuring confidentiality, integrity, and availability of your data and systems.
+                We combine advanced technology, expert analysis, and strategic advisory services to deliver continuous protection tailored to your organization's needs.
+              </p>
             </div>
           </div>
         </div>
@@ -154,9 +193,11 @@ We combine advanced technology, expert analysis, and strategic advisory services
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                   <div className="card border-0 p-4 h-100"
                     style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{feature.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
-                    <p className="text-center">{feature.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{feature.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
+                      <p className="text-center">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -377,9 +418,11 @@ We combine advanced technology, expert analysis, and strategic advisory services
               ].map((feature, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.1 }}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{feature.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
-                    <p className="text-center">{feature.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{feature.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{feature.title}</h5>
+                      <p className="text-center">{feature.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -538,9 +581,11 @@ We combine advanced technology, expert analysis, and strategic advisory services
               ].map((benefit, index) => (
                 <motion.div className="col-md-4 mb-4" key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
                   <div className="card border-0 p-4 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                    <div className="text-center mb-3">{benefit.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }} className="text-center">{benefit.title}</h5>
-                    <p className="text-center">{benefit.desc}</p>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{benefit.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }} className="text-center">{benefit.title}</h5>
+                      <p className="text-center">{benefit.desc}</p>
+                    </HoverLineCard>
                   </div>
                 </motion.div>
               ))}
@@ -614,10 +659,10 @@ We combine advanced technology, expert analysis, and strategic advisory services
               </div>
               <div className="row">
                 {[
-                  { value: "90%", label: "Threat Detection Rate", image: "https://i.pinimg.com/736x/e5/90/e3/e590e3ed03eafc3c8816b34dcd21f70b.jpg", alt: "Threat Detection" },
-                  { value: "50%", label: "Reduction in Incident Costs", image: "https://i.pinimg.com/736x/37/b8/69/37b86959ba823a2d8c06b1eb8ba76f5c.jpg", alt: "Cost Reduction" },
-                  { value: "70%", label: "Faster Compliance", image: "https://i.pinimg.com/736x/0f/47/9b/0f479b6baa1f2129ae4566b7ddbb4445.jpg", alt: "Compliance Speed" },
-                  { value: "85%", label: "Improved Security Posture", image: "https://i.pinimg.com/736x/cd/45/2e/cd452efc1cafe7c3d9eaca4ecf0ce375.jpg", alt: "Security Improvement" }
+                  { value: "90", label: "Threat Detection Rate", image: "https://i.pinimg.com/736x/e5/90/e3/e590e3ed03eafc3c8816b34dcd21f70b.jpg", alt: "Threat Detection" },
+                  { value: "50", label: "Reduction in Incident Costs", image: "https://i.pinimg.com/736x/37/b8/69/37b86959ba823a2d8c06b1eb8ba76f5c.jpg", alt: "Cost Reduction" },
+                  { value: "70", label: "Faster Compliance", image: "https://i.pinimg.com/736x/0f/47/9b/0f479b6baa1f2129ae4566b7ddbb4445.jpg", alt: "Compliance Speed" },
+                  { value: "85", label: "Improved Security Posture", image: "https://i.pinimg.com/736x/cd/45/2e/cd452efc1cafe7c3d9eaca4ecf0ce375.jpg", alt: "Security Improvement" }
                 ].map((metric, index) => (
                   <motion.div
                     className="col-md-3 col-sm-6 mb-4"
@@ -676,7 +721,8 @@ We combine advanced technology, expert analysis, and strategic advisory services
                           fontWeight: "800",
                           lineHeight: "1"
                         }}>
-                          {metric.value}
+                          <Counter end={metric.value} duration={4000} />%
+
                         </div>
                         <div className="metric-label" style={{
                           color: "var(--ct-color)",
@@ -781,17 +827,18 @@ We combine advanced technology, expert analysis, and strategic advisory services
                 }
               ].map((solution, index) => (
                 <motion.div
-                  className="solution-card"
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}
-                
                 >
-                    <div className="text-center mb-3">{solution.icon}</div>
-                    <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
-                    <p>{solution.desc}</p>
+                  <div className="card border-0 h-100" style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
+                    <HoverLineCard>
+                      <div className="text-center mb-3">{solution.icon}</div>
+                      <h5 style={{ color: "var(--ct-color)" }}>{solution.title}</h5>
+                      <p>{solution.desc}</p>
+                    </HoverLineCard>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -814,15 +861,15 @@ We combine advanced technology, expert analysis, and strategic advisory services
                   transition={{ delay: index * 0.1 }}
                 >
                   <Accordion
-                  activeKey={activeKey}
+                    activeKey={activeKey}
                     onSelect={handleAccordionChange}>
-                    <Accordion.Item 
-                    eventKey={index.toString()} 
-                    style={{
-                      marginBottom: "15px",
-                      borderRadius: "8px",
-                      overflow: "hidden"
-                    }}>
+                    <Accordion.Item
+                      eventKey={index.toString()}
+                      style={{
+                        marginBottom: "15px",
+                        borderRadius: "8px",
+                        overflow: "hidden"
+                      }}>
                       <Accordion.Header>
                         <div className="faq-question">
                           <span className="question-icon" style={{ paddingRight: "5px" }}>Q</span>

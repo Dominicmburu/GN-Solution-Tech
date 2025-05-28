@@ -253,13 +253,13 @@
     margin-top: 30px;
   }
   
-  .solution-card {
+  /* .solution-card {
     background-color: white;
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-  }
+  } */
   
   .solution-card:hover {
     transform: translateY(-10px);
