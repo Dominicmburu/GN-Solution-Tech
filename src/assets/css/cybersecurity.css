@@ -509,4 +509,135 @@
   overflow: hidden;
   margin-bottom: 15px;
 }
+/* Add these styles to your cybersecurity.css file or component */
+
+/* Full screen banner container */
+.page-banner {
+  width: 100vw;
+  height: 100vh; /* Full viewport height */
+  position: relative;
+  margin-left: calc(-50vw + 50%); /* Break out of container constraints */
+  margin-right: calc(-50vw + 50%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Banner background image */
+.page-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://i.pinimg.com/736x/c9/8f/d7/c98fd754b643148cdd249734fce4f0dd.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional: creates parallax effect */
+  z-index: -2;
+}
+
+/* Dark overlay for better text readability */
+.page-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 16, 51, 0.6); /* Semi-transparent overlay */
+  z-index: -1;
+}
+
+/* Banner content */
+.page-banner .banner-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.page-banner .banner-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.page-banner .banner-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.page-banner .breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.page-banner .breadcrumb-item {
+  color: rgba(255,255,255,0.8);
+}
+
+.page-banner .breadcrumb-item.active {
+  color: var(--primary-color, #f08b0a);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page-banner {
+    height: 70vh; /* Slightly smaller on mobile */
+  }
   
+  .page-banner .banner-title {
+    font-size: 2.5rem;
+  }
+  
+  .page-banner .banner-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-banner {
+    height: 60vh;
+  }
+  
+  .page-banner .banner-title {
+    font-size: 2rem;
+  }
+  
+  .page-banner .banner-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Alternative approach if you want to modify the PageBanner component directly */
+.full-screen-banner {
+  min-height: 100vh;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+}
+
+/* If you're using Bootstrap container constraints */
+.container-fluid.full-width {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: none !important;
+  width: 100vw !important;
+}
