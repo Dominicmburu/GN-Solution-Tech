@@ -7,6 +7,7 @@ import '../assets/css/ManagedNetworkServices.css';
 import backgroundImage from '../assets/managed.jpg';
 import PageBanner from '../components/common/PageBanner';
 import HoverLineCard from '../components/common/HoverLineCard';
+import ProjectManagementTools from '../components/home/ProjectManagementTools';
 
 const ITProjectManagementIntro = () => {
     return (
@@ -376,30 +377,7 @@ const ITProjectManagementPage = () => {
                             ))}
                         </div>
 
-                        {/* Project Management Tools Section */}
-                        <h3 style={{ color: "var(--tt-color)" }} className="text-center mb-2 mt-5">Project Management Tools & Technologies</h3>
-                        <div className="d-flex justify-content-center mb-5">
-                            <div style={{ width: "80px", height: "4px", backgroundColor: "var(--primary-color)" }}></div>
-                        </div>
-                        <div className="row text-center">
-                            {[
-                                { name: "Jira & Atlassian Suite", desc: "Agile project tracking and collaboration tools.", icon: <FaTasks size={40} style={{ color: "var(--primary-color)" }} /> },
-                                { name: "Microsoft Project", desc: "Comprehensive project planning and scheduling.", icon: <FaCalendarAlt size={40} style={{ color: "var(--primary-color)" }} /> },
-                                { name: "Trello & Asana", desc: "Flexible task management and team coordination.", icon: <FaCogs size={40} style={{ color: "var(--primary-color)" }} /> },
-                                { name: "Custom Dashboards", desc: "Real-time project visibility and reporting.", icon: <FaChartLine size={40} style={{ color: "var(--primary-color)" }} /> }
-                            ].map((tool, index) => (
-                                <motion.div className="col-md-6 col-lg-3 mb-4" key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: index * 0.2 }}>
-                                    <div className="card border-0 p-4 h-100"
-                                        style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.1)", border: "1px solid #eaeaea" }}>
-                                        <HoverLineCard>
-                                            {tool.icon}
-                                            <h5 style={{ color: "var(--ct-color)" }}>{tool.name}</h5>
-                                            <p className="mt-2">{tool.desc}</p>
-                                        </HoverLineCard>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
+                        <ProjectManagementTools/>
 
                         {/* Customer Testimonial or Highlight Section */}
                         <div className="row mt-5">
