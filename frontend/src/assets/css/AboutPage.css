@@ -1,0 +1,433 @@
+/* Existing styles from your code */
+.team-card {
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+/* .teamMembers{
+    background: linear-gradient(90deg, #0a1033 0%, #3a47d5 160%);
+    clip-path: polygon(0 0, 100% 0, 100% 20%, 0% 40%);
+} */
+
+.team-card:hover {
+    transform: translateY(-10px);
+}
+
+.team-social {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover .team-social {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hover-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.hover-card:hover svg {
+    transform: scale(1.2);
+}
+
+.hover-card svg {
+    transition: transform 0.3s ease;
+}
+
+.about-timeline-item {
+    position: relative;
+}
+
+.about-timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Animation keyframes for background elements */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+.diagonal-bg {
+    animation: pulse 8s infinite ease-in-out;
+}
+
+.growth-timeline {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background-color: var(--primary-color);
+    transform: translateX(-50%);
+}
+
+.circle-founder-intro {
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+    top: 30px;
+    left: 30px;
+}
+
+/* Call to Action Section */
+.cta-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    z-index: 1;
+}
+
+.cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.03);
+    z-index: 1;
+}
+
+.cta-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-section .btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+.cta-section .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section .btn:hover::before {
+    left: 100%;
+}
+
+.circle-founder-intro {
+    width: 120px;
+    height: 120px;
+    left: -40px;
+    top: -40px;
+    transform: rotate(5deg);
+}
+
+@media (max-width: 767.98px) {
+    .circle-founder-intro {
+        top: -40px;
+        left: -13px;
+    }
+}
+
+/* ===== ENHANCED EXPERTISE SECTION STYLES ===== */
+/* Our Expertise section enhancements */
+.expertise-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add animated background circles */
+.expertise-section::before,
+.expertise-section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.03);
+    z-index: 1;
+}
+
+.expertise-section::before {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    right: -100px;
+    animation: pulse 15s infinite ease-in-out;
+}
+
+.expertise-section::after {
+    width: 500px;
+    height: 500px;
+    bottom: -250px;
+    left: -200px;
+    animation: pulse 20s infinite ease-in-out reverse;
+}
+
+/* Enhanced expertise cards */
+.expertise-card {
+    background: linear-gradient(145deg, #0c1238 0%, #171f3e 100%);
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.expertise-card:hover {
+    transform: translateY(-10px);
+    border-bottom: 3px solid #00e8ff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.expertise-card i {
+    transition: all 0.4s ease;
+}
+
+.expertise-card:hover i {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px rgba(0, 232, 255, 0.6));
+}
+
+/* Icon container for expertise cards */
+.expertise-icon-container {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(0, 232, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.expertise-card:hover .expertise-icon-container {
+    background-color: rgba(0, 232, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* ===== ENHANCED FOUNDER SECTION STYLES ===== */
+/* Our Founder section enhancements */
+.founder-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add subtle background shape */
+.founder-section::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, rgba(10, 16, 51, 0.05) 0%, rgba(10, 16, 51, 0.01) 100%);
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+    z-index: -1;
+}
+
+/* Enhanced founder card */
+.founder-card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.founder-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(10, 16, 51, 0.15) !important;
+}
+
+/* Founder image container */
+.founder-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.founder-image {
+    transition: transform 0.6s ease;
+    object-fit: cover;
+}
+
+.founder-card:hover .founder-image {
+    transform: scale(1.05);
+}
+
+/* Overlay effect on hover */
+.founder-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(10, 16, 51, 0.1), rgba(10, 16, 51, 0.6));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.founder-card:hover .founder-overlay {
+    opacity: 1;
+}
+
+/* Experience badge that appears on hover */
+.founder-experience-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    background-color: var(--primary-color);
+    color: #0a1033;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(82, 100, 2, 0.4);
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.founder-card:hover .founder-experience-badge {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+.founder-experience-badge .years {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.founder-experience-badge .text {
+    font-size: 0.7rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Enhanced certification badges */
+.certification-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(251, 255, 0, 0.39);
+    color: #0a1033;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.certification-badge:hover {
+    background-color: rgba(251, 255, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Enhanced LinkedIn button */
+.linkedin-btn {
+    background-color: #0077B5;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.linkedin-btn:hover {
+    background-color: #005e93;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+}
+
+/* Position indicator for founder title */
+.founder-position {
+    position: relative;
+}
+
+.founder-position::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 767.98px) {
+    .founder-experience-badge {
+        bottom: 20px;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .founder-experience-badge .years {
+        font-size: 1.5rem;
+    }
+    
+    .founder-experience-badge .text {
+        font-size: 0.6rem;
+    }
+    
+    .certification-badge {
+        margin-bottom: 0.5rem;
+        display: inline-block;
+    }
+}

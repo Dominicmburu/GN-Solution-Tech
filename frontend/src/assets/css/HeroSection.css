@@ -1,0 +1,179 @@
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.cyber-rotate {
+    animation: rotate 20s linear infinite;
+    transform-origin: center center;
+}
+
+.cyber-rotate-reverse {
+    animation: rotate 25s linear infinite reverse;
+    transform-origin: center center;
+}
+
+.cyber-glow {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 16, 51, 0.3);
+    z-index: 2;
+}
+
+/* Hero Action Buttons */
+.hero-action-btn {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-action-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.hero-action-btn:hover:before {
+    left: 100%;
+}
+
+.hero-action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+}
+
+.hero-action-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+#support-request-btn:hover {
+    background-color: #422347 !important;
+    /* background-color: #5a4292 !important; */
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3) !important;
+}
+
+.get-in-touch-btn:hover {
+    background-color: #ff5500 !important;
+    box-shadow: 0 8px 25px rgba(255, 107, 0, 0.3) !important;
+}
+
+#live-chat-btn:hover {
+    background-color: #bdbdbd !important;
+    box-shadow: 0 8px 25px rgba(71, 71, 112, 0.3) !important;
+}
+
+/* Button Group */
+.button-group {
+    margin-top: 2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .hero-section .row {
+        flex-direction: row;
+    }
+
+    .cyber-container {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .button-group {
+        gap: 1rem !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-section {
+        padding: 80px 0 100px !important;
+        min-height: 600px !important;
+    }
+
+    .hero-section .row {
+        padding-top: 40px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem !important;
+        padding: 0 20px;
+    }
+
+    .hero-action-btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .hero-section {
+        padding: 70px 0 90px !important;
+        min-height: 650px !important;
+    }
+
+    .hero-section .row {
+        padding-top: 20px;
+    }
+
+    .hero-section .col-lg-12 {
+        text-align: center;
+    }
+
+    .button-group {
+        margin-top: 1.5rem;
+        padding: 0 15px;
+    }
+
+    .hero-action-btn {
+        width: 100%;
+        max-width: 320px;
+        font-size: 14px !important;
+        padding: 12px 20px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-action-btn {
+        min-width: 240px !important;
+        font-size: 14px !important;
+        padding: 12px 16px !important;
+    }
+}

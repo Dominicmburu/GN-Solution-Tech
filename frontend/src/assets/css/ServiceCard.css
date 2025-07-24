@@ -1,0 +1,13 @@
+.hasCyberGraphic{
+    bottom: -40px;
+    right: -80px;
+    z-index: 1;
+    opacity: 1;
+}
+
+@media (max-width: 767.98px) {
+    .hasCyberGraphic{
+        bottom: -80px;
+        right: 0px;
+    }
+}

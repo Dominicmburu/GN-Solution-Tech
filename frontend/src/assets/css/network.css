@@ -1,0 +1,74 @@
+/* Modern Layout Styles */
+.network-as-code {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* Hero Section Enhancements */
+  .hero-section {
+    position: relative;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  /* Navigation Styles */
+  .navbar-nav .nav-link {
+    color: #2c3e50;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #3498db;
+  }
+  
+  /* Card Hover Effects */
+  .hover-lift {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  /* Card Styles */
+  .card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  /* Responsive Typography */
+  @media (max-width: 768px) {
+    .display-4 {
+      font-size: 2.5rem;
+    }
+    
+    .lead {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Subtle Animations */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .floating-icon {
+    animation: float 4s ease-in-out infinite;
+  }

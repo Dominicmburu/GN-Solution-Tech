@@ -1,0 +1,599 @@
+/* Section titles */
+.section-title {
+    position: relative;
+    color: #0a1033;
+    font-weight: 700;
+}
+
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background-color: #00e8ff;
+    margin-bottom: 25px;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-subtitle {
+    color: #666;
+    margin-top: 15px;
+}
+
+/* Impact Metrics Section */
+.impact-metrics-section {
+    background-color: white;
+}
+
+.impact-metric-card {
+    padding: 30px 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.impact-metric-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.metric-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 232, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    transition: all 0.3s ease;
+}
+
+.metric-icon {
+    font-size: 30px;
+    color: #00e8ff;
+}
+
+.impact-metric-card:hover .metric-icon-wrapper {
+    background-color: #00e8ff;
+}
+
+.impact-metric-card:hover .metric-icon {
+    color: white;
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0a1033;
+    margin-bottom: 10px;
+}
+
+.metric-label {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Featured Case Study Section */
+.featured-case-study-section {
+    background-color: white;
+}
+
+.featured-case-study {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.client-logo {
+    max-height: 50px;
+    max-width: 150px;
+    object-fit: contain;
+}
+
+.client-name {
+    color: #0a1033;
+    font-weight: 600;
+}
+
+.case-study-quote {
+    position: relative;
+    padding: 20px 0;
+}
+
+.quote-icon {
+    color: rgba(0, 232, 255, 0.2);
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.quote-text {
+    padding-left: 40px;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #444;
+    line-height: 1.6;
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.person-name {
+    font-weight: 600;
+    color: #0a1033;
+}
+
+.person-title {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.star-icon {
+    color: #FFD700;
+    margin-right: 2px;
+}
+
+.key-results-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+    border-left: 4px solid #00e8ff;
+}
+
+.key-results-card .card-title {
+    color: #0a1033;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.results-list {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.result-item {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.result-item:last-child {
+    margin-bottom: 0;
+}
+
+.case-study-details {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.details-title {
+    color: #0a1033;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.details-description {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.before-card,
+.after-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+}
+
+.before-card {
+    border-left: 4px solid #dc3545;
+}
+
+.after-card {
+    border-left: 4px solid #28a745;
+}
+
+.before-card .card-title,
+.after-card .card-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.before-card .card-title {
+    color: #dc3545;
+}
+
+.after-card .card-title {
+    color: #28a745;
+}
+
+.challenge-list {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.challenge-item {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.tech-tags {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tech-tag {
+    display: inline-block;
+    background-color: rgba(0, 232, 255, 0.1);
+    color: #0a1033;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* Testimonials List Section */
+.testimonials-list-section {
+    background-color: #f8f9fa;
+}
+
+.industry-filters {
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    color: #666;
+    padding: 8px 15px;
+    border-radius: 30px;
+    margin: 0 5px 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #00e8ff;
+    border-color: #00e8ff;
+    color: white;
+}
+
+.testimonial-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card .card-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.testimonial-card .card-body {
+    padding: 20px;
+}
+
+.testimonial-card .card-footer {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+
+.project-title {
+    color: #0a1033;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.testimonial-card .quote {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.testimonial-card .quote-icon {
+    color: rgba(0, 232, 255, 0.2);
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.testimonial-card .quote-text {
+    padding-left: 30px;
+    font-size: 1rem;
+    font-style: italic;
+    color: #444;
+    line-height: 1.5;
+}
+
+.challenge-text,
+.result-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.view-details-btn {
+    transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+    background-color: #00e8ff;
+    border-color: #00e8ff;
+    color: white;
+}
+
+/* Client Logos Section */
+.client-logos-section {
+    background-color: white;
+}
+
+.logos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.logo-item {
+    padding: 15px 30px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    max-width: 180px;
+    margin: 10px;
+}
+
+.logo-item:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.logo-item img {
+    max-height: 50px;
+    width: auto;
+}
+
+/* Call to Action Section */
+.cta-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    z-index: 1;
+}
+
+.cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.03);
+    z-index: 1;
+}
+
+.cta-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-section .btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+.cta-section .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section .btn:hover::before {
+    left: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .impact-metric-card {
+        margin-bottom: 20px;
+    }
+
+    .metric-value {
+        font-size: 2rem;
+    }
+
+    .key-results-card {
+        margin-top: 30px;
+    }
+
+    .before-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .quote-text,
+    .testimonial-card .quote-text {
+        font-size: 0.95rem;
+    }
+
+    .testimonial-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .person-name {
+        font-size: 0.95rem;
+    }
+
+    .person-title {
+        font-size: 0.85rem;
+    }
+
+    .filter-btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.impact-metric-card {
+    animation: float 5s ease-in-out infinite;
+}
+
+.impact-metric-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.impact-metric-card:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* Hover effect for results */
+.result-item {
+    position: relative;
+    padding-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.result-item:hover {
+    transform: translateX(5px);
+    color: #0a1033;
+}
+
+.result-item::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #00e8ff;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.result-item:hover::before {
+    opacity: 1;
+}
+
+/* Animated background for testimonial cards */
+.testimonial-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #00e8ff, #0a1033);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover::after {
+    transform: scaleX(1);
+}
+
+/* Testimonial card hover effect */
+.quote-attribution {
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-attribution::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 232, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.testimonial-card:hover .quote-attribution::after {
+    opacity: 1;
+}
+
+/* Color transition on hover for challenge and results text */
+.challenge-text,
+.result-text {
+    transition: color 0.3s ease;
+}
+
+.testimonial-card:hover .challenge-text {
+    color: #dc3545;
+}
+
+.testimonial-card:hover .result-text {
+    color: #28a745;
+}
