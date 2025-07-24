@@ -933,7 +933,8 @@ const CybersecurityAsAServicePage = () => {
       <PageBanner
         title="Cybersecurity as a Service"
         subtitle="Comprehensive protection for your digital assets"
-        backgroundImage="https://i.pinimg.com/736x/c9/8f/d7/c98fd754b643148cdd249734fce4f0dd.jpg"
+        backgroundImage="https://images.pexels.com/photos/5475750/pexels-photo-5475750.jpeg"
+        // backgroundImage="https://i.pinimg.com/736x/c9/8f/d7/c98fd754b643148cdd249734fce4f0dd.jpg"
         // backgroundImage={backgroundImage}
         background="#0a1033"
         currentpage="Cybersecurity as a Service"

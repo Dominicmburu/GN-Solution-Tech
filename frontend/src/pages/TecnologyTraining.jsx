@@ -686,8 +686,8 @@ const ITTechnologyTrainingPage = () => {
       <PageBanner
         title="IT Technology Training"
         subtitle="Empowering professionals with hands-on skills for today's digital landscape"
-        backgroundImage={backgroundImage}
-        // backgroundImage="https://www.ntc.edu/sites/default/files/styles/full_width_16_9/public/2021-06/network-technician-header_0.jpg?itok=S1vB5UZR"
+        // backgroundImage={backgroundImage}
+        backgroundImage="https://i.pinimg.com/736x/35/90/d2/3590d224cdeb3137603ea7e18dbc2398.jpg"
         background="#0a1033"
         currentpage="IT Technology Training"
       />

@@ -1,0 +1,170 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  firstName String?
+  lastName  String?
+  avatar    String?
+  role      AdminRole @default(ADMIN)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  blogs     Blog[]
+  chatMessages ChatMessage[]
+  refreshTokens RefreshToken[]
+
+  chatParticipants ChatParticipant[]
+
+  @@map("admins")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  adminId   String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  
+  admin     Admin    @relation(fields: [adminId], references: [id], onDelete: Cascade)
+
+  @@map("refresh_tokens")
+}
+
+model Blog {
+  id          String      @id @default(cuid())
+  title       String
+  slug        String      @unique
+  content     String
+  excerpt     String?
+  featuredImage String?
+  status      BlogStatus  @default(DRAFT)
+  views       Int         @default(0)
+  tags        String[]
+  metaTitle   String?
+  metaDescription String?
+  publishedAt DateTime?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  
+  // Relations
+  authorId    String
+  author      Admin       @relation(fields: [authorId], references: [id])
+
+  @@map("blogs")
+}
+
+model Contact {
+  id        String        @id @default(cuid())
+  firstName String
+  lastName  String
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  status    ContactStatus @default(UNREAD)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@map("contacts")
+}
+
+model ChatRoom {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  messages    ChatMessage[]
+  participants ChatParticipant[]
+
+  @@map("chat_rooms")
+}
+
+model ChatMessage {
+  id        String      @id @default(cuid())
+  content   String
+  messageType MessageType @default(TEXT)
+  fileUrl   String?
+  isRead    Boolean     @default(false)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  // Relations
+  roomId    String
+  room      ChatRoom    @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  
+  senderId  String?
+  sender    Admin?      @relation(fields: [senderId], references: [id], onDelete: SetNull)
+  
+  // For anonymous users
+  guestName String?
+  guestEmail String?
+
+  @@map("chat_messages")
+}
+
+model ChatParticipant {
+  id           String   @id @default(cuid())
+  socketId     String?
+  isOnline     Boolean  @default(false)
+  lastSeenAt   DateTime @default(now())
+  createdAt    DateTime @default(now())
+  
+  // Relations
+  roomId       String
+  room         ChatRoom @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  
+  adminId      String?
+  admin        Admin?   @relation(fields: [adminId], references: [id], onDelete: SetNull)
+  
+  // For anonymous users
+  guestName    String?
+  guestEmail   String?
+
+  @@map("chat_participants")
+}
+
+// Enums
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  MODERATOR
+}
+
+enum BlogStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum ContactStatus {
+  UNREAD
+  READ
+  REPLIED
+  CLOSED
+}
+
+enum MessageType {
+  TEXT
+  IMAGE
+  FILE
+  SYSTEM
+}

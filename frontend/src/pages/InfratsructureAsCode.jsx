@@ -703,7 +703,8 @@ const InfrastructureAsCode = () => {
       <PageBanner
         title="Infrastructure as Code - Automate Your Platform"
         subtitle="Transform Infrastructure Management Through Intelligent Automation"
-        backgroundImage={backgroundImage}
+        backgroundImage="https://i.pinimg.com/1200x/35/7b/b1/357bb19550f7d5628f971601e839f96a.jpg"
+        // backgroundImage={backgroundImage}
         background="#0a1033"
         currentpage="Infrastructure as Code"
       />

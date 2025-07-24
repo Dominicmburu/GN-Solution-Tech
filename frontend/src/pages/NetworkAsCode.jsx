@@ -793,7 +793,8 @@ const NetworkAsCode = () => {
       <PageBanner
         title="Network as Code - Automate Your Infrastructure"
         subtitle="Leverage automation to deploy, manage, and optimize networks efficiently."
-        backgroundImage={backgroundImage}
+        // backgroundImage={backgroundImage}
+        backgroundImage="https://images.pexels.com/photos/1181320/pexels-photo-1181320.jpeg"
         background="#0a1033"
         currentpage="Network as Code"
       />

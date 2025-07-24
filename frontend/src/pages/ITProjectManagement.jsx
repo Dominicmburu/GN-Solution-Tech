@@ -617,7 +617,7 @@ const ITProjectManagementPage = () => {
                 title="IT Project Management"
                 subtitle="Strategic planning, execution, and delivery of technology projects that drive business success"
                 // backgroundImage={backgroundImage}
-                backgroundImage="https://i.pinimg.com/736x/04/43/3f/04433f17a61e37494cb9043d6dd9b76d.jpg"
+                backgroundImage="https://images.pexels.com/photos/7792818/pexels-photo-7792818.jpeg"
                 background="#0a1033"
                 currentpage="IT Project Management"
             />

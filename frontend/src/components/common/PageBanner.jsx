@@ -35,10 +35,11 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
     position: "relative",
     overflow: "hidden",
     minHeight: "500px",
+    maxwidth: "100%",
     ...(backgroundImage && {
       backgroundImage: `linear-gradient(rgba(10, 16, 51, 0.4), rgba(10, 16, 51, 0.3)), url(${backgroundImage})`,
       backgroundSize: "cover",
-      backgroundPosition: "center top",
+      backgroundPosition: "center center",
       backgroundRepeat: "no-repeat",
     })
   };
@@ -48,9 +49,7 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
       className="page-banner position-relative d-flex align-items-center"
       style={bannerStyle}
     >
-      {/* Animated background elements */}
       <div className="position-absolute w-100 h-100 top-0 start-0" style={{ overflow: "hidden", zIndex: 1 }}>
-        {/* Animated circles - responsive sizing */}
         <div className="position-absolute d-none d-md-block" style={{
           width: "300px",
           height: "300px",
@@ -70,7 +69,6 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
           animation: "pulse 12s infinite alternate"
         }}></div>
 
-        {/* Mobile-friendly smaller circles */}
         <div className="position-absolute d-md-none" style={{
           width: "150px",
           height: "150px",
@@ -81,7 +79,6 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
           animation: "pulse 6s infinite alternate"
         }}></div>
 
-        {/* Digital particles effect - responsive */}
         <div className="position-absolute d-none d-lg-block" style={{
           width: "400px",
           height: "400px",
@@ -95,7 +92,6 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
           backgroundPosition: "center"
         }}></div>
 
-        {/* Medium screens digital element */}
         <div className="position-absolute d-none d-md-block d-lg-none" style={{
           width: "250px",
           height: "250px",
@@ -109,7 +105,6 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
           backgroundPosition: "center"
         }}></div>
 
-        {/* Mobile digital element */}
         <div className="position-absolute d-md-none" style={{
           width: "120px",
           height: "120px",
@@ -122,7 +117,6 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
           backgroundPosition: "center"
         }}></div>
 
-        {/* Floating particles - reduced on mobile */}
         {particles.slice(0, window.innerWidth < 768 ? 8 : 15).map(particle => (
           <div
             key={particle.id}
@@ -140,7 +134,6 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
           />
         ))}
 
-        {/* Light beam effect - responsive */}
         <div
           className="position-absolute d-none d-md-block"
           style={{
@@ -154,7 +147,6 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
           }}
         />
 
-        {/* Mobile light beam */}
         <div
           className="position-absolute d-md-none"
           style={{
@@ -168,7 +160,6 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
           }}
         />
 
-        {/* Digital circuit lines - responsive positioning */}
         <div
           className="position-absolute d-none d-lg-block"
           style={{
@@ -184,7 +175,6 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
           }}
         />
 
-        {/* Mobile circuit element */}
         <div
           className="position-absolute d-lg-none"
           style={{
@@ -220,7 +210,6 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
                 </p>
               )}
 
-              {/* Breadcrumb navigation - responsive */}
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb" style={{
                   backgroundColor: "transparent",
