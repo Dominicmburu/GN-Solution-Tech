@@ -34,7 +34,7 @@ const PageBanner = ({ title, subtitle, background, backgroundImage, currentpage 
     padding: "120px 0 80px",
     position: "relative",
     overflow: "hidden",
-    minHeight: "500px",
+    minHeight: "650px",
     maxwidth: "100%",
     ...(backgroundImage && {
       backgroundImage: `linear-gradient(rgba(10, 16, 51, 0.4), rgba(10, 16, 51, 0.3)), url(${backgroundImage})`,
