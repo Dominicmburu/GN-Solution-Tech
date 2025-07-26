@@ -99,7 +99,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="about-section py-5">
+    <section className="about-section pt-2 pb-4">
       <div className="container">
         {/* Main About Section */}
         <div className="row align-items-center mb-5">
@@ -110,32 +110,41 @@ const AboutSection = () => {
               </div>
             </div>
           </div> */}
-          <div className="col-lg-12">
-            <div className="about-content">
+          <div className="container py-5">
+  <div className="row bg-light rounded shadow-sm pt-2 pb-4 px-4 align-items-start">
 
-              <p className="mb-4" style={{ textAlign: "justify" }}>
-                At GN Solutions, we understand the complexities and demands of today's dynamic business environment. Founded in Ireland in 2022, our mission is to provide businesses with innovative IT and technology solutions that consistently surpass their expectations.
-              </p>
-              <p className="mb-4" style={{ textAlign: "justify" }}>
-                Our transformation from a break/fix IT service provider to a comprehensive source for Managed IT Services, Cloud Solutions, Cyber Security, and proactive IT support demonstrates our commitment to remaining at the forefront of the digital world. We are experts in enterprise-grade IT infrastructure, utilizing the latest advancements to deliver robust and scalable solutions tailored to our clients’ specific needs.
-              </p>
-              <p className="mb-4" style={{ textAlign: "justify" }}>
-                Our proficiency in business process automation enables us to streamline operations, reduce manual efforts, and enhance productivity. By implementing state-of-the-art network automation and containerization technologies, we facilitate seamless cloud migration, ensuring that digital assets are secure and readily accessible.
-              </p>
-              <p className="mb-4" style={{ textAlign: "justify" }}>
-                Cybersecurity is a fundamental aspect of our services. We recognize the critical importance of safeguarding sensitive information and maintaining client trust. Through advanced security measures, we protect against threats and vulnerabilities, providing peace of mind in an increasingly complex cyber landscape.
-              </p>
-              <p className="mb-4" style={{ textAlign: "justify" }}>
-                At GN Solutions, we bridge the gap between traditional network infrastructure and next-generation automation technologies, delivering solutions that drive efficiency, innovation, and growth. Our dedicated team of experts works diligently to understand the unique challenges faced by each business and to develop strategies that convert those challenges into opportunities.
-              </p>
-              <p className="mb-4" style={{ textAlign: "justify" }}>
-                Whether enhancing existing systems or deploying new technologies, GN Solutions is committed to empowering organizations to excel in the digital age. Our bespoke solutions are designed to support business objectives, promote resilience, and provide a competitive edge in a rapidly evolving marketplace.
-              </p>
+    {/* Left Side Heading */}
+    <div className="col-lg-4 border-end">
+      <h2 className="fw-bold mb-0" style={{ color: "#2c1c44" }}>
+        Who We Are
+      </h2>
+      <hr style={{ width: "50px", border: "2px solid orange", marginTop: "10px" }} />
+    </div>
 
-            </div>
-          </div>
-        </div>
+    {/* Right Side Content */}
+    <div className="col-lg-8">
+      <div className="about-content text-dark" style={{ fontSize: "1rem", textAlign: "justify" }}>
+        <p className="mb-3">
+          At GN Solutions, we understand the complexities and demands of today's dynamic business environment. Founded in Ireland in 2022, our mission is to provide businesses with innovative IT and technology solutions that consistently surpass expectations.
+        </p>
+        <p className="mb-3">
+          We’ve evolved from a break/fix IT provider to a trusted source for Managed IT Services, Cloud Solutions, Cyber Security, and proactive IT support. Leveraging the latest advancements in enterprise infrastructure, we deliver scalable, tailored solutions to meet every client’s needs.
+        </p>
+        <p className="mb-3">
+          Our automation expertise helps businesses boost productivity and reduce manual processes. With state-of-the-art network automation and containerization technologies, we enable secure, seamless cloud migration.
+        </p>
+        <p className="mb-3">
+          Cybersecurity remains central to our services. We safeguard sensitive data and protect against evolving threats—giving clients peace of mind in an increasingly digital world.
+        </p>
+        <p className="mb-0">
+          Whether enhancing existing systems or deploying new technologies, GN Solutions is committed to empowering organizations to succeed in the digital age with bespoke, resilient, and future-ready solutions.
+        </p>
       </div>
+    </div>
+  </div>
+</div>
+  </div>
+    </div>
 
 
       <div className="container-fluid">

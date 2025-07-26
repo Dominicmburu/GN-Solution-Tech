@@ -31,7 +31,7 @@ const CTASection = () => {
                 <a href="mailto:info@gnsolutions.com" className="text-decoration-none d-flex align-items-center">
                   <div className="d-flex align-items-center">
                     <FaEnvelope color="#f08b0a" size={14} />
-                    <span className="ms-2 text-white">info@gnsolutions.com</span>
+                    <span className="ms-2 text-white">info@gnsolutions.eu</span>
                   </div>
                 </a>
               </div>
