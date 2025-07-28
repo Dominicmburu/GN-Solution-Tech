@@ -12,6 +12,7 @@ const authRoutes = require('./routes/auth');
 const blogRoutes = require('./routes/blogs');
 const chatRoutes = require('./routes/chat');
 const contactRoutes = require('./routes/contact');
+const newsletterRoutes = require('./routes/newsletter');
 
 // Import middleware
 const { errorHandler } = require('./middleware/errorHandler');
@@ -71,6 +72,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/blogs', blogRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/newsletter', newsletterRoutes);
 
 // Welcome route
 app.get('/', (req, res) => {
@@ -84,14 +86,6 @@ app.get('/', (req, res) => {
       contact: '/api/contact',
       health: '/health'
     }
-  });
-});
-
-// 404 handler
-app.use('*', (req, res) => {
-  res.status(404).json({
-    error: 'Route not found',
-    message: `Cannot ${req.method} ${req.originalUrl}`
   });
 });
 

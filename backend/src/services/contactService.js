@@ -12,21 +12,21 @@ class ContactService {
    */
   async createContact(contactData) {
     const {
-      firstName,
-      lastName,
+      name,
       email,
       phone,
-      subject,
+      company,
+      inquiryType,
       message
     } = contactData;
 
     const contact = await prisma.contact.create({
       data: {
-        firstName,
-        lastName,
+        name,
         email,
         phone,
-        subject,
+        company,
+        inquiryType,
         message,
         status: 'UNREAD'
       }
@@ -310,7 +310,7 @@ class ContactService {
 
     // Convert to CSV format
     const headers = ['ID', 'First Name', 'Last Name', 'Email', 'Phone', 'Subject', 'Message', 'Status', 'Created At'];
-    
+
     const csvRows = [
       headers.join(','),
       ...contacts.map(contact => [

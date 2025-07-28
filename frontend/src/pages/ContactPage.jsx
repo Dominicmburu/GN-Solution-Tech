@@ -3,6 +3,7 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaComments, FaHeadset } f
 import PageBanner from '../components/common/PageBanner';
 import '../assets/css/ContactPage.css';
 import FaqItem from '../components/contact/FaqItem';
+import { API_URL } from '../api/main';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -13,11 +14,12 @@ const ContactPage = () => {
     inquiryType: '',
     message: ''
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
-  
+  const [validationErrors, setValidationErrors] = useState([]);
+
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([
     { sender: 'system', message: 'Welcome to GN Solutions live chat! How can we help you today?' }
@@ -41,7 +43,7 @@ const ContactPage = () => {
     {
       id: 2,
       question: "How can I request a consultation or quote?",
-      answer: "You can request a consultation or quote by filling out our contact form on this page, calling our support line at +353 (0) 874 896 800, or sending an email to info@gnsolutions.eu. Our team will get back to you within 24 hours to discuss your requirements and provide a customized solution."
+      answer: "You can request a consultation or quote by filling out our contact form on this page, calling our support line at +353 89 278 5147, or sending an email to info@gnsolutions.eu. Our team will get back to you within 24 hours to discuss your requirements and provide a customized solution."
     },
     {
       id: 3,
@@ -96,53 +98,107 @@ const ContactPage = () => {
     });
   };
 
+  const validateContactForm = () => {
+    const errors = [];
+
+    if (!formData.name || formData.name.trim().length < 2 || formData.name.length > 100) {
+      errors.push('Name cannot be 2 characters.');
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email || !emailRegex.test(formData.email)) {
+      errors.push('Please enter a valid email address.');
+    }
+
+    if (formData.phone && !/^[\+]?[1-9][\d]{7,15}$/.test(formData.phone)) {
+      errors.push('Please enter a valid international phone number (+000).');
+    }
+
+    if (formData.company && formData.company.length > 100) {
+      errors.push('Company name must not exceed 100 characters.');
+    }
+
+    if (!formData.message || formData.message.length < 5 || formData.message.length > 1000) {
+      errors.push('Please add more message.');
+    }
+
+    return errors;
+  };
+
+
+
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const validationErrors = validateContactForm();
+    if (validationErrors.length > 0) {
+      setValidationErrors(validationErrors);
+      setSubmitError(true);
+      return;
+    }
+
+    setValidationErrors([]);
+    setSubmitError(false);
     setIsSubmitting(true);
-    
-    // Simulate form submission with a delay
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        inquiryType: '',
-        message: ''
+
+    try {
+      const response = await fetch(`${API_URL}/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
-      
-      // Hide success message after 5 seconds
+
+      if (response.ok) {
+        setSubmitSuccess(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          inquiryType: '',
+          message: ''
+        });
+        // setTimeout(() => setSubmitSuccess(false), 5000);
+      } else {
+        setSubmitError(true);
+        // throw new Error('Submission failed');
+      }
+    } catch (error) {
+      setSubmitError(true);
+      // setTimeout(() => setSubmitError(false), 5000);
+    } finally {
+      setIsSubmitting(false);
       setTimeout(() => {
         setSubmitSuccess(false);
+        setSubmitError(false);
+        setValidationErrors([]);
       }, 5000);
-    }, 1500);
+    }
   };
+
 
   // Handle chat message submission
   const handleChatSubmit = (e) => {
     e.preventDefault();
     if (!chatInput.trim()) return;
-    
+
     // Add user message
     setChatMessages([
       ...chatMessages,
       { sender: 'user', message: chatInput }
     ]);
-    
+
     // Clear input
     setChatInput('');
-    
+
     // Simulate automated response after delay
     setTimeout(() => {
       setChatMessages(prevMessages => [
         ...prevMessages,
-        { 
-          sender: 'agent', 
-          message: 'Thank you for your message. One of our support agents will be with you shortly. In the meantime, you can check our FAQ section or leave your contact details for us to reach out to you.' 
+        {
+          sender: 'agent',
+          message: 'Thank you for your message. One of our support agents will be with you shortly. In the meantime, you can check our FAQ section or leave your contact details for us to reach out to you.'
         }
       ]);
     }, 1000);
@@ -155,10 +211,10 @@ const ContactPage = () => {
 
   return (
     <>
-      <PageBanner 
-        title="Contact & Support" 
+      <PageBanner
+        title="Contact & Support"
         subtitle="Get in Touch with Our Expert Team"
-        backgroundImage={'https://i.pinimg.com/736x/49/27/bd/4927bdc9ae1a9f13b940c3d82ed2665c.jpg'}
+        backgroundImage={'https://images.pexels.com/photos/7681839/pexels-photo-7681839.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load'}
         background="#0a1033"
         currentpage="Contact"
       />
@@ -196,8 +252,8 @@ const ContactPage = () => {
           <div className="row">
             <div className="col-lg-6 mb-4 mb-lg-0">
               <div className="contact-form-wrapper p-4 bg-white rounded shadow-sm">
-                <h3 className="mb-4" style={{color: "var(--card-color)"}}>Send Us a Message</h3>
-                
+                <h3 className="mb-4" style={{ color: "var(--card-color)" }}>Send Us a Message</h3>
+
                 {/* Success Message */}
                 {submitSuccess && (
                   <div className="alert alert-success alert-dismissible fade show" role="alert">
@@ -205,52 +261,69 @@ const ContactPage = () => {
                     <button type="button" className="btn-close" onClick={() => setSubmitSuccess(false)}></button>
                   </div>
                 )}
-                
+
                 {/* Error Message */}
                 {submitError && (
                   <div className="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Oops!</strong> Something went wrong. Please try again later.
-                    <button type="button" className="btn-close" onClick={() => setSubmitError(false)}></button>
+                    {validationErrors.length > 0 ? (
+                      <>
+                        <strong>Please fix the following:</strong>
+                        <ul className="mb-0 mt-2">
+                          {validationErrors.map((err, idx) => (
+                            <li key={idx}>{err}</li>
+                          ))}
+                        </ul>
+                      </>
+                    ) : (
+                      <>
+                        <strong>Oops!</strong> Something went wrong. Please try again later.
+                      </>
+                    )}
+                    <button type="button" className="btn-close" onClick={() => {
+                      setSubmitError(false);
+                      setValidationErrors([]);
+                    }}></button>
                   </div>
                 )}
-                
+
+
                 {/* Contact Form */}
                 <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-md-6 mb-3">
-                      <label style={{color: "var(--card-color)"}} htmlFor="name" className="form-label">Full Name *</label>
-                      <input 
-                        type="text" 
-                        className="form-control" 
-                        id="name" 
+                      <label style={{ color: "var(--card-color)" }} htmlFor="name" className="form-label">Full Name *</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        required 
+                        required
                         style={{ borderColor: '#dee2e6', outline: 'none' }}
                       />
                     </div>
                     <div className="col-md-6 mb-3">
-                      <label style={{color: "var(--card-color)"}} htmlFor="email" className="form-label">Email Address *</label>
-                      <input 
-                        type="email" 
-                        className="form-control" 
-                        id="email" 
+                      <label style={{ color: "var(--card-color)" }} htmlFor="email" className="form-label">Email Address *</label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        id="email"
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        required 
+                        required
                         style={{ borderColor: '#dee2e6', outline: 'none' }}
                       />
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-6 mb-3">
-                      <label style={{color: "var(--card-color)"}} htmlFor="phone" className="form-label">Phone Number</label>
-                      <input 
-                        type="tel" 
-                        className="form-control" 
-                        id="phone" 
+                      <label style={{ color: "var(--card-color)" }} htmlFor="phone" className="form-label">Phone Number</label>
+                      <input
+                        type="tel"
+                        className="form-control"
+                        id="phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
@@ -258,11 +331,11 @@ const ContactPage = () => {
                       />
                     </div>
                     <div className="col-md-6 mb-3">
-                      <label style={{color: "var(--card-color)"}} htmlFor="company" className="form-label">Company Name</label>
-                      <input 
-                        type="text" 
-                        className="form-control" 
-                        id="company" 
+                      <label style={{ color: "var(--card-color)" }} htmlFor="company" className="form-label">Company Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="company"
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
@@ -271,10 +344,10 @@ const ContactPage = () => {
                     </div>
                   </div>
                   <div className="mb-3">
-                    <label style={{color: "var(--card-color)"}} htmlFor="inquiryType" className="form-label">Inquiry Type *</label>
-                    <select 
-                      className="form-select" 
-                      id="inquiryType" 
+                    <label style={{ color: "var(--card-color)" }} htmlFor="inquiryType" className="form-label">Inquiry Type *</label>
+                    <select
+                      className="form-select"
+                      id="inquiryType"
                       name="inquiryType"
                       value={formData.inquiryType}
                       onChange={handleInputChange}
@@ -288,11 +361,11 @@ const ContactPage = () => {
                     </select>
                   </div>
                   <div className="mb-4">
-                    <label style={{color: "var(--card-color)"}} htmlFor="message" className="form-label">Message *</label>
-                    <textarea 
-                      className="form-control" 
-                      id="message" 
-                      name="message" 
+                    <label style={{ color: "var(--card-color)" }} htmlFor="message" className="form-label">Message *</label>
+                    <textarea
+                      className="form-control"
+                      id="message"
+                      name="message"
                       rows="5"
                       value={formData.message}
                       onChange={handleInputChange}
@@ -300,10 +373,10 @@ const ContactPage = () => {
                       style={{ borderColor: '#dee2e6', outline: 'none' }}
                     ></textarea>
                   </div>
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     className="btn text-white px-4 py-2 submit-btn"
-                    style={{backgroundColor: '#f08b0a'}}
+                    style={{ backgroundColor: '#f08b0a' }}
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -319,13 +392,13 @@ const ContactPage = () => {
             <div className="col-lg-6">
               <div className="map-wrapper rounded shadow-sm overflow-hidden h-100">
                 {/* Updated Google Maps embed to point to Dublin 16 */}
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19097.171459566788!2d-6.277941444238281!3d53.27438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4867932a8eb7d667%3A0xf1a0c20a698b3b4d!2sDublin%2016%2C%20Ireland!5e0!3m2!1sen!2sus!4v1653598094447!5m2!1sen!2sus" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen="" 
-                  loading="lazy" 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19097.171459566788!2d-6.277941444238281!3d53.27438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4867932a8eb7d667%3A0xf1a0c20a698b3b4d!2sDublin%2016%2C%20Ireland!5e0!3m2!1sen!2sus!4v1653598094447!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="GN Solutions Office Location"
                 ></iframe>
@@ -399,7 +472,7 @@ const ContactPage = () => {
             <div className="col-lg-10">
               <div className="faq-accordion">
                 {faqData.map((faq) => (
-                  <FaqItem 
+                  <FaqItem
                     key={faq.id}
                     faqId={faq.id}
                     question={faq.question}
@@ -431,7 +504,7 @@ const ContactPage = () => {
                   {msg.sender === 'agent' && (
                     <div className="agent-avatar" style={{ backgroundColor: '#f08b0a' }}>GN</div>
                   )}
-                  <div className="message-bubble" style={{ 
+                  <div className="message-bubble" style={{
                     backgroundColor: msg.sender === 'user' ? '#f1f1f1' : '#f08b0a',
                     color: msg.sender === 'user' ? '#333' : 'white'
                   }}>
@@ -448,8 +521,8 @@ const ContactPage = () => {
                 onChange={(e) => setChatInput(e.target.value)}
                 style={{ borderColor: '#ddd', outline: 'none' }}
               />
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="chat-send-btn"
                 style={{ backgroundColor: '#f08b0a', color: 'white' }}
               >

@@ -1,8 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { API_URL } from '../../api/main';
 
 const Footer = () => {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterSuccess, setNewsletterSuccess] = useState(false);
+  const [newsletterError, setNewsletterError] = useState(false);
+  const [newsletterErrorMsg, setNewsletterErrorMsg] = useState('');
+
+
+  const handleSubscribe = async () => {
+    try {
+      const response = await fetch(`${API_URL}/newsletter/subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: newsletterEmail.trim() })
+      });
+      const result = await response.json();
+
+      if (response.ok) {
+        setNewsletterSuccess(true);
+        setNewsletterEmail('');
+        setNewsletterError(false);
+        setNewsletterErrorMsg('');
+        setTimeout(() => setNewsletterSuccess(false), 5000);
+      } else {
+        setNewsletterError(true);
+        setNewsletterErrorMsg(result.message || 'Subscription failed');
+        setTimeout(() => {
+          setNewsletterError(false);
+          setNewsletterErrorMsg('');
+        }, 5000);
+      }
+    } catch (err) {
+      setNewsletterError(true);
+      setNewsletterErrorMsg('Subscription failed. Please try again later.');
+      setTimeout(() => {
+        setNewsletterError(false);
+        setNewsletterErrorMsg('');
+      }, 5000);
+    }
+  };
+
+
   return (
     <footer className="footer position-relative overflow-hidden p-0 m-0">
       {/* Wave backgrounds - updated to match the reference image */}
@@ -17,7 +58,7 @@ const Footer = () => {
           <path className="wave-path wave3" d="M0,224L48,213.3C96,203,192,181,288,170.7C384,160,480,160,576,176C672,192,768,224,864,234.7C960,245,1056,235,1152,208C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
       </div>
-      
+
       <div className="content-container" style={{
         position: 'relative',
         zIndex: 2,
@@ -28,9 +69,9 @@ const Footer = () => {
           <div className="row">
             {/* Company description */}
             <div className="col-lg-4 col-md-12 mb-4 mb-lg-0">
-              <p className="mb-4 small-text" style={{ 
-                fontSize: '0.95rem', 
-                lineHeight: '1.7', 
+              <p className="mb-4 small-text" style={{
+                fontSize: '0.95rem',
+                lineHeight: '1.7',
                 letterSpacing: '0.02em',
                 color: '#301934',
                 textAlign: 'justify',
@@ -76,8 +117,10 @@ const Footer = () => {
                 <input
                   type="email"
                   className=" py-2"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder="Enter business email"
-                  style={{ 
+                  style={{
                     borderRadius: '4px 0 0 4px',
                     padding: '0.5rem 1rem',
                     border: 'none',
@@ -85,11 +128,12 @@ const Footer = () => {
                     fontSize: '0.9rem'
                   }}
                 />
-                <button 
-                  className="btn" 
-                  style={{ 
-                    backgroundColor: '#F08B04', 
-                    borderColor: '#F08B04', 
+                <button
+                  className="btn"
+                  onClick={handleSubscribe}
+                  style={{
+                    backgroundColor: '#F08B04',
+                    borderColor: '#F08B04',
                     color: 'white',
                     borderRadius: '0 4px 4px 0',
                     fontWeight: '600',
@@ -239,6 +283,15 @@ const Footer = () => {
           transform: translateX(3px);
         }
       `}</style>
+
+
+      {newsletterSuccess && <p className="text-success small mt-2">You're subscribed!</p>}
+      {newsletterError && (
+        <p className="text-danger small mt-2">
+          {newsletterErrorMsg}
+        </p>
+      )}
+
     </footer>
   );
 };

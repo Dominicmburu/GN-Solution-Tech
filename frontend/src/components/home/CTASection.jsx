@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaArrowRight, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const CTASection = () => {
   return (
@@ -7,16 +8,18 @@ const CTASection = () => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-7 mb-3 mb-lg-0">
-            <h4 style={{color: 'var(--card-color)'}} className="mb-0 fw-bold">
+            <h4 style={{ color: 'var(--card-color)' }} className="mb-0 fw-bold">
               Transform Your IT Infrastructure with Intelligent Automation
             </h4>
           </div>
           <div className="col-lg-5">
             <div className="d-flex flex-wrap align-items-center justify-content-lg-end">
-              <button className="px-4 py-2 me-3 mb-2 mb-sm-0 d-inline-flex align-items-center" 
-                     style={{ backgroundColor: "#f08b0a", border: "none", color: "#fff" }}>
-                <span>Schedule Consultation</span> <FaArrowRight className="ms-2" size={14} />
-              </button>
+              <Link to="/contact" >
+                <button className="px-4 py-2 me-3 mb-2 mb-sm-0 d-inline-flex align-items-center"
+                  style={{ backgroundColor: "#f08b0a", border: "none", color: "#fff" }}>
+                  <span>Schedule Consultation</span> <FaArrowRight className="ms-2" size={14} />
+                </button>
+              </Link>
 
               <div className="d-flex align-items-center">
                 {/* Phone */}
@@ -26,7 +29,7 @@ const CTASection = () => {
                     <span className="ms-2 text-white">+353 89 278 5147</span>
                   </div>
                 </a>
-                
+
                 {/* Email */}
                 <a href="mailto:info@gnsolutions.com" className="text-decoration-none d-flex align-items-center">
                   <div className="d-flex align-items-center">
