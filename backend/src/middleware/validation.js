@@ -12,7 +12,7 @@ const handleValidationErrors = (req, res, next) => {
       message: error.msg,
       value: error.value
     }));
-    
+
     return errorResponse(res, 'Validation failed', 400, {
       errors: errorMessages
     });
@@ -153,30 +153,38 @@ const updateBlogValidation = [
 
 // Contact form validation
 const contactValidation = [
-  body('firstName')
-    .isLength({ min: 2, max: 50 })
-    .matches(/^[a-zA-Z\s]+$/)
-    .withMessage('First name must be 2-50 characters long and contain only letters and spaces'),
-  body('lastName')
-    .isLength({ min: 2, max: 50 })
-    .matches(/^[a-zA-Z\s]+$/)
-    .withMessage('Last name must be 2-50 characters long and contain only letters and spaces'),
+  body('name')
+    .trim()
+    .isLength({ min: 2, max: 100 })
+    .withMessage('Name must be between 2 and 100 characters long'),
+
   body('email')
     .isEmail()
     .normalizeEmail()
     .withMessage('Please provide a valid email address'),
+
   body('phone')
     .optional()
-    .matches(/^[\+]?[1-9][\d]{0,15}$/)
+    .matches(/^[\+]?[1-9][\d]{7,15}$/)
     .withMessage('Please provide a valid phone number'),
-  body('subject')
-    .isLength({ min: 5, max: 100 })
-    .withMessage('Subject must be between 5 and 100 characters long'),
+
+  body('company')
+    .optional()
+    .isLength({ max: 100 })
+    .withMessage('Company name must not exceed 100 characters'),
+
+  body('inquiryType')
+    .optional(),
+    // .isIn(['GENERAL', 'SUPPORT', 'SALES', 'PARTNERSHIP'])
+    // .withMessage('Inquiry type must be one of: GENERAL, SUPPORT, SALES, PARTNERSHIP'),
+
   body('message')
-    .isLength({ min: 20, max: 1000 })
+    .isLength({ min: 2, max: 1000 })
     .withMessage('Message must be between 20 and 1000 characters long'),
+
   handleValidationErrors
 ];
+
 
 // Chat validation rules
 const chatMessageValidation = [
@@ -231,7 +239,7 @@ const fileUploadValidation = (allowedMimeTypes = [], maxSize = 5 * 1024 * 1024) 
     }
 
     const file = req.files.file || Object.values(req.files)[0];
-    
+
     // Check file size
     if (file.size > maxSize) {
       return errorResponse(res, `File size must be less than ${maxSize / (1024 * 1024)}MB`, 400);
@@ -246,6 +254,80 @@ const fileUploadValidation = (allowedMimeTypes = [], maxSize = 5 * 1024 * 1024) 
   };
 };
 
+const contactStatusValidation = [
+  body('status')
+    .notEmpty()
+    .withMessage('Status is required')
+    .isIn(['UNREAD', 'READ', 'REPLIED', 'CLOSED'])
+    .withMessage('Status must be one of: UNREAD, READ, REPLIED, CLOSED'),
+
+  handleValidationErrors
+];
+
+const contactReplyValidation = [
+  body('replyMessage')
+    .trim()
+    .notEmpty()
+    .withMessage('Reply message is required')
+    .isLength({ min: 1, max: 5000 })
+    .withMessage('Reply message must be between 1 and 5000 characters'),
+
+  handleValidationErrors
+];
+
+const bulkContactValidation = [
+  body('contactIds')
+    .isArray({ min: 1 })
+    .withMessage('Contact IDs array is required and must contain at least one ID'),
+
+  body('contactIds.*')
+    .isString()
+    .notEmpty()
+    .withMessage('Each contact ID must be a valid string'),
+
+  body('status')
+    .optional()
+    .isIn(['UNREAD', 'READ', 'REPLIED', 'CLOSED'])
+    .withMessage('Status must be one of: UNREAD, READ, REPLIED, CLOSED'),
+
+  handleValidationErrors
+];
+
+const newsletterSubscribeValidation = [
+  body('email')
+    .isEmail()
+    .normalizeEmail()
+    .withMessage('Please provide a valid email address')
+    .isLength({ max: 255 })
+    .withMessage('Email must not exceed 255 characters'),
+
+  handleValidationErrors
+];
+
+const newsletterUnsubscribeValidation = [
+  body('email')
+    .isEmail()
+    .normalizeEmail()
+    .withMessage('Please provide a valid email address'),
+
+  handleValidationErrors
+];
+
+const bulkNewsletterValidation = [
+  body('subscriberIds')
+    .isArray({ min: 1 })
+    .withMessage('Subscriber IDs array is required and must contain at least one ID'),
+
+  body('subscriberIds.*')
+    .isString()
+    .notEmpty()
+    .withMessage('Each subscriber ID must be a valid string'),
+
+  handleValidationErrors
+];
+
+
+
 module.exports = {
   handleValidationErrors,
   registerValidation,
@@ -257,5 +339,11 @@ module.exports = {
   chatMessageValidation,
   idValidation,
   paginationValidation,
-  fileUploadValidation
+  fileUploadValidation,
+  contactStatusValidation,
+  contactReplyValidation,
+  bulkContactValidation,
+  newsletterSubscribeValidation,
+  newsletterUnsubscribeValidation,
+  bulkNewsletterValidation
 };

@@ -61,6 +61,36 @@ const contactRateLimiter = rateLimit({
   }
 });
 
+const newsletterRateLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000, // 5 minutes
+  max: 5, // Limit each IP to 5 newsletter operations per windowMs
+  message: {
+    success: false,
+    message: 'Too many newsletter requests from this IP, please try again after 5 minutes.',
+    retryAfter: 5 * 60
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+  handler: (req, res) => {
+    res.status(429).json({
+      success: false,
+      message: 'Too many newsletter requests from this IP, please try again after 5 minutes.',
+      retryAfter: Math.round((req.rateLimit.resetTime - Date.now()) / 1000)
+    });
+  }
+});
+
+const generalRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: {
+    success: false,
+    message: 'Too many requests from this IP, please try again later.',
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 // Chat message rate limiter
 const chatRateLimiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
@@ -151,5 +181,8 @@ module.exports = {
   chatRateLimiter,
   uploadRateLimiter,
   apiRateLimiter,
-  createRateLimiter
+  createRateLimiter,
+  contactRateLimiter,
+  newsletterRateLimiter,
+  generalRateLimiter
 };
